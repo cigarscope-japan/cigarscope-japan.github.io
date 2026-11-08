@@ -261,3 +261,23 @@ a { color: #1a4d8f; word-break: break-all; }
   .top-hero h1.site-title { font-size: 1.65rem; }
   .card-title { font-size: 1.18rem; }
 }
+
+/* ---------- 言語切替 ---------- */
+.lang-switch { text-align: right; padding: 6px 14px 0; font-size: 0.95rem; letter-spacing: 0.08em; }
+.lang-switch a { color: #7a1f2b; text-decoration: none; font-weight: 700; }
+.lang-switch .cur { color: #999; font-weight: 700; }
+.lang-switch .sep { color: #c98a2e; margin: 0 6px; }
+
+/* ---------- 公式ロゴ（CigarScope Japan） ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.logo-plate {
+  background: #fff;
+  border: 3px double var(--gold);
+  padding: 12px 16px 8px;
+  max-width: 640px;
+  margin: 14px auto 6px;
+}
+.site-logo { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .logo-plate { padding: 8px 8px 4px; margin-top: 10px; }
+}

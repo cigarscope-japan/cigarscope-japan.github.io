@@ -1,0 +1,448 @@
+/* ============================================================
+   CigarScope Japan — style-v2.css
+   Design: International Editorial News Media
+   白基調 / 黒・チャコール / アンティークゴールド / アイボリー補助
+   ============================================================ */
+
+:root {
+  --paper: #ffffff;
+  --ivory: #f8f4ea;
+  --ivory-deep: #f1ead9;
+  --ink: #16130c;
+  --charcoal: #2e2a23;
+  --body: #33302a;
+  --muted: #7c7668;
+  --gold: #a8832c;
+  --gold-dark: #8a6a1f;
+  --gold-light: #d9bc6a;
+  --line: #e4ddcb;
+  --line-dark: #cbbd93;
+  --serif: "Noto Serif CJK JP", "Noto Serif Display", "Hiragino Mincho ProN", serif;
+  --sans: "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+          "Yu Gothic", YuGothic, Meiryo, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--body);
+  background: var(--paper);
+}
+
+img { max-width: 100%; }
+
+a { color: inherit; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.column { max-width: 860px; margin: 0 auto; padding: 0 18px; }
+
+/* ---------- サンプル帯 ---------- */
+.sample-bar {
+  background: var(--ink);
+  color: #e9e2cf;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 6px 12px;
+}
+
+/* ---------- ヘッダー ---------- */
+.site-header { background: var(--paper); }
+
+.util-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 2px 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.util-row .dateline { font-family: var(--serif); }
+.lang-switch { white-space: nowrap; }
+.lang-switch .cur { color: var(--ink); font-weight: 700; }
+.lang-switch .sep { color: var(--gold); margin: 0 6px; }
+.lang-switch a { color: var(--muted); text-decoration: none; font-weight: 700; }
+.lang-switch a:hover { color: var(--gold-dark); }
+
+.masthead {
+  text-align: center;
+  padding: 26px 10px 4px;
+}
+.masthead .site-logo {
+  display: block;
+  width: min(100%, 500px);
+  height: auto;
+  margin: 0 auto;
+}
+.tagline {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--gold-dark);
+}
+.brand-msg { margin: 8px 0 0; text-align: center; }
+.brand-msg .en {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--charcoal);
+}
+.brand-msg .ja {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  color: var(--muted);
+}
+.masthead-rule {
+  border: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 3px double var(--gold);
+  height: 3px;
+  max-width: 860px;
+  margin: 18px auto 0;
+}
+
+/* ---------- グローバルナビ ---------- */
+.gnav { background: var(--ink); margin-top: 14px; }
+.gnav-inner { max-width: 860px; margin: 0 auto; padding: 0 10px; position: relative; }
+.gnav-toggle {
+  /* display:none にすると描画エンジンによっては label からの :checked 切替が
+     効かなくなるため、不可視化のみにとどめる */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+.gnav-button {
+  display: none;
+  color: #f2ecd9;
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  padding: 12px 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.gnav-button .bars { color: var(--gold-light); margin-right: 10px; letter-spacing: 0; }
+.gnav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gnav li a {
+  display: block;
+  padding: 11px 13px;
+  color: #f2ecd9;
+  text-decoration: none;
+  font-family: var(--serif);
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+}
+.gnav li a:hover { color: var(--gold-light); }
+.gnav li a.cur { color: var(--gold-light); box-shadow: inset 0 -3px 0 var(--gold); }
+
+/* ---------- Breaking News ---------- */
+.breaking {
+  /* flex だと狭幅で見出しが圧縮され1文字ずつ潰れるため、block 基調にする。
+     ラベルと見出しは通常フローで自然に折り返し、出典メタは見出しの下段に置く */
+  max-width: 860px;
+  margin: 20px auto 0;
+  padding: 10px 16px;
+  background: var(--ivory);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line-dark);
+}
+.breaking .b-label {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 12px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  color: var(--gold-dark);
+}
+.breaking .b-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.55;
+}
+.breaking .b-meta { display: block; margin-top: 3px; font-size: 0.76rem; color: var(--muted); }
+
+/* ---------- セクション共通 ---------- */
+main { display: block; }
+.section { max-width: 860px; margin: 0 auto; padding: 30px 18px 6px; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 3px double var(--gold);
+  padding-bottom: 7px;
+  margin-bottom: 18px;
+}
+.section-head .en {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.28rem;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.section-head .ja { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.14em; }
+.section-head .deco { margin-left: auto; color: var(--gold); font-size: 0.7rem; letter-spacing: 0.5em; }
+
+/* ---------- 記事カード共通 ---------- */
+.meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.cat {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--gold-dark);
+  border: 1px solid var(--gold);
+  padding: 0 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+}
+.country { font-weight: 700; color: var(--charcoal); }
+.dates .pub::before { content: "掲載 "; color: var(--muted); }
+.dates .src-date::before { content: "発表 "; color: var(--muted); }
+.source::before { content: "出典 "; color: var(--muted); }
+
+.card { text-decoration: none; display: block; }
+.card .thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+.card h3 {
+  font-family: var(--serif);
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 10px 0 6px;
+}
+.card .summary { margin: 6px 0 8px; font-size: 0.94rem; line-height: 1.75; color: var(--body); }
+.card:hover h3 { color: var(--gold-dark); }
+
+/* 画像プレースホルダ（写真のない記事用） */
+.ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 2;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+}
+
+/* ---------- Top Stories ---------- */
+.top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.top-grid .lead-card { grid-column: 1 / -1; }
+.lead-card h3 { font-size: 1.55rem; }
+.lead-card .summary { font-size: 1rem; }
+.mid-card h3 { font-size: 1.12rem; }
+
+/* ---------- Latest News ---------- */
+.latest-list { display: flex; flex-direction: column; }
+.row-card {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.row-card:first-child { padding-top: 2px; }
+.row-card .thumb {
+  flex: none;
+  width: 218px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+.row-card .ph { flex: none; width: 218px; }
+.row-card h3 { font-family: var(--serif); font-size: 1.14rem; color: var(--ink); line-height: 1.5; margin: 6px 0 5px; }
+.row-card .summary { margin: 4px 0 7px; font-size: 0.93rem; line-height: 1.75; }
+.row-card:hover h3 { color: var(--gold-dark); }
+
+/* ---------- Country News ---------- */
+.country-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.country-block h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  margin: 0 0 6px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.country-block h3 .ja { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; margin-left: 8px; }
+.mini-list { list-style: none; margin: 0; padding: 0; }
+.mini-list li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+.mini-list a { text-decoration: none; font-size: 0.92rem; line-height: 1.6; display: block; }
+.mini-list a:hover { color: var(--gold-dark); }
+.mini-list .d { display: block; font-size: 0.74rem; color: var(--muted); letter-spacing: 0.06em; }
+
+/* ---------- Brand News ---------- */
+.brand-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.chip {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--gold);
+  color: var(--gold-dark);
+  border-radius: 999px;
+  padding: 2px 13px;
+  text-decoration: none;
+  background: var(--paper);
+}
+.chip:hover { background: var(--ivory); }
+.brand-list { list-style: none; margin: 0; padding: 0; }
+.brand-list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.brand-list .bname { flex: none; width: 9.5em; font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.brand-list a { text-decoration: none; font-family: var(--serif); font-size: 1rem; line-height: 1.55; }
+.brand-list a:hover { color: var(--gold-dark); }
+
+/* ---------- New Releases ---------- */
+.release-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.release-grid .card h3 { font-size: 1.05rem; }
+
+/* ---------- Industry & Market ---------- */
+.market-list { list-style: none; margin: 0; padding: 0; }
+.market-list li { padding: 13px 0; border-bottom: 1px solid var(--line); }
+.market-list li:first-child { padding-top: 2px; }
+.market-list a {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.55;
+  display: block;
+  margin-bottom: 4px;
+}
+.market-list a:hover { color: var(--gold-dark); }
+.market-list .summary { font-size: 0.92rem; margin: 3px 0 6px; }
+
+/* ---------- Features ---------- */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feature-card .card-no {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #fff;
+  background: var(--gold-dark);
+  padding: 1px 9px;
+  margin-top: 10px;
+}
+.feature-card h3 { font-size: 1.04rem; }
+.feature-card .f-date { font-size: 0.78rem; color: var(--muted); }
+
+/* ---------- フッター ---------- */
+.site-footer {
+  margin-top: 44px;
+  background: var(--ink);
+  color: #cfc8b4;
+}
+.footer-inner { max-width: 860px; margin: 0 auto; padding: 30px 18px 22px; text-align: center; }
+.footer-logo-plate {
+  display: inline-block;
+  background: #fff;
+  padding: 8px 14px 4px;
+  margin-bottom: 14px;
+}
+.footer-logo-plate img { display: block; width: 210px; height: auto; }
+.footer-tag {
+  font-family: var(--serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  color: var(--gold-light);
+  margin: 0 0 16px;
+}
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-bottom: 16px; }
+.footer-nav a { color: #e9e2cf; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.08em; }
+.footer-nav a:hover { color: var(--gold-light); }
+.copyright {
+  border-top: 1px solid #3a352a;
+  padding-top: 14px;
+  font-size: 0.78rem;
+  color: #9a937e;
+  letter-spacing: 0.1em;
+}
+
+/* ---------- スマホ ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .util-row { font-size: 0.76rem; }
+  .masthead { padding-top: 18px; }
+  .masthead .site-logo { width: min(100%, 340px); }
+  .tagline { font-size: 0.74rem; letter-spacing: 0.3em; text-indent: 0.3em; }
+
+  .gnav-button { display: block; }
+  /* 初期状態は特異度を上げて確実に非表示にし、チェック時のみ展開する */
+  .gnav .gnav-inner ul { display: none; padding-bottom: 8px; }
+  .gnav .gnav-toggle:checked ~ ul { display: flex; flex-direction: column; }
+  .gnav li a { padding: 10px 8px; border-top: 1px solid #2c2820; }
+
+  .breaking { padding: 10px 14px; }
+  .breaking .b-label { display: block; margin: 0 0 2px; }
+
+  .section { padding: 24px 14px 4px; }
+  .section-head .en { font-size: 1.12rem; }
+
+  /* カード群は grid/flex の自動調整に頼らず、block＋幅100%で確実に1カラム縦積みにする */
+  .top-grid, .release-grid, .features-grid, .country-grid { display: block; }
+  .top-grid > *, .release-grid > *, .features-grid > *, .country-grid > * { width: 100%; margin-bottom: 22px; }
+  .lead-card h3 { font-size: 1.3rem; }
+
+  .latest-list { display: block; }
+  .row-card { display: block; width: 100%; }
+  .row-card .thumb, .row-card .ph { width: 100%; margin-bottom: 10px; }
+
+  .brand-list li { flex-direction: column; gap: 2px; }
+  .brand-list .bname { width: auto; }
+}
