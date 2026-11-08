@@ -9,12 +9,10 @@
 <link rel="stylesheet" href="style-v2.css">
 </head><body>
 
-<div class="sample-bar">※デザイン確認用サンプル（ニュース項目は 2026-11-08 号「世界の葉巻ニュース」からの引用）</div>
-
 <header class="site-header">
 <div class="column">
 <div class="util-row">
-<span class="dateline">2026年11月8日（日）</span>
+<span class="dateline" id="dateline">2026年11月8日（日）</span>
 <div class="lang-switch"><span class="cur">日本語</span><span class="sep">|</span><a href="en/index.html">EN</a></div>
 </div>
 <div class="masthead">
@@ -32,18 +30,21 @@
 <label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
 <ul>
 <li><a class="cur" href="index.html">TOP</a></li>
-<li><a href="#">NEWS</a></li>
-<li><a href="#">CUBA</a></li>
-<li><a href="#">NICARAGUA</a></li>
-<li><a href="#">DOMINICAN</a></li>
-<li><a href="#">BRANDS</a></li>
-<li><a href="#">NEW RELEASES</a></li>
-<li><a href="#">MARKET</a></li>
+<li><a href="news/index.html">NEWS</a></li>
+<li><a href="country/cuba.html">CUBA</a></li>
+<li><a href="country/nicaragua.html">NICARAGUA</a></li>
+<li><a href="country/dominican.html">DOMINICAN</a></li>
+<li><a href="brands/index.html">BRANDS</a></li>
+<li><a href="category/new-releases.html">NEW RELEASES</a></li>
+<li><a href="category/market.html">MARKET</a></li>
 <li><a href="#features">FEATURES</a></li>
 </ul>
 </div>
 </nav>
 </header>
+<script>
+(function(){var d=new Date();var w="日月火水木金土"[d.getDay()];var el=document.getElementById("dateline");if(el){el.textContent=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日（"+w+"）";}})();
+</script>
 
 <main>
 
@@ -51,7 +52,7 @@
 <div class="column">
 <div class="breaking">
 <span class="b-label">BREAKING</span>
-<a class="b-title" href="#">ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a>
+<a class="b-title" href="news/el-tigre-factory.html">ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a>
 <span class="b-meta">出典 Halfwheel ／ 発表 2026年10月27日</span>
 </div>
 </div>
@@ -62,7 +63,7 @@
 <div class="top-grid">
 
 <article>
-<a class="card lead-card" href="#">
+<a class="card lead-card" href="news/feral-flying-pig.html">
 <img class="thumb" src="img/news-sample/feral-flying-pig.jpg" alt="フェラル・フライング・ピッグ・コレクションのサンプラー">
 <div class="meta-line"><span class="cat">新製品</span><span class="country">ニカラグア</span></div>
 <h3>ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も</h3>
@@ -72,7 +73,7 @@
 </article>
 
 <article>
-<a class="card mid-card" href="#">
+<a class="card mid-card" href="news/petit-edition.html">
 <img class="thumb" src="img/news-sample/petit-edition.jpg" alt="セレクテッド・タバコ「プチ・エディション」の箱とチューブ" loading="lazy">
 <div class="meta-line"><span class="cat">新製品</span></div>
 <h3>セレクテッド・タバコ「プチ・エディション」登場 ― 新サイズ入り5本セット</h3>
@@ -82,7 +83,7 @@
 </article>
 
 <article>
-<a class="card mid-card" href="#">
+<a class="card mid-card" href="news/elegante.html">
 <img class="thumb" src="img/news-sample/elegante.jpg" alt="アラディーノ85アニベルサリオ・レセルバ「エレガンテ」の箱" loading="lazy">
 <div class="meta-line"><span class="cat">新製品</span><span class="country">ホンジュラス</span></div>
 <h3>アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷</h3>
@@ -100,7 +101,7 @@
 <div class="latest-list">
 
 <article>
-<a class="row-card" href="#">
+<a class="row-card" href="news/brick-house-taa-2026.html">
 <img class="thumb" src="img/news-sample/brick-house-taa.jpg" alt="ブリック・ハウス・ビギニングス・シエント・ポル・シエントの箱と葉巻" loading="lazy">
 <div>
 <div class="meta-line"><span class="cat">限定品</span><span class="country">ニカラグア</span></div>
@@ -112,7 +113,7 @@
 </article>
 
 <article>
-<a class="row-card" href="#">
+<a class="row-card" href="news/battleborn-2026.html">
 <img class="thumb" src="img/news-sample/battleborn.jpg" alt="ペレス＝カリーヨ「バトルボーン2026」の箱" loading="lazy">
 <div>
 <div class="meta-line"><span class="cat">限定品</span><span class="country">ドミニカ共和国</span></div>
@@ -134,38 +135,38 @@
 <div class="country-block">
 <h3>CUBA<span class="ja">キューバ</span></h3>
 <ul class="mini-list">
-<li><a href="#"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>BVI裁判所、陳志氏のハバノス権益の清算命令解除へ</a></li>
-<li><a href="#"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>独占販売店5thアベニューの破産で、欧州のキューバ葉巻流通に影響</a></li>
+<li><a href="news/bvi-habanos.html"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>BVI裁判所、陳志氏のハバノス権益の清算命令解除へ</a></li>
+<li><a href="news/fifth-avenue.html"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>独占販売店5thアベニューの破産で、欧州のキューバ葉巻流通に影響</a></li>
 </ul>
 </div>
 
 <div class="country-block">
 <h3>NICARAGUA<span class="ja">ニカラグア</span></h3>
 <ul class="mini-list">
-<li><a href="#"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
-<li><a href="#"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合</a></li>
+<li><a href="news/brick-house-taa-2026.html"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
+<li><a href="news/feral-flying-pig.html"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合</a></li>
 </ul>
 </div>
 
 <div class="country-block">
 <h3>DOMINICAN<span class="ja">ドミニカ共和国</span></h3>
 <ul class="mini-list">
-<li><a href="#"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
-<li><a href="#"><span class="d">発表 2026年10月21日 ／ Halfwheel</span>ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
+<li><a href="news/el-tigre-factory.html"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
+<li><a href="news/battleborn-2026.html"><span class="d">発表 2026年10月21日 ／ Halfwheel</span>ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
 </ul>
 </div>
 
 <div class="country-block">
 <h3>HONDURAS<span class="ja">ホンジュラス</span></h3>
 <ul class="mini-list">
-<li><a href="#"><span class="d">発表 2026年10月29日 ／ Halfwheel</span>アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷</a></li>
+<li><a href="news/elegante.html"><span class="d">発表 2026年10月29日 ／ Halfwheel</span>アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷</a></li>
 </ul>
 </div>
 
 <div class="country-block">
 <h3>UNITED STATES<span class="ja">アメリカ</span></h3>
 <ul class="mini-list">
-<li><a href="#"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>米国の葉巻専門店協会（TAA）限定で、ブリック・ハウス2026が発売</a></li>
+<li><a href="news/brick-house-taa-2026.html"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>米国の葉巻専門店協会（TAA）限定で、ブリック・ハウス2026が発売</a></li>
 </ul>
 </div>
 
@@ -176,18 +177,18 @@
 <section class="section" aria-label="メーカー別ニュース">
 <div class="section-head"><span class="en">BRAND NEWS</span><span class="ja">メーカー別ニュース</span><span class="deco">◆ ◆ ◆</span></div>
 <div class="brand-chips">
-<a class="chip" href="#">ドリュー・エステート</a>
-<a class="chip" href="#">セレクテッド・タバコ</a>
-<a class="chip" href="#">JREタバコ（アラディーノ）</a>
-<a class="chip" href="#">J.C.ニューマン</a>
-<a class="chip" href="#">カーサ・カリーヨ</a>
+<a class="chip" href="brands/drew-estate.html">ドリュー・エステート</a>
+<a class="chip" href="brands/selected-tobacco.html">セレクテッド・タバコ</a>
+<a class="chip" href="brands/aladino.html">JREタバコ（アラディーノ）</a>
+<a class="chip" href="brands/jc-newman.html">J.C.ニューマン</a>
+<a class="chip" href="brands/casa-carrillo.html">カーサ・カリーヨ</a>
 </div>
 <ul class="brand-list">
-<li><span class="bname">ドリュー・エステート</span><a href="#">「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も</a></li>
-<li><span class="bname">ドリュー・エステート</span><a href="#">エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
-<li><span class="bname">JREタバコ</span><a href="#">アラディーノ85周年記念に細身の新サイズ「エレガンテ」登場</a></li>
-<li><span class="bname">J.C.ニューマン</span><a href="#">5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
-<li><span class="bname">カーサ・カリーヨ</span><a href="#">ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
+<li><span class="bname">ドリュー・エステート</span><a href="news/feral-flying-pig.html">「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も</a></li>
+<li><span class="bname">ドリュー・エステート</span><a href="news/el-tigre-factory.html">エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
+<li><span class="bname">JREタバコ</span><a href="news/elegante.html">アラディーノ85周年記念に細身の新サイズ「エレガンテ」登場</a></li>
+<li><span class="bname">J.C.ニューマン</span><a href="news/brick-house-taa-2026.html">5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
+<li><span class="bname">カーサ・カリーヨ</span><a href="news/battleborn-2026.html">ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
 </ul>
 </section>
 
@@ -197,7 +198,7 @@
 <div class="release-grid">
 
 <article>
-<a class="card" href="#">
+<a class="card" href="news/feral-flying-pig.html">
 <img class="thumb" src="img/news-sample/feral-flying-pig.jpg" alt="フェラル・フライング・ピッグ・コレクション" loading="lazy">
 <div class="meta-line"><span class="cat">新製品</span><span class="country">ニカラグア</span></div>
 <h3>フェラル・フライング・ピッグ・コレクション（ドリュー・エステート）</h3>
@@ -207,7 +208,7 @@
 </article>
 
 <article>
-<a class="card" href="#">
+<a class="card" href="news/petit-edition.html">
 <img class="thumb" src="img/news-sample/petit-edition.jpg" alt="セレクテッド・タバコ「プチ・エディション」" loading="lazy">
 <div class="meta-line"><span class="cat">新製品</span></div>
 <h3>プチ・エディション・セット（セレクテッド・タバコ）</h3>
@@ -217,7 +218,7 @@
 </article>
 
 <article>
-<a class="card" href="#">
+<a class="card" href="news/elegante.html">
 <img class="thumb" src="img/news-sample/elegante.jpg" alt="アラディーノ「エレガンテ」" loading="lazy">
 <div class="meta-line"><span class="cat">新製品</span><span class="country">ホンジュラス</span></div>
 <h3>エレガンテ（アラディーノ85アニベルサリオ・レセルバ）</h3>
@@ -234,17 +235,17 @@
 <div class="section-head"><span class="en">INDUSTRY &amp; MARKET</span><span class="ja">業界・市場分析</span><span class="deco">◆ ◆ ◆</span></div>
 <ul class="market-list">
 <li>
-<a href="#">英領ヴァージン諸島の裁判所、陳志氏のハバノス権益の清算命令解除へ ― 5thアベニュー破産の新展開</a>
+<a href="news/bvi-habanos.html">英領ヴァージン諸島の裁判所、陳志氏のハバノス権益の清算命令解除へ ― 5thアベニュー破産の新展開</a>
 <p class="summary">BVI高等法院が、ハバノスS.A.の50%を保有するアライド・シガーへの出資を握る法人など30超への清算命令を解除すべきと判断。権益が返還されれば売却計画は止まる可能性があるが、米国の刑事手続きやEU制裁は別途継続する。</p>
 <div class="meta-line dates"><span class="cat">市場・流通</span><span class="country">キューバ</span><span class="source">Tobacco Reporter</span><span class="src-date">2026年11月6日</span><span class="pub">2026年11月8日</span></div>
 </li>
 <li>
-<a href="#">独占販売店5thアベニューは破産手続き中 ― 欧州流通の再開はなお不透明</a>
+<a href="news/fifth-avenue.html">独占販売店5thアベニューは破産手続き中 ― 欧州流通の再開はなお不透明</a>
 <p class="summary">7月のEU制裁で独・オーストリア・ポーランドの流通が止まり、独占販売店の5thアベニューは9月初めから出荷停止となり破産手続きに入っている。裁判所の判断が確定しても、流通の再開にはなお時間がかかるとみられる。</p>
 <div class="meta-line dates"><span class="cat">市場・流通</span><span class="country">ドイツ</span><span class="source">Tobacco Reporter</span><span class="src-date">2026年11月6日</span><span class="pub">2026年11月8日</span></div>
 </li>
 <li>
-<a href="#">ドリュー・エステート、ドミニカ共和国への生産進出 ― ニカラグア一極体制の転換点に</a>
+<a href="news/el-tigre-factory.html">ドリュー・エステート、ドミニカ共和国への生産進出 ― ニカラグア一極体制の転換点に</a>
 <p class="summary">エル・ティグレの生産を来年開設予定のドミニカ共和国の新工場へ移す計画。現在はニカラグア・エステリのラ・グラン・ファブリカで製造しており、同社の生産体制の転換点になる。</p>
 <div class="meta-line dates"><span class="cat">経営</span><span class="country">ドミニカ共和国</span><span class="source">Halfwheel</span><span class="src-date">2026年10月27日</span><span class="pub">2026年11月8日</span></div>
 </li>
@@ -296,11 +297,11 @@
 <div class="footer-logo-plate"><img src="assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News" loading="lazy"></div>
 <p class="footer-tag">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
 <nav class="footer-nav" aria-label="フッターナビゲーション">
-<a href="#">サイトについて</a>
-<a href="#">編集方針</a>
-<a href="#">情報源・著作権ポリシー</a>
-<a href="#">お問い合わせ</a>
-<a href="#">プライバシーポリシー</a>
+<a href="about.html">サイトについて</a>
+<a href="policy.html">編集方針</a>
+<a href="sources.html">情報源・著作権ポリシー</a>
+<a href="contact.html">お問い合わせ</a>
+<a href="privacy.html">プライバシーポリシー</a>
 </nav>
 <div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
 </div>
