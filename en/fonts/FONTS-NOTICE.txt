@@ -1,0 +1,118 @@
+FONTS NOTICE — CigarScope Japan English Edition
+Font acquisition records (Stage B plan v2.2, section 1.5)
+
+================================================================
+Cormorant Garamond (headlines)
+================================================================
+Distribution source : Google Fonts CSS API v2 (latin subset)
+Request URL         : https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap
+User-Agent          : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36
+WOFF2 file URL      : https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2
+unicode-range       : U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+Acquired            : 2026-11-08 17:50 JST (initial, for design preview)
+Re-acquired         : 2026-11-08 18:32 JST (Stage C) — SHA-256 identical, no change
+Local file          : CormorantGaramond[wght].woff2 (variable font, weights 300-700)
+File size           : 37,640 bytes
+SHA-256             : d80df8ff5aecd299a61549f9e29ab1ed0b9b05f4ea71d50fe978e07d5240b235
+Internal family name: Cormorant Garamond Light (default instance)
+Internal full name  : Cormorant Garamond Light
+Version             : Version 4.001
+Glyphs              : 373 (Google-generated subset; not byte-identical to the upstream original)
+Licence             : SIL Open Font License 1.1 (no Reserved Font Name in the upstream OFL.txt)
+Licence document    : OFL-CormorantGaramond.txt (this directory; upstream: CatharsisFonts/Cormorant)
+
+================================================================
+Inter (body text, navigation, UI) — SUPERSEDED 2026-11-08
+================================================================
+Distribution source : Google Fonts CSS API v2 (latin subset)
+Request URL         : https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap
+User-Agent          : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36
+WOFF2 file URL      : https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2
+unicode-range       : U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+Acquired            : 2026-11-08 17:50 JST (initial, for design preview)
+Re-acquired         : 2026-11-08 18:32 JST (Stage C) — SHA-256 identical, no change
+Local file          : Inter[wght].woff2 (variable font, weights 100-900)
+File size           : 48,256 bytes
+SHA-256             : 3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62
+Internal family name: Inter
+Internal full name  : Inter Regular
+Version             : Version 4.001;git-66647c0bb
+Glyphs              : 518 (Google-generated subset; not byte-identical to the upstream original)
+Licence             : SIL Open Font License 1.1
+Licence document    : LICENSE-Inter.txt (this directory; upstream: rsms/inter)
+
+NOTE — Inter licence status: the upstream README declares "Inter" a
+Reserved Font Name while the current upstream LICENSE.txt header does
+not contain the RFN phrase. The licence question was recorded as
+EXTERNALLY UNRESOLVED (Stage B plan v2.2, section 1.4) and a
+clarification request was sent to the maintainers on 2026-11-08
+(18:45 JST; see STAGE-C-ACCEPTANCE.md section 5).
+
+SUPERSESSION (2026-11-08): by the publisher's adoption decision
+(FONT-ADOPTION-DECISION.md), Public Sans replaces Inter as the body /
+navigation / UI font, and Inter is removed from the candidates. The
+Inter WOFF2 file has been removed from this work copy; the file and
+records are preserved in the pre-replacement backup
+(en-site-work-backup-2026-11-08-pre-publicsans.tar.gz). This licence
+text (LICENSE-Inter.txt) and the acquisition record above are retained
+as the investigation history and are NOT deleted. Any maintainer reply
+will be recorded as history; it no longer gates publication.
+
+================================================================
+Public Sans (body text, navigation, UI) — ADOPTED 2026-11-08
+================================================================
+Distribution source : Google Fonts CSS API v2 (latin subset)
+Request URL         : https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap
+User-Agent          : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36
+WOFF2 file URL      : https://fonts.gstatic.com/s/publicsans/v21/ijwRs572Xtc6ZYQws9YVwnNGfJ4.woff2
+unicode-range       : U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+Acquired            : 2026-11-08 19:00 JST (alternative-font evaluation)
+Placed in work copy : 2026-11-08 (Public Sans replacement, authorised)
+Local file          : PublicSans[wght].woff2 (variable font, weights 100-900)
+File size           : 26,832 bytes
+SHA-256             : 5ed4d31c988e73b258894244f209069ebe77dc7e564861954b21198b6de90d68
+Internal family name: Public Sans Thin (default instance)
+Version             : Version 2.001
+Glyphs              : 278 (Google-generated subset; not byte-identical to the upstream original)
+Licence             : SIL Open Font License 1.1 — NO Reserved Font Name
+                      declaration (cross-check record below).
+Licence document    : OFL-PublicSans.txt (this directory; upstream:
+                      uswds/public-sans)
+
+Status of this file (record corrected 2026-11-08 after independent
+audit — the distinctions below replace any earlier loose wording):
+  * The WOFF2 above is stored and served byte-for-byte as received
+    from Google Fonts; it has not been modified since acquisition.
+  * In relation to the upstream original font, however, it is NOT
+    byte-identical: it is a Google-generated distribution that has
+    undergone format conversion (WOFF2) and Latin subsetting. It is
+    therefore handled as a Modified Version under OFL 1.1, with the
+    licence text and copyright notice retained alongside it in this
+    directory (OFL-PublicSans.txt and this notice).
+  * Rights layers, kept distinct: the original version (derived from
+    Libre Franklin) is under OFL 1.1 (Copyright 2015 The Public Sans
+    Project Authors); the U.S. GSA's modifications are released as
+    CC0. The combined work as distributed is governed by OFL 1.1; the
+    CC0 layer does not replace the OFL for the whole.
+  * RFN cross-check (2026-11-08): the OFL text stored here was
+    compared with the official uswds/public-sans LICENSE.md. The
+    operative sections (DEFINITIONS through TERMINATION) are
+    identical (whitespace-normalised), and the phrase "with Reserved
+    Font Name" appears in neither text. No Reserved Font Name is
+    declared for "Public Sans".
+
+Acquisition reinforcement (added 2026-11-08):
+  * Raw CSS response of the Google Fonts API request is preserved in
+    ACQUISITION-PublicSans-CSS.txt (this directory; SHA-256
+    0c6edfcee20dbc54f620fa8f7c2fdf067d519605dfc853347d0329dcb9f250b0),
+    including the request URL and User-Agent. Its "latin" @font-face
+    block names the file URL above; that file is the local
+    PublicSans[wght].woff2 (one variable file serves all weights).
+  * Internal metadata inspection (fontTools, 2026-11-08): nameID 1
+    "Public Sans Thin" (default instance), nameID 4 "Public Sans
+    Thin", nameID 5 "Version 2.001", nameID 6 "PublicSans-Thin";
+    flavour woff2; unitsPerEm 2000; 278 glyphs; fvar wght 100-900;
+    tables include fvar/gvar/HVAR/STAT (a true variable font).
+  * Upstream version/commit: Public Sans v2.001, GitHub release
+    published 2022-05-11; tag v2.001 points to commit
+    c7923167a592d941646f99fb7b5fba17aa7d69e1 (uswds/public-sans).
