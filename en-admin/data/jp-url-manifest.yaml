@@ -1,0 +1,25 @@
+# Japanese-edition URL manifest (Stage B plan v2.2, section 3).
+# Descriptive data only: recorded by observing the published Japanese
+# site. English tooling never generates, changes or deletes Japanese
+# URLs. If the Japanese side changes a URL through its own process, this
+# manifest is updated by hand to follow.
+jp_top_url: https://cigarscope-japan.github.io/
+entries:
+- jp_slug: feral-flying-pig
+  jp_url: https://cigarscope-japan.github.io/news/feral-flying-pig.html
+- jp_slug: petit-edition
+  jp_url: https://cigarscope-japan.github.io/news/petit-edition.html
+- jp_slug: elegante
+  jp_url: https://cigarscope-japan.github.io/news/elegante.html
+- jp_slug: brick-house-taa-2026
+  jp_url: https://cigarscope-japan.github.io/news/brick-house-taa-2026.html
+- jp_slug: battleborn-2026
+  jp_url: https://cigarscope-japan.github.io/news/battleborn-2026.html
+- jp_slug: bvi-habanos
+  jp_url: https://cigarscope-japan.github.io/news/bvi-habanos.html
+- jp_slug: fifth-avenue
+  jp_url: https://cigarscope-japan.github.io/news/fifth-avenue.html
+- jp_slug: el-tigre-factory
+  jp_url: https://cigarscope-japan.github.io/news/el-tigre-factory.html
+verified_date: '2026-11-08'
+verified_by: CigarScope Japan English desk (observed on the published site)

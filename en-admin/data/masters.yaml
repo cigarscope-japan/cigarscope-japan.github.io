@@ -1,0 +1,56 @@
+# CigarScope Japan — EN edition masters (countries / makers / features)
+# Managed independently of the Japanese edition's data.
+countries:
+- id: cuba
+  name_en: Cuba
+- id: nicaragua
+  name_en: Nicaragua
+- id: dominican
+  name_en: Dominican Republic
+- id: honduras
+  name_en: Honduras
+- id: usa
+  name_en: United States
+makers:
+- id: drew-estate
+  name_en: Drew Estate
+  base_en: Nicaragua / Dominican Republic
+- id: selected-tobacco
+  name_en: Selected Tobacco
+  base_en: United States
+- id: aladino
+  name_en: JRE Tobacco (Aladino)
+  base_en: Honduras
+- id: jc-newman
+  name_en: J.C. Newman
+  base_en: United States
+- id: casa-carrillo
+  name_en: Casa Carrillo
+  base_en: Dominican Republic
+- id: habanos
+  name_en: Habanos S.A.
+  base_en: Cuba
+# Long-form features published in the Japanese edition. Linked as the
+# original Japanese pages until an English feature is separately approved.
+features:
+- title: "The Fuente Story and the Legend of Opus X"
+  summary: "How a Tampa family firm came to grow wrapper in the Dominican Republic and create the cigar that changed an industry."
+  url: "../features/opusx.html"
+  image: img/opusx/opus-angels.jpg
+  country: Dominican Republic
+  maker: Arturo Fuente
+  date: '2026-11-06'
+- title: "Padrón: Sixty Years of the King Who Never Advertises"
+  summary: "No advertising, no shortcuts: the Padrón family's six decades from Havana to Estelí."
+  url: "../features/padron.html"
+  image: img/padron/farm-la-estancia-field.png
+  country: Nicaragua
+  maker: Padrón
+  date: '2026-11-07'
+- title: "Joya de Nicaragua: The Pride of Nicaragua's Oldest Brand"
+  summary: "Nicaragua's first premium cigar factory, and the brand that carried a country's name around the world."
+  url: "../features/joya.html"
+  image: img/joya/joya-buncher.jpg
+  country: Nicaragua
+  maker: Joya de Nicaragua
+  date: '2026-11-08'

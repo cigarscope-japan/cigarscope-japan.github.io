@@ -1,0 +1,20 @@
+# CigarScope Japan 情報源レジストリ（AUDIT-STANDARD-DESIGN.md 基準7）
+# 階層（T1〜T5）の判定根拠と実績を記録する。除外媒体は data/exclusions.yaml に分離し、ここには混ぜない。
+# 検査: tools/check.py（standard フローの published 記事は、source_name がここに登録されていることが必須）
+sources:
+- name: Habanos S.A. 公式
+  tier: T1
+  tier_rationale: 発表主体（Habanos S.A.）自身の公式チャネルによる発表であり、基準7のT1判定条件「発表主体とチャネルの一致が確認できること」に該当する。
+  track_record: []
+- name: Halfwheel
+  tier: T2
+  tier_rationale: 編集部制の葉巻専門メディアであり、基準7のT2判定条件 (a) 一次情報への引用・リンクを明示する慣行がある、(b) 訂正表記の実績がある、(c) 記者名・編集部の責任所在が明示されている、(d) 過去1年間に重大な誤報を未訂正のまま放置した事例が確認されていない、の全てに該当する。
+  track_record: []
+- name: Cigar Aficionado
+  tier: T2
+  tier_rationale: 編集部制の葉巻専門メディアであり、基準7のT2判定条件 (a) 一次情報への引用・リンクを明示する慣行がある、(b) 訂正表記の実績がある、(c) 記者名・編集部の責任所在が明示されている、(d) 過去1年間に重大な誤報を未訂正のまま放置した事例が確認されていない、の全てに該当する。
+  track_record: []
+- name: Tobacco Reporter
+  tier: T3
+  tier_rationale: 編集部制だが葉巻専門に特化しない業界紙であり、基準7のT3判定条件「運営主体が明示され、記事に日付と出典があること」に該当する。
+  track_record: []

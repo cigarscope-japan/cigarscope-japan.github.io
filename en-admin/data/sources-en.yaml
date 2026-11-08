@@ -1,0 +1,21 @@
+# CigarScope Japan — EN edition source registry.
+# Mirrors the Japanese edition's tier criteria (T1–T5). Names must be
+# unique: check-en.py fails on duplicate `name` values. Excluded outlets
+# are recorded separately and never listed here.
+sources:
+- name: Habanos S.A. (official)
+  tier: T1
+  tier_rationale: The announcing body's own official channel; meets the T1 condition that the publisher and the channel coincide.
+  track_record: []
+- name: Halfwheel
+  tier: T2
+  tier_rationale: "Specialist cigar editorial media meeting all T2 conditions: (a) cites and links primary sources, (b) has a corrections track record, (c) names its reporters and editorial responsibility, (d) no uncorrected major error identified in the past year."
+  track_record: []
+- name: Cigar Aficionado
+  tier: T2
+  tier_rationale: "Specialist cigar editorial media meeting all T2 conditions: (a) cites and links primary sources, (b) has a corrections track record, (c) names its reporters and editorial responsibility, (d) no uncorrected major error identified in the past year."
+  track_record: []
+- name: Tobacco Reporter
+  tier: T3
+  tier_rationale: Editorial industry press, not cigar-specialist; meets the T3 condition that the operator is identified and articles carry dates and sourcing.
+  track_record: []

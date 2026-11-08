@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} — CigarScope Japan</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL}}">{{ALTERNATES}}
+  <meta property="og:site_name" content="CigarScope Japan">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">{{OG_EXTRA}}
+  <link rel="icon" href="{{ROOT}}assets/cigarscope-japan-logo-web.png">
+  <link rel="stylesheet" href="{{EN}}style-en.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-plate" href="{{EN}}" aria-label="CigarScope Japan — English edition home">
+        <img src="{{ROOT}}assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News">
+      </a>
+      <div class="masthead">
+        <p class="wordmark">CigarScope Japan</p>
+        <p class="tagline">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+        <p class="brand-message">BEYOND HAVANA. BEYOND BORDERS.</p>
+      </div>
+      <div class="header-tools">
+        <form class="header-search" role="search">
+          <label class="visually-hidden" for="site-search-q">Search CigarScope Japan</label>
+          <input id="site-search-q" name="q" type="search" placeholder="Search news, brands, countries…" autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+        <a class="lang-link" href="{{JP_LINK}}" hreflang="ja">日本語</a>
+        <noscript><p class="noscript-search"><a href="{{EN}}search.html">Search</a></p></noscript>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu">
+        <label class="nav-toggle-label" for="nav-toggle"><span></span><span></span><span></span></label>
+      </div>
+    </div>
+    <nav class="global-nav" aria-label="Main navigation">
+      <ul>
+          {{NAV_ITEMS}}
+      </ul>
+    </nav>
+  </header>

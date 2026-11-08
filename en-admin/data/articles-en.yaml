@@ -1,0 +1,301 @@
+articles:
+- slug: feral-flying-pig
+  title: Drew Estate Puts Ten Blends in the Feral Flying Pig Shape
+  summary: A ten-cigar collection gathers eight first-time Feral Flying Pig releases
+    at $170, while a separate box-pressed El Tigre Dominicano Flying Pig appears to
+    be a retail first.
+  description: Drew Estate's Feral Flying Pig Collection puts ten blends in the 5
+    3/8 x 60 Feral vitola for $170; eight are new in the size, and a box-pressed El
+    Tigre Dominicano Flying Pig is sold separately.
+  category: new-release
+  country_ids:
+  - nicaragua
+  maker_id: drew-estate
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/drew-estate-adds-eight-new-feral-flying-pig-undercrown-el-tigre-flying-pig/482664/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-10-27
+  release_date: 2026-10-19
+  publish_date: 2026-11-08
+  status: published
+  top_story: lead
+  breaking: false
+  image: img/news-sample/feral-flying-pig.jpg
+  image_credit: 'Photo: Halfwheel / Drew Estate'
+  image_alt: The Feral Flying Pig Collection ten-cigar sampler box
+  related:
+  - el-tigre-factory
+  - brick-house-taa-2026
+  - battleborn-2026
+  jp_counterpart: feral-flying-pig
+  history: []
+  approval:
+    approved_by: Kazuhiro Kishimoto
+    approved_date: 2026-11-09
+    approved_version: fb998c29d48e1db25aa415594f4663121e9484223fa67ece00cf3a76cacf5033
+    hash_spec_version: 1
+- slug: petit-edition
+  title: Selected Tobacco's Petit Edition Packs Five Tubed Cigars and Two New Vitolas
+  summary: The $164 five-cigar set adds the Bandolero Premium Intrépidos and Nelson
+    Nobles, with shipping to retailers scheduled to begin in mid-November.
+  description: Selected Tobacco's Petit Edition Set contains five tubed cigars from
+    five brands, including the new Bandolero Premium Intrépidos and Nelson Nobles
+    vitolas; MSRP is $164.
+  category: new-release
+  country_ids:
+  - usa
+  maker_id: selected-tobacco
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/selected-tobacco-announces-petit-edition-set-with-new-bandolero-nelson-vitolas/483296/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-11-03
+  release_date:
+    date: 2026-11-15
+    precision: month-part
+    label: Mid-November 2026 (shipping to retailers begins)
+  publish_date: 2026-11-08
+  status: published
+  top_story: mid
+  breaking: false
+  image: img/news-sample/petit-edition.jpg
+  image_credit: 'Photo: Halfwheel / Selected Tobacco'
+  image_alt: The Petit Edition box with five aluminium tubes
+  related:
+  - feral-flying-pig
+  - elegante
+  - brick-house-taa-2026
+  jp_counterpart: petit-edition
+  history: []
+  approval:
+    approved_by: Kazuhiro Kishimoto
+    approved_date: 2026-11-09
+    approved_version: 917550b48bac7cd29902990b25692c63d24103bfc0d20085fc17e7b9065f1a4b
+    hash_spec_version: 1
+- slug: elegante
+  title: Aladino's Elegante Brings a Pinareño Lancero to the 85 Aniversario Reserva
+  summary: The 7 x 38 third vitola is all Honduran pinareño, priced at $22, limited
+    to qualifying retailers and scheduled to ship during the week of Nov. 9.
+  description: JRE Tobacco's Aladino 85 Aniversario Reserva Elegante is a 7 x 38 lancero
+    made entirely with Honduran pinareño-seed tobacco; $22 per cigar, $440 per box
+    of 20.
+  category: new-release
+  country_ids:
+  - honduras
+  maker_id: aladino
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/aladino-85-aniversario-reserva-elegante-shipping-in-november/482937/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-10-29
+  release_date:
+    date: 2026-11-09
+    precision: week
+    label: Week of November 9, 2026 (shipping)
+  publish_date: 2026-11-08
+  status: published
+  top_story: mid
+  breaking: false
+  image: img/news-sample/elegante.jpg
+  image_credit: 'Photo: Halfwheel / JRE Tobacco'
+  image_alt: Box of Aladino 85 Aniversario Reserva Elegante
+  related:
+  - petit-edition
+  - feral-flying-pig
+  - battleborn-2026
+  jp_counterpart: elegante
+  history: []
+  approval:
+    approved_by: Kazuhiro Kishimoto
+    approved_date: 2026-11-09
+    approved_version: ac34c6a47c9b0a73ff6c8f53c7d8d22e5ab9992453ab338c9dc86ffe1c093d05
+    hash_spec_version: 1
+- slug: brick-house-taa-2026
+  title: Brick House Beginnings Returns for TAA 2026 in a Five-Year-Aged Version
+  summary: J.C. Newman's Ciento por Ciento is a 6 1/4 x 54 all-Nicaraguan cigar priced
+    at $12 and limited to 8,000 cigars for TAA retailers; this version was aged for
+    five years.
+  description: The Brick House Beginnings Ciento por Ciento selected for TAA 2026
+    keeps the same blend and size as earlier TAA releases, with the cigars aged for
+    five years; $12 per cigar, 8,000 made.
+  category: limited-edition
+  country_ids:
+  - nicaragua
+  - usa
+  maker_id: jc-newman
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/aged-brick-house-ciento-por-ciento-selected-for-taa-2026-release/482413/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-10-23
+  release_date: 2026-11-02
+  publish_date: 2026-11-08
+  status: published
+  top_story: null
+  breaking: false
+  image: img/news-sample/brick-house-taa.jpg
+  image_credit: 'Photo: Halfwheel / J.C. Newman'
+  image_alt: Brick House Beginnings Ciento por Ciento box and cigar
+  related:
+  - battleborn-2026
+  - feral-flying-pig
+  - petit-edition
+  jp_counterpart: brick-house-taa-2026
+  history: []
+  approval:
+    approved_by: Kazuhiro Kishimoto
+    approved_date: 2026-11-09
+    approved_version: c471f0bdf5c8a6882fe09808f10e600c82c33a760af12f142c20aa9376659471
+    hash_spec_version: 1
+- slug: battleborn-2026
+  title: Perez-Carrillo Battleborn Returns for 2026 With a New Cameroon Blend
+  summary: The Heroes 6 x 52 is $21, packed in 21-count boxes with dog tags, and limited
+    to 2,000 boxes — 42,000 cigars — with launch events held on Oct. 22–23.
+  description: 'Casa Carrillo''s second Battleborn changes the blend, size and colours
+    for 2026: a Cameroon-wrapped Heroes 6 x 52 at $21, limited to 2,000 boxes of 21.'
+  category: limited-edition
+  country_ids:
+  - dominican
+  maker_id: casa-carrillo
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/perez-carrillo-battleborn-gets-new-blend-for-2026/482184/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-10-21
+  release_date:
+    date: 2026-10-22
+    precision: exact
+    label: Launch events October 22–23, 2026; shipping followed
+  publish_date: 2026-11-08
+  status: published
+  top_story: null
+  breaking: false
+  image: img/news-sample/battleborn.jpg
+  image_credit: 'Photo: Halfwheel / Casa Carrillo'
+  image_alt: Perez-Carrillo Battleborn 2026 box in orange and camouflage colours
+  related:
+  - brick-house-taa-2026
+  - elegante
+  - feral-flying-pig
+  jp_counterpart: battleborn-2026
+  history: []
+  approval:
+    approved_by: Kazuhiro Kishimoto
+    approved_date: 2026-11-09
+    approved_version: 4eb3e25cfa964baf81f623d3489889e60a87a44d3e911c0ecc84200d7e465bf9
+    hash_spec_version: 1
+- slug: bvi-habanos
+  title: BVI Court Move Could Return Chen Zhi's Habanos Stake to His Companies
+  summary: Tobacco Reporter says a BVI High Court decision could restore control over
+    entities tied to a 28.55% interest in Habanos — while Chen denies the allegations
+    and separate U.S. and EU measures continue.
+  description: A British Virgin Islands court has ruled that winding-up orders over
+    more than 30 Chen Zhi-linked entities should be lifted, Tobacco Reporter reports;
+    the stake chain leads to 50% of Habanos S.A.
+  category: market
+  country_ids:
+  - cuba
+  maker_id: habanos
+  source_name: Tobacco Reporter
+  source_url: https://tobaccoreporter.com/2026/11/06/court-returns-control-of-habanos-s-a-to-chen-zhi/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-11-06
+  release_date: n/a
+  publish_date: 2026-11-08
+  status: published
+  top_story: null
+  breaking: false
+  image: img/news-sample/bvi-habanos.jpg
+  image_credit: 'Chart: Elite Trading Scandinavia AB filing, via Cigarrvärlden / Halfwheel'
+  image_alt: Ownership structure chart for Chen Zhi's Habanos stake, via Simply Advanced
+    and Allied Cigar
+  related:
+  - fifth-avenue
+  - el-tigre-factory
+  jp_counterpart: bvi-habanos
+  editorial_note: This story rests on secondary reporting. CigarScope Japan has not
+    reviewed the underlying court filings, and what happens next — including any effect
+    on a possible sale of the stake — remains unconfirmed.
+  history: []
+  approval:
+    approved_by: カズ（全部採用・写真追加 2026-11-09）
+    approved_date: 2026-11-09
+    approved_version: d0749ae8d4531b927d6a12e81e9f69145712ebb4fbd2f8ba40a8f41d26fd4b23
+    hash_spec_version: 1
+- slug: fifth-avenue
+  title: 5th Avenue's Insolvency Leaves Habanos Distribution in Three European Markets
+    in Limbo
+  summary: The Habanos distributor for Germany, Austria and Poland entered formal
+    insolvency on Nov. 1, weeks after EU sanctions left it unable to fulfil orders,
+    Halfwheel reports.
+  description: 5th Avenue Products Trading, the exclusive Habanos distributor for
+    Germany, Austria and Poland, is in formal insolvency proceedings; its administrator
+    blames EU sanctions, and a restart of distribution is not in sight.
+  category: market
+  country_ids:
+  - cuba
+  maker_id: habanos
+  source_name: Tobacco Reporter
+  source_url: https://tobaccoreporter.com/2026/11/06/court-returns-control-of-habanos-s-a-to-chen-zhi/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-11-06
+  release_date: n/a
+  publish_date: 2026-11-08
+  status: published
+  top_story: null
+  breaking: false
+  image: img/news-sample/fifth-avenue.jpg
+  image_credit: 'Photo: Cigar Aficionado'
+  image_alt: A La Casa del Habano storefront in Germany
+  related:
+  - bvi-habanos
+  - el-tigre-factory
+  jp_counterpart: fifth-avenue
+  editorial_note: The insolvency account is based on Halfwheel's reporting of Nov.
+    3, 2026, and the ownership context on Tobacco Reporter. Any restart of distribution
+    would also depend on sanctions and court outcomes that remain unresolved.
+  history: []
+  approval:
+    approved_by: カズ（全部採用・写真追加 2026-11-09）
+    approved_date: 2026-11-09
+    approved_version: f0d546da054a2f5e1bba5954fc63f9a16d09d040bd4786f6172538d81c2de0bd
+    hash_spec_version: 1
+- slug: el-tigre-factory
+  title: Drew Estate Plans to Move El Tigre Dominicano Production to a New Dominican
+    Factory
+  summary: The line is currently made at La Gran Fábrica Drew Estate in Nicaragua;
+    production is expected to shift when the company's upcoming Dominican factory
+    opens next year.
+  description: Drew Estate has said it plans to move Undercrown El Tigre Dominicano
+    production from Nicaragua to a Dominican factory it expects to open next year.
+  category: industry
+  country_ids:
+  - dominican
+  maker_id: drew-estate
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/drew-estate-adds-eight-new-feral-flying-pig-undercrown-el-tigre-flying-pig/482664/
+  source_checked: 'accessed 2026-11-08: OK'
+  source_type: secondary
+  source_date: 2026-10-27
+  release_date: n/a
+  publish_date: 2026-11-08
+  status: published
+  top_story: null
+  breaking: true
+  image: img/news-sample/el-tigre-factory.jpg
+  image_credit: 'Photo: Drew Estate'
+  image_alt: El Tigre Dominicano box and band (official product photo)
+  related:
+  - feral-flying-pig
+  - bvi-habanos
+  - battleborn-2026
+  jp_counterpart: el-tigre-factory
+  history: []
+  approval:
+    approved_by: カズ（全部採用・写真追加 2026-11-09）
+    approved_date: 2026-11-09
+    approved_version: ca01b5955d6b3383f4083961c83da7af1e14b5a27be592457c273eb23ff1d021
+    hash_spec_version: 1

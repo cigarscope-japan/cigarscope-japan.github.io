@@ -1,0 +1,65 @@
+{{HEADER}}
+  <main id="main">
+    <section class="lead">
+      <figure class="lead-media">
+        {{LEAD_FIGURE}}
+      </figure>
+      <div class="lead-text">
+        <p class="kicker">{{LEAD_KICKER}}</p>
+        <h1><a href="{{LEAD_URL}}">{{LEAD_TITLE}}</a></h1>
+        <p class="lead-summary">{{LEAD_SUMMARY}}</p>
+        <p class="lead-meta">{{LEAD_META}}</p>
+        <p class="card-more"><a class="read-more" href="{{LEAD_URL}}">Read the full story ›</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="latest-h">
+      <h2 id="latest-h" class="section-title">Latest Stories</h2>
+      <div class="card-grid">
+      {{LATEST_CARDS}}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="digest-h">
+      <h2 id="digest-h" class="section-title">World Cigar News</h2>
+      <ul class="digest-list">
+        {{DIGEST_ROWS}}
+      </ul>
+      <p class="section-more"><a href="news/">All news</a></p>
+    </section>
+
+    <section class="section" aria-labelledby="industry-h">
+      <h2 id="industry-h" class="section-title">Cigar Industry</h2>
+      <div class="card-grid">
+      {{INDUSTRY_CARDS}}
+      </div>
+    </section>
+
+    <section class="section brand-spot" aria-labelledby="brands-h">
+      <h2 id="brands-h" class="section-title">Brands &amp; Makers</h2>
+      <div class="brand-spot-inner">
+        <a class="brand-spot-media" href="{{BRAND_URL}}"><img src="{{BRAND_IMAGE}}" alt="{{BRAND_IMAGE_ALT}}" loading="lazy"></a>
+        <div class="brand-spot-text">
+          <h3><a href="{{BRAND_URL}}">{{BRAND_TITLE}}</a></h3>
+          <p>{{BRAND_SUMMARY}}</p>
+          <p class="section-more"><a href="brands/">All brands &amp; makers</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="country-h">
+      <h2 id="country-h" class="section-title">Explore by Country</h2>
+      <div class="tiles">
+      {{TILES}}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-h">
+      <h2 id="features-h" class="section-title">Features</h2>
+      <p class="section-note">Long-form features from the Japanese edition, linked in the original Japanese. English feature articles are prepared separately.</p>
+      <div class="card-grid">
+      {{FEATURE_CARDS}}
+      </div>
+    </section>
+  </main>
+{{FOOTER}}

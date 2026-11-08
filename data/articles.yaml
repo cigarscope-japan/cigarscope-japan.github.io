@@ -1,0 +1,373 @@
+# CigarScope Japan 記事データ（唯一の情報源）
+# 生成: tools/build.py / 検査: tools/check.py / 移行記録: data/MIGRATION-NOTES.md
+countries:
+- id: cuba
+  ja: キューバ
+  en: CUBA
+  en_short: CUBA
+- id: nicaragua
+  ja: ニカラグア
+  en: NICARAGUA
+  en_short: NICARAGUA
+- id: dominican
+  ja: ドミニカ共和国
+  en: DOMINICAN REPUBLIC
+  en_short: DOMINICAN
+- id: honduras
+  ja: ホンジュラス
+  en: HONDURAS
+  en_short: HONDURAS
+- id: usa
+  ja: アメリカ
+  en: UNITED STATES
+  en_short: UNITED STATES
+makers:
+- id: drew-estate
+  ja: ドリュー・エステート
+  en: Drew Estate
+  short: ドリュー・エステート
+  base: ニカラグア／ドミニカ共和国
+- id: selected-tobacco
+  ja: セレクテッド・タバコ
+  en: Selected Tobacco
+  short: セレクテッド・タバコ
+  base: アメリカ
+- id: aladino
+  ja: JREタバコ（アラディーノ）
+  en: JRE Tobacco（Aladino）
+  short: JREタバコ
+  base: ホンジュラス
+- id: jc-newman
+  ja: J.C.ニューマン
+  en: J.C. Newman
+  short: J.C.ニューマン
+  base: アメリカ（製造はニカラグア）
+- id: casa-carrillo
+  ja: カーサ・カリーヨ
+  en: Casa Carrillo
+  short: カーサ・カリーヨ
+  base: ドミニカ共和国
+- id: habanos
+  ja: ハバノス
+  en: Habanos S.A.
+  short: ハバノス
+  base: キューバ
+articles:
+- slug: feral-flying-pig
+  title: ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も
+  summary: 人気型「フライング・ピッグ」を10種のブレンドで揃えた限定サンプラー「フェラル・フライング・ピッグ・コレクション」が登場（10本入り170ドル／約26,900円、10月19日発売）。別売りでは史上初とみられるボックスプレス版のフライング・ピッグも発売された。
+  description: 人気型「フライング・ピッグ」を10種のブレンドで揃えた限定サンプラー「フェラル・フライング・ピッグ・コレクション」が登場（10本入り170ドル／約26,900円、10月19日発売）。別売りでは史上初とみられるボックスプレ
+  category: 新製品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Drew Estate（ドリュー・エステート）
+  maker_id: drew-estate
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/drew-estate-adds-eight-new-feral-flying-pig-undercrown-el-tigre-flying-pig/482664/
+  source_checked: 原文確認済み
+  source_date: '2026-10-27'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: lead
+  image: img/news-sample/feral-flying-pig.jpg
+  related:
+  - el-tigre-factory
+  - brick-house-taa-2026
+  - battleborn-2026
+  top_country_blocks:
+  - nicaragua
+  mini_titles:
+    nicaragua: ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合
+  brand_title: 「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も
+  release_title: フェラル・フライング・ピッグ・コレクション（ドリュー・エステート）
+  release_summary: 10ブレンドを同一の型に揃えた限定サンプラー。10本入り170ドル（約26,900円）。
+  release_alt: フェラル・フライング・ピッグ・コレクション
+  top_alt: フェラル・フライング・ピッグ・コレクションのサンプラー
+- slug: petit-edition
+  title: セレクテッド・タバコ「プチ・エディション」登場 ― 新サイズ入り5本セット
+  summary: 5ブランドの葉巻をアルミチューブに1本ずつ収めた5本セット。バンデローロとネルソンの新サイズが入り、164ドル（約26,000円）。11月中旬から出荷開始予定。
+  description: 5ブランドの葉巻をアルミチューブに1本ずつ収めた5本セット。バンデローロとネルソンの新サイズが入り、164ドル（約26,000円）。11月中旬から出荷開始予定。
+  category: 新製品
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: Selected Tobacco（セレクテッド・タバコ）
+  maker_id: selected-tobacco
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/selected-tobacco-announces-petit-edition-set-with-new-bandolero-nelson-vitolas/483296/
+  source_checked: 原文確認済み
+  source_date: '2026-11-03'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: mid
+  image: img/news-sample/petit-edition.jpg
+  related:
+  - feral-flying-pig
+  - elegante
+  - brick-house-taa-2026
+  top_country_blocks: []
+  mini_titles: {}
+  brand_title: null
+  release_title: プチ・エディション・セット（セレクテッド・タバコ）
+  release_summary: 5ブランドをチューブ入りで詰めた5本セット。164ドル（約26,000円）、11月中旬出荷。
+  release_alt: セレクテッド・タバコ「プチ・エディション」
+  top_alt: セレクテッド・タバコ「プチ・エディション」の箱とチューブ
+  hide_top_country: true
+- slug: elegante
+  title: アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷
+  summary: JREタバコが85アニベルサリオ・レセルバに7×38のランセロを追加。ホンジュラス産ピナレーニョ種のみのブレンドで、1本22ドル（約3,490円）。
+  description: JREタバコが85アニベルサリオ・レセルバに7×38のランセロを追加。ホンジュラス産ピナレーニョ種のみのブレンドで、1本22ドル（約3,490円）。
+  category: 新製品
+  country: ホンジュラス
+  country_id: honduras
+  country_en: HONDURAS
+  country_ids:
+  - honduras
+  maker: JRE Tobacco（Aladino）
+  maker_id: aladino
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/aladino-85-aniversario-reserva-elegante-shipping-in-november/482937/
+  source_checked: 原文確認済み
+  source_date: '2026-10-29'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: mid
+  image: img/news-sample/elegante.jpg
+  related:
+  - petit-edition
+  - feral-flying-pig
+  - battleborn-2026
+  top_country_blocks:
+  - honduras
+  mini_titles: {}
+  brand_title: アラディーノ85周年記念に細身の新サイズ「エレガンテ」登場
+  release_title: エレガンテ（アラディーノ85アニベルサリオ・レセルバ）
+  release_summary: 7×38の細身ランセロ。1本22ドル（約3,490円）、20本箱440ドル（約69,700円）。
+  release_alt: アラディーノ「エレガンテ」
+  top_alt: アラディーノ85アニベルサリオ・レセルバ「エレガンテ」の箱
+- slug: brick-house-taa-2026
+  title: 5年熟成のブリック・ハウス、TAA限定2026として11月2日発売
+  summary: J.C.ニューマンのTAA（全米葉巻商協会）会員店限定品。5年間熟成させた葉を使う全ニカラグア産ブレンド（6 1/4×54）で、1本12ドル（約1,900円）、8,000本限定。
+  description: J.C.ニューマンのTAA（全米葉巻商協会）会員店限定品。5年間熟成させた葉を使う全ニカラグア産ブレンド（6 1/4×54）で、1本12ドル（約1,900円）、8,000本限定。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  - usa
+  maker: J.C. Newman（J.C.ニューマン）
+  maker_id: jc-newman
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/aged-brick-house-ciento-por-ciento-selected-for-taa-2026-release/482413/
+  source_checked: 原文確認済み
+  source_date: '2026-10-23'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/brick-house-taa.jpg
+  related:
+  - battleborn-2026
+  - feral-flying-pig
+  - petit-edition
+  top_country_blocks:
+  - nicaragua
+  - usa
+  mini_titles:
+    nicaragua: 5年熟成のブリック・ハウス、TAA限定2026として発売
+    usa: 米国の葉巻専門店協会（TAA）限定で、ブリック・ハウス2026が発売
+  brand_title: 5年熟成のブリック・ハウス、TAA限定2026として発売
+  latest_alt: ブリック・ハウス・ビギニングス・シエント・ポル・シエントの箱と葉巻
+- slug: battleborn-2026
+  title: ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活 ― 退役軍人の日に向け出荷
+  summary: カーサ・カリーヨが退役軍人を称える限定品の第2弾。カメルーン・ラッパーのトロ「ヒーローズ」（6×52）で、1本21ドル（約3,330円）、42,000本限定。
+  description: カーサ・カリーヨが退役軍人を称える限定品の第2弾。カメルーン・ラッパーのトロ「ヒーローズ」（6×52）で、1本21ドル（約3,330円）、42,000本限定。
+  category: 限定品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: Casa Carrillo（カーサ・カリーヨ）
+  maker_id: casa-carrillo
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/perez-carrillo-battleborn-gets-new-blend-for-2026/482184/
+  source_checked: 原文確認済み
+  source_date: '2026-10-21'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/battleborn.jpg
+  related:
+  - brick-house-taa-2026
+  - elegante
+  - feral-flying-pig
+  top_country_blocks:
+  - dominican
+  mini_titles:
+    dominican: ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活
+  brand_title: ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活
+  latest_alt: ペレス＝カリーヨ「バトルボーン2026」の箱
+- slug: bvi-habanos
+  title: BVI裁判所、陳志氏のハバノス権益を巡る清算命令を解除へ
+  summary: BVI高等法院が、ハバノスS.A.の50%を保有するアライド・シガーへの出資を握る法人など30超への清算命令を解除すべきと判断。権益が返還されれば売却計画は止まる可能性があるが、米国の刑事手続きやEU制裁は別途継続する。
+  description: BVI高等法院が、ハバノスS.A.の50%を保有するアライド・シガーへの出資を握る法人など30超への清算命令を解除すべきと判断。権益が返還されれば売却計画は止まる可能性があるが、米国の刑事手続きやEU制裁は別途継続する。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Tobacco Reporter
+  source_url: https://tobaccoreporter.com/2026/11/06/court-returns-control-of-habanos-s-a-to-chen-zhi/
+  source_checked: 原文確認済み
+  source_date: '2026-11-06'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/bvi-habanos.jpg
+  related:
+  - fifth-avenue
+  - el-tigre-factory
+  top_country_blocks:
+  - cuba
+  mini_titles:
+    cuba: BVI裁判所、陳志氏のハバノス権益の清算命令解除へ
+  brand_title: null
+  market_title: 英領ヴァージン諸島の裁判所、陳志氏のハバノス権益の清算命令解除へ ― 5thアベニュー破産の新展開
+- slug: fifth-avenue
+  title: 独占販売店5thアベニューの破産と欧州流通への影響 ― BVI判断を受けた続報
+  summary: 7月のEU制裁で独・オーストリア・ポーランドの流通が止まり、独占販売店の5thアベニューは9月初めから出荷停止となり破産手続きに入っている。裁判所の判断が確定しても、流通の再開にはなお時間がかかるとみられる。
+  description: 7月のEU制裁で独・オーストリア・ポーランドの流通が止まり、独占販売店の5thアベニューは9月初めから出荷停止となり破産手続きに入っている。裁判所の判断が確定しても、流通の再開にはなお時間がかかるとみられる。
+  category: 市場・流通
+  country: ドイツ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）流通
+  maker_id: habanos
+  source_name: Tobacco Reporter
+  source_url: https://tobaccoreporter.com/2026/11/06/court-returns-control-of-habanos-s-a-to-chen-zhi/
+  source_checked: 原文確認済み
+  source_date: '2026-11-06'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/fifth-avenue.jpg
+  related:
+  - bvi-habanos
+  - el-tigre-factory
+  top_country_blocks:
+  - cuba
+  mini_titles:
+    cuba: 独占販売店5thアベニューの破産で、欧州のキューバ葉巻流通に影響
+  brand_title: null
+  market_title: 独占販売店5thアベニューは破産手続き中 ― 欧州流通の再開はなお不透明
+  source_extra_html: <p>破産手続き入りの第一報：<a href="https://halfwheel.com/5th-avenue-german-distributor-of-cuban-cigars-begins-insolvency-proceedings/483602/" target="_blank" rel="noopener">Halfwheel（2026年11月3日）</a></p>
+- slug: el-tigre-factory
+  title: ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定
+  summary: エル・ティグレの生産を来年開設予定のドミニカ共和国の新工場へ移す計画。現在はニカラグア・エステリのラ・グラン・ファブリカで製造しており、同社の生産体制の転換点になる。
+  description: エル・ティグレの生産を来年開設予定のドミニカ共和国の新工場へ移す計画。現在はニカラグア・エステリのラ・グラン・ファブリカで製造しており、同社の生産体制の転換点になる。
+  category: 経営
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: Drew Estate（ドリュー・エステート）
+  maker_id: drew-estate
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/drew-estate-adds-eight-new-feral-flying-pig-undercrown-el-tigre-flying-pig/482664/
+  source_checked: 原文確認済み
+  source_date: '2026-10-27'
+  publish_date: '2026-11-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: true
+  top_story: null
+  image: img/news-sample/el-tigre-factory.jpg
+  related:
+  - feral-flying-pig
+  - bvi-habanos
+  - battleborn-2026
+  top_country_blocks:
+  - dominican
+  mini_titles: {}
+  brand_title: エル・ティグレの生産をドミニカ共和国の新工場へ移管予定
+  market_title: ドリュー・エステート、ドミニカ共和国への生産進出 ― ニカラグア一極体制の転換点に
+- slug: sample-draft-unpublished
+  title: 【サンプル】未公開ドラフト（生成フロー動作確認用）
+  summary: 生成フローの draft 除外を確認するためのサンプル記事です。公開されることはありません。
+  description: 生成フローの draft 除外を確認するためのサンプル記事です。公開されることはありません。
+  category: 新製品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Drew Estate（ドリュー・エステート）
+  maker_id: drew-estate
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/
+  source_checked: 未確認
+  source_date: '2026-11-08'
+  publish_date: '2026-11-08'
+  status: draft
+  flow_version: standard
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: null
+  related: []
+  top_country_blocks:
+  - nicaragua
+  mini_titles: {}
+  brand_title: null

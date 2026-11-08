@@ -1,0 +1,6 @@
+# CigarScope Japan — EN edition corrections register.
+# One record per published correction: date, article_slug, article_title,
+# change (what was corrected), reason. The Corrections page is generated
+# from this file; the same correction must also appear in the article's
+# history (type: correction) and as a note on the article page itself.
+corrections: []
