@@ -417,13 +417,16 @@ main { display: block; }
 /* ---------- スマホ ---------- */
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .util-row { font-size: 0.76rem; padding: 6px 2px 5px; }
-  .masthead { padding-top: 8px; padding-bottom: 0; }
-  .masthead .site-logo { width: min(78%, 225px); }
-  .tagline { margin-top: 6px; font-size: 0.7rem; letter-spacing: 0.3em; text-indent: 0.3em; }
-  .brand-msg { margin-top: 5px; }
-  .brand-msg .ja { margin-top: 1px; }
-  .masthead-rule { margin-top: 10px; }
+  .util-row { font-size: 0.76rem; padding: 4px 2px 3px; }
+  .masthead { padding-top: 2px; padding-bottom: 0; }
+  .masthead h1 { margin: 0; }
+  .masthead .site-logo { display: block; width: min(88%, 320px); margin: 0 auto; }
+  .tagline { margin-top: 5px; font-size: 0.74rem; letter-spacing: 0.2em; text-indent: 0.2em; line-height: 1.3; }
+  .brand-msg { margin-top: 3px; }
+  .brand-msg .en { font-size: 0.8rem; letter-spacing: 0.16em; text-indent: 0.16em; line-height: 1.4; }
+  .brand-msg .ja { margin-top: 2px; font-size: 0.84rem; line-height: 1.45; }
+  .masthead-rule { margin-top: 8px; }
+  .gnav { margin-top: 8px; }
 
   .gnav-button { display: block; }
   /* 初期状態は特異度を上げて確実に非表示にし、チェック時のみ展開する */
@@ -431,7 +434,7 @@ main { display: block; }
   .gnav .gnav-toggle:checked ~ ul { display: flex; flex-direction: column; }
   .gnav li a { padding: 10px 8px; border-top: 1px solid #2c2820; }
 
-  .breaking { padding: 10px 14px; }
+  .breaking { margin-top: 12px; padding: 10px 14px; }
   .breaking .b-label { display: block; margin: 0 0 2px; }
 
   .section { padding: 24px 14px 4px; }
