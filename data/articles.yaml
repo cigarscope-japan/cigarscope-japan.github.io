@@ -21,6 +21,18 @@ countries:
   ja: アメリカ
   en: UNITED STATES
   en_short: UNITED STATES
+- id: ecuador
+  ja: エクアドル
+  en: ECUADOR
+  en_short: ECUADOR
+- id: germany
+  ja: ドイツ
+  en: GERMANY
+  en_short: GERMANY
+- id: uae
+  ja: ドバイ
+  en: DUBAI
+  en_short: DUBAI
 makers:
 - id: drew-estate
   ja: ドリュー・エステート
@@ -52,6 +64,116 @@ makers:
   en: Habanos S.A.
   short: ハバノス
   base: キューバ
+- id: davidoff
+  ja: Davidoff（ダビドフ）
+  en: Davidoff
+  short: Davidoff（ダビドフ）
+  base: ドミニカ共和国
+- id: asp-enterprises
+  ja: A.S.P. Enterprises（A.S.P.エンタープライゼズ）
+  en: A.S.P. Enterprises
+  short: A.S.P. Enterprises（A.S.P.エンタープライゼズ）
+  base: エクアドル
+- id: m-shanken
+  ja: M. Shanken Communications（M.シャンケン・コミュニケーションズ）
+  en: M. Shanken Communications
+  short: M. Shanken Communications（M.シャンケン・コミュニケーションズ）
+  base: アメリカ
+- id: plasencia
+  ja: Plasencia（プラセンシア）
+  en: Plasencia
+  short: Plasencia（プラセンシア）
+  base: ニカラグア
+- id: tatuaje
+  ja: Tatuaje（タトゥアヘ）
+  en: Tatuaje
+  short: Tatuaje（タトゥアヘ）
+  base: ニカラグア
+- id: industry-stats
+  ja: 業界統計
+  en: 業界統計
+  short: 業界統計
+  base: アメリカ
+- id: world-cigar-show
+  ja: World Cigar Show（ワールド・シガー・ショー）
+  en: World Cigar Show
+  short: World Cigar Show（ワールド・シガー・ショー）
+  base: ドバイ
+- id: black-works-studio
+  ja: Black Works Studio（ブラック・ワークス・スタジオ）
+  en: Black Works Studio
+  short: Black Works Studio（ブラック・ワークス・スタジオ）
+  base: ニカラグア
+- id: domain-cigars
+  ja: Domain Cigars（ドメイン・シガーズ）
+  en: Domain Cigars
+  short: Domain Cigars（ドメイン・シガーズ）
+  base: ニカラグア
+- id: fratello
+  ja: Fratello Cigars（フラテッロ・シガーズ）
+  en: Fratello Cigars
+  short: Fratello Cigars（フラテッロ・シガーズ）
+  base: スウェーデン
+- id: gellis-family
+  ja: Gellis Family Cigars（ゲリス・ファミリー・シガーズ）
+  en: Gellis Family Cigars
+  short: Gellis Family Cigars（ゲリス・ファミリー・シガーズ）
+  base: ニカラグア
+- id: intertabac
+  ja: InterTabac（インターバック）
+  en: InterTabac
+  short: InterTabac（インターバック）
+  base: ドイツ
+- id: la-gloria-cubana
+  ja: La Gloria Cubana（ラ・グロリア・クバーナ）
+  en: La Gloria Cubana
+  short: La Gloria Cubana（ラ・グロリア・クバーナ）
+  base: ドミニカ共和国
+- id: powstanie
+  ja: Powstanie（ポウスタニエ）
+  en: Powstanie
+  short: Powstanie（ポウスタニエ）
+  base: ニカラグア
+- id: villiger
+  ja: Villiger（ヴィリガー）
+  en: Villiger
+  short: Villiger（ヴィリガー）
+  base: ニカラグア
+- id: cigar-aficionado
+  ja: Cigar Aficionado（シガー・アフィショナード）
+  en: Cigar Aficionado
+  short: Cigar Aficionado（シガー・アフィショナード）
+  base: アメリカ
+- id: brolo-cigar-co
+  ja: Brolo Cigar Co.（ブローロ・シガー）
+  en: Brolo Cigar Co.
+  short: Brolo Cigar Co.（ブローロ・シガー）
+  base: アメリカ
+- id: crowned-heads
+  ja: Crowned Heads（クラウン・ヘッズ）
+  en: Crowned Heads
+  short: Crowned Heads（クラウン・ヘッズ）
+  base: ニカラグア
+- id: dunbarton
+  ja: Dunbarton Tobacco & Trust（ダンバートン・タバコ＆トラスト）
+  en: Dunbarton Tobacco & Trust
+  short: Dunbarton Tobacco & Trust（ダンバートン・タバコ＆トラスト）
+  base: ニカラグア
+- id: oliva
+  ja: Oliva（オリバ）
+  en: Oliva
+  short: Oliva（オリバ）
+  base: ニカラグア
+- id: altadis-usa
+  ja: Altadis USA（アルタディスUSA）
+  en: Altadis USA
+  short: Altadis USA（アルタディスUSA）
+  base: ホンジュラス
+- id: stg
+  ja: Scandinavian Tobacco Group（スカンジナビアン・タバコ・グループ）
+  en: Scandinavian Tobacco Group
+  short: Scandinavian Tobacco Group（スカンジナビアン・タバコ・グループ）
+  base: アメリカ
 articles:
 - slug: feral-flying-pig
   title: ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も
@@ -371,3 +493,1963 @@ articles:
   - nicaragua
   mini_titles: {}
   brand_title: null
+- slug: bolivar-safari-regional-africa
+  title: ボリバ サファリ — アフリカ初のリージョナルエディション、11月21日デビュー
+  summary: キューバのボリバから、アフリカ大陸向けとして初めての地域限定品「サファリ」が11月21日にコートジボワールのアビジャンでデビューします。地域限定（リージョナルエディション）の対象がアフリカ大陸全体に広がるのはハバノス史上初めてで、新興市場への広がりを象徴する一品です。
+  description: キューバのボリバから、アフリカ大陸向けとして初めての地域限定品「サファリ」が11月21日にコートジボワールのアビジャンでデビューします。地域限定（リージョナルエディション）の対象がアフリカ大陸全体に広がるのはハバノス史上初めてで、新興市場への広がりを象徴する一品です。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/historic-regional-edition-cuban-cigar-for-africa
+  source_checked: 原文確認済み
+  source_date: '2026-10-13'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/bolivar-safari-regional-africa.jpg
+  related: []
+  release_title: ボリバ サファリ — アフリカ初のリージョナルエディション、11月21日デビュー
+  release_summary: キューバのボリバから、アフリカ大陸向けとして初めての地域限定品「サファリ」が11月21日にコートジボワールのアビジャンでデビューします。地域限定（リージョナルエディション）の対象がアフリカ大陸全体に広がるのはハバノス史上初めてで、新興市場への広がりを象徴する一品です。
+  release_alt: ボリバ サファリ — アフリカ初のリージョナルエディション、11月21日デビュー
+- slug: cohiba-talisman-regular
+  title: コイーバ タリスマンがレギュラー化 — 「コイーバ年」がロンドンで始動
+  summary: 2017年に限定品として登場したコイーバ タリスマンが、基幹ライン「リネア・クラシカ」のレギュラー銘柄になりました。世界発売の舞台はロンドンで、コイーバ誕生60周年を祝う「コイーバ年」の最初の大きな節目となります。
+  description: 2017年に限定品として登場したコイーバ タリスマンが、基幹ライン「リネア・クラシカ」のレギュラー銘柄になりました。世界発売の舞台はロンドンで、コイーバ誕生60周年を祝う「コイーバ年」の最初の大きな節目となります。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A. 公式発表
+  source_url: https://www.habanos.com/en/news/habanos-s-a-kicks-off-the-cohiba-year-with-the-global-launch-of-cohiba-talisman/
+  source_checked: 原文確認済み
+  source_date: '2026-10-07'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: primary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-talisman-regular.jpg
+  related: []
+  release_title: コイーバ タリスマンがレギュラー化 — 「コイーバ年」がロンドンで始動
+  release_summary: 2017年に限定品として登場したコイーバ タリスマンが、基幹ライン「リネア・クラシカ」のレギュラー銘柄になりました。世界発売の舞台はロンドンで、コイーバ誕生60周年を祝う「コイーバ年」の最初の大きな節目となります。ハバノスの開発担当副社長は「タリスマンはまだ始まりにすぎない」と述べており、60周年に向けた新作が今後も続く見通しです。
+  release_alt: コイーバ タリスマンがレギュラー化 — 「コイーバ年」がロンドンで始動
+- slug: davidoff-year-of-the-sheep-2027
+  title: ダビドフ、2027年「羊年」限定品を発表 — 3種すべてフィグラード
+  summary: ダビドフが干支シリーズの次作「イヤー・オブ・ザ・シープ（羊年）リミテッドエディション 2027」を発表しました。シリーズ史上初めて、3種のフォーマットすべてがフィグラード（両端の細い変わり型）で、羊の角のカーブへのオマージュです。
+  description: ダビドフが干支シリーズの次作「イヤー・オブ・ザ・シープ（羊年）リミテッドエディション 2027」を発表しました。シリーズ史上初めて、3種のフォーマットすべてがフィグラード（両端の細い変わり型）で、羊の角のカーブへのオマージュです。
+  category: 限定品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: Davidoff（ダビドフ）
+  maker_id: davidoff
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/davidoff-cigars-launches-year-of-the-sheep-limited-edition-2027/
+  source_checked: 原文確認済み
+  source_date: '2026-11-02'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/davidoff-year-of-the-sheep-2027.jpg
+  related: []
+  release_title: ダビドフ、2027年「羊年」限定品を発表 — 3種すべてフィグラード
+  release_summary: ダビドフが干支シリーズの次作「イヤー・オブ・ザ・シープ（羊年）リミテッドエディション 2027」を発表しました。シリーズ史上初めて、3種のフォーマットすべてがフィグラード（両端の細い変わり型）で、羊の角のカーブへのオマージュです。
+  release_alt: ダビドフ、2027年「羊年」限定品を発表 — 3種すべてフィグラード
+- slug: ecuador-tobacco-crop-el-nino
+  title: エクアドルの葉巻用タバコ、スーパーエルニーニョで半分超が壊滅
+  summary: エクアドルの大手タバコ栽培会社A.S.P.エンタープライゼズが、今年のスーパーエルニーニョによる過剰な降雨で2026年産の収穫の半分以上が失われたと顧客に通知しました。受注量の25〜35%しか出荷できない見通しです。
+  description: エクアドルの大手タバコ栽培会社A.S.P.エンタープライゼズが、今年のスーパーエルニーニョによる過剰な降雨で2026年産の収穫の半分以上が失われたと顧客に通知しました。受注量の25〜35%しか出荷できない見通しです。
+  category: 市場・流通
+  country: エクアドル
+  country_id: ecuador
+  country_en: ECUADOR
+  country_ids:
+  - ecuador
+  maker: A.S.P. Enterprises（A.S.P.エンタープライゼズ）
+  maker_id: asp-enterprises
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/a-s-p-says-super-el-nino-has-destroyed-more-than-half-of-its-2026-ecuador-crop/484019/
+  source_checked: 原文確認済み
+  source_date: '2026-11-04'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/ecuador-tobacco-crop-el-nino.jpg
+  related: []
+- slug: habanos-executive-appointments
+  title: ハバノス社、幹部人事を相次ぎ発表
+  summary: ハバノス社はこの秋、幹部人事を相次いで発表しました。9月23日に商業担当副社長、9月30日に運営マーケティング部長、10月21日に品質部長がそれぞれ就任しています。ドイツの流通停止など供給網が揺れる中での体制づくりとして注目されます。
+  description: ハバノス社はこの秋、幹部人事を相次いで発表しました。9月23日に商業担当副社長、9月30日に運営マーケティング部長、10月21日に品質部長がそれぞれ就任しています。ドイツの流通停止など供給網が揺れる中での体制づくりとして注目されます。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A. 公式発表
+  source_url: https://www.habanos.com/en/news/
+  source_checked: 原文確認済み
+  source_date: '2026-10-21'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: primary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/habanos-executive-appointments.jpg
+  related: []
+- slug: marvin-shanken-obituary
+  title: 「シガー・アフィショナード」創刊者マービン・シャンケン氏が死去、83歳
+  summary: 葉巻専門誌「シガー・アフィショナード」の創刊者で編集・発行人を務めたマービン・R・シャンケン氏が83歳で亡くなりました。1990年代の葉巻ブームを牽引し、葉巻を世界のラグジュアリー文化に押し上げた立役者として、業界に大きな足跡を残しました。
+  description: 葉巻専門誌「シガー・アフィショナード」の創刊者で編集・発行人を務めたマービン・R・シャンケン氏が83歳で亡くなりました。1990年代の葉巻ブームを牽引し、葉巻を世界のラグジュアリー文化に押し上げた立役者として、業界に大きな足跡を残しました。
+  category: 経営
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: M. Shanken Communications（M.シャンケン・コミュニケーションズ）
+  maker_id: m-shanken
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/marvin-r-shanken-founder-editor-and-publisher-of-cigar-aficionado-magazine-dies-at-83
+  source_checked: 原文確認済み
+  source_date: '2026-10-29'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/marvin-shanken-obituary.jpg
+  related: []
+- slug: plasencia-year-of-the-goat
+  title: プラセンシア「山羊年」— 干支シリーズ第7弾、11月末出荷へ
+  summary: プラセンシア・シガーズが干支シリーズ第7弾「エル・アーニョ・デ・ラ・カブラ（山羊年）」を発表しました。両端のすぼまったペルフェクト、6¼インチ × 60RGの1サイズで、ホンジュラス産タバコ中心のミディアム〜フルボディ。
+  description: プラセンシア・シガーズが干支シリーズ第7弾「エル・アーニョ・デ・ラ・カブラ（山羊年）」を発表しました。両端のすぼまったペルフェクト、6¼インチ × 60RGの1サイズで、ホンジュラス産タバコ中心のミディアム〜フルボディ。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Plasencia（プラセンシア）
+  maker_id: plasencia
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/plasencia-cigars-unveils-year-of-the-goat
+  source_checked: 原文確認済み
+  source_date: '2026-11-03'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/plasencia-year-of-the-goat.jpg
+  related: []
+  release_title: プラセンシア「山羊年」— 干支シリーズ第7弾、11月末出荷へ
+  release_summary: プラセンシア・シガーズが干支シリーズ第7弾「エル・アーニョ・デ・ラ・カブラ（山羊年）」を発表しました。両端のすぼまったペルフェクト、6¼インチ × 60RGの1サイズで、ホンジュラス産タバコ中心のミディアム〜フルボディ。赤い八角形の漆塗りボックスに、金の装飾と雄羊の角を思わせる渦巻き模様があしらわれています。
+  release_alt: プラセンシア「山羊年」— 干支シリーズ第7弾、11月末出荷へ
+- slug: quai-dorsay-concordia-el-2026
+  title: ケ・ドルセー コンコルディア EL 2026、マドリードで世界初公開
+  summary: ハバノス社は、ケ・ドルセー史上2つ目となる限定品「コンコルディア エディシオン・リミターダ 2026」を、スペイン・マドリードのラス・ベンタス闘牛場で開かれたイベント「ラ・ニュイ・ドルセー」で世界初公開しました。400人を超えるゲストが集まりました。
+  description: ハバノス社は、ケ・ドルセー史上2つ目となる限定品「コンコルディア エディシオン・リミターダ 2026」を、スペイン・マドリードのラス・ベンタス闘牛場で開かれたイベント「ラ・ニュイ・ドルセー」で世界初公開しました。400人を超えるゲストが集まりました。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A. 公式発表
+  source_url: https://www.habanos.com/en/news/habanos-s-a-unveiled-a-world-premiere-the-quai-dorsay-concordia-edicion-limitada-2026/
+  source_checked: 原文確認済み
+  source_date: '2026-10-24'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: primary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/quai-dorsay-concordia-el-2026.jpg
+  related: []
+  release_title: ケ・ドルセー コンコルディア EL 2026、マドリードで世界初公開
+  release_summary: ハバノス社は、ケ・ドルセー史上2つ目となる限定品「コンコルディア エディシオン・リミターダ 2026」を、スペイン・マドリードのラス・ベンタス闘牛場で開かれたイベント「ラ・ニュイ・ドルセー」で世界初公開しました。400人を超えるゲストが集まりました。
+  release_alt: ケ・ドルセー コンコルディア EL 2026、マドリードで世界初公開
+- slug: tatuaje-boris-karloff-2026
+  title: タトゥアヘ「ボリス・カーロフ」2026 — 最も細い新サイズで復活
+  summary: タトゥアヘが、怪奇映画俳優ボリス・カーロフにちなむ「ボリス・カーロフ」を新サイズで復活させ、今週から小売店へ出荷しています。今回のトロは6¼インチ × 47RGで、歴代で最も細いサイズ。
+  description: タトゥアヘが、怪奇映画俳優ボリス・カーロフにちなむ「ボリス・カーロフ」を新サイズで復活させ、今週から小売店へ出荷しています。今回のトロは6¼インチ × 47RGで、歴代で最も細いサイズ。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Tatuaje（タトゥアヘ）
+  maker_id: tatuaje
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/tatuaje-boris-karloff-returns-for-2026
+  source_checked: 原文確認済み
+  source_date: '2026-11-04'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/tatuaje-boris-karloff-2026.jpg
+  related: []
+  release_title: タトゥアヘ「ボリス・カーロフ」2026 — 最も細い新サイズで復活
+  release_summary: タトゥアヘが、怪奇映画俳優ボリス・カーロフにちなむ「ボリス・カーロフ」を新サイズで復活させ、今週から小売店へ出荷しています。今回のトロは6¼インチ × 47RGで、歴代で最も細いサイズ。エクアドル産スマトラ種ラッパーにニカラグア産バインダー・フィラーで、ミディアム〜フルボディとされます。製造はニカラグアのマイ・ファーザー工場。
+  release_alt: タトゥアヘ「ボリス・カーロフ」2026 — 最も細い新サイズで復活
+- slug: us-cigar-imports-2026-honduras
+  title: 米国の葉巻輸入は横ばい、ホンジュラスが11%増と躍進
+  summary: 米国のプレミアム葉巻（手巻き）の輸入量は、2026年1〜8月で2億8,220万本となり、前年同期比で0.6%増とほぼ横ばいでした。産地別では、最大のニカラグアが1億6,870万本（全体の約6割）で横ばい、第2位のドミニカ共和国は5,730万本で6.3%減。
+  description: 米国のプレミアム葉巻（手巻き）の輸入量は、2026年1〜8月で2億8,220万本となり、前年同期比で0.6%増とほぼ横ばいでした。産地別では、最大のニカラグアが1億6,870万本（全体の約6割）で横ばい、第2位のドミニカ共和国は5,730万本で6.3%減。
+  category: 市場・流通
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: 業界統計
+  maker_id: industry-stats
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/cigar-imports-flat-through-august-honduras-posts-notable-gain
+  source_checked: 原文確認済み
+  source_date: '2026-11-03'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/us-cigar-imports-2026-honduras.jpg
+  related: []
+- slug: world-cigar-show-dubai-2026
+  title: ワールド・シガー・ショー・ドバイに大手ブランドが集結へ
+  summary: 中東ドバイで開かれる業界見本市「ワールド・シガー・ショー」（11月10〜11日、ドバイ世界貿易センター）に、アルトゥーロ・フエンテ、カーサ・カリージョ、パドロン、ロッキー・パテルが初めて出展します。
+  description: 中東ドバイで開かれる業界見本市「ワールド・シガー・ショー」（11月10〜11日、ドバイ世界貿易センター）に、アルトゥーロ・フエンテ、カーサ・カリージョ、パドロン、ロッキー・パテルが初めて出展します。
+  category: 経営
+  country: ドバイ
+  country_id: uae
+  country_en: UNITED ARAB EMIRATES
+  country_ids:
+  - uae
+  maker: World Cigar Show（ワールド・シガー・ショー）
+  maker_id: world-cigar-show
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/arturo-fuente-casa-carrillo-padron-and-rocky-patel-join-world-cigar-show-dubai-lineup/
+  source_checked: 原文確認済み
+  source_date: '2026-10-27'
+  publish_date: '2026-11-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/world-cigar-show-dubai-2026.jpg
+  related: []
+- slug: black-works-killer-bee-buzz-saw-2
+  title: Black Works Studio「Killer Bee Buzz Saw 2.0」— 人気専門店の専売マイクロバッチ
+  summary: ブラック・レーベル・トレーディング社の小ロット専門スタジオ、Black Works Studioが、米フロリダの人気専門店Smoke Innとの専売コラボ第2弾「キラー・ビー バズソー 2.0」を発売しました。
+  description: ブラック・レーベル・トレーディング社の小ロット専門スタジオ、Black Works Studioが、米フロリダの人気専門店Smoke Innとの専売コラボ第2弾「キラー・ビー バズソー 2.0」を発売しました。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Black Works Studio（ブラック・ワークス・スタジオ）
+  maker_id: black-works-studio
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/smoke-inn-releases-black-works-studio-killer-bee-buzz-saw-2-0-cigar-news.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-02'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/black-works-killer-bee-buzz-saw-2.jpg
+  related: []
+  release_title: Black Works Studio「Killer Bee Buzz Saw 2.0」— 人気専門店の専売マイクロバッチ
+  release_summary: ブラック・レーベル・トレーディング社の小ロット専門スタジオ、Black Works Studioが、米フロリダの人気専門店Smoke Innとの専売コラボ第2弾「キラー・ビー バズソー 2.0」を発売しました。エクアドル産マデューロとコネチカット・シェードのバーバーポールラッパーに、ニカラグア産のバインダーとフィラー。製造はエステリのファブリカ・オベハ・ネグラです。原点は2021年の限定サンプラー「The Hive」で、2024年からSmoke Inn専売の単独ラインになりました。今回は丸みのあるペルフェクトから、ボックスプレスのベリコソへ形を変えての登場です。
+  release_alt: Black Works Studio「Killer Bee Buzz Saw 2.0」— 人気専門店の専売マイクロバッチ
+- slug: domain-cigars-test-blend-portal
+  title: Domain Cigars、試作ブレンドを店と客の声で育てる「テストブレンド・ポータル」
+  summary: 新興ブランドのDomain Cigarsが、旗艦小売店向けに「テストブレンド・ポータル」を開設しました。
+  description: 新興ブランドのDomain Cigarsが、旗艦小売店向けに「テストブレンド・ポータル」を開設しました。
+  category: 経営
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Domain Cigars（ドメイン・シガーズ）
+  maker_id: domain-cigars
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/domain-cigars-launches-test-blend-portal-cigar-news.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-02'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/domain-cigars-test-blend-portal.jpg
+  related: []
+- slug: fratello-sweden-kind-cigars
+  title: フラテッロ、スウェーデンに進出 — Kind Cigarsと販売提携
+  summary: 米フラテッロ・シガーズ（Fratello Cigars）が、スウェーデンのカインド・シガーズ（Kind Cigars）と販売契約を結び、同国市場への供給を始めます。カインド・シガーズはマーティン・ネルソンが2011年に創業した輸入販売会社で、複数の葉巻メーカーを扱っています。
+  description: 米フラテッロ・シガーズ（Fratello Cigars）が、スウェーデンのカインド・シガーズ（Kind Cigars）と販売契約を結び、同国市場への供給を始めます。カインド・シガーズはマーティン・ネルソンが2011年に創業した輸入販売会社で、複数の葉巻メーカーを扱っています。
+  category: 市場・流通
+  country: スウェーデン
+  country_id: nicaragua
+  country_en: SWEDEN
+  country_ids:
+  - nicaragua
+  maker: Fratello Cigars（フラテッロ・シガーズ）
+  maker_id: fratello
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/fratello-cigars-adds-distribution-in-sweden/484218/
+  source_checked: 原文確認済み
+  source_date: '2026-11-05'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/fratello-sweden-kind-cigars.jpg
+  related: []
+- slug: gellis-piece-unique-emerald-sky
+  title: Gellis Family「Piece Unique Emerald Sky」— わずか3,000本、ペルー産の希少葉入り
+  summary: ワープド（Warped）の創業者カイル・ゲリスが手がける Gellis Family Cigars から、2026年2作目の「ピース・ユニーク」が登場します。
+  description: ワープド（Warped）の創業者カイル・ゲリスが手がける Gellis Family Cigars から、2026年2作目の「ピース・ユニーク」が登場します。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Gellis Family Cigars（ゲリス・ファミリー・シガーズ）
+  maker_id: gellis-family
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/gellis-family-cigars-adding-piece-unique-emerald-sky-to-lineup/483054/
+  source_checked: 原文確認済み
+  source_date: '2026-10-30'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/gellis-piece-unique-emerald-sky.jpg
+  related: []
+  release_title: Gellis Family「Piece Unique Emerald Sky」— わずか3,000本、ペルー産の希少葉入り
+  release_summary: ワープド（Warped）の創業者カイル・ゲリスが手がける Gellis Family Cigars から、2026年2作目の「ピース・ユニーク」が登場します。エクアドル産コネチカット・シードのラッパー、メキシコ産サンアンドレスのバインダー、ドミニカとニカラグアのフィラーに、シリーズ初となるペルー産ペロ・デ・オロ（希少な在来種）を加えたブレンド。製造はドミニカ共和国のタバカレラ・ラ・イスラです。「ピース・ユニーク」は時計の世界で「一点もの」を指す言葉で、このシリーズの各ブレンドは一度きりしか作られません。緑のパッケージが目印の「エメラルド・スカイ」は、11月下旬に小売店へ出荷予定です。
+  release_alt: Gellis Family「Piece Unique Emerald Sky」— わずか3,000本、ペルー産の希少葉入り
+- slug: intertabac-2027-dates
+  title: InterTabac、2027年大会は9月14〜16日 — 出展社の9割超が再出展を計画
+  summary: ドイツ・ドルトムントで開かれる世界最大級のタバコ産業見本市InterTabacと、併催のNUBIZ、InterSupplyが2026年大会を振り返り、2027年大会に向けた準備を本格化させています。主催側によれば、出展社の90%以上が2027年の再出展を計画しているとのこと。
+  description: ドイツ・ドルトムントで開かれる世界最大級のタバコ産業見本市InterTabacと、併催のNUBIZ、InterSupplyが2026年大会を振り返り、2027年大会に向けた準備を本格化させています。主催側によれば、出展社の90%以上が2027年の再出展を計画しているとのこと。
+  category: 経営
+  country: ドイツ
+  country_id: germany
+  country_en: GERMANY
+  country_ids:
+  - germany
+  maker: InterTabac（インターバック）
+  maker_id: intertabac
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/intertabac-nubiz-and-intersupply-the-highlights-of-2026-the-opportunities-of-2027/
+  source_checked: 原文確認済み
+  source_date: '2026-11-04'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/intertabac-2027-dates.jpg
+  related: []
+- slug: jc-newman-cuesta-rey-rebrand
+  title: J.C. Newman、140年の老舗「クエスタ・レイ」のバンドを刷新 — 11月7日にラスベガスで披露
+  summary: 米J.C. Newmanが、傘下の老舗ブランド「クエスタ・レイ（Cuesta-Rey）」のバンドデザイン刷新を発表しました。新バンドは11月7日、Cigar Aficionado主催のイベント「Big Smoke Las Vegas」のセミナーでお披露目されます。
+  description: 米J.C. Newmanが、傘下の老舗ブランド「クエスタ・レイ（Cuesta-Rey）」のバンドデザイン刷新を発表しました。新バンドは11月7日、Cigar Aficionado主催のイベント「Big Smoke Las Vegas」のセミナーでお披露目されます。
+  category: 新製品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: J.C. Newman（J.C.ニューマン）
+  maker_id: jc-newman
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/j-c-newman-to-introduce-new-band-design-for-cuestra-rey-cigar-news.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-04'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/jc-newman-cuesta-rey-rebrand.jpg
+  related: []
+  release_title: J.C. Newman、140年の老舗「クエスタ・レイ」のバンドを刷新 — 11月7日にラスベガスで披露
+  release_summary: 米J.C. Newmanが、傘下の老舗ブランド「クエスタ・レイ（Cuesta-Rey）」のバンドデザイン刷新を発表しました。新バンドは11月7日、Cigar Aficionado主催のイベント「Big Smoke Las Vegas」のセミナーでお披露目されます。クエスタ・レイは1884年、アンヘル・ラマドリッド・クエスタとペレグリーノ・レイが創業し、スペイン王アルフォンソ13世の公式葉巻にもなった歴史を持ちます。現在の葉巻はドミニカ共和国のタバカレラ・A・フエンテが製造。新しいバンドは伝統を受け継ぎながら、王冠とCRモノグラムの現代的な意匠に生まれ変わります。
+  release_alt: J.C. Newman、140年の老舗「クエスタ・レイ」のバンドを刷新 — 11月7日にラスベガスで披露
+- slug: la-gloria-cubana-gran-legado
+  title: ラ・グロリア・クバーナ「Gran Legado」— ベテラントルセドールのサイン入り、2026年限定で復活
+  summary: フォージド・シガー・カンパニー（STG傘下）が、2024年に登場した大型ペルフェクト「Gran Legado（グラン・レガード＝偉大な遺産）」を2026年の限定生産で復活させました。コネチカット・ブロードリーフのラッパーに、ドミニカとニカラグアの高位摘みの葉を合わせたブレンド。
+  description: フォージド・シガー・カンパニー（STG傘下）が、2024年に登場した大型ペルフェクト「Gran Legado（グラン・レガード＝偉大な遺産）」を2026年の限定生産で復活させました。コネチカット・ブロードリーフのラッパーに、ドミニカとニカラグアの高位摘みの葉を合わせたブレンド。
+  category: 限定品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: La Gloria Cubana（ラ・グロリア・クバーナ）
+  maker_id: la-gloria-cubana
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/forged-cigar-company-brings-back-la-gloria-cubana-gran-legado-for-limited-2026-run.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-03'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/la-gloria-cubana-gran-legado.jpg
+  related: []
+  release_title: ラ・グロリア・クバーナ「Gran Legado」— ベテラントルセドールのサイン入り、2026年限定で復活
+  release_summary: フォージド・シガー・カンパニー（STG傘下）が、2024年に登場した大型ペルフェクト「Gran Legado（グラン・レガード＝偉大な遺産）」を2026年の限定生産で復活させました。コネチカット・ブロードリーフのラッパーに、ドミニカとニカラグアの高位摘みの葉を合わせたブレンド。ドミニカ共和国のジェネラル・シガー・ドミニカーナ内にある「工場の中の工場」エル・クレディトで、経験15年以上のベテラントルセドールのチームが手巻きし、1本ごとに担当したトルセドールのサインがバンドに入ります。人気ライン「セリエ R」に着想を得た1本です。なお、これは米STGのラ・グロリア・クバーナで、キューバ産ではありません。
+  release_alt: ラ・グロリア・クバーナ「Gran Legado」— ベテラントルセドールのサイン入り、2026年限定で復活
+- slug: powstanie-war-bear-2026
+  title: ポウスタニエ「ウォーベア 2026」— 390箱だけのバーバーポール、11月11日発売
+  summary: 米国の小規模ブランド、ポウスタニエ（Powstanie）が「ウォーベア 2026 ボックスプレス・チャーチル」を11月11日（米国の退役軍人の日）に発売します。
+  description: 米国の小規模ブランド、ポウスタニエ（Powstanie）が「ウォーベア 2026 ボックスプレス・チャーチル」を11月11日（米国の退役軍人の日）に発売します。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Powstanie（ポウスタニエ）
+  maker_id: powstanie
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/powstanie-war-bear-2026-box-pressed-churchill-set-for-release.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-05'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/powstanie-war-bear-2026.jpg
+  related: []
+  release_title: ポウスタニエ「ウォーベア 2026」— 390箱だけのバーバーポール、11月11日発売
+  release_summary: 米国の小規模ブランド、ポウスタニエ（Powstanie）が「ウォーベア 2026 ボックスプレス・チャーチル」を11月11日（米国の退役軍人の日）に発売します。エクアドル産ハバノとメキシコ産サンアンドレス、2種のラッパーを不均等に巻き分けたバーバーポール仕様で、バインダーはインドネシア産、フィラーはニカラグアとドミニカ産。製造はニカラグア・エステリのニカ・スエーニョ工場です。2026年のウォーベアとしては、米国建国250周年記念版に続く2作目。名前は、第二次世界大戦でポーランド軍に従軍し、実際に砲弾運びをしたシリアヒグマ「ヴォイテク」にちなみます。
+  release_alt: ポウスタニエ「ウォーベア 2026」— 390箱だけのバーバーポール、11月11日発売
+- slug: villiger-taa-exclusive-2026
+  title: ヴィリガー「TAA Exclusive 2026」発売 — 自社ニカラグア工場製、500箱限定
+  summary: スイスのヴィリガーが、米国の葉巻専門店組合TAA（全米葉巻商協会）の会員店向け限定品「TAA Exclusive 2026」を11月2日に発売しました。エクアドル産ハバノ・ロサードのラッパー、メキシコ産サンアンドレスのバインダー、ニカラグア産フィラー。
+  description: スイスのヴィリガーが、米国の葉巻専門店組合TAA（全米葉巻商協会）の会員店向け限定品「TAA Exclusive 2026」を11月2日に発売しました。エクアドル産ハバノ・ロサードのラッパー、メキシコ産サンアンドレスのバインダー、ニカラグア産フィラー。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Villiger（ヴィリガー）
+  maker_id: villiger
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/villiger-taa-exclusive-2026-slated-for-november/481737/
+  source_checked: 原文確認済み
+  source_date: '2026-10-14'
+  publish_date: '2026-11-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/villiger-taa-exclusive-2026.jpg
+  related: []
+  release_title: ヴィリガー「TAA Exclusive 2026」発売 — 自社ニカラグア工場製、500箱限定
+  release_summary: スイスのヴィリガーが、米国の葉巻専門店組合TAA（全米葉巻商協会）の会員店向け限定品「TAA Exclusive 2026」を11月2日に発売しました。エクアドル産ハバノ・ロサードのラッパー、メキシコ産サンアンドレスのバインダー、ニカラグア産フィラー。2020〜24年の同シリーズは他社の5つの工場を巡って作られてきましたが、2025年の休止を経た2026年作は、自社のニカラグア工場「ヴィリガー・デ・ニカラグア」製。シリーズの集大成として自社工場の巻きの技を見せる1本です。TAA会員店でのみ販売されます。
+  release_alt: ヴィリガー「TAA Exclusive 2026」発売 — 自社ニカラグア工場製、500箱限定
+- slug: big-smoke-las-vegas-30th
+  title: Big Smoke ラスベガス30周年 — 本日が2日目、ガイ・フィエリが登壇
+  summary: Cigar Aficionado 主催の「Big Smoke ラスベガス」が今年で30周年を迎え、11月6日（金）・7日（土）の2日間、ラスベガスのホースシュー・ラスベガスで開かれています。本日7日はセミナー当日。セミナーはすでに満席で、約600人が参加します。
+  description: Cigar Aficionado 主催の「Big Smoke ラスベガス」が今年で30周年を迎え、11月6日（金）・7日（土）の2日間、ラスベガスのホースシュー・ラスベガスで開かれています。本日7日はセミナー当日。セミナーはすでに満席で、約600人が参加します。
+  category: 経営
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: Cigar Aficionado（シガー・アフィショナード）
+  maker_id: cigar-aficionado
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/big-smoke-las-vegas-30th-anniversary-speakers-and-seminars
+  source_checked: 原文確認済み
+  source_date: '2026-09-01'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/big-smoke-las-vegas-30th.jpg
+  related: []
+- slug: brolo-cigar-co-debut
+  title: 新興ブランド「Brolo Cigar Co.」デビュー — 夫婦で立ち上げた3ブレンド、11月19日発売
+  summary: ジョシュア＆ケイトリン・スティーブンス夫妻が立ち上げたテキサス発の新興ブランド、Brolo Cigar Co.（ブローロ）が、3つのレギュラーブレンドでデビューします。
+  description: ジョシュア＆ケイトリン・スティーブンス夫妻が立ち上げたテキサス発の新興ブランド、Brolo Cigar Co.（ブローロ）が、3つのレギュラーブレンドでデビューします。
+  category: 新製品
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: Brolo Cigar Co.（ブローロ・シガー）
+  maker_id: brolo-cigar-co
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/brolo-cigar-co-announces-launch-with-porchlight-confessional-and-back-booth/483070/
+  source_checked: 原文確認済み
+  source_date: '2026-10-30'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/brolo-cigar-co-debut.jpg
+  related: []
+  release_title: 新興ブランド「Brolo Cigar Co.」デビュー — 夫婦で立ち上げた3ブレンド、11月19日発売
+  release_summary: ジョシュア＆ケイトリン・スティーブンス夫妻が立ち上げたテキサス発の新興ブランド、Brolo Cigar Co.（ブローロ）が、3つのレギュラーブレンドでデビューします。11月19日（木）にテキサス州マッキニーのViso Cigar Loungeで発表イベントを開き、翌20日から小売店へ出荷。3種とも5×50のロブスト、20本入り。ニカラグアのブティック工場製で、夫妻自ら現地でブレンド開発にあたったとのことです。「ポーチライト」はエクアドル産コロホのラッパー、「コンフェッショナル」はエクアドル産ハバノ・ロサード、「バック・ブース」はメキシコ産サンアンドレス・マデューロのラッパーです。
+  release_alt: 新興ブランド「Brolo Cigar Co.」デビュー — 夫婦で立ち上げた3ブレンド、11月19日発売
+- slug: crowned-heads-las-calaveras-decimo-2026
+  title: クラウン・ヘッズ「ラス・カラベラス デシモ 2026」— 人気限定が3サイズで復活、10月30日に出荷開始
+  summary: テネシー州のクラウン・ヘッズが、2024年に「ラス・カラベラス」シリーズの10周年を記念して出した限定品「デシモ・アニベルサリオ」を、2026年版として復活させました。2024年は6×52のトロ1サイズのみでしたが、2026年版は3サイズに拡大。
+  description: テネシー州のクラウン・ヘッズが、2024年に「ラス・カラベラス」シリーズの10周年を記念して出した限定品「デシモ・アニベルサリオ」を、2026年版として復活させました。2024年は6×52のトロ1サイズのみでしたが、2026年版は3サイズに拡大。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Crowned Heads（クラウン・ヘッズ）
+  maker_id: crowned-heads
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/crowned-heads-brings-back-decimo-in-three-new-sizes
+  source_checked: 原文確認済み
+  source_date: '2026-11-05'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/crowned-heads-las-calaveras-decimo-2026.jpg
+  related: []
+  release_title: クラウン・ヘッズ「ラス・カラベラス デシモ 2026」— 人気限定が3サイズで復活、10月30日に出荷開始
+  release_summary: テネシー州のクラウン・ヘッズが、2024年に「ラス・カラベラス」シリーズの10周年を記念して出した限定品「デシモ・アニベルサリオ」を、2026年版として復活させました。2024年は6×52のトロ1サイズのみでしたが、2026年版は3サイズに拡大。エクアドル産ハバノ・オスクロのラッパーにオール・ニカラグアのブレンドで、製造はニカラグアのマイファザー・シガーズです。パッケージは緑を基調に刷新されました。10月30日に小売店への出荷が始まっています。「ラス・カラベラス」はメキシコの死者の日をしのぶシリーズで、デシモのブレンドは初代2014年の限定品に遡るとのことです。
+  release_alt: クラウン・ヘッズ「ラス・カラベラス デシモ 2026」— 人気限定が3サイズで復活、10月30日に出荷開始
+- slug: dunbarton-shokai-bushido
+  title: ダンバートン「Shokai Bushido」— 11月14日のCigartopiaでデビュー、サカの新ブレンド「匠」の試作から誕生
+  summary: ダンバートン・タバコ＆トラストの創業者スティーブ・サカが、新作「Shokai Bushido（ショウカイ・ブシドー＝武士道への入門）」を11月14日（土）、アリゾナ州フェニックスのシガーズ・デイリー本社で開かれるイベント「Cigartopia 2026」で初披露します。
+  description: ダンバートン・タバコ＆トラストの創業者スティーブ・サカが、新作「Shokai Bushido（ショウカイ・ブシドー＝武士道への入門）」を11月14日（土）、アリゾナ州フェニックスのシガーズ・デイリー本社で開かれるイベント「Cigartopia 2026」で初披露します。
+  category: 新製品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Dunbarton Tobacco & Trust（ダンバートン・タバコ＆トラスト）
+  maker_id: dunbarton
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/steve-saka-teases-takumi-as-possible-pca-2027-release/483494/
+  source_checked: 原文確認済み
+  source_date: '2026-11-03'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/dunbarton-shokai-bushido.jpg
+  related: []
+  release_title: ダンバートン「Shokai Bushido」— 11月14日のCigartopiaでデビュー、サカの新ブレンド「匠」の試作から誕生
+  release_summary: ダンバートン・タバコ＆トラストの創業者スティーブ・サカが、新作「Shokai Bushido（ショウカイ・ブシドー＝武士道への入門）」を11月14日（土）、アリゾナ州フェニックスのシガーズ・デイリー本社で開かれるイベント「Cigartopia 2026」で初披露します。シガー・ドージョウとのコラボレーションによる一回限りの限定品で、イベント会場での対面販売が先行し、残りがあればシガーズ・デイリーのサイトで販売されます。エクアドル産スマトラ種のラッパーを使い、サカが約3年かけて取り組んできた新ブレンド「匠（Takumi）」の開発から生まれた葉巻です。価格やサイズ、生産本数、製造工場はまだ発表されていません。サカは「匠」についても、2027年3月のPCA見本市で披露する可能性がある極小ロットのブレンドだとしています。
+  release_alt: ダンバートン「Shokai Bushido」— 11月14日のCigartopiaでデビュー、サカの新ブレンド「匠」の試作から誕生
+- slug: oliva-melanio-anio-2026
+  title: オリバ「セリエV メラニオ エディシオン・アーニョ 2026」店頭に到着 — ペルフェクト型の異形ビトラ、9,000箱限定
+  summary: オリバの年次限定ビトラ「エディシオン・アーニョ」の2026年版が、11月2日に米国の店頭へ到着しました。上半分は通常のパレホ、下半分が鋭くテーパーしたペルフェクト型で、2017年以降の同シリーズでも異色の形状。2013年の135周年記念限定品に似たシルエットです。
+  description: オリバの年次限定ビトラ「エディシオン・アーニョ」の2026年版が、11月2日に米国の店頭へ到着しました。上半分は通常のパレホ、下半分が鋭くテーパーしたペルフェクト型で、2017年以降の同シリーズでも異色の形状。2013年の135周年記念限定品に似たシルエットです。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Oliva（オリバ）
+  maker_id: oliva
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/oliva-serie-v-melanio-edicion-ano-2026-arrives/484330/
+  source_checked: 原文確認済み
+  source_date: '2026-11-05'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/oliva-melanio-anio-2026.jpg
+  related: []
+  release_title: オリバ「セリエV メラニオ エディシオン・アーニョ 2026」店頭に到着 — ペルフェクト型の異形ビトラ、9,000箱限定
+  release_summary: オリバの年次限定ビトラ「エディシオン・アーニョ」の2026年版が、11月2日に米国の店頭へ到着しました。上半分は通常のパレホ、下半分が鋭くテーパーしたペルフェクト型で、2017年以降の同シリーズでも異色の形状。2013年の135周年記念限定品に似たシルエットです。ラッパーはエクアドル産スマトラ種で、内側には温暖多雨だった2023〜24年産ハラパ（ニカラグア）の葉を使用。オリバはこの収穫をワインのグラン・クリュになぞらえています。親会社ヴァンデルマリエール・シガー・ファミリーのフレッド・ヴァンデルマリエールCEOは「メラニオはすでに最高の最高。だがこの限定品は、自然からしか与えられない特別な条件によって、その体験を夢のようなレベルへ引き上げる」と述べています。9,000箱のうち5,000箱は米国以外の市場へ向けられます。
+  release_alt: オリバ「セリエV メラニオ エディシオン・アーニョ 2026」店頭に到着 — ペルフェクト型の異形ビトラ、9,000箱限定
+- slug: plasencia-holiday-collection-2026
+  title: プラセンシア「2026 ホリデー・コレクション」— 人気5銘柄のトロ詰め合わせ、11月出荷
+  summary: プラセンシア・シガーズが、年末商戦向けの詰め合わせ「2026 ホリデー・コレクション」を発表しました。レゼルバ・オリジナル、アルマ・デル・フエゴ、アルマ・デル・シエロ、アルマ・フエルテ、アルマ・デ・カンポの5ラインからトロを1本ずつ集めた5本入り。
+  description: プラセンシア・シガーズが、年末商戦向けの詰め合わせ「2026 ホリデー・コレクション」を発表しました。レゼルバ・オリジナル、アルマ・デル・フエゴ、アルマ・デル・シエロ、アルマ・フエルテ、アルマ・デ・カンポの5ラインからトロを1本ずつ集めた5本入り。
+  category: 限定品
+  country: ニカラグア
+  country_id: nicaragua
+  country_en: NICARAGUA
+  country_ids:
+  - nicaragua
+  maker: Plasencia（プラセンシア）
+  maker_id: plasencia
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/plasencia-cigars-announces-2026-holiday-collection-cigar-news.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-04'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/plasencia-holiday-collection-2026.jpg
+  related: []
+  release_title: プラセンシア「2026 ホリデー・コレクション」— 人気5銘柄のトロ詰め合わせ、11月出荷
+  release_summary: プラセンシア・シガーズが、年末商戦向けの詰め合わせ「2026 ホリデー・コレクション」を発表しました。レゼルバ・オリジナル、アルマ・デル・フエゴ、アルマ・デル・シエロ、アルマ・フエルテ、アルマ・デ・カンポの5ラインからトロを1本ずつ集めた5本入り。雪の結晶の型押しと金色のアクセントをあしらった深緑の箱に、5本が見える窓付き。11月中に正規小売店へ出荷されます。
+  release_alt: プラセンシア「2026 ホリデー・コレクション」— 人気5銘柄のトロ詰め合わせ、11月出荷
+- slug: san-luis-rey-eiroa-30th-maduro
+  title: サン・ルイス・レイ エイロア 30周年「マデューロ」登場 — TAA会員店に11月中旬から出荷
+  summary: アルタディスUSAとC.L.E.シガー社のクリスチャン・エイロアによる記念ライン「サン・ルイス・レイ エイロア 30周年」に、より濃厚なマデューロ版が加わります。
+  description: アルタディスUSAとC.L.E.シガー社のクリスチャン・エイロアによる記念ライン「サン・ルイス・レイ エイロア 30周年」に、より濃厚なマデューロ版が加わります。
+  category: 限定品
+  country: ホンジュラス
+  country_id: honduras
+  country_en: HONDURAS
+  country_ids:
+  - honduras
+  maker: Altadis USA（アルタディスUSA）
+  maker_id: altadis-usa
+  source_name: Cigar Aficionado
+  source_url: https://www.cigaraficionado.com/article/saint-luis-rey-eiroa-30th-anniversary-goes-dark
+  source_checked: 原文確認済み
+  source_date: '2026-11-05'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/san-luis-rey-eiroa-30th-maduro.jpg
+  related: []
+  release_title: サン・ルイス・レイ エイロア 30周年「マデューロ」登場 — TAA会員店に11月中旬から出荷
+  release_summary: アルタディスUSAとC.L.E.シガー社のクリスチャン・エイロアによる記念ライン「サン・ルイス・レイ エイロア 30周年」に、より濃厚なマデューロ版が加わります。エクアドル産ハバノ・マデューロのラッパー、ホンジュラス産コロホのバインダー、コロンビア産ピナレーニョとホンジュラス産コロホのフィラー。原版は、エイロアが1996年に手がけたホンジュラス産サン・ルイス・レイの再現を目指して2026年4月のPCA見本市で発表されたものです。マデューロ版は10月下旬のTAA（全米葉巻商協会）会合でお披露目され、TAA会員店へ11月中旬に出荷、一般の実店舗へは2027年3月のPCA見本市までに供給される予定です。実店舗限定の販売で、製造はホンジュラス・ダンリのC.L.E.工場です。
+  release_alt: サン・ルイス・レイ エイロア 30周年「マデューロ」登場 — TAA会員店に11月中旬から出荷
+- slug: selected-tobacco-madrid-hq
+  title: Selected Tobacco、マドリードに5階建ての新拠点を開設 — 半世紀ぶりのマドリードでの葉巻製造
+  summary: アタベイやバイロンで知られる Selected Tobacco が、スペイン・マドリードに5階建ての新拠点を開設し、10月10〜11日の週末にグランドオープンを祝いました。
+  description: アタベイやバイロンで知られる Selected Tobacco が、スペイン・マドリードに5階建ての新拠点を開設し、10月10〜11日の週末にグランドオープンを祝いました。
+  category: 経営
+  country: スペイン
+  country_id: usa
+  country_en: SPAIN
+  country_ids:
+  - usa
+  maker: Selected Tobacco（セレクテッド・タバコ）
+  maker_id: selected-tobacco
+  source_name: Cigar Coop
+  source_url: https://cigar-coop.com/2026/11/selected-tobacco-host-gala-event-at-factory-grand-opening-feature-story.html
+  source_checked: 原文確認済み
+  source_date: '2026-11-01'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/selected-tobacco-madrid-hq.jpg
+  related: []
+- slug: stg-hoyo-epicure-delisting
+  title: STG、Hoyo「エピキュア・セレクシオン」など11品目を価格表から削除 — 値上げはほぼなし
+  summary: スカンジナビアン・タバコ・グループ（STG）が小売店向けに新しい価格表を送付しました。例年なら値上げの合図ですが、今回は数セントの微調整にとどまる一方、ジェネラル・シガー社の価格表から11品目が削除されました。
+  description: スカンジナビアン・タバコ・グループ（STG）が小売店向けに新しい価格表を送付しました。例年なら値上げの合図ですが、今回は数セントの微調整にとどまる一方、ジェネラル・シガー社の価格表から11品目が削除されました。
+  category: 市場・流通
+  country: アメリカ
+  country_id: usa
+  country_en: UNITED STATES
+  country_ids:
+  - usa
+  maker: Scandinavian Tobacco Group（スカンジナビアン・タバコ・グループ）
+  maker_id: stg
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/stg-discontinues-hoyo-de-monterrey-epicure-seleccion/484757/
+  source_checked: 原文確認済み
+  source_date: '2026-11-06'
+  publish_date: '2026-11-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/stg-hoyo-epicure-delisting.jpg
+  related: []
+- slug: festival-habano-2026-sold-out
+  title: コイーバ60周年で注目、第26回フェスティバル・デル・ハバノはチケット完売
+  summary: 2月23〜27日開催予定だった第26回フェスティバル・デル・ハバノのチケットが、コイーバ60周年の需要で完売したとハバノスが販売店向けに通知した。水曜イベントでは「トリニダード レセルバ コセチャ2022」の発表も予告されていた。
+  description: 2月23〜27日開催予定だった第26回フェスティバル・デル・ハバノのチケットが、コイーバ60周年の需要で完売したとハバノスが販売店向けに通知した。水曜イベントでは「トリニダード レセルバ コセチャ2022」の発表も予告されていた。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/for-cohibas-60th-anniversary-the-2026-festival-del-habano-is-sold-out/
+  source_checked: 原文確認済み
+  source_date: '2026-01-02'
+  publish_date: '2026-01-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/festival-habano-2026-sold-out.jpg
+  related: []
+- slug: spain-cuban-cigar-prices-2026
+  title: キューバ葉巻の2026年値上げは平均3.83％、大幅値上げに歯止め
+  summary: スペインの2026年価格表（約350品目）を分析すると平均3.83％の値上げにとどまり、2023年の約8％、2025年の約5％から鈍化した。最高級ラインとトリニダードは据え置きで、最も高いコイーバ・イデアレスは1本550ユーロ。
+  description: スペインの2026年価格表（約350品目）を分析すると平均3.83％の値上げにとどまり、2023年の約8％、2025年の約5％から鈍化した。最高級ラインとトリニダードは据え置きで、最も高いコイーバ・イデアレスは1本550ユーロ。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/cuban-cigars-get-modest-price-increases-for-2026/460235/
+  source_checked: 原文確認済み
+  source_date: '2026-01-14'
+  publish_date: '2026-01-14'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/spain-cuban-cigar-prices-2026.jpg
+  related: []
+- slug: fonseca-du-nord-canada
+  title: フォンセカ「デュ・ノール」、カナダ向け地域限定が4都市で発売
+  summary: カナダ向けエディシオン・レヒオナル「フォンセカ デュ・ノール」（ヘニオス型、52×140mm）がトロント、モントリオール、ウィニペグ、バンクーバーで発売された。プレーンパッケージ法施行後、カナダで初めての地域限定品。
+  description: カナダ向けエディシオン・レヒオナル「フォンセカ デュ・ノール」（ヘニオス型、52×140mm）がトロント、モントリオール、ウィニペグ、バンクーバーで発売された。プレーンパッケージ法施行後、カナダで初めての地域限定品。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/fonseca-du-nord-new-regional-edition-for-canada/
+  source_checked: 原文確認済み
+  source_date: '2026-01-20'
+  publish_date: '2026-01-20'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/fonseca-du-nord-canada.jpg
+  related: []
+  release_title: フォンセカ「デュ・ノール」、カナダ向け地域限定が4都市で発売
+  release_summary: カナダ向けエディシオン・レヒオナル「フォンセカ デュ・ノール」（ヘニオス型、52×140mm）がトロント、モントリオール、ウィニペグ、バンクーバーで発売された。プレーンパッケージ法施行後、カナダで初めての地域限定品。
+  release_alt: フォンセカ「デュ・ノール」、カナダ向け地域限定が4都市で発売
+- slug: trinidad-corcel-hong-kong
+  title: トリニダード初の春節記念「コルセル」、香港で世界初披露
+  summary: トリニダード初の旧正月記念作「コルセル」（パトリシオス型、55×135mm）が1月29日に香港のイベントで世界初披露され、180人超が参加した。午年（馬）にちなんだ限定作で、今後各国市場へ順次展開される。
+  description: トリニダード初の旧正月記念作「コルセル」（パトリシオス型、55×135mm）が1月29日に香港のイベントで世界初披露され、180人超が参加した。午年（馬）にちなんだ限定作で、今後各国市場へ順次展開される。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-presents-trinidad-corcel-an-exclusive-vitola-to-celebrate-the-chinese-new-year/
+  source_checked: 原文確認済み
+  source_date: '2026-01-29'
+  publish_date: '2026-01-29'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/trinidad-corcel-hong-kong.jpg
+  related: []
+  release_title: トリニダード初の春節記念「コルセル」、香港で世界初披露
+  release_summary: トリニダード初の旧正月記念作「コルセル」（パトリシオス型、55×135mm）が1月29日に香港のイベントで世界初披露され、180人超が参加した。午年（馬）にちなんだ限定作で、今後各国市場へ順次展開される。
+  release_alt: トリニダード初の春節記念「コルセル」、香港で世界初披露
+- slug: cohiba-bhk-58-switzerland
+  title: コイーバ・ベイケ BHK 58、記念ボックスでスイス発売
+  summary: ベイケ最大・最高額の新サイズBHK 58（178mm×58）が、ベイケ15周年記念セレクション箱（BHK 52／54／56／58の4本入り、CHF 1,696）として2月3日にスイスのラ・カーサ・デル・ハバノで発売され、10日から専門店でも扱いが始まった。
+  description: ベイケ最大・最高額の新サイズBHK 58（178mm×58）が、ベイケ15周年記念セレクション箱（BHK 52／54／56／58の4本入り、CHF 1,696）として2月3日にスイスのラ・カーサ・デル・ハバノで発売され、10日から専門店でも扱いが始まった。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-first-bhk-58-will-soon-be-available-in-switzerland/
+  source_checked: 原文確認済み
+  source_date: '2026-02-03'
+  publish_date: '2026-02-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-bhk-58-switzerland.jpg
+  related: []
+  release_title: コイーバ・ベイケ BHK 58、記念ボックスでスイス発売
+  release_summary: ベイケ最大・最高額の新サイズBHK 58（178mm×58）が、ベイケ15周年記念セレクション箱（BHK 52／54／56／58の4本入り、CHF 1,696）として2月3日にスイスのラ・カーサ・デル・ハバノで発売され、10日から専門店でも扱いが始まった。
+  release_alt: コイーバ・ベイケ BHK 58、記念ボックスでスイス発売
+- slug: punch-princesas-switzerland
+  title: パンチ「プリンセサス」限定版2025、スイスで発売（1本CHF 52）
+  summary: パンチ185周年記念のエディシオン・リミターダ2025「プリンセサス」（135mm×52）が2月3日にスイスで発売された。1本CHF 52（約56ユーロ）。発表は2025年12月の公式発表で、2026年の動きはこの発売となる。
+  description: パンチ185周年記念のエディシオン・リミターダ2025「プリンセサス」（135mm×52）が2月3日にスイスで発売された。1本CHF 52（約56ユーロ）。発表は2025年12月の公式発表で、2026年の動きはこの発売となる。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-first-bhk-58-will-soon-be-available-in-switzerland/
+  source_checked: 原文確認済み
+  source_date: '2026-02-03'
+  publish_date: '2026-02-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/punch-princesas-switzerland.jpg
+  related: []
+  release_title: パンチ「プリンセサス」限定版2025、スイスで発売（1本CHF 52）
+  release_summary: パンチ185周年記念のエディシオン・リミターダ2025「プリンセサス」（135mm×52）が2月3日にスイスで発売された。1本CHF 52（約56ユーロ）。発表は2025年12月の公式発表で、2026年の動きはこの発売となる。
+  release_alt: パンチ「プリンセサス」限定版2025、スイスで発売（1本CHF 52）
+- slug: festival-habano-2026-postponed
+  title: 第26回フェスティバル・デル・ハバノ、開催延期が正式決定
+  summary: 2月23〜27日に迫っていた第26回フェスティバル・デル・ハバノの延期を、組織委員会が公式に発表した。理由は「最高水準の品質と体験を保つため」とされ、新日程は「追って発表」とされた。
+  description: 2月23〜27日に迫っていた第26回フェスティバル・デル・ハバノの延期を、組織委員会が公式に発表した。理由は「最高水準の品質と体験を保つため」とされ、新日程は「追って発表」とされた。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habano-festival-posponed/
+  source_checked: 原文確認済み
+  source_date: '2026-02-14'
+  publish_date: '2026-02-14'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/festival-habano-2026-postponed.jpg
+  related: []
+- slug: cuba-harvest-2025-26
+  title: キューバ2025-26年収穫は11,426ヘクタール、前年超えも目標未達
+  summary: ブエルタ・アバホの2025-26年シーズンの作付は11,426ヘクタールで前年（約10,500）を上回ったが、当初目標の14,000超には届かなかった。エネルギー危機が直撃する中、太陽光灌漑への転換が進められている。
+  description: ブエルタ・アバホの2025-26年シーズンの作付は11,426ヘクタールで前年（約10,500）を上回ったが、当初目標の14,000超には届かなかった。エネルギー危機が直撃する中、太陽光灌漑への転換が進められている。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-2026-harvest-up-in-the-vuelta-abajo/
+  source_checked: 原文確認済み
+  source_date: '2026-03-17'
+  publish_date: '2026-03-17'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cuba-harvest-2025-26.jpg
+  related: []
+- slug: lcdh-montreux-opens
+  title: スイス10店目のラ・カーサ・デル・ハバノ、モントルーの5つ星ホテル内に開店
+  summary: 3月19日、レマン湖畔モントルーのフェアモント・モントルー・パレス内に、スイスで10店目となるラ・カーサ・デル・ハバノが開店した。同国初の5つ星ホテル内フランチャイズで、モンバロン家が運営する。開店式にはキューバ大使も出席した。
+  description: 3月19日、レマン湖畔モントルーのフェアモント・モントルー・パレス内に、スイスで10店目となるラ・カーサ・デル・ハバノが開店した。同国初の5つ星ホテル内フランチャイズで、モンバロン家が運営する。開店式にはキューバ大使も出席した。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/the-tenth-la-casa-del-habano-in-switzerland-opens-its-doors-in-montreux/
+  source_checked: 原文確認済み
+  source_date: '2026-03-19'
+  publish_date: '2026-03-19'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lcdh-montreux-opens.jpg
+  related: []
+- slug: montecristo-lesprit-portugal
+  title: モンテクリスト L'Esprit「ル・クレピュスキュール」、ポルトガルで披露
+  summary: S.T.デュポンとの共同作ヒュミドール「L'Esprit ル・クレピュスキュール」（プレシオソス型50×145mmを50本収納、世界200台限定）が、3月5日の第6回エンポル・ハバノス・モーメンツでポルトガル市場に披露された。
+  description: S.T.デュポンとの共同作ヒュミドール「L'Esprit ル・クレピュスキュール」（プレシオソス型50×145mmを50本収納、世界200台限定）が、3月5日の第6回エンポル・ハバノス・モーメンツでポルトガル市場に披露された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/montecristo-lesprit-le-crepuscule-and-the-montecristo-lesprit-wine-collection-are-introduced-to-the-portuguese-market-during-the-vi-empor-habanos-moments/
+  source_checked: 原文確認済み
+  source_date: '2026-03-24'
+  publish_date: '2026-03-24'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/montecristo-lesprit-portugal.jpg
+  related: []
+  release_title: モンテクリスト L'Esprit「ル・クレピュスキュール」、ポルトガルで披露
+  release_summary: S.T.デュポンとの共同作ヒュミドール「L'Esprit ル・クレピュスキュール」（プレシオソス型50×145mmを50本収納、世界200台限定）が、3月5日の第6回エンポル・ハバノス・モーメンツでポルトガル市場に披露された。L'Espritワインコレクションなども併せて紹介された。
+  release_alt: モンテクリスト L'Esprit「ル・クレピュスキュール」、ポルトガルで披露
+- slug: lcdh-pall-mall-london
+  title: ロンドン中心部パルマルにラ・カーサ・デル・ハバノ旗艦店が開店
+  summary: 3月25日、ロンドン・セントジェームズのパルマル26番地に、ドミニク・ロンドンと唐タバコの共同によるラ・カーサ・デル・ハバノ旗艦店が開店した。ウォークインヒュミドール2室と喫煙ラウンジを備え、開店パーティは4回に及んだ。
+  description: 3月25日、ロンドン・セントジェームズのパルマル26番地に、ドミニク・ロンドンと唐タバコの共同によるラ・カーサ・デル・ハバノ旗艦店が開店した。ウォークインヒュミドール2室と喫煙ラウンジを備え、開店パーティは4回に及んだ。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/inside-la-casa-del-habano-pall-mall-in-london-dominique-londons-crown-jewel/
+  source_checked: 原文確認済み
+  source_date: '2026-03-25'
+  publish_date: '2026-03-25'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lcdh-pall-mall-london.jpg
+  related: []
+- slug: juan-lopez-besame-mucho
+  title: フアン・ロペス「ベサメ・ムーチョ」、メキシコ向け地域限定が発売へ
+  summary: メキシコ向けエディシオン・レヒオナル第6弾「フアン・ロペス ベサメ・ムーチョ」（スブリメス型、164mm×54）が4月24日の発売イベントを経て25日に発売された。価格は約1,066メキシコペソ（約60ドル）。販売店IEPTが発表した。
+  description: メキシコ向けエディシオン・レヒオナル第6弾「フアン・ロペス ベサメ・ムーチョ」（スブリメス型、164mm×54）が4月24日の発売イベントを経て25日に発売された。価格は約1,066メキシコペソ（約60ドル）。販売店IEPTが発表した。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/juan-lopez-besame-mucho-edicion-regional-mexico-coming-this-month/466316/
+  source_checked: 原文確認済み
+  source_date: '2026-04-06'
+  publish_date: '2026-04-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/juan-lopez-besame-mucho.jpg
+  related: []
+  release_title: フアン・ロペス「ベサメ・ムーチョ」、メキシコ向け地域限定が発売へ
+  release_summary: メキシコ向けエディシオン・レヒオナル第6弾「フアン・ロペス ベサメ・ムーチョ」（スブリメス型、164mm×54）が4月24日の発売イベントを経て25日に発売された。価格は約1,066メキシコペソ（約60ドル）。販売店IEPTが発表した。
+  release_alt: フアン・ロペス「ベサメ・ムーチョ」、メキシコ向け地域限定が発売へ
+- slug: vietnam-habanos-specialists-open
+  title: ベトナムのハバノス専門店網が拡大、ホーチミンとニャチャンに新店
+  summary: ホーチミン市（3フロア400㎡、サイゴン川を見渡すテラス付き）とニャチャン（中部最大の500㎡超）にハバノス・スペシャリストが開店し、ベトナム国内は計14店舗となった。アバンティ・グループと現地販売店ゴールデン・フェニックスによる展開。
+  description: ホーチミン市（3フロア400㎡、サイゴン川を見渡すテラス付き）とニャチャン（中部最大の500㎡超）にハバノス・スペシャリストが開店し、ベトナム国内は計14店舗となった。アバンティ・グループと現地販売店ゴールデン・フェニックスによる展開。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/new-habanos-specialists-stores-in-ho-chi-minh-city-and-nha-trang-vietnam/
+  source_checked: 原文確認済み
+  source_date: '2026-04-28'
+  publish_date: '2026-04-28'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/vietnam-habanos-specialists-open.jpg
+  related: []
+- slug: lcdh-milano-20th-anniversary
+  title: ラ・カーサ・デル・ハバノ・ミラノが20周年、記念ヒュミドールも披露
+  summary: ミラノのラ・カーサ・デル・ハバノが20周年を迎え、ポルテット・ミラノで記念イベントが開かれた（実際の開催は4月23日）。デアルト製の記念ヒュミドール（50台限定、ボリバ「ニュー・ゴールド・メダル」20本入り）や、イタリア地域限定品が披露された。
+  description: ミラノのラ・カーサ・デル・ハバノが20周年を迎え、ポルテット・ミラノで記念イベントが開かれた（実際の開催は4月23日）。デアルト製の記念ヒュミドール（50台限定、ボリバ「ニュー・ゴールド・メダル」20本入り）や、イタリア地域限定品が披露された。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/la-casa-del-habano-milano-two-decades-of-passion-at-the-portrait/
+  source_checked: 原文確認済み
+  source_date: '2026-05-09'
+  publish_date: '2026-05-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lcdh-milano-20th-anniversary.jpg
+  related: []
+- slug: cohiba-novedosos-andorra
+  title: 2019年発表の幻、コイーバ「ノベドソス」がアンドラに到着
+  summary: 2019年に発表されながらコロナ禍でほぼ流通しなかったLCDH・専門店専売のコイーバ・ノベドソス（156mm×50、25本箱5,350ユーロ）が、アンドラで本格的に販売開始された。世界的にもほぼ初の実物流通とされる。
+  description: 2019年に発表されながらコロナ禍でほぼ流通しなかったLCDH・専門店専売のコイーバ・ノベドソス（156mm×50、25本箱5,350ユーロ）が、アンドラで本格的に販売開始された。世界的にもほぼ初の実物流通とされる。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-very-rare-cohiba-novedosos-arrive-in-andorra/
+  source_checked: 原文確認済み
+  source_date: '2026-06-02'
+  publish_date: '2026-06-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-novedosos-andorra.jpg
+  related: []
+  release_title: 2019年発表の幻、コイーバ「ノベドソス」がアンドラに到着
+  release_summary: 2019年に発表されながらコロナ禍でほぼ流通しなかったLCDH・専門店専売のコイーバ・ノベドソス（156mm×50、25本箱5,350ユーロ）が、アンドラで本格的に販売開始された。世界的にもほぼ初の実物流通とされる。
+  release_alt: 2019年発表の幻、コイーバ「ノベドソス」がアンドラに到着
+- slug: habanos-day-costa-rica-2026
+  title: 第5回ハバノス・デーがコスタリカで開催、60周年のコイーバも登場
+  summary: 5月16日、コスタリカで第5回ハバノス・デーが開催され、100人超が参加した。60周年のコイーバ（シグロI／III）、30周年のクアバとベゲーロスが振る舞われた。主催は中米販売店クルス・カネラ。
+  description: 5月16日、コスタリカで第5回ハバノス・デーが開催され、100人超が参加した。60周年のコイーバ（シグロI／III）、30周年のクアバとベゲーロスが振る舞われた。主催は中米販売店クルス・カネラ。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/v-habanos-day-in-costa-rica/
+  source_checked: 原文確認済み
+  source_date: '2026-06-03'
+  publish_date: '2026-06-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/habanos-day-costa-rica-2026.jpg
+  related: []
+- slug: vuelta-abajo-planting-14000
+  title: タバクーバ、2026-27年作付で悲願の14,000ヘクタール再挑戦
+  summary: タバクーバが2026-27年シーズンのブエルタ・アバホ作付目標を14,000ヘクタールに設定した（国営ACN報道）。達成の鍵は太陽光灌漑で、灌漑地の半分を再生可能エネルギー化する計画。
+  description: タバクーバが2026-27年シーズンのブエルタ・アバホ作付目標を14,000ヘクタールに設定した（国営ACN報道）。達成の鍵は太陽光灌漑で、灌漑地の半分を再生可能エネルギー化する計画。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-hopes-to-plant-14000-hectares-in-the-vuelta-abajo-next-season/
+  source_checked: 原文確認済み
+  source_date: '2026-06-04'
+  publish_date: '2026-06-04'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/vuelta-abajo-planting-14000.jpg
+  related: []
+- slug: dupont-cohiba-60-collection
+  title: コイーバ60周年、S.T.デュポンの記念アクセサリー第1弾が発売
+  summary: ハバノスとS.T.デュポンによるコイーバ60周年コレクションの第1弾が6月8日に発売された。ライター3種（690〜2,300ユーロ、各1,966個限定＝創設年）のほかカッターや灰皿などが揃い、第2弾は11月予定。
+  description: ハバノスとS.T.デュポンによるコイーバ60周年コレクションの第1弾が6月8日に発売された。ライター3種（690〜2,300ユーロ、各1,966個限定＝創設年）のほかカッターや灰皿などが揃い、第2弾は11月予定。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/60-years-of-cohiba-s-t-dupont-unveils-part-of-its-collection/
+  source_checked: 原文確認済み
+  source_date: '2026-06-08'
+  publish_date: '2026-06-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/dupont-cohiba-60-collection.jpg
+  related: []
+  release_title: コイーバ60周年、S.T.デュポンの記念アクセサリー第1弾が発売
+  release_summary: ハバノスとS.T.デュポンによるコイーバ60周年コレクションの第1弾が6月8日に発売された。ライター3種（690〜2,300ユーロ、各1,966個限定＝創設年）のほかカッターや灰皿などが揃い、第2弾は11月予定。
+  release_alt: コイーバ60周年、S.T.デュポンの記念アクセサリー第1弾が発売
+- slug: cuba-agriculture-liberalization
+  title: キューバ農業改革で民間企業の土地用益権が可能に、タバコ生産への影響は
+  summary: 6月19日に国民議会が採択した176項目の経済改革のうち3措置がタバコ産業に直結する。民間法人への農地用益権（無期限）や燃料・再エネ設備の直接輸入が認められる。ただしタバクーバの買い付け独占とハバノスの販売独占は不変で、専門家の評価は慎重。
+  description: 6月19日に国民議会が採択した176項目の経済改革のうち3措置がタバコ産業に直結する。民間法人への農地用益権（無期限）や燃料・再エネ設備の直接輸入が認められる。ただしタバクーバの買い付け独占とハバノスの販売独占は不変で、専門家の評価は慎重。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-liberalizes-its-agriculture-what-does-it-mean-for-cuban-cigars/
+  source_checked: 原文確認済み
+  source_date: '2026-06-24'
+  publish_date: '2026-06-24'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cuba-agriculture-liberalization.jpg
+  related: []
+- slug: lcdh-kreuzlingen-opens
+  title: スイス11店目のラ・カーサ・デル・ハバノ、ボーデン湖畔クロイツリンゲンに開店
+  summary: 6月26日、ドイツ国境に近いクロイツリンゲンにスイス11店目のラ・カーサ・デル・ハバノが開店した。ザンクト・ガレン店で知られるポートマン家の運営で、喫煙ラウンジを備える。
+  description: 6月26日、ドイツ国境に近いクロイツリンゲンにスイス11店目のラ・カーサ・デル・ハバノが開店した。ザンクト・ガレン店で知られるポートマン家の運営で、喫煙ラウンジを備える。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/new-la-casa-del-habano-in-kreuzlingen-switzerland/
+  source_checked: 原文確認済み
+  source_date: '2026-06-26'
+  publish_date: '2026-06-26'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lcdh-kreuzlingen-opens.jpg
+  related: []
+- slug: bolivar-evento-55-france
+  title: ボリバ「エベント55」、フランス向け地域限定が発売（1本35ユーロ）
+  summary: フランス向けエディシオン・レヒオナル2025「ボリバ エベント55」（ヘニオス型、140mm×52）が仏国内のタバコ店に到着した。50本キャビネット4,000個（計20万本）限定、1本35ユーロ。併せてコイーバ・ワイド・ショートの限定箱も発売された。
+  description: フランス向けエディシオン・レヒオナル2025「ボリバ エベント55」（ヘニオス型、140mm×52）が仏国内のタバコ店に到着した。50本キャビネット4,000個（計20万本）限定、1本35ユーロ。併せてコイーバ・ワイド・ショートの限定箱も発売された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/bolivar-evento-55-re-france-available-at-french-tobacconists/
+  source_checked: 原文確認済み
+  source_date: '2026-07-07'
+  publish_date: '2026-07-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/bolivar-evento-55-france.jpg
+  related: []
+  release_title: ボリバ「エベント55」、フランス向け地域限定が発売（1本35ユーロ）
+  release_summary: フランス向けエディシオン・レヒオナル2025「ボリバ エベント55」（ヘニオス型、140mm×52）が仏国内のタバコ店に到着した。50本キャビネット4,000個（計20万本）限定、1本35ユーロ。併せてコイーバ・ワイド・ショートの限定箱も発売された。
+  release_alt: ボリバ「エベント55」、フランス向け地域限定が発売（1本35ユーロ）
+- slug: montecristo-herederos-switzerland
+  title: 6年越しのモンテクリスト「エレデロス」、スイスで待望の発売
+  summary: 2020年のフェスティバルで発表されコロナ禍で消えたと思われていたモンテクリスト・エレデロス（162mm×47、1本CHF 59）が7月21日からスイスのLCDHで発売された。併せてトリニダード・ビジャ（CHF 75）とコイーバ・ビストソス（CHF 260）も一般発売。
+  description: 2020年のフェスティバルで発表されコロナ禍で消えたと思われていたモンテクリスト・エレデロス（162mm×47、1本CHF 59）が7月21日からスイスのLCDHで発売された。併せてトリニダード・ビジャ（CHF 75）とコイーバ・ビストソス（CHF 260）も一般発売。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/three-new-habanos-in-switzerland-including-the-very-rare-montecristo-herederos/
+  source_checked: 原文確認済み
+  source_date: '2026-07-16'
+  publish_date: '2026-07-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/montecristo-herederos-switzerland.jpg
+  related: []
+  release_title: 6年越しのモンテクリスト「エレデロス」、スイスで待望の発売
+  release_summary: 2020年のフェスティバルで発表されコロナ禍で消えたと思われていたモンテクリスト・エレデロス（162mm×47、1本CHF 59）が7月21日からスイスのLCDHで発売された。併せてトリニダード・ビジャ（CHF 75）とコイーバ・ビストソス（CHF 260）も一般発売。いずれもLCDH・専門店専売。
+  release_alt: 6年越しのモンテクリスト「エレデロス」、スイスで待望の発売
+- slug: festival-habano-2026-cancelled
+  title: 第26回フェスティバル・デル・ハバノ、中止が正式決定
+  summary: 2月に延期されていた第26回フェスティバル・デル・ハバノについて、組織委員会が7月20日に「今年は開催しない」と正式発表した。コロナ禍の年を除けば異例の中止で、理由はキューバのエネルギー危機を含む国内情勢。一方でコイーバ60周年の記念プログラムは世界各地で継続するとした。
+  description: 2月に延期されていた第26回フェスティバル・デル・ハバノについて、組織委員会が7月20日に「今年は開催しない」と正式発表した。コロナ禍の年を除けば異例の中止で、理由はキューバのエネルギー危機を含む国内情勢。一方でコイーバ60周年の記念プログラムは世界各地で継続するとした。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/beyond-the-habano-festival-a-year-to-celebrate-the-60th-years-of-cohiba/
+  source_checked: 原文確認済み
+  source_date: '2026-07-20'
+  publish_date: '2026-07-20'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/festival-habano-2026-cancelled.jpg
+  related: []
+- slug: por-larranaga-35-aniversario-germany
+  title: ポル・ララニャガ「35アニベルサリオ」、独販売店の35周年記念で発売
+  summary: ドイツ・オーストリア・ポーランドの販売店5thアベニュー（5タ・アベニーダ）の創業35周年を祝うドイツ向け地域限定（194mm×49、50本箱1,750ユーロ、10万本限定）が8月31日にドイツのLCDH・専門店で発売された。
+  description: ドイツ・オーストリア・ポーランドの販売店5thアベニュー（5タ・アベニーダ）の創業35周年を祝うドイツ向け地域限定（194mm×49、50本箱1,750ユーロ、10万本限定）が8月31日にドイツのLCDH・専門店で発売された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/por-larranaga-35-aniversario-celebrates-5th-avenue-anniversary/478261/
+  source_checked: 原文確認済み
+  source_date: '2026-08-31'
+  publish_date: '2026-08-31'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/por-larranaga-35-aniversario-germany.jpg
+  related: []
+  release_title: ポル・ララニャガ「35アニベルサリオ」、独販売店の35周年記念で発売
+  release_summary: ドイツ・オーストリア・ポーランドの販売店5thアベニュー（5タ・アベニーダ）の創業35周年を祝うドイツ向け地域限定（194mm×49、50本箱1,750ユーロ、10万本限定）が8月31日にドイツのLCDH・専門店で発売された。
+  release_alt: ポル・ララニャガ「35アニベルサリオ」、独販売店の35周年記念で発売
+- slug: ft-habanos-premium-strategy
+  title: 英FTが検証、ハバノス「超高級化」戦略の光と影
+  summary: 英フィナンシャル・タイムズが9月3日、ハバノスの価格倍増戦略（2022年の香港価格への統一以降、売上は2024年に8億2,700万ドルへ）と、その戦略を主導したとされる陳志氏の失脚がブランドにもたらした影響を調査報道した。ロンドンの名店ソッターの経営者らの証言を含む。
+  description: 英フィナンシャル・タイムズが9月3日、ハバノスの価格倍増戦略（2022年の香港価格への統一以降、売上は2024年に8億2,700万ドルへ）と、その戦略を主導したとされる陳志氏の失脚がブランドにもたらした影響を調査報道した。ロンドンの名店ソッターの経営者らの証言を含む。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Financial Times
+  source_url: https://translatingcuba.com/they-doubled-the-prices-of-cuban-cigars-and-ruined-the-cuban-business/
+  source_checked: 原文確認済み
+  source_date: '2026-09-04'
+  publish_date: '2026-09-04'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/ft-habanos-premium-strategy.jpg
+  related: []
+- slug: trinidad-vigia-reserva-cosecha-2022
+  title: トリニダード史上初のレセルバ「ビヒア レセルバ コセチャ2022」発表
+  summary: トリニダード初のレセルバが9月19日にスイス・モントルーで世界初披露された。ビヒア型（54×110mm）、最低3年追加熟成の葉を使用し、20本箱（3,800ドル）は5,000箱の番号入り限定、3本ギフト箱（660ドル）も同数。バンドにはNFC認証チップを搭載。
+  description: トリニダード初のレセルバが9月19日にスイス・モントルーで世界初披露された。ビヒア型（54×110mm）、最低3年追加熟成の葉を使用し、20本箱（3,800ドル）は5,000箱の番号入り限定、3本ギフト箱（660ドル）も同数。バンドにはNFC認証チップを搭載。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-unveiled-trinidad-vigia-reserva-cosecha-2022-the-first-reserva-in-trinidads-history/
+  source_checked: 原文確認済み
+  source_date: '2026-09-23'
+  publish_date: '2026-09-23'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/trinidad-vigia-reserva-cosecha-2022.jpg
+  related: []
+  release_title: トリニダード史上初のレセルバ「ビヒア レセルバ コセチャ2022」発表
+  release_summary: トリニダード初のレセルバが9月19日にスイス・モントルーで世界初披露された。ビヒア型（54×110mm）、最低3年追加熟成の葉を使用し、20本箱（3,800ドル）は5,000箱の番号入り限定、3本ギフト箱（660ドル）も同数。バンドにはNFC認証チップを搭載。
+  release_alt: トリニダード史上初のレセルバ「ビヒア レセルバ コセチャ2022」発表
+- slug: montecristo-fragata
+  title: モンテクリスト新作「フラガータ」、免税・トラベルリテール専売で登場
+  summary: 9月29日、カンヌのTFWA（免税・旅行小売の国際展示会）で新ビトラ「フラガータ」（デューク型、54×140mm）を発表。20本入りトラベルヒュミドール（加湿器・湿度計付き）で1,280ドル、免税・トラベルリテール専売。発売時期は未定。
+  description: 9月29日、カンヌのTFWA（免税・旅行小売の国際展示会）で新ビトラ「フラガータ」（デューク型、54×140mm）を発表。20本入りトラベルヒュミドール（加湿器・湿度計付き）で1,280ドル、免税・トラベルリテール専売。発売時期は未定。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-has-unveiled-the-montecristo-fragata-a-new-travel-humidor-exclusively-for-duty-free-and-travel-retail/
+  source_checked: 原文確認済み
+  source_date: '2026-09-29'
+  publish_date: '2026-09-29'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/montecristo-fragata.jpg
+  related: []
+  release_title: モンテクリスト新作「フラガータ」、免税・トラベルリテール専売で登場
+  release_summary: 9月29日、カンヌのTFWA（免税・旅行小売の国際展示会）で新ビトラ「フラガータ」（デューク型、54×140mm）を発表。20本入りトラベルヒュミドール（加湿器・湿度計付き）で1,280ドル、免税・トラベルリテール専売。発売時期は未定。
+  release_alt: モンテクリスト新作「フラガータ」、免税・トラベルリテール専売で登場
+- slug: bat-leaves-cuba
+  title: 英BAT、キューバ合弁ブラスクーバの全持分を売却し30年で撤退
+  summary: ブリティッシュ・アメリカン・タバコが紙巻タバコ合弁ブラスクーバの持分50％をタバクーバ系タバゲストへ売却した（合意は2025年12月、完了は2026年2月、公表なしで財務報告から判明）。キューバタバコ産業の外資撤退として注目される。
+  description: ブリティッシュ・アメリカン・タバコが紙巻タバコ合弁ブラスクーバの持分50％をタバクーバ系タバゲストへ売却した（合意は2025年12月、完了は2026年2月、公表なしで財務報告から判明）。キューバタバコ産業の外資撤退として注目される。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/after-thirty-years-bat-leaves-cuba-without-a-word/
+  source_checked: 原文確認済み
+  source_date: '2026-10-05'
+  publish_date: '2026-10-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/bat-leaves-cuba.jpg
+  related: []
+- slug: lgc-35-aniversario-switzerland
+  title: ラ・グロリア・クバーナ「35アニベルサリオ」、LCDH35周年記念ヒュミドールがスイス発売
+  summary: ラ・カーサ・デル・ハバノ35周年記念の限定ヒュミドール（ロドルフォ型180mm×47を35本収納、750台限定、CHF 3,850）が10月6日にスイスのLCDH10店で発売された。2025年のフェスティバルで発表された品の実売開始。
+  description: ラ・カーサ・デル・ハバノ35周年記念の限定ヒュミドール（ロドルフォ型180mm×47を35本収納、750台限定、CHF 3,850）が10月6日にスイスのLCDH10店で発売された。2025年のフェスティバルで発表された品の実売開始。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/la-gloria-cubana-35-aniversario-coming-to-swizerland-next-month/480027/
+  source_checked: 原文確認済み
+  source_date: '2026-10-06'
+  publish_date: '2026-10-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lgc-35-aniversario-switzerland.jpg
+  related: []
+  release_title: ラ・グロリア・クバーナ「35アニベルサリオ」、LCDH35周年記念ヒュミドールがスイス発売
+  release_summary: ラ・カーサ・デル・ハバノ35周年記念の限定ヒュミドール（ロドルフォ型180mm×47を35本収納、750台限定、CHF 3,850）が10月6日にスイスのLCDH10店で発売された。2025年のフェスティバルで発表された品の実売開始。併せてロメオ・イ・フリエタ「アマンテス」の20本箱（CHF 1,288）も同日発売。
+  release_alt: ラ・グロリア・クバーナ「35アニベルサリオ」、LCDH35周年記念ヒュミドールがスイス発売
+- slug: cuba-tobacco-season-2026-27
+  title: キューバ2026-27年シーズン開始、全国20,000ヘクタール目標も「再び困難」と幹部
+  summary: 10月10日にピナール・デル・リオで2026-27年シーズンが開始された。タバクーバの目標は全国20,000ヘクタール（うち同州12,000超）、収量22,000トン。ただし燃料不足と停電で農業局長自ら「再び困難なシーズンになる」と認めた（EFE報道）。
+  description: 10月10日にピナール・デル・リオで2026-27年シーズンが開始された。タバクーバの目標は全国20,000ヘクタール（うち同州12,000超）、収量22,000トン。ただし燃料不足と停電で農業局長自ら「再び困難なシーズンになる」と認めた（EFE報道）。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cubas-2026-27-tobacco-season-will-be-difficult-again/
+  source_checked: 原文確認済み
+  source_date: '2026-10-10'
+  publish_date: '2026-10-10'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cuba-tobacco-season-2026-27.jpg
+  related: []
+- slug: punch-nectares-ireland
+  title: アイルランド初の地域限定パンチ「ネクタレス No.50」、ロンドンで発売
+  summary: アイルランド初のエディシオン・レヒオナル「パンチ ネクタレス No.50」（マグナム50型、160mm×50）が英国に到着し、2月5日にロンドンのジェームズ・J・フォックスで発売イベントが開かれた。50本キャビネット1,400個（計70,000本）限定。
+  description: アイルランド初のエディシオン・レヒオナル「パンチ ネクタレス No.50」（マグナム50型、160mm×50）が英国に到着し、2月5日にロンドンのジェームズ・J・フォックスで発売イベントが開かれた。50本キャビネット1,400個（計70,000本）限定。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/irelands-first-habanos-regional-edition-gets-london-launch/
+  source_checked: 原文確認済み
+  source_date: '2026-02-05'
+  publish_date: '2026-02-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/punch-nectares-ireland.jpg
+  related: []
+  release_title: アイルランド初の地域限定パンチ「ネクタレス No.50」、ロンドンで発売
+  release_summary: アイルランド初のエディシオン・レヒオナル「パンチ ネクタレス No.50」（マグナム50型、160mm×50）が英国に到着し、2月5日にロンドンのジェームズ・J・フォックスで発売イベントが開かれた。50本キャビネット1,400個（計70,000本）限定。地域限定バンドの表記は史上初の「Exclusivo Irlanda」。
+  release_alt: アイルランド初の地域限定パンチ「ネクタレス No.50」、ロンドンで発売
+- slug: hoyo-de-monterrey-160th
+  title: オヨ・デ・モンテレイ160周年記念、Le Hoyo de Río Seco のスペイン限定版
+  summary: ハバノスがオヨ・デ・モンテレイの160周年を記念し、Le Hoyo de Río Seco（工場名アロモソス、140mm×56）をベースにした限定版をスペイン市場専売で発売した。グローバルブランドの大型周年記念品。
+  description: ハバノスがオヨ・デ・モンテレイの160周年を記念し、Le Hoyo de Río Seco（工場名アロモソス、140mm×56）をベースにした限定版をスペイン市場専売で発売した。グローバルブランドの大型周年記念品。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/new-hoyo-de-monterrey-160th-anniversary-edition/
+  source_checked: 原文確認済み
+  source_date: '2026-03-02'
+  publish_date: '2026-03-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/hoyo-de-monterrey-160th.jpg
+  related: []
+  release_title: オヨ・デ・モンテレイ160周年記念、Le Hoyo de Río Seco のスペイン限定版
+  release_summary: ハバノスがオヨ・デ・モンテレイの160周年を記念し、Le Hoyo de Río Seco（工場名アロモソス、140mm×56）をベースにした限定版をスペイン市場専売で発売した。グローバルブランドの大型周年記念品。
+  release_alt: オヨ・デ・モンテレイ160周年記念、Le Hoyo de Río Seco のスペイン限定版
+- slug: cohiba-year-2026
+  title: コイーバ60周年、2026年は「コイーバ・イヤー」として年間展開
+  summary: ハバノスはフラッグシップブランド、コイーバの創設60周年を2026年の中心テーマに据え、「コイーバ・イヤー」として年間を通じた記念展開を行う。フェスティバル中止で例年の発表の場を失う中、60周年企画は世界各地のイベントへ分散していく。
+  description: ハバノスはフラッグシップブランド、コイーバの創設60周年を2026年の中心テーマに据え、「コイーバ・イヤー」として年間を通じた記念展開を行う。フェスティバル中止で例年の発表の場を失う中、60周年企画は世界各地のイベントへ分散していく。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-celebrates-six-decades-2026-cohiba-year/
+  source_checked: 原文確認済み
+  source_date: '2026-03-16'
+  publish_date: '2026-03-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-year-2026.jpg
+  related: []
+- slug: cohiba-wide-short-limited-edition
+  title: コイーバ・ワイド・ショート初の限定版、「50 リミテッドエディション 2024」ヒュミドール
+  summary: ミニシガリロ「コイーバ・ワイド・ショート」初の限定版として、50本入り限定ヒュミドール「Cohiba Wide Short 50 Limited Edition 2024」の登場を伝える製品記事。
+  description: ミニシガリロ「コイーバ・ワイド・ショート」初の限定版として、50本入り限定ヒュミドール「Cohiba Wide Short 50 Limited Edition 2024」の登場を伝える製品記事。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-wide-short-unveils-its-first-limited-edition/
+  source_checked: 原文確認済み
+  source_date: '2026-03-25'
+  publish_date: '2026-03-25'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-wide-short-limited-edition.jpg
+  related: []
+  release_title: コイーバ・ワイド・ショート初の限定版、「50 リミテッドエディション 2024」ヒュミドール
+  release_summary: ミニシガリロ「コイーバ・ワイド・ショート」初の限定版として、50本入り限定ヒュミドール「Cohiba Wide Short 50 Limited Edition 2024」の登場を伝える製品記事。
+  release_alt: コイーバ・ワイド・ショート初の限定版、「50 リミテッドエディション 2024」ヒュミドール
+- slug: bogota-cigar-humidor-opens
+  title: コロンビアのハバノス専門店網が拡大、ボゴタに「The Cigar Humidor」開店
+  summary: ボゴタにハバノス・スペシャリスト「The Cigar Humidor」（172㎡、スペシャルティコーヒー店Sacovillaと併設）が開店した。偽物が横行していた市場が、現地販売店カリベ・インポーツの取り組みで正規専門店中心に変わりつつある現地事情も伝えられている。
+  description: ボゴタにハバノス・スペシャリスト「The Cigar Humidor」（172㎡、スペシャルティコーヒー店Sacovillaと併設）が開店した。偽物が横行していた市場が、現地販売店カリベ・インポーツの取り組みで正規専門店中心に変わりつつある現地事情も伝えられている。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/the-cigar-humidor-is-the-newest-habanos-specialist-in-colombia/
+  source_checked: 原文確認済み
+  source_date: '2026-04-17'
+  publish_date: '2026-04-17'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/bogota-cigar-humidor-opens.jpg
+  related: []
+- slug: la-flor-de-cano-magicos-spain
+  title: ラ・フロール・デ・カノ「マヒコス」、スペイン向け地域限定が発売
+  summary: スペイン向けエディシオン・レヒオナル「ラ・フロール・デ・カノ マヒコス」が、「Fuera de Serie（規格外）」コンセプトを掲げてスペイン市場に到着した。手頃な価格帯ブランドの地域限定はコレクター人気が高い。
+  description: スペイン向けエディシオン・レヒオナル「ラ・フロール・デ・カノ マヒコス」が、「Fuera de Serie（規格外）」コンセプトを掲げてスペイン市場に到着した。手頃な価格帯ブランドの地域限定はコレクター人気が高い。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/la-flor-de-cano-magicos-edicion-regional-arrives-in-spain/
+  source_checked: 原文確認済み
+  source_date: '2026-05-21'
+  publish_date: '2026-05-21'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/la-flor-de-cano-magicos-spain.jpg
+  related: []
+  release_title: ラ・フロール・デ・カノ「マヒコス」、スペイン向け地域限定が発売
+  release_summary: スペイン向けエディシオン・レヒオナル「ラ・フロール・デ・カノ マヒコス」が、「Fuera de Serie（規格外）」コンセプトを掲げてスペイン市場に到着した。手頃な価格帯ブランドの地域限定はコレクター人気が高い。
+  release_alt: ラ・フロール・デ・カノ「マヒコス」、スペイン向け地域限定が発売
+- slug: lcdh-kuala-lumpur-1st-anniversary
+  title: LCDHクアラルンプールが開店1周年、パシフィック・シガーが記念イベント
+  summary: 2025年に開店したラ・カーサ・デル・ハバノ・クアラルンプールが5月に開店1周年を迎え、パシフィック・シガー関係者らを招いて記念イベントが開かれた。アジア市場におけるLCDH網の定着を示す一件。
+  description: 2025年に開店したラ・カーサ・デル・ハバノ・クアラルンプールが5月に開店1周年を迎え、パシフィック・シガー関係者らを招いて記念イベントが開かれた。アジア市場におけるLCDH網の定着を示す一件。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/la-casa-del-habano-kuala-lumpur-celebrates-1st-anniversary/
+  source_checked: 原文確認済み
+  source_date: '2026-06-15'
+  publish_date: '2026-06-15'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lcdh-kuala-lumpur-1st-anniversary.jpg
+  related: []
+- slug: por-larranaga-intemporales-switzerland
+  title: ポル・ララニャガ「インテンポラレス」、スイス地域限定2023がようやく発売
+  summary: スイス向けエディシオン・レヒオナル2023「ポル・ララニャガ インテンポラレス」の発売が6月になるとハバノスが発表した。2023年銘の地域限定が2026年にずれ込んで実売される、近年の供給遅延を象徴するケース。サイズ・価格等の詳細は未確認。
+  description: スイス向けエディシオン・レヒオナル2023「ポル・ララニャガ インテンポラレス」の発売が6月になるとハバノスが発表した。2023年銘の地域限定が2026年にずれ込んで実売される、近年の供給遅延を象徴するケース。サイズ・価格等の詳細は未確認。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/por-larranaga-intemporales-edicion-regional-suiza/
+  source_checked: 原文確認済み
+  source_date: '2026-06-15'
+  publish_date: '2026-06-15'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/por-larranaga-intemporales-switzerland.jpg
+  related: []
+  release_title: ポル・ララニャガ「インテンポラレス」、スイス地域限定2023がようやく発売
+  release_summary: スイス向けエディシオン・レヒオナル2023「ポル・ララニャガ インテンポラレス」の発売が6月になるとハバノスが発表した。2023年銘の地域限定が2026年にずれ込んで実売される、近年の供給遅延を象徴するケース。サイズ・価格等の詳細は未確認。
+  release_alt: ポル・ララニャガ「インテンポラレス」、スイス地域限定2023がようやく発売
+- slug: lgc-serie-brasil-no3
+  title: ブラジル向け地域限定第3弾、ラ・グロリア・クバーナ「セリエ・ブラジル No.3」
+  summary: ブラジル向けエディシオン・レヒオナル第3弾「ラ・グロリア・クバーナ セリエ・ブラジル No.3」（カンパーナ型、52×140mm）が現地の主要店舗で発売された。番号入り10本箱6,000個限定、現地価格は1箱平均490ユーロ。
+  description: ブラジル向けエディシオン・レヒオナル第3弾「ラ・グロリア・クバーナ セリエ・ブラジル No.3」（カンパーナ型、52×140mm）が現地の主要店舗で発売された。番号入り10本箱6,000個限定、現地価格は1箱平均490ユーロ。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/brazil-presents-its-3rd-habanos-regional-edition/
+  source_checked: 原文確認済み
+  source_date: '2026-06-16'
+  publish_date: '2026-06-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/lgc-serie-brasil-no3.jpg
+  related: []
+  release_title: ブラジル向け地域限定第3弾、ラ・グロリア・クバーナ「セリエ・ブラジル No.3」
+  release_summary: ブラジル向けエディシオン・レヒオナル第3弾「ラ・グロリア・クバーナ セリエ・ブラジル No.3」（カンパーナ型、52×140mm）が現地の主要店舗で発売された。番号入り10本箱6,000個限定、現地価格は1箱平均490ユーロ。この発売をもって同ブランドがブラジル市場へ初めて導入された。
+  release_alt: ブラジル向け地域限定第3弾、ラ・グロリア・クバーナ「セリエ・ブラジル No.3」
+- slug: counterfeit-habanos-seized-spain
+  title: スペインで偽キューバ葉巻33,840本を押収、欧州流通向けに偽バンドを装着
+  summary: スペイン治安警備隊（グアルディア・シビル）が、バレンシア近郊ミスラタの住宅で偽キューバ葉巻33,840本を押収した。現場では偽バンドの装着と、欧州各地へ流通させるための梱包が行われていた。
+  description: スペイン治安警備隊（グアルディア・シビル）が、バレンシア近郊ミスラタの住宅で偽キューバ葉巻33,840本を押収した。現場では偽バンドの装着と、欧州各地へ流通させるための梱包が行われていた。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/34000-counterfeit-habanos-seized-in-spain/
+  source_checked: 原文確認済み
+  source_date: '2026-07-13'
+  publish_date: '2026-07-13'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/counterfeit-habanos-seized-spain.jpg
+  related: []
+- slug: cohiba-atmosphere-tel-aviv
+  title: コイーバ・アトモスフィアがテルアビブに、イスラエル初のキューバ葉巻専用拠点
+  summary: 高級ホテル「ザ・デビッド・ケンピンスキー テルアビブ」内に、イスラエル初のコイーバ・アトモスフィア「Cohiba Atmosphere TLV」がオープンした。同国におけるキューバ葉巻の公式拠点と位置付けられている。
+  description: 高級ホテル「ザ・デビッド・ケンピンスキー テルアビブ」内に、イスラエル初のコイーバ・アトモスフィア「Cohiba Atmosphere TLV」がオープンした。同国におけるキューバ葉巻の公式拠点と位置付けられている。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-atmosphere-tel-aviv/
+  source_checked: 原文確認済み
+  source_date: '2026-08-23'
+  publish_date: '2026-08-23'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cohiba-atmosphere-tel-aviv.jpg
+  related: []
+- slug: cubas-cigar-paradox
+  title: 記録的売上と縮む供給、CJ長編分析が描くハバノスの「パラドックス」
+  summary: 中米の葉巻産業に30年以上関わった筆者が、2024年の売上8億2,700万ドルという記録の裏側で進む供給縮小、2022年以降の超高級化（ベイケ52が約55ユーロから約230ユーロへ）、中国市場への依存と陳志氏の権益問題、ニューワールド産地への需要流出を総合的に分析した長編。
+  description: 中米の葉巻産業に30年以上関わった筆者が、2024年の売上8億2,700万ドルという記録の裏側で進む供給縮小、2022年以降の超高級化（ベイケ52が約55ユーロから約230ユーロへ）、中国市場への依存と陳志氏の権益問題、ニューワールド産地への需要流出を総合的に分析した長編。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cubas-cigar-paradox/
+  source_checked: 原文確認済み
+  source_date: '2026-09-08'
+  publish_date: '2026-09-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/cubas-cigar-paradox.jpg
+  related: []

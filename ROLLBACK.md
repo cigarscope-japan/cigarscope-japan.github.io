@@ -82,3 +82,7 @@ sha256sum features/joya.html features/padron.html features/opusx.html   # 上記
 ## v10 — EN top lead read-more fix (2026-11-09)
 - Published snapshot: ~/workspace/cigar-site-public-v10/ (commit dd178a9e). The EN top page's lead story used a separate template (TEMPLATES/index.html) and had missed the v9 read-more button; Kazu spotted it and the button was added. Only en/index.html changed; EN approvals remained current (article pages untouched).
 - Rollback target: v9 snapshot (commit 70c3b39a).
+
+## v11 (2026-11-09) — commit 0e90ac7b
+- 写真なし3本（bvi-habanos／fifth-avenue／el-tigre-factory、日英）に写真を追加。BVI＝出資構造図（Elite Trading Scandinavia AB提出資料、Cigarrvärlden／Halfwheel）、5th＝LCDH店舗写真（Cigar Aficionado）、エル・ティグレ＝Drew Estate公式製品写真。
+- 英語版3本は再承認済み（カズ「全部採用」2026-11-09）。スナップショット：cigar-site-public-v11/

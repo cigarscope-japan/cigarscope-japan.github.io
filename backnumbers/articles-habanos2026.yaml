@@ -1,0 +1,1098 @@
+# CigarScope Japan ハバノス2026バックナンバー記事データ（ステージング）
+# 出所: backnumbers/HABANOS-2026-CANDIDATES.md（30件）+ CJ-TOPUP-CANDIDATES.md（12件）= 全42件
+# 本文: backnumbers/site-bodies-hab/<slug>.html ／ 写真: backnumbers/photos-hab/
+# image が null の3件（festival-habano-2026-postponed / festival-habano-2026-cancelled / bat-leaves-cuba）は AI生成画像での対応待ち
+# 注意: これはステージング用ファイル。data/articles.yaml 本体には未統合。
+articles:
+- slug: festival-habano-2026-sold-out
+  title: コイーバ60周年で注目、第26回フェスティバル・デル・ハバノはチケット完売
+  summary: 2月23〜27日開催予定だった第26回フェスティバル・デル・ハバノのチケットが、コイーバ60周年の需要で完売したとハバノスが販売店向けに通知した。水曜イベントでは「トリニダード レセルバ コセチャ2022」の発表も予告されていた。
+  description: 2月23〜27日開催予定だった第26回フェスティバル・デル・ハバノのチケットが、コイーバ60周年の需要で完売したとハバノスが販売店向けに通知した。水曜イベントでは「トリニダード レセルバ コセチャ2022」の発表も予告されていた。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/for-cohibas-60th-anniversary-the-2026-festival-del-habano-is-sold-out/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-01-02'
+  publish_date: '2026-01-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/01-festival-soldout.jpg
+  related: []
+- slug: spain-cuban-cigar-prices-2026
+  title: キューバ葉巻の2026年値上げは平均3.83％、大幅値上げに歯止め
+  summary: スペインの2026年価格表（約350品目）を分析すると平均3.83％の値上げにとどまり、2023年の約8％、2025年の約5％から鈍化した。最高級ラインとトリニダードは据え置きで、最も高いコイーバ・イデアレスは1本550ユーロ。
+  description: スペインの2026年価格表（約350品目）を分析すると平均3.83％の値上げにとどまり、2023年の約8％、2025年の約5％から鈍化した。最高級ラインとトリニダードは据え置きで、最も高いコイーバ・イデアレスは1本550ユーロ。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/cuban-cigars-get-modest-price-increases-for-2026/460235/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-01-14'
+  publish_date: '2026-01-14'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/02-spain-prices.jpg
+  related: []
+- slug: fonseca-du-nord-canada
+  title: フォンセカ「デュ・ノール」、カナダ向け地域限定が4都市で発売
+  summary: カナダ向けエディシオン・レヒオナル「フォンセカ デュ・ノール」（ヘニオス型、52×140mm）がトロント、モントリオール、ウィニペグ、バンクーバーで発売された。プレーンパッケージ法施行後、カナダで初めての地域限定品。
+  description: カナダ向けエディシオン・レヒオナル「フォンセカ デュ・ノール」（ヘニオス型、52×140mm）がトロント、モントリオール、ウィニペグ、バンクーバーで発売された。プレーンパッケージ法施行後、カナダで初めての地域限定品。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/fonseca-du-nord-new-regional-edition-for-canada/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-01-20'
+  publish_date: '2026-01-20'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/03-fonseca-du-nord.jpg
+  related: []
+- slug: trinidad-corcel-hong-kong
+  title: トリニダード初の春節記念「コルセル」、香港で世界初披露
+  summary: トリニダード初の旧正月記念作「コルセル」（パトリシオス型、55×135mm）が1月29日に香港のイベントで世界初披露され、180人超が参加した。午年（馬）にちなんだ限定作で、今後各国市場へ順次展開される。
+  description: トリニダード初の旧正月記念作「コルセル」（パトリシオス型、55×135mm）が1月29日に香港のイベントで世界初披露され、180人超が参加した。午年（馬）にちなんだ限定作で、今後各国市場へ順次展開される。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-presents-trinidad-corcel-an-exclusive-vitola-to-celebrate-the-chinese-new-year/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-01-29'
+  publish_date: '2026-01-29'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/04-trinidad-corcel.jpg
+  related: []
+- slug: cohiba-bhk-58-switzerland
+  title: コイーバ・ベイケ BHK 58、記念ボックスでスイス発売
+  summary: ベイケ最大・最高額の新サイズBHK 58（178mm×58）が、ベイケ15周年記念セレクション箱（BHK 52／54／56／58の4本入り、CHF 1,696）として2月3日にスイスのラ・カーサ・デル・ハバノで発売され、10日から専門店でも扱いが始まった。
+  description: ベイケ最大・最高額の新サイズBHK 58（178mm×58）が、ベイケ15周年記念セレクション箱（BHK 52／54／56／58の4本入り、CHF 1,696）として2月3日にスイスのラ・カーサ・デル・ハバノで発売され、10日から専門店でも扱いが始まった。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-first-bhk-58-will-soon-be-available-in-switzerland/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-02-03'
+  publish_date: '2026-02-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/05-bhk58.jpg
+  related: []
+- slug: punch-princesas-switzerland
+  title: パンチ「プリンセサス」限定版2025、スイスで発売（1本CHF 52）
+  summary: パンチ185周年記念のエディシオン・リミターダ2025「プリンセサス」（135mm×52）が2月3日にスイスで発売された。1本CHF 52（約56ユーロ）。発表は2025年12月の公式発表で、2026年の動きはこの発売となる。
+  description: パンチ185周年記念のエディシオン・リミターダ2025「プリンセサス」（135mm×52）が2月3日にスイスで発売された。1本CHF 52（約56ユーロ）。発表は2025年12月の公式発表で、2026年の動きはこの発売となる。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-first-bhk-58-will-soon-be-available-in-switzerland/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-02-03'
+  publish_date: '2026-02-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/06-punch-princesas.jpg
+  related: []
+- slug: festival-habano-2026-postponed
+  title: 第26回フェスティバル・デル・ハバノ、開催延期が正式決定
+  summary: 2月23〜27日に迫っていた第26回フェスティバル・デル・ハバノの延期を、組織委員会が公式に発表した。理由は「最高水準の品質と体験を保つため」とされ、新日程は「追って発表」とされた。
+  description: 2月23〜27日に迫っていた第26回フェスティバル・デル・ハバノの延期を、組織委員会が公式に発表した。理由は「最高水準の品質と体験を保つため」とされ、新日程は「追って発表」とされた。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habano-festival-posponed/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-02-14'
+  publish_date: '2026-02-14'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: null
+  related: []
+- slug: cuba-harvest-2025-26
+  title: キューバ2025-26年収穫は11,426ヘクタール、前年超えも目標未達
+  summary: ブエルタ・アバホの2025-26年シーズンの作付は11,426ヘクタールで前年（約10,500）を上回ったが、当初目標の14,000超には届かなかった。エネルギー危機が直撃する中、太陽光灌漑への転換が進められている。
+  description: ブエルタ・アバホの2025-26年シーズンの作付は11,426ヘクタールで前年（約10,500）を上回ったが、当初目標の14,000超には届かなかった。エネルギー危機が直撃する中、太陽光灌漑への転換が進められている。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-2026-harvest-up-in-the-vuelta-abajo/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-17'
+  publish_date: '2026-03-17'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/08-harvest-2026.jpg
+  related: []
+- slug: lcdh-montreux-opens
+  title: スイス10店目のラ・カーサ・デル・ハバノ、モントルーの5つ星ホテル内に開店
+  summary: 3月19日、レマン湖畔モントルーのフェアモント・モントルー・パレス内に、スイスで10店目となるラ・カーサ・デル・ハバノが開店した。同国初の5つ星ホテル内フランチャイズで、モンバロン家が運営する。開店式にはキューバ大使も出席した。
+  description: 3月19日、レマン湖畔モントルーのフェアモント・モントルー・パレス内に、スイスで10店目となるラ・カーサ・デル・ハバノが開店した。同国初の5つ星ホテル内フランチャイズで、モンバロン家が運営する。開店式にはキューバ大使も出席した。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/the-tenth-la-casa-del-habano-in-switzerland-opens-its-doors-in-montreux/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-19'
+  publish_date: '2026-03-19'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/09-lcdh-montreux.jpg
+  related: []
+- slug: montecristo-lesprit-portugal
+  title: モンテクリスト L'Esprit「ル・クレピュスキュール」、ポルトガルで披露
+  summary: S.T.デュポンとの共同作ヒュミドール「L'Esprit ル・クレピュスキュール」（プレシオソス型50×145mmを50本収納、世界200台限定）が、3月5日の第6回エンポル・ハバノス・モーメンツでポルトガル市場に披露された。L'Espritワインコレクションなども併せて紹介された。
+  description: S.T.デュポンとの共同作ヒュミドール「L'Esprit ル・クレピュスキュール」（プレシオソス型50×145mmを50本収納、世界200台限定）が、3月5日の第6回エンポル・ハバノス・モーメンツでポルトガル市場に披露された。L'Espritワインコレクションなども併せて紹介された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/montecristo-lesprit-le-crepuscule-and-the-montecristo-lesprit-wine-collection-are-introduced-to-the-portuguese-market-during-the-vi-empor-habanos-moments/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-24'
+  publish_date: '2026-03-24'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/10-lesprit-portugal.jpg
+  related: []
+- slug: lcdh-pall-mall-london
+  title: ロンドン中心部パルマルにラ・カーサ・デル・ハバノ旗艦店が開店
+  summary: 3月25日、ロンドン・セントジェームズのパルマル26番地に、ドミニク・ロンドンと唐タバコの共同によるラ・カーサ・デル・ハバノ旗艦店が開店した。ウォークインヒュミドール2室と喫煙ラウンジを備え、開店パーティは4回に及んだ。
+  description: 3月25日、ロンドン・セントジェームズのパルマル26番地に、ドミニク・ロンドンと唐タバコの共同によるラ・カーサ・デル・ハバノ旗艦店が開店した。ウォークインヒュミドール2室と喫煙ラウンジを備え、開店パーティは4回に及んだ。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/inside-la-casa-del-habano-pall-mall-in-london-dominique-londons-crown-jewel/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-25'
+  publish_date: '2026-03-25'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/11-lcdh-pall-mall.jpg
+  related: []
+- slug: juan-lopez-besame-mucho
+  title: フアン・ロペス「ベサメ・ムーチョ」、メキシコ向け地域限定が発売へ
+  summary: メキシコ向けエディシオン・レヒオナル第6弾「フアン・ロペス ベサメ・ムーチョ」（スブリメス型、164mm×54）が4月24日の発売イベントを経て25日に発売された。価格は約1,066メキシコペソ（約60ドル）。販売店IEPTが発表した。
+  description: メキシコ向けエディシオン・レヒオナル第6弾「フアン・ロペス ベサメ・ムーチョ」（スブリメス型、164mm×54）が4月24日の発売イベントを経て25日に発売された。価格は約1,066メキシコペソ（約60ドル）。販売店IEPTが発表した。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/juan-lopez-besame-mucho-edicion-regional-mexico-coming-this-month/466316/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-04-06'
+  publish_date: '2026-04-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/12-besame-mucho.jpg
+  related: []
+- slug: vietnam-habanos-specialists-open
+  title: ベトナムのハバノス専門店網が拡大、ホーチミンとニャチャンに新店
+  summary: ホーチミン市（3フロア400㎡、サイゴン川を見渡すテラス付き）とニャチャン（中部最大の500㎡超）にハバノス・スペシャリストが開店し、ベトナム国内は計14店舗となった。アバンティ・グループと現地販売店ゴールデン・フェニックスによる展開。
+  description: ホーチミン市（3フロア400㎡、サイゴン川を見渡すテラス付き）とニャチャン（中部最大の500㎡超）にハバノス・スペシャリストが開店し、ベトナム国内は計14店舗となった。アバンティ・グループと現地販売店ゴールデン・フェニックスによる展開。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/new-habanos-specialists-stores-in-ho-chi-minh-city-and-nha-trang-vietnam/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-04-28'
+  publish_date: '2026-04-28'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/13-vietnam-specialists.jpg
+  related: []
+- slug: lcdh-milano-20th-anniversary
+  title: ラ・カーサ・デル・ハバノ・ミラノが20周年、記念ヒュミドールも披露
+  summary: ミラノのラ・カーサ・デル・ハバノが20周年を迎え、ポルテット・ミラノで記念イベントが開かれた（実際の開催は4月23日）。デアルト製の記念ヒュミドール（50台限定、ボリバ「ニュー・ゴールド・メダル」20本入り）や、イタリア地域限定品が披露された。
+  description: ミラノのラ・カーサ・デル・ハバノが20周年を迎え、ポルテット・ミラノで記念イベントが開かれた（実際の開催は4月23日）。デアルト製の記念ヒュミドール（50台限定、ボリバ「ニュー・ゴールド・メダル」20本入り）や、イタリア地域限定品が披露された。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/la-casa-del-habano-milano-two-decades-of-passion-at-the-portrait/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-05-09'
+  publish_date: '2026-05-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/14-lcdh-milano.jpg
+  related: []
+- slug: cohiba-novedosos-andorra
+  title: 2019年発表の幻、コイーバ「ノベドソス」がアンドラに到着
+  summary: 2019年に発表されながらコロナ禍でほぼ流通しなかったLCDH・専門店専売のコイーバ・ノベドソス（156mm×50、25本箱5,350ユーロ）が、アンドラで本格的に販売開始された。世界的にもほぼ初の実物流通とされる。
+  description: 2019年に発表されながらコロナ禍でほぼ流通しなかったLCDH・専門店専売のコイーバ・ノベドソス（156mm×50、25本箱5,350ユーロ）が、アンドラで本格的に販売開始された。世界的にもほぼ初の実物流通とされる。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/the-very-rare-cohiba-novedosos-arrive-in-andorra/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-02'
+  publish_date: '2026-06-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/15-cohiba-novedosos.jpg
+  related: []
+- slug: habanos-day-costa-rica-2026
+  title: 第5回ハバノス・デーがコスタリカで開催、60周年のコイーバも登場
+  summary: 5月16日、コスタリカで第5回ハバノス・デーが開催され、100人超が参加した。60周年のコイーバ（シグロI／III）、30周年のクアバとベゲーロスが振る舞われた。主催は中米販売店クルス・カネラ。
+  description: 5月16日、コスタリカで第5回ハバノス・デーが開催され、100人超が参加した。60周年のコイーバ（シグロI／III）、30周年のクアバとベゲーロスが振る舞われた。主催は中米販売店クルス・カネラ。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/v-habanos-day-in-costa-rica/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-03'
+  publish_date: '2026-06-03'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/16-habanos-day-costarica.jpg
+  related: []
+- slug: vuelta-abajo-planting-14000
+  title: タバクーバ、2026-27年作付で悲願の14,000ヘクタール再挑戦
+  summary: タバクーバが2026-27年シーズンのブエルタ・アバホ作付目標を14,000ヘクタールに設定した（国営ACN報道）。達成の鍵は太陽光灌漑で、灌漑地の半分を再生可能エネルギー化する計画。
+  description: タバクーバが2026-27年シーズンのブエルタ・アバホ作付目標を14,000ヘクタールに設定した（国営ACN報道）。達成の鍵は太陽光灌漑で、灌漑地の半分を再生可能エネルギー化する計画。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-hopes-to-plant-14000-hectares-in-the-vuelta-abajo-next-season/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-04'
+  publish_date: '2026-06-04'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/17-planting-14000.jpg
+  related: []
+- slug: dupont-cohiba-60-collection
+  title: コイーバ60周年、S.T.デュポンの記念アクセサリー第1弾が発売
+  summary: ハバノスとS.T.デュポンによるコイーバ60周年コレクションの第1弾が6月8日に発売された。ライター3種（690〜2,300ユーロ、各1,966個限定＝創設年）のほかカッターや灰皿などが揃い、第2弾は11月予定。
+  description: ハバノスとS.T.デュポンによるコイーバ60周年コレクションの第1弾が6月8日に発売された。ライター3種（690〜2,300ユーロ、各1,966個限定＝創設年）のほかカッターや灰皿などが揃い、第2弾は11月予定。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/60-years-of-cohiba-s-t-dupont-unveils-part-of-its-collection/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-08'
+  publish_date: '2026-06-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/18-dupont-cohiba60.png
+  related: []
+- slug: cuba-agriculture-liberalization
+  title: キューバ農業改革で民間企業の土地用益権が可能に、タバコ生産への影響は
+  summary: 6月19日に国民議会が採択した176項目の経済改革のうち3措置がタバコ産業に直結する。民間法人への農地用益権（無期限）や燃料・再エネ設備の直接輸入が認められる。ただしタバクーバの買い付け独占とハバノスの販売独占は不変で、専門家の評価は慎重。
+  description: 6月19日に国民議会が採択した176項目の経済改革のうち3措置がタバコ産業に直結する。民間法人への農地用益権（無期限）や燃料・再エネ設備の直接輸入が認められる。ただしタバクーバの買い付け独占とハバノスの販売独占は不変で、専門家の評価は慎重。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cuba-liberalizes-its-agriculture-what-does-it-mean-for-cuban-cigars/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-24'
+  publish_date: '2026-06-24'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/19-agriculture-reform.jpg
+  related: []
+- slug: lcdh-kreuzlingen-opens
+  title: スイス11店目のラ・カーサ・デル・ハバノ、ボーデン湖畔クロイツリンゲンに開店
+  summary: 6月26日、ドイツ国境に近いクロイツリンゲンにスイス11店目のラ・カーサ・デル・ハバノが開店した。ザンクト・ガレン店で知られるポートマン家の運営で、喫煙ラウンジを備える。
+  description: 6月26日、ドイツ国境に近いクロイツリンゲンにスイス11店目のラ・カーサ・デル・ハバノが開店した。ザンクト・ガレン店で知られるポートマン家の運営で、喫煙ラウンジを備える。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/new-la-casa-del-habano-in-kreuzlingen-switzerland/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-26'
+  publish_date: '2026-06-26'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/20-lcdh-kreuzlingen.jpg
+  related: []
+- slug: bolivar-evento-55-france
+  title: ボリバ「エベント55」、フランス向け地域限定が発売（1本35ユーロ）
+  summary: フランス向けエディシオン・レヒオナル2025「ボリバ エベント55」（ヘニオス型、140mm×52）が仏国内のタバコ店に到着した。50本キャビネット4,000個（計20万本）限定、1本35ユーロ。併せてコイーバ・ワイド・ショートの限定箱も発売された。
+  description: フランス向けエディシオン・レヒオナル2025「ボリバ エベント55」（ヘニオス型、140mm×52）が仏国内のタバコ店に到着した。50本キャビネット4,000個（計20万本）限定、1本35ユーロ。併せてコイーバ・ワイド・ショートの限定箱も発売された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/bolivar-evento-55-re-france-available-at-french-tobacconists/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-07-07'
+  publish_date: '2026-07-07'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/21-bolivar-evento55.jpg
+  related: []
+- slug: montecristo-herederos-switzerland
+  title: 6年越しのモンテクリスト「エレデロス」、スイスで待望の発売
+  summary: 2020年のフェスティバルで発表されコロナ禍で消えたと思われていたモンテクリスト・エレデロス（162mm×47、1本CHF 59）が7月21日からスイスのLCDHで発売された。併せてトリニダード・ビジャ（CHF 75）とコイーバ・ビストソス（CHF 260）も一般発売。いずれもLCDH・専門店専売。
+  description: 2020年のフェスティバルで発表されコロナ禍で消えたと思われていたモンテクリスト・エレデロス（162mm×47、1本CHF 59）が7月21日からスイスのLCDHで発売された。併せてトリニダード・ビジャ（CHF 75）とコイーバ・ビストソス（CHF 260）も一般発売。いずれもLCDH・専門店専売。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/three-new-habanos-in-switzerland-including-the-very-rare-montecristo-herederos/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-07-16'
+  publish_date: '2026-07-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/22-herederos-switzerland.jpg
+  related: []
+- slug: festival-habano-2026-cancelled
+  title: 第26回フェスティバル・デル・ハバノ、中止が正式決定
+  summary: 2月に延期されていた第26回フェスティバル・デル・ハバノについて、組織委員会が7月20日に「今年は開催しない」と正式発表した。コロナ禍の年を除けば異例の中止で、理由はキューバのエネルギー危機を含む国内情勢。一方でコイーバ60周年の記念プログラムは世界各地で継続するとした。
+  description: 2月に延期されていた第26回フェスティバル・デル・ハバノについて、組織委員会が7月20日に「今年は開催しない」と正式発表した。コロナ禍の年を除けば異例の中止で、理由はキューバのエネルギー危機を含む国内情勢。一方でコイーバ60周年の記念プログラムは世界各地で継続するとした。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/beyond-the-habano-festival-a-year-to-celebrate-the-60th-years-of-cohiba/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-07-20'
+  publish_date: '2026-07-20'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: null
+  related: []
+- slug: por-larranaga-35-aniversario-germany
+  title: ポル・ララニャガ「35アニベルサリオ」、独販売店の35周年記念で発売
+  summary: ドイツ・オーストリア・ポーランドの販売店5thアベニュー（5タ・アベニーダ）の創業35周年を祝うドイツ向け地域限定（194mm×49、50本箱1,750ユーロ、10万本限定）が8月31日にドイツのLCDH・専門店で発売された。
+  description: ドイツ・オーストリア・ポーランドの販売店5thアベニュー（5タ・アベニーダ）の創業35周年を祝うドイツ向け地域限定（194mm×49、50本箱1,750ユーロ、10万本限定）が8月31日にドイツのLCDH・専門店で発売された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/por-larranaga-35-aniversario-celebrates-5th-avenue-anniversary/478261/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-08-31'
+  publish_date: '2026-08-31'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/24-por-larranaga-35.jpg
+  related: []
+- slug: ft-habanos-premium-strategy
+  title: 英FTが検証、ハバノス「超高級化」戦略の光と影
+  summary: 英フィナンシャル・タイムズが9月3日、ハバノスの価格倍増戦略（2022年の香港価格への統一以降、売上は2024年に8億2,700万ドルへ）と、その戦略を主導したとされる陳志氏の失脚がブランドにもたらした影響を調査報道した。ロンドンの名店ソッターの経営者らの証言を含む。
+  description: 英フィナンシャル・タイムズが9月3日、ハバノスの価格倍増戦略（2022年の香港価格への統一以降、売上は2024年に8億2,700万ドルへ）と、その戦略を主導したとされる陳志氏の失脚がブランドにもたらした影響を調査報道した。ロンドンの名店ソッターの経営者らの証言を含む。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Financial Times
+  source_url: https://translatingcuba.com/they-doubled-the-prices-of-cuban-cigars-and-ruined-the-cuban-business/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-09-04'
+  publish_date: '2026-09-04'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/25-ft-investigation.jpg
+  related: []
+- slug: trinidad-vigia-reserva-cosecha-2022
+  title: トリニダード史上初のレセルバ「ビヒア レセルバ コセチャ2022」発表
+  summary: トリニダード初のレセルバが9月19日にスイス・モントルーで世界初披露された。ビヒア型（54×110mm）、最低3年追加熟成の葉を使用し、20本箱（3,800ドル）は5,000箱の番号入り限定、3本ギフト箱（660ドル）も同数。バンドにはNFC認証チップを搭載。
+  description: トリニダード初のレセルバが9月19日にスイス・モントルーで世界初披露された。ビヒア型（54×110mm）、最低3年追加熟成の葉を使用し、20本箱（3,800ドル）は5,000箱の番号入り限定、3本ギフト箱（660ドル）も同数。バンドにはNFC認証チップを搭載。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-unveiled-trinidad-vigia-reserva-cosecha-2022-the-first-reserva-in-trinidads-history/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-09-23'
+  publish_date: '2026-09-23'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/26-trinidad-vigia-reserva.jpg
+  related: []
+- slug: montecristo-fragata
+  title: モンテクリスト新作「フラガータ」、免税・トラベルリテール専売で登場
+  summary: 9月29日、カンヌのTFWA（免税・旅行小売の国際展示会）で新ビトラ「フラガータ」（デューク型、54×140mm）を発表。20本入りトラベルヒュミドール（加湿器・湿度計付き）で1,280ドル、免税・トラベルリテール専売。発売時期は未定。
+  description: 9月29日、カンヌのTFWA（免税・旅行小売の国際展示会）で新ビトラ「フラガータ」（デューク型、54×140mm）を発表。20本入りトラベルヒュミドール（加湿器・湿度計付き）で1,280ドル、免税・トラベルリテール専売。発売時期は未定。
+  category: 新製品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A.
+  source_url: https://www.habanos.com/en/news/habanos-s-a-has-unveiled-the-montecristo-fragata-a-new-travel-humidor-exclusively-for-duty-free-and-travel-retail/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-09-29'
+  publish_date: '2026-09-29'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/27-montecristo-fragata.jpg
+  related: []
+- slug: bat-leaves-cuba
+  title: 英BAT、キューバ合弁ブラスクーバの全持分を売却し30年で撤退
+  summary: ブリティッシュ・アメリカン・タバコが紙巻タバコ合弁ブラスクーバの持分50％をタバクーバ系タバゲストへ売却した（合意は2025年12月、完了は2026年2月、公表なしで財務報告から判明）。キューバタバコ産業の外資撤退として注目される。
+  description: ブリティッシュ・アメリカン・タバコが紙巻タバコ合弁ブラスクーバの持分50％をタバクーバ系タバゲストへ売却した（合意は2025年12月、完了は2026年2月、公表なしで財務報告から判明）。キューバタバコ産業の外資撤退として注目される。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/after-thirty-years-bat-leaves-cuba-without-a-word/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-10-05'
+  publish_date: '2026-10-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: null
+  related: []
+- slug: lgc-35-aniversario-switzerland
+  title: ラ・グロリア・クバーナ「35アニベルサリオ」、LCDH35周年記念ヒュミドールがスイス発売
+  summary: ラ・カーサ・デル・ハバノ35周年記念の限定ヒュミドール（ロドルフォ型180mm×47を35本収納、750台限定、CHF 3,850）が10月6日にスイスのLCDH10店で発売された。2025年のフェスティバルで発表された品の実売開始。併せてロメオ・イ・フリエタ「アマンテス」の20本箱（CHF 1,288）も同日発売。
+  description: ラ・カーサ・デル・ハバノ35周年記念の限定ヒュミドール（ロドルフォ型180mm×47を35本収納、750台限定、CHF 3,850）が10月6日にスイスのLCDH10店で発売された。2025年のフェスティバルで発表された品の実売開始。併せてロメオ・イ・フリエタ「アマンテス」の20本箱（CHF 1,288）も同日発売。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/la-gloria-cubana-35-aniversario-coming-to-swizerland-next-month/480027/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-10-06'
+  publish_date: '2026-10-06'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/29-lgc-35-aniversario.jpg
+  related: []
+- slug: cuba-tobacco-season-2026-27
+  title: キューバ2026-27年シーズン開始、全国20,000ヘクタール目標も「再び困難」と幹部
+  summary: 10月10日にピナール・デル・リオで2026-27年シーズンが開始された。タバクーバの目標は全国20,000ヘクタール（うち同州12,000超）、収量22,000トン。ただし燃料不足と停電で農業局長自ら「再び困難なシーズンになる」と認めた（EFE報道）。
+  description: 10月10日にピナール・デル・リオで2026-27年シーズンが開始された。タバクーバの目標は全国20,000ヘクタール（うち同州12,000超）、収量22,000トン。ただし燃料不足と停電で農業局長自ら「再び困難なシーズンになる」と認めた（EFE報道）。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigars-connect
+  source_url: https://www.cigars-connect.com/en/cubas-2026-27-tobacco-season-will-be-difficult-again/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-10-10'
+  publish_date: '2026-10-10'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/30-season-2026-27.jpg
+  related: []
+- slug: punch-nectares-ireland
+  title: アイルランド初の地域限定パンチ「ネクタレス No.50」、ロンドンで発売
+  summary: アイルランド初のエディシオン・レヒオナル「パンチ ネクタレス No.50」（マグナム50型、160mm×50）が英国に到着し、2月5日にロンドンのジェームズ・J・フォックスで発売イベントが開かれた。50本キャビネット1,400個（計70,000本）限定。地域限定バンドの表記は史上初の「Exclusivo Irlanda」。
+  description: アイルランド初のエディシオン・レヒオナル「パンチ ネクタレス No.50」（マグナム50型、160mm×50）が英国に到着し、2月5日にロンドンのジェームズ・J・フォックスで発売イベントが開かれた。50本キャビネット1,400個（計70,000本）限定。地域限定バンドの表記は史上初の「Exclusivo Irlanda」。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/irelands-first-habanos-regional-edition-gets-london-launch/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-02-05'
+  publish_date: '2026-02-05'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-01-nectares.jpg
+  related: []
+- slug: hoyo-de-monterrey-160th
+  title: オヨ・デ・モンテレイ160周年記念、Le Hoyo de Río Seco のスペイン限定版
+  summary: ハバノスがオヨ・デ・モンテレイの160周年を記念し、Le Hoyo de Río Seco（工場名アロモソス、140mm×56）をベースにした限定版をスペイン市場専売で発売した。グローバルブランドの大型周年記念品。
+  description: ハバノスがオヨ・デ・モンテレイの160周年を記念し、Le Hoyo de Río Seco（工場名アロモソス、140mm×56）をベースにした限定版をスペイン市場専売で発売した。グローバルブランドの大型周年記念品。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/new-hoyo-de-monterrey-160th-anniversary-edition/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-02'
+  publish_date: '2026-03-02'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-02-hoyo-160.jpg
+  related: []
+- slug: cohiba-year-2026
+  title: コイーバ60周年、2026年は「コイーバ・イヤー」として年間展開
+  summary: ハバノスはフラッグシップブランド、コイーバの創設60周年を2026年の中心テーマに据え、「コイーバ・イヤー」として年間を通じた記念展開を行う。フェスティバル中止で例年の発表の場を失う中、60周年企画は世界各地のイベントへ分散していく。
+  description: ハバノスはフラッグシップブランド、コイーバの創設60周年を2026年の中心テーマに据え、「コイーバ・イヤー」として年間を通じた記念展開を行う。フェスティバル中止で例年の発表の場を失う中、60周年企画は世界各地のイベントへ分散していく。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-celebrates-six-decades-2026-cohiba-year/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-16'
+  publish_date: '2026-03-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-03-cohiba-year.jpg
+  related: []
+- slug: cohiba-wide-short-limited-edition
+  title: コイーバ・ワイド・ショート初の限定版、「50 リミテッドエディション 2024」ヒュミドール
+  summary: ミニシガリロ「コイーバ・ワイド・ショート」初の限定版として、50本入り限定ヒュミドール「Cohiba Wide Short 50 Limited Edition 2024」の登場を伝える製品記事。
+  description: ミニシガリロ「コイーバ・ワイド・ショート」初の限定版として、50本入り限定ヒュミドール「Cohiba Wide Short 50 Limited Edition 2024」の登場を伝える製品記事。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-wide-short-unveils-its-first-limited-edition/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-03-25'
+  publish_date: '2026-03-25'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-04-wide-short-le.jpg
+  related: []
+- slug: bogota-cigar-humidor-opens
+  title: コロンビアのハバノス専門店網が拡大、ボゴタに「The Cigar Humidor」開店
+  summary: ボゴタにハバノス・スペシャリスト「The Cigar Humidor」（172㎡、スペシャルティコーヒー店Sacovillaと併設）が開店した。偽物が横行していた市場が、現地販売店カリベ・インポーツの取り組みで正規専門店中心に変わりつつある現地事情も伝えられている。
+  description: ボゴタにハバノス・スペシャリスト「The Cigar Humidor」（172㎡、スペシャルティコーヒー店Sacovillaと併設）が開店した。偽物が横行していた市場が、現地販売店カリベ・インポーツの取り組みで正規専門店中心に変わりつつある現地事情も伝えられている。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/the-cigar-humidor-is-the-newest-habanos-specialist-in-colombia/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-04-17'
+  publish_date: '2026-04-17'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-05-bogota-humidor.jpg
+  related: []
+- slug: la-flor-de-cano-magicos-spain
+  title: ラ・フロール・デ・カノ「マヒコス」、スペイン向け地域限定が発売
+  summary: スペイン向けエディシオン・レヒオナル「ラ・フロール・デ・カノ マヒコス」が、「Fuera de Serie（規格外）」コンセプトを掲げてスペイン市場に到着した。手頃な価格帯ブランドの地域限定はコレクター人気が高い。
+  description: スペイン向けエディシオン・レヒオナル「ラ・フロール・デ・カノ マヒコス」が、「Fuera de Serie（規格外）」コンセプトを掲げてスペイン市場に到着した。手頃な価格帯ブランドの地域限定はコレクター人気が高い。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/la-flor-de-cano-magicos-edicion-regional-arrives-in-spain/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-05-21'
+  publish_date: '2026-05-21'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-06-magicos.png
+  related: []
+- slug: lcdh-kuala-lumpur-1st-anniversary
+  title: LCDHクアラルンプールが開店1周年、パシフィック・シガーが記念イベント
+  summary: 2025年に開店したラ・カーサ・デル・ハバノ・クアラルンプールが5月に開店1周年を迎え、パシフィック・シガー関係者らを招いて記念イベントが開かれた。アジア市場におけるLCDH網の定着を示す一件。
+  description: 2025年に開店したラ・カーサ・デル・ハバノ・クアラルンプールが5月に開店1周年を迎え、パシフィック・シガー関係者らを招いて記念イベントが開かれた。アジア市場におけるLCDH網の定着を示す一件。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/la-casa-del-habano-kuala-lumpur-celebrates-1st-anniversary/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-15'
+  publish_date: '2026-06-15'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-07-lcdh-kl.jpg
+  related: []
+- slug: por-larranaga-intemporales-switzerland
+  title: ポル・ララニャガ「インテンポラレス」、スイス地域限定2023がようやく発売
+  summary: スイス向けエディシオン・レヒオナル2023「ポル・ララニャガ インテンポラレス」の発売が6月になるとハバノスが発表した。2023年銘の地域限定が2026年にずれ込んで実売される、近年の供給遅延を象徴するケース。サイズ・価格等の詳細は未確認。
+  description: スイス向けエディシオン・レヒオナル2023「ポル・ララニャガ インテンポラレス」の発売が6月になるとハバノスが発表した。2023年銘の地域限定が2026年にずれ込んで実売される、近年の供給遅延を象徴するケース。サイズ・価格等の詳細は未確認。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/por-larranaga-intemporales-edicion-regional-suiza/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-15'
+  publish_date: '2026-06-15'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-08-intemporales.jpg
+  related: []
+- slug: lgc-serie-brasil-no3
+  title: ブラジル向け地域限定第3弾、ラ・グロリア・クバーナ「セリエ・ブラジル No.3」
+  summary: ブラジル向けエディシオン・レヒオナル第3弾「ラ・グロリア・クバーナ セリエ・ブラジル No.3」（カンパーナ型、52×140mm）が現地の主要店舗で発売された。番号入り10本箱6,000個限定、現地価格は1箱平均490ユーロ。この発売をもって同ブランドがブラジル市場へ初めて導入された。
+  description: ブラジル向けエディシオン・レヒオナル第3弾「ラ・グロリア・クバーナ セリエ・ブラジル No.3」（カンパーナ型、52×140mm）が現地の主要店舗で発売された。番号入り10本箱6,000個限定、現地価格は1箱平均490ユーロ。この発売をもって同ブランドがブラジル市場へ初めて導入された。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/brazil-presents-its-3rd-habanos-regional-edition/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-06-16'
+  publish_date: '2026-06-16'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-09-serie-brasil.jpg
+  related: []
+- slug: counterfeit-habanos-seized-spain
+  title: スペインで偽キューバ葉巻33,840本を押収、欧州流通向けに偽バンドを装着
+  summary: スペイン治安警備隊（グアルディア・シビル）が、バレンシア近郊ミスラタの住宅で偽キューバ葉巻33,840本を押収した。現場では偽バンドの装着と、欧州各地へ流通させるための梱包が行われていた。
+  description: スペイン治安警備隊（グアルディア・シビル）が、バレンシア近郊ミスラタの住宅で偽キューバ葉巻33,840本を押収した。現場では偽バンドの装着と、欧州各地へ流通させるための梱包が行われていた。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/34000-counterfeit-habanos-seized-in-spain/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-07-13'
+  publish_date: '2026-07-13'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-10-counterfeit-seized.jpg
+  related: []
+- slug: cohiba-atmosphere-tel-aviv
+  title: コイーバ・アトモスフィアがテルアビブに、イスラエル初のキューバ葉巻専用拠点
+  summary: 高級ホテル「ザ・デビッド・ケンピンスキー テルアビブ」内に、イスラエル初のコイーバ・アトモスフィア「Cohiba Atmosphere TLV」がオープンした。同国におけるキューバ葉巻の公式拠点と位置付けられている。
+  description: 高級ホテル「ザ・デビッド・ケンピンスキー テルアビブ」内に、イスラエル初のコイーバ・アトモスフィア「Cohiba Atmosphere TLV」がオープンした。同国におけるキューバ葉巻の公式拠点と位置付けられている。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cohiba-atmosphere-tel-aviv/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-08-23'
+  publish_date: '2026-08-23'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-11-atmosphere-telaviv.jpg
+  related: []
+- slug: cubas-cigar-paradox
+  title: 記録的売上と縮む供給、CJ長編分析が描くハバノスの「パラドックス」
+  summary: 中米の葉巻産業に30年以上関わった筆者が、2024年の売上8億2,700万ドルという記録の裏側で進む供給縮小、2022年以降の超高級化（ベイケ52が約55ユーロから約230ユーロへ）、中国市場への依存と陳志氏の権益問題、ニューワールド産地への需要流出を総合的に分析した長編。
+  description: 中米の葉巻産業に30年以上関わった筆者が、2024年の売上8億2,700万ドルという記録の裏側で進む供給縮小、2022年以降の超高級化（ベイケ52が約55ユーロから約230ユーロへ）、中国市場への依存と陳志氏の権益問題、ニューワールド産地への需要流出を総合的に分析した長編。
+  category: 経営
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Cigar Journal
+  source_url: https://www.cigarjournal.com/cubas-cigar-paradox/
+  source_checked: 候補メモ確認済み
+  source_date: '2026-09-08'
+  publish_date: '2026-09-08'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: photos-hab/cj-12-cigar-paradox.jpg
+  related: []

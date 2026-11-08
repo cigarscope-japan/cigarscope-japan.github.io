@@ -22,11 +22,11 @@ CigarScope Japan — 公開前検査スクリプト（第2段階＋編集管理�
   5. myfather への言及・リンクが生成物に無い
   6. published 記事の品質ゲート（出典URL・原文確認済み・必須項目）
   7. 決定的生成（build.py を2回実行し全生成ファイルのハッシュが完全一致）
-  8. Cigar Journal の不使用（文字列走査: articles.yaml・src/bodies・site-gen/news）
+  8. 除外媒体 CigarNavi の不使用（文字列走査: articles.yaml・src/bodies・site-gen/news）※2026-11-09訂正で対象を Cigar Journal から CigarNavi へ変更
   9. 情報源レジストリ（standard: source_name の登録必須／除外媒体の使用禁止）
  10. 主張対応表（standard published: 必須、未解決行があれば公開不可）
  11. 報道ベース明示ゲート（standard published: 機械条件＋人間の編集確認の両方が必要）
- 12. Cigar Journal 不使用確認記録（standard published: cj-checks の記録が必須）
+ 12. 除外媒体不使用確認記録（standard published: cj-checks の記録が必須）
  13. 公開承認記録（standard published: approval 必須、ハッシュ不一致は再承認待ち）
  14. 訂正履歴の整合性（standard: 本文の訂正表記と history の対応）
 """
@@ -307,8 +307,8 @@ def main():
         det.append('build.py の実行に失敗')
     record('7. 決定的生成（同一入力から常に同一HTML）', ok, det)
 
-    # 8. Cigar Journal の不使用（文字列走査）
-    cj_patterns = ('cigar journal', 'cigarjournal')
+    # 8. 除外媒体 CigarNavi の不使用（文字列走査）※2026-11-09 カズの訂正により対象変更（Cigar Journal は使用可）
+    cj_patterns = ('cigarnavi', 'cigar navi', 'シガーナビ')
     cj_hits = []
     scan_targets = [data_path]
     bodies_dir = os.path.join(base, 'src', 'bodies')
@@ -324,7 +324,7 @@ def main():
         for pat in cj_patterns:
             if pat in text:
                 cj_hits.append('%s に "%s" を検出' % (os.path.relpath(p, base), pat))
-    record('8. Cigar Journal の不使用（文字列走査）', not cj_hits,
+    record('8. 除外媒体 CigarNavi の不使用（文字列走査）', not cj_hits,
            cj_hits or ['走査対象 %d ファイルに混入なし' % len(scan_targets)])
 
     # 9. 情報源レジストリ
@@ -410,7 +410,7 @@ def main():
         text = read_text(p)
         if a['slug'] not in text or not re.search(r'結果\s*[:：]\s*使用なし', text):
             cjrec_bad.append('%s: 不使用確認記録に「結果: 使用なし」の記載がない' % a['slug'])
-    record('12. Cigar Journal 不使用確認記録（standard published: 必須）', not cjrec_bad,
+    record('12. 除外媒体不使用確認記録（standard published: 必須）', not cjrec_bad,
            cjrec_bad or ['standard published %d 件全て記録あり' % len(std_published)])
 
     # 13. 公開承認記録とハッシュ照合
