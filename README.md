@@ -2,7 +2,7 @@
 
 世界のプレミアムシガー産業のニュースを日本語で紹介する、独立系ニュースメディア（非商用）。
 
-- 公開サイト: https://koinu-bunko.github.io
+- 公開サイト: https://cigarscope-japan.github.io
 - タグライン: WORLD CIGAR NEWS & INTELLIGENCE
 - ブランドメッセージ: BEYOND HAVANA. BEYOND BORDERS.（世界の葉巻を、もっと広く、もっと深く。）
 - 編集人: 仔犬（マスコットはハンチング帽と蝶ネクタイの編集長スタイル）
