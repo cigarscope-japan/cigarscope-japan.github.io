@@ -185,3 +185,8 @@ main{display:block;max-width:1200px;margin:0 auto;padding:44px 24px 10px}
   .search-form{flex-direction:column;gap:10px}
   .search-form button{height:44px}
 }
+
+/* Read-more affordance on cards (2026-11-09) */
+.card-more{margin:10px 0 0}
+.read-more{display:inline-block;padding:7px 16px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold-deep);font-weight:700;font-size:.85rem;text-decoration:none}
+.read-more:hover{background:var(--gold);color:#171717}
