@@ -86,3 +86,11 @@ sha256sum features/joya.html features/padron.html features/opusx.html   # 上記
 ## v11 (2026-11-09) — commit 0e90ac7b
 - 写真なし3本（bvi-habanos／fifth-avenue／el-tigre-factory、日英）に写真を追加。BVI＝出資構造図（Elite Trading Scandinavia AB提出資料、Cigarrvärlden／Halfwheel）、5th＝LCDH店舗写真（Cigar Aficionado）、エル・ティグレ＝Drew Estate公式製品写真。
 - 英語版3本は再承認済み（カズ「全部採用」2026-11-09）。スナップショット：cigar-site-public-v11/
+
+## v12 — 2026-11-09（コミット 2d710362）
+- バックナンバー71件を一括追加：世界の葉巻ニュース 2026-11-05〜07号から29件＋ハバノス2026候補42件（本編30＋CJ追加12）。公開記事は合計79件に。
+- 全記事に写真：実写真61件（出典クレジット明記）、実写真のない10件はAI生成イラスト（画像内「AI生成イラスト」マーク＋キャプション明示）。
+- 原文確認：71件すべて出典ページと照合済み（audits/backnumber-verification-2026-11-09.md）。照合で発覚した Cohiba Wide Short 記事の混入記述（フランス向け限定箱）は削除し原文どおりに修正。
+- 新規レジストリ：国3件（エクアドル／ドイツ／ドバイ）、メーカー22件。検査ゲート8の走査対象を CigarNavi に訂正（2026-11-09のカズ訂正に追随）。check.py 全ゲート合格。
+- 記事化しなかったもの：checkpoints-2026-11-06／-07（予定リストのため、ステージングに保持）。
+- 戻し方：v11スナップショット（~/workspace/cigar-site-public-v11/、コミット 0e90ac7b）を再公開する。

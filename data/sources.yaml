@@ -18,3 +18,7 @@ sources:
   tier: T3
   tier_rationale: 編集部制だが葉巻専門に特化しない業界紙であり、基準7のT3判定条件「運営主体が明示され、記事に日付と出典があること」に該当する。
   track_record: []
+- name: House of Grauer
+  tier: T4
+  tier_rationale: ジュネーブの小売店（La Casa del Habano）が運営する編集ニュース欄。発見・裏付け用であり、単独の根拠にはしない（基準7のT4：小売店）。2026-11-09にカズが情報源として追加を指示。https://www.houseofgrauer.com/cigar-news
+  track_record: []

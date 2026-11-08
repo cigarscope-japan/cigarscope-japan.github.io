@@ -3,10 +3,10 @@
 対象: site-gen/（tools/build.py の生成物）＋ data/articles.yaml 等の編集管理データ
 
 ## [合格] 1. href="#" が 0 件
-- 対象 125 ページ全て 0 件
+- 対象 134 ページ全て 0 件
 
 ## [合格] 2. 内部リンク・画像・CSS が全て実ファイルに解決
-- 参照 4128 件を検査し全て解決
+- 参照 4467 件を検査し全て解決
 
 ## [合格] 3. draft 記事が生成物に一切現れない
 - draft 1 件（sample-draft-unpublished）の slug・タイトルとも検出なし
@@ -18,13 +18,13 @@
 - 全生成ファイルに "myfather" の文字列なし
 
 ## [合格] 6. published 記事の品質ゲート（出典・原文確認・必須項目）
-- published 79 件全て充足
+- published 86 件全て充足
 
 ## [合格] 7. 決定的生成（同一入力から常に同一HTML）
-- 生成ファイル 125 件のハッシュが、実行前・1回目・2回目で完全一致
+- 生成ファイル 134 件のハッシュが、実行前・1回目・2回目で完全一致
 
 ## [合格] 8. 除外媒体 CigarNavi の不使用（文字列走査）
-- 走査対象 161 ファイルに混入なし
+- 走査対象 175 ファイルに混入なし
 
 ## [合格] 9. 情報源レジストリ（standard: 登録必須／除外媒体の使用禁止）
 - standard published 0 件の出典は全て登録済み
@@ -96,7 +96,10 @@
 - legacy: counterfeit-habanos-seized-spain の source_name「Cigar Journal」は未登録（移行時に要対応）
 - legacy: cohiba-atmosphere-tel-aviv の source_name「Cigar Journal」は未登録（移行時に要対応）
 - legacy: cubas-cigar-paradox の source_name「Cigar Journal」は未登録（移行時に要対応）
-- legacy: published 79 件の主張対応表は未作成（移行は別途承認）
-- legacy: published 79 件の承認記録は未登録（移行は別途承認）
+- legacy: trinidad-villa の source_name「Habanos S.A. 公式発表」は未登録（移行時に要対応）
+- legacy: san-martin-villiger の source_name「Tabak Brucker」は未登録（移行時に要対応）
+- legacy: swiss-regional-editions-habanos の source_name「La Casa del Habano Nyon」は未登録（移行時に要対応）
+- legacy: published 86 件の主張対応表は未作成（移行は別途承認）
+- legacy: published 86 件の承認記録は未登録（移行は別途承認）
 
 ## 総合判定: 合格（全項目パス）

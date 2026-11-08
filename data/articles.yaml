@@ -174,6 +174,16 @@ makers:
   en: Scandinavian Tobacco Group
   short: Scandinavian Tobacco Group（スカンジナビアン・タバコ・グループ）
   base: アメリカ
+- id: arturo-fuente
+  ja: Arturo Fuente（アルトゥーロ・フエンテ）
+  en: Arturo Fuente
+  short: Arturo Fuente（アルトゥーロ・フエンテ）
+  base: ドミニカ共和国
+- id: cle-cigar-co
+  ja: CLE Cigar Co.（CLEシガー）
+  en: CLE Cigar Co.
+  short: CLE Cigar Co.（CLEシガー）
+  base: ホンジュラス
 articles:
 - slug: feral-flying-pig
   title: ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も
@@ -2453,3 +2463,239 @@ articles:
   top_story: null
   image: img/news-sample/cubas-cigar-paradox.jpg
   related: []
+- slug: trinidad-villa
+  title: トリニダード『ビジャ』、世界遺産の街にちなむLCDH専売の新ビトラ
+  summary: ラ・カサ・デル・ハバノとハバノス・スペシャリスト専売の新ビトラ『ビジャ』。世界遺産の植民都市トリニダードにちなみ、フリエタNo.3（47×170mm）を12本入り専用ボックスで展開する。
+  description: ラ・カサ・デル・ハバノとハバノス・スペシャリスト専売の新ビトラ『ビジャ』。世界遺産の植民都市トリニダードにちなみ、フリエタNo.3（47×170mm）を12本入り専用ボックスで展開する。
+  category: 限定品
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Habanos S.A. 公式発表
+  source_url: https://www.habanos.com/en/news/habanos-s-a-presents-the-new-trinidad-villa-a-tribute-to-the-elegance-and-cultural-heritage-of-cuba/
+  source_checked: 原文確認済み
+  source_date: '2026-07-09'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/trinidad-villa.jpg
+  related:
+  - trinidad-vigia-reserva-cosecha-2022
+  - trinidad-corcel-hong-kong
+  top_country_blocks:
+  - cuba
+  mini_titles: {}
+  brand_title: トリニダード『ビジャ』
+  release_title: トリニダード『ビジャ』、世界遺産の街にちなむLCDH専売の新ビトラ
+  release_summary: ラ・カサ・デル・ハバノとハバノス・スペシャリスト専売の新ビトラ『ビジャ』。世界遺産の植民都市トリニダードにちなみ、フリエタNo.3（47×170mm）を12本入り専用ボックスで展開する。
+  release_alt: トリニダード『ビジャ』、世界遺産の街にちなむLCDH専売の新ビトラ
+- slug: plasencia-triunfal
+  title: プラセンシア『トリウンファル』、W杯2026記念は両国オーガニック葉の初ブレンド
+  summary: 2026年FIFAワールドカップを祝うプラセンシアの限定品。ホンジュラスとニカラグア両国のオーガニック葉を初めて組み合わせ、グラン・トロを世界5,000箱限定で発売。
+  description: 2026年FIFAワールドカップを祝うプラセンシアの限定品。ホンジュラスとニカラグア両国のオーガニック葉を初めて組み合わせ、グラン・トロを世界5,000箱限定で発売。
+  category: 限定品
+  country: ホンジュラス
+  country_id: honduras
+  country_en: HONDURAS
+  country_ids:
+  - honduras
+  maker: Plasencia（プラセンシア）
+  maker_id: plasencia
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/plasencia-triunfal-a-world-cup-2026-cigar-arrives-at-stores/471086/
+  source_checked: 原文確認済み
+  source_date: '2026-07-21'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/plasencia-triunfal.jpg
+  related:
+  - plasencia-year-of-the-goat
+  - plasencia-holiday-collection-2026
+  top_country_blocks:
+  - honduras
+  mini_titles: {}
+  brand_title: プラセンシア『トリウンファル』
+  release_title: プラセンシア『トリウンファル』、W杯2026記念は両国オーガニック葉の初ブレンド
+  release_summary: 2026年FIFAワールドカップを祝うプラセンシアの限定品。ホンジュラスとニカラグア両国のオーガニック葉を初めて組み合わせ、グラン・トロを世界5,000箱限定で発売。
+  release_alt: プラセンシア『トリウンファル』、W杯2026記念は両国オーガニック葉の初ブレンド
+- slug: arturo-fuente-rare-pink
+  title: フエンテ『レアピンク』、1960年代へのオマージュと乳がん啓発のパーフェクト
+  summary: 2020年登場のフエンテのラインを改めて紹介。全サイズがパーフェクト型で、エクアドル産ラッパーにドミニカとニカラグアの葉をブレンド。1箱ごとに13ドルが乳がん研究へ寄付される。
+  description: 2020年登場のフエンテのラインを改めて紹介。全サイズがパーフェクト型で、エクアドル産ラッパーにドミニカとニカラグアの葉をブレンド。1箱ごとに13ドルが乳がん研究へ寄付される。
+  category: 新製品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: Arturo Fuente（アルトゥーロ・フエンテ）
+  maker_id: arturo-fuente
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/arturo-fuente-ships-2022-batch-of-rare-pinks-including-two-new-sizes/414912/
+  source_checked: 原文確認済み
+  source_date: '2026-11-02'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/arturo-fuente-rare-pink.jpg
+  related: []
+  top_country_blocks:
+  - dominican
+  mini_titles: {}
+  brand_title: フエンテ『レアピンク』
+  release_title: フエンテ『レアピンク』、1960年代へのオマージュと乳がん啓発のパーフェクト
+  release_summary: 2020年登場のフエンテのラインを改めて紹介。全サイズがパーフェクト型で、エクアドル産ラッパーにドミニカとニカラグアの葉をブレンド。1箱ごとに13ドルが乳がん研究へ寄付される。
+  release_alt: フエンテ『レアピンク』、1960年代へのオマージュと乳がん啓発のパーフェクト
+- slug: tabacalera-1916-eiroa
+  title: エイロア家4代目の『1916』、全ホンジュラス葉でたどる一家の原点
+  summary: CLEの4代目サンティ・エイロアが手がける新ライン。1916年に曾祖父がキューバで植えたタバコに由来し、5年熟成ハバノ葉とピナレーニョを使う全ホンジュラス・ブレンド。
+  description: CLEの4代目サンティ・エイロアが手がける新ライン。1916年に曾祖父がキューバで植えたタバコに由来し、5年熟成ハバノ葉とピナレーニョを使う全ホンジュラス・ブレンド。
+  category: 新製品
+  country: ホンジュラス
+  country_id: honduras
+  country_en: HONDURAS
+  country_ids:
+  - honduras
+  maker: CLE Cigar Co.（CLEシガー）
+  maker_id: cle-cigar-co
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/1916-tabacalera-eiroa-asylum-arabian-nights-begin-shipping/471962/
+  source_checked: 原文確認済み
+  source_date: '2026-11-02'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/tabacalera-1916-eiroa.jpg
+  related:
+  - san-luis-rey-eiroa-30th-maduro
+  - elegante
+  top_country_blocks:
+  - honduras
+  mini_titles: {}
+  brand_title: 1916 タバカレラ・エイロア
+  release_title: エイロア家4代目の『1916』、全ホンジュラス葉でたどる一家の原点
+  release_summary: CLEの4代目サンティ・エイロアが手がける新ライン。1916年に曾祖父がキューバで植えたタバコに由来し、5年熟成ハバノ葉とピナレーニョを使う全ホンジュラス・ブレンド。
+  release_alt: エイロア家4代目の『1916』、全ホンジュラス葉でたどる一家の原点
+- slug: san-martin-villiger
+  title: ヴィリガーの新ブランド『サン・マルティン』、解放者の名を冠すドミニカの手巻き
+  summary: ヴィリガーが2026年に送り出した新プレミアムブランド。解放者ホセ・デ・サン・マルティンの名を冠し、ドミニカのABAM工場で手巻きされる。ブレンドは非公開が売りの100％カリブ海産。
+  description: ヴィリガーが2026年に送り出した新プレミアムブランド。解放者ホセ・デ・サン・マルティンの名を冠し、ドミニカのABAM工場で手巻きされる。ブレンドは非公開が売りの100％カリブ海産。
+  category: 新製品
+  country: ドミニカ共和国
+  country_id: dominican
+  country_en: DOMINICAN REPUBLIC
+  country_ids:
+  - dominican
+  maker: Villiger（ヴィリガー）
+  maker_id: villiger
+  source_name: Tabak Brucker
+  source_url: https://www.tabak-brucker.de/zigarren/zigarrenmarken/san-martin
+  source_checked: 原文確認済み
+  source_date: '2026-10-19'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/san-martin-villiger.jpg
+  related:
+  - villiger-taa-exclusive-2026
+  top_country_blocks:
+  - dominican
+  mini_titles: {}
+  brand_title: ヴィリガー『サン・マルティン』
+  release_title: ヴィリガーの新ブランド『サン・マルティン』、解放者の名を冠すドミニカの手巻き
+  release_summary: ヴィリガーが2026年に送り出した新プレミアムブランド。解放者ホセ・デ・サン・マルティンの名を冠し、ドミニカのABAM工場で手巻きされる。ブレンドは非公開が売りの100％カリブ海産。
+  release_alt: ヴィリガーの新ブランド『サン・マルティン』、解放者の名を冠すドミニカの手巻き
+- slug: swiss-regional-editions-habanos
+  title: スイス地域限定『エクスクルーシボ・スイサ』の20年、初年度から最新作まで
+  summary: 2005年に始まったハバノス地域限定のうち、スイス向け『エクスクルーシボ・スイサ』の歩みをたどる。初年度のパンチとラモン・アローネスから、2013年の記念ヒュミドール、最新作まで。
+  description: 2005年に始まったハバノス地域限定のうち、スイス向け『エクスクルーシボ・スイサ』の歩みをたどる。初年度のパンチとラモン・アローネスから、2013年の記念ヒュミドール、最新作まで。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: La Casa del Habano Nyon
+  source_url: https://la-casa-del-habano-nyon.com/en/tout-savoir-sur-les-edicion-regional-habanos-sa/
+  source_checked: 原文確認済み
+  source_date: '2026-08-03'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/swiss-regional-editions-habanos.jpg
+  related:
+  - por-larranaga-intemporales-switzerland
+  - bolivar-evento-55-france
+  top_country_blocks:
+  - cuba
+  mini_titles: {}
+  brand_title: スイス地域限定の20年
+- slug: coleccion-habanos-books
+  title: 『本』の形をした至宝、コレクシオン・ハバノスの四半世紀
+  summary: 本の形をした箱で知られるハバノスの特別シリーズ『コレクシオン・ハバノス』。2001年のクアバ・サロモーネスからコイーバ・イデアレスまで、四半世紀の名作を振り返る。
+  description: 本の形をした箱で知られるハバノスの特別シリーズ『コレクシオン・ハバノス』。2001年のクアバ・サロモーネスからコイーバ・イデアレスまで、四半世紀の名作を振り返る。
+  category: 市場・流通
+  country: キューバ
+  country_id: cuba
+  country_en: CUBA
+  country_ids:
+  - cuba
+  maker: Habanos S.A.（ハバノス）
+  maker_id: habanos
+  source_name: Halfwheel
+  source_url: https://halfwheel.com/romeo-y-julieta-fabulosos-no-2-coleccion-habanos-2016/403445/
+  source_checked: 原文確認済み
+  source_date: '2026-06-02'
+  publish_date: '2026-11-09'
+  status: published
+  flow_version: legacy
+  source_type: secondary
+  history: []
+  approval: null
+  breaking: false
+  top_story: null
+  image: img/news-sample/coleccion-habanos-books.jpg
+  related:
+  - cohiba-year-2026
+  - cohiba-talisman-regular
+  top_country_blocks:
+  - cuba
+  mini_titles: {}
+  brand_title: コレクシオン・ハバノス
