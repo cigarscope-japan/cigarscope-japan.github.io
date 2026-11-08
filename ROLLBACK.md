@@ -94,3 +94,7 @@ sha256sum features/joya.html features/padron.html features/opusx.html   # 上記
 - 新規レジストリ：国3件（エクアドル／ドイツ／ドバイ）、メーカー22件。検査ゲート8の走査対象を CigarNavi に訂正（2026-11-09のカズ訂正に追随）。check.py 全ゲート合格。
 - 記事化しなかったもの：checkpoints-2026-11-06／-07（予定リストのため、ステージングに保持）。
 - 戻し方：v11スナップショット（~/workspace/cigar-site-public-v11/、コミット 0e90ac7b）を再公開する。
+
+## v13 — 2026-11-09（コミット 7915bb00）
+- House of Grauer バックナンバー7本を追加（カズ承認 02:22）：trinidad-villa／plasencia-triunfal／arturo-fuente-rare-pink／tabacalera-1916-eiroa／san-martin-villiger／swiss-regional-editions-habanos／coleccion-habanos-books。公開記事は合計86本に。makers に arturo-fuente と cle-cigar-co を追加。
+- 戻し方：v12スナップショット（~/workspace/cigar-site-public-v12/、コミット 2d710362）を再公開する。
