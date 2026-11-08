@@ -417,10 +417,13 @@ main { display: block; }
 /* ---------- スマホ ---------- */
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .util-row { font-size: 0.76rem; }
-  .masthead { padding-top: 18px; }
-  .masthead .site-logo { width: min(100%, 340px); }
-  .tagline { font-size: 0.74rem; letter-spacing: 0.3em; text-indent: 0.3em; }
+  .util-row { font-size: 0.76rem; padding: 6px 2px 5px; }
+  .masthead { padding-top: 8px; padding-bottom: 0; }
+  .masthead .site-logo { width: min(78%, 225px); }
+  .tagline { margin-top: 6px; font-size: 0.7rem; letter-spacing: 0.3em; text-indent: 0.3em; }
+  .brand-msg { margin-top: 5px; }
+  .brand-msg .ja { margin-top: 1px; }
+  .masthead-rule { margin-top: 10px; }
 
   .gnav-button { display: block; }
   /* 初期状態は特異度を上げて確実に非表示にし、チェック時のみ展開する */
