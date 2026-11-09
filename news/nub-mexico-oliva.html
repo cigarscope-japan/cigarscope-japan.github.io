@@ -27,7 +27,15 @@
 <nav class="gnav" aria-label="グローバルナビゲーション">
 <div class="gnav-inner">
 <input class="gnav-toggle" type="checkbox" id="gnav-toggle">
+<div class="gnav-flex">
 <label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
+<form class="header-search" role="search">
+<label class="sr-only" for="site-search-q">サイト内検索</label>
+<span class="field"><input id="site-search-q" name="q" type="search" placeholder="ニュース・銘柄・メーカーで検索" autocomplete="off"></span>
+<button type="submit">検索</button>
+</form>
+<noscript><a class="noscript-search" href="../search.html">検索</a></noscript>
+</div>
 <ul>
 <li><a href="../index.html">TOP</a></li>
 <li><a class="cur" href="../news/index.html">NEWS</a></li>
@@ -94,5 +102,6 @@
 <div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
 </div>
 </footer>
+<script src="../search.js" defer></script>
 
 </body></html>

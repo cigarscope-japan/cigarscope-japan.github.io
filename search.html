@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サイト内検索 | CigarScope Japan</title>
+<meta name="description" content="CigarScope Japanのサイト内検索。ニュース・銘柄・メーカー・国から記事を探せます。検索はブラウザの中だけで実行されます。">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="style-v2.css">
+</head><body>
+
+<header class="site-header">
+<div class="column">
+<div class="util-row">
+<span class="dateline" id="dateline">2026年11月8日（日）</span>
+<div class="lang-switch"><span class="cur">日本語</span><span class="sep">|</span><a href="en/index.html">EN</a></div>
+</div>
+<div class="masthead">
+<div class="site-logo-wrap"><a href="index.html"><span class="sr-only">CigarScope Japan — WORLD CIGAR NEWS &amp; INTELLIGENCE</span>
+<picture><source srcset="assets/cigarscope-japan-logo-mobile.webp" type="image/webp" media="(max-width: 640px)"><source srcset="assets/cigarscope-japan-logo.webp" type="image/webp"><img class="site-logo" src="assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News"></picture>
+</a></div>
+<p class="tagline">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<p class="brand-msg"><span class="en">BEYOND HAVANA. BEYOND BORDERS.</span><span class="ja">世界の葉巻を、もっと広く、もっと深く。</span></p>
+</div>
+</div>
+<hr class="masthead-rule">
+<nav class="gnav" aria-label="グローバルナビゲーション">
+<div class="gnav-inner">
+<input class="gnav-toggle" type="checkbox" id="gnav-toggle">
+<div class="gnav-flex">
+<label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
+<form class="header-search" role="search">
+<label class="sr-only" for="site-search-q">サイト内検索</label>
+<span class="field"><input id="site-search-q" name="q" type="search" placeholder="ニュース・銘柄・メーカーで検索" autocomplete="off"></span>
+<button type="submit">検索</button>
+</form>
+<noscript><a class="noscript-search" href="search.html">検索</a></noscript>
+</div>
+<ul>
+<li><a href="index.html">TOP</a></li>
+<li><a href="news/index.html">NEWS</a></li>
+<li><a href="country/cuba.html">CUBA</a></li>
+<li><a href="country/nicaragua.html">NICARAGUA</a></li>
+<li><a href="country/dominican.html">DOMINICAN</a></li>
+<li><a href="brands/index.html">BRANDS</a></li>
+<li><a href="category/new-releases.html">NEW RELEASES</a></li>
+<li><a href="category/market.html">MARKET</a></li>
+<li><a href="index.html#features">FEATURES</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<script>
+(function(){var d=new Date();var w="\u65e5\u6708\u706b\u6c34\u6728\u91d1\u571f"[d.getDay()];var el=document.getElementById("dateline");if(el){el.textContent=d.getFullYear()+"\u5e74"+(d.getMonth()+1)+"\u6708"+d.getDate()+"\u65e5\uff08"+w+"\uff09";}})();
+</script>
+
+<main>
+<div class="column">
+<section class="section search-section" aria-label="サイト内検索">
+<div class="section-head"><span class="en">SEARCH</span><span class="ja">サイト内検索</span><span class="deco">◆ ◆ ◆</span></div>
+<p class="list-note">検索はお使いのブラウザの中だけで実行され、検索語がサーバーへ送信されることはありません。スペースで区切って複数の語を入れると、すべての語を含む記事だけを表示します。</p>
+<form id="search-form" class="search-form" role="search">
+<label class="sr-only" for="search-q">サイト内検索</label>
+<input id="search-q" type="search" placeholder="例：「オーパスX」「ニカラグア」「ドリュー・エステート」" autocomplete="off">
+<button type="submit">検索</button>
+</form>
+<div id="search-results" class="search-results" aria-live="polite"></div>
+<noscript>
+<p class="list-note">JavaScript が無効な場合は、こちらから辿ってください。</p>
+<ul class="mini-list">
+<li><a href="news/index.html">ニュース一覧</a></li>
+<li><a href="country/cuba.html">キューバのニュース</a></li>
+<li><a href="country/nicaragua.html">ニカラグアのニュース</a></li>
+<li><a href="country/dominican.html">ドミニカ共和国のニュース</a></li>
+<li><a href="brands/index.html">メーカー・ブランド一覧</a></li>
+<li><a href="category/new-releases.html">新製品・限定品</a></li>
+<li><a href="category/market.html">市場・流通・経営</a></li>
+</ul>
+</noscript>
+<p class="back-links"><a href="index.html">トップページへ戻る</a></p>
+</section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-logo-plate"><img src="assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News" loading="lazy"></div>
+<p class="footer-tag">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<nav class="footer-nav" aria-label="フッターナビゲーション">
+<a href="about.html">サイトについて</a>
+<a href="policy.html">編集方針</a>
+<a href="sources.html">情報源・著作権ポリシー</a>
+<a href="contact.html">お問い合わせ</a>
+<a href="privacy.html">プライバシーポリシー</a>
+</nav>
+<div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
+</div>
+</footer>
+<script src="search.js" defer></script>
+
+</body></html>

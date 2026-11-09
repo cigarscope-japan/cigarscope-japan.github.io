@@ -635,3 +635,52 @@ main { display: block; }
 .more-list .d { display: inline-block; margin-right: 10px; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; }
 .more-link { text-align: right; margin: 10px 0 0; }
 .more-link a { color: #7a1f2b; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+
+/* ============================================================
+   サイト内検索（2026-11-09 追加。カズ採用の案A：黒いメニューバーの中に
+   ダーク入力欄＋金の「検索」ボタン。英語版と同じ型）
+   ============================================================ */
+.gnav-flex { display: flex; align-items: center; gap: 10px; padding: 7px 0; }
+.gnav-flex .gnav-button { padding: 6px 2px; }
+.header-search { display: flex; align-items: stretch; gap: 8px; flex: 1; margin: 0; }
+.header-search .field { position: relative; flex: 1; display: flex; }
+.header-search .field input {
+  width: 100%; min-width: 0; height: 38px;
+  background: #2e2a23; border: 1px solid #57503e; color: #f2ecd9;
+  font-family: var(--sans); font-size: 14px; padding: 0 10px;
+}
+.header-search .field input::placeholder { color: #9a927c; }
+.header-search button {
+  flex: none; width: 84px; height: 38px; padding: 0; text-align: center;
+  background: #b79a63; border: 1px solid #b79a63; color: #171717;
+  font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: .14em;
+  cursor: pointer;
+}
+.noscript-search { color: var(--gold-light); font-size: .8rem; letter-spacing: .1em; white-space: nowrap; }
+
+/* 検索ページ */
+.search-form { display: flex; gap: 8px; margin-top: 20px; max-width: 640px; }
+.search-form input {
+  flex: 1; min-width: 0; height: 48px;
+  background: #fff; border: 1px solid var(--line-dark); color: var(--body);
+  font-family: var(--sans); font-size: 16px; padding: 0 14px;
+}
+.search-form button {
+  flex: none; width: 96px; height: 48px; padding: 0;
+  background: #b79a63; border: 1px solid #b79a63; color: #171717;
+  font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: .14em;
+  cursor: pointer;
+}
+.search-results { margin-top: 26px; }
+.search-count { color: var(--muted); font-size: .9rem; }
+.search-hit { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.search-hit .kicker { margin: 0 0 2px; color: var(--gold-dark); font-size: .78rem; letter-spacing: .08em; }
+.search-hit h3 { margin: 0 0 4px; font-size: 1.08rem; line-height: 1.5; }
+.search-hit h3 a { text-decoration: none; }
+.search-hit h3 a:hover { color: var(--gold-dark); text-decoration: underline; }
+.search-hit p { margin: 0; font-size: .94rem; line-height: 1.7; }
+
+@media (max-width: 640px) {
+  .header-search button { width: 72px; }
+  .search-form button { width: 84px; }
+}
