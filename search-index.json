@@ -1595,5 +1595,15 @@
   "type": "特集",
   "date": "2026-11-09",
   "url": "features/myfather.html"
+ },
+ {
+  "title": "葉巻輸入税シミュレーター",
+  "summary": "葉巻を個人輸入するときの関税・たばこ税・消費税を概算する読者ツール。国際郵便（賦課課税・申告納税）と国際宅配便に対応し、判定日で制度が切り替わります。",
+  "category": "市場・流通・経営",
+  "countries": [],
+  "maker": "",
+  "type": "読者ツール",
+  "date": "2026-11-09",
+  "url": "category/tax-calculator.html"
  }
 ]

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>葉巻輸入税シミュレーター | CigarScope Japan</title>
+<meta name="description" content="葉巻を個人輸入するときにかかる関税・たばこ税・消費税を概算するシミュレーター。国際郵便（賦課課税・申告納税）と国際宅配便に対応し、判定日で制度を切り替えます。">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="../style-v2.css">
+</head><body>
+
+<header class="site-header">
+<div class="column">
+<div class="util-row">
+<span class="dateline" id="dateline">2026年11月8日（日）</span>
+<div class="lang-switch"><span class="cur">日本語</span><span class="sep">|</span><a href="../en/index.html">EN</a></div>
+</div>
+<div class="masthead">
+<div class="site-logo-wrap"><a href="../index.html"><span class="sr-only">CigarScope Japan — WORLD CIGAR NEWS &amp; INTELLIGENCE</span>
+<picture><source srcset="../assets/cigarscope-japan-logo-mobile.webp" type="image/webp" media="(max-width: 640px)"><source srcset="../assets/cigarscope-japan-logo.webp" type="image/webp"><img class="site-logo" src="../assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News"></picture>
+</a></div>
+<p class="tagline">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<p class="brand-msg"><span class="en">BEYOND HAVANA. BEYOND BORDERS.</span><span class="ja">世界の葉巻を、もっと広く、もっと深く。</span></p>
+</div>
+</div>
+<hr class="masthead-rule">
+<nav class="gnav" aria-label="グローバルナビゲーション">
+<div class="gnav-inner">
+<input class="gnav-toggle" type="checkbox" id="gnav-toggle">
+<div class="gnav-flex">
+<label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
+<form class="header-search" role="search">
+<label class="sr-only" for="site-search-q">サイト内検索</label>
+<span class="field"><input id="site-search-q" name="q" type="search" placeholder="ニュース・銘柄・メーカーで検索" autocomplete="off"></span>
+<button type="submit">検索</button>
+</form>
+<noscript><a class="noscript-search" href="../search.html">検索</a></noscript>
+</div>
+<ul>
+<li><a href="../index.html">TOP</a></li>
+<li><a href="../news/index.html">NEWS</a></li>
+<li><a href="../country/cuba.html">CUBA</a></li>
+<li><a href="../country/nicaragua.html">NICARAGUA</a></li>
+<li><a href="../country/dominican.html">DOMINICAN</a></li>
+<li><a href="../brands/index.html">BRANDS</a></li>
+<li><a href="../category/new-releases.html">NEW RELEASES</a></li>
+<li><a class="cur" href="../category/market.html">MARKET</a></li>
+<li><a href="../index.html#features">FEATURES</a></li>
+<li><a href="../category/tax-calculator.html">TAX CALCULATOR</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<script>
+(function(){var d=new Date();var w="\u65e5\u6708\u706b\u6c34\u6728\u91d1\u571f"[d.getDay()];var el=document.getElementById("dateline");if(el){el.textContent=d.getFullYear()+"\u5e74"+(d.getMonth()+1)+"\u6708"+d.getDate()+"\u65e5\uff08"+w+"\uff09";}})();
+</script>
+<main>
+<div class="column">
+<h1 class="taxcalc-title">葉巻輸入税シミュレーター<span class="taxcalc-title-sub">（日本向け・個人輸入）</span></h1>
+<p class="taxcalc-lead">海外のショップから葉巻を個人輸入するときにかかる日本の税金（関税・たばこ税・消費税）を概算します。国際郵便・国際宅配便による個人輸入を前提にしています。複数銘柄の混載にも対応しています。</p>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">STEP 1<span class="en">METHOD, DATE &amp; PRICE</span></h2>
+<div class="taxcalc-card">
+<label for="tc-method">輸送・課税の方式（最初に選択してください）</label>
+<select id="tc-method">
+<option value="postal-assessed">国際郵便・賦課課税（課税価格20万円以下の郵便物）</option>
+<option value="postal-declared" selected>国際郵便・申告納税（課税価格20万円超の郵便物）</option>
+<option value="courier">国際宅配便・一般貨物</option>
+</select>
+<div class="taxcalc-note" id="tc-method-note"></div>
+
+<label for="tc-date" id="tc-date-label">輸入申告予定日</label>
+<input id="tc-date" type="date">
+<div class="taxcalc-hint" id="tc-date-hint"></div>
+
+<label for="tc-eligible">課税価格の60％特例の適用条件</label>
+<select id="tc-eligible">
+<option value="yes" selected>個人使用・小売購入（特例の対象）</option>
+<option value="no">特例の対象外（業務用・卸売段階の取引など）</option>
+</select>
+<div class="taxcalc-hint">特例が適用されるのは、海外の小売店・通信販売で小売価格で購入し、輸入者が<strong>個人的に使用する</strong>貨物に限ります。業務用は名義が個人でも実質が業務用であれば適用されません。対象外の場合は、特例を使わず原則方式（実際に支払った価格＋輸入港までの運賃・保険料）で課税価格を計算します。</div>
+
+<div class="taxcalc-row">
+<div>
+<label for="tc-currency">通貨</label>
+<select id="tc-currency">
+<option value="USD">USD（米ドル）</option>
+<option value="EUR">EUR（ユーロ）</option>
+<option value="GBP">GBP（英ポンド）</option>
+<option value="CHF">CHF（スイスフラン）</option>
+<option value="JPY">JPY（日本円）</option>
+</select>
+</div>
+<div>
+<label for="tc-rate">換算レート（1通貨＝何円）</label>
+<input id="tc-rate" type="text" inputmode="decimal" value="158.00">
+<div class="taxcalc-hint">初期値は目安です。実際の課税では税関長公示レートが使われるため、実際の額とは異なります。</div>
+</div>
+</div>
+
+<div class="taxcalc-row">
+<div>
+<label for="tc-origin">原産国（関税率の判定に使用）</label>
+<select id="tc-origin">
+<option value="wto">キューバ・米国など（EPAなし）</option>
+<option value="eu">EU加盟国</option>
+<option value="uk">英国</option>
+<option value="cptpp">CPTPP加盟国（メキシコ等）</option>
+<option value="ch">スイス</option>
+<option value="basic">その他の国（基本税率）</option>
+<option value="manual">その他（関税率を手入力）</option>
+</select>
+<div class="taxcalc-hint">関税率は「発送国」ではなく「原産国」で判定します。EPA税率は、原産地規則と原産地証明の条件を満たす場合に限ります。</div>
+</div>
+<div>
+<label for="tc-shipfrom">発送国（購入した国・地域）</label>
+<select id="tc-shipfrom">
+<option value="米国">米国</option>
+<option value="スイス">スイス</option>
+<option value="EU域内">EU域内</option>
+<option value="英国">英国</option>
+<option value="香港">香港</option>
+<option value="キューバ">キューバ</option>
+<option value="その他">その他</option>
+</select>
+<div class="taxcalc-hint">発送国は記録・表示用です。関税率には影響しません（原産国で判定）。</div>
+</div>
+</div>
+
+<div id="tc-epa-row" style="display:none">
+<label class="taxcalc-check">
+<input type="checkbox" id="tc-epa-ok">
+<span>EPAの原産地規則と原産地証明の条件を満たしている
+<span class="taxcalc-hint" style="display:block">EPA税率（2.9%）は、原産品であることの証明（原産地証明書・原産品申告書など）ができる場合に限ります。条件を満たさない場合は協定（WTO）税率16%で計算します。</span></span>
+</label>
+</div>
+<div id="tc-swiss-warn" class="taxcalc-note" style="display:none">
+<p style="margin:0"><strong>スイス原産の関税率について：</strong>日・スイスEPAの葉巻（HS 2402.10）の税率は、実行関税率表だけでは一意に確認できませんでした。このシミュレーターでは自動決定せず、下の手入力欄の税率で計算します。<strong>申告前に税関（税関相談官）で原産地別の税率を必ず確認してください。</strong></p>
+</div>
+<div id="tc-duty-manual-row" style="display:none">
+<label for="tc-duty-manual">関税率を手入力（%）</label>
+<input id="tc-duty-manual" type="text" inputmode="decimal" placeholder="例：16">
+</div>
+<div class="taxcalc-hint" id="tc-duty-note">葉巻（HS 2402.10）の税率は原産地で異なります（実行関税率表 2026年10月31日版：第24類）。たばこには少額輸入の「簡易税率」は使えません。</div>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">STEP 2<span class="en">ITEMS（銘柄ごと）</span></h2>
+<div class="taxcalc-card">
+<p style="margin-top:0" class="taxcalc-item-intro">銘柄ごとに、価格・本数・1本の重量を入力してください。価格情報（インボイスの出所）と重量情報（重量の根拠）は分けて記録します。たばこ税の換算は国税庁「たばこ税法基本通達」第19条に基づきます：1本の重量は<strong>0.1g単位</strong>（0.1g未満は切り捨て）、<strong>1本が1g未満の銘柄は1本＝紙巻1本</strong>、それ以外は<strong>品目ごとの総重量を合計してから換算し、換算本数の1本未満の端数は合計後に1回だけ切り捨て</strong>ます。重量は包装・容器の重量を含まず、装着されたマウスピース等の重量を含みます。</p>
+<div id="tc-items"></div>
+<button type="button" class="taxcalc-btn-sub" id="tc-add-item">＋ 銘柄を追加する</button>
+<p class="taxcalc-err" id="tc-item-err" style="display:none"></p>
+<details class="taxcalc-est">
+<summary>重量が分からないとき：長さと太さから推定する</summary>
+<div class="taxcalc-note taxcalc-est-note">
+<p style="margin:0"><strong>推定について：</strong>この機能で得られる重量は、寸法（長さ・リングゲージ）からの<strong>推定値であり、実際の重量とは異なる場合があります</strong>。推定に基づく税額は目安であり、<strong>最終的な判断と責任は利用者にあります</strong>。実測できる場合は、必ず実測を優先してください。推定を使う場合は、推定の幅による税額レンジもあわせて表示します。</p>
+</div>
+<div class="taxcalc-row">
+<div>
+<label for="tc-est-target">推定を入れる銘柄</label>
+<select id="tc-est-target"></select>
+</div>
+<div>
+<label for="tc-est-preset">代表的なサイズ</label>
+<select id="tc-est-preset">
+<option value="">カスタム（下で入力）</option>
+<option value="5,50">ロブスト（5in × RG50）</option>
+<option value="5.5,42">コロナ（5.5in × RG42）</option>
+<option value="6,52">トロ（6in × RG52）</option>
+<option value="7,47">チャーチル（7in × RG47）</option>
+<option value="7.6,49">ダブルコロナ（7.6in × RG49）</option>
+</select>
+</div>
+<div>
+<label for="tc-est-length">長さ（インチ）</label>
+<input id="tc-est-length" type="text" inputmode="decimal" value="5">
+</div>
+<div>
+<label for="tc-est-ring">リングゲージ（RG）</label>
+<input id="tc-est-ring" type="text" inputmode="numeric" value="50">
+</div>
+<div>
+<label for="tc-est-shape">形状</label>
+<select id="tc-est-shape">
+<option value="parejo">パレホ（まっすぐ）</option>
+<option value="figurado">フィグラド（先細り）</option>
+</select>
+</div>
+</div>
+<button type="button" class="taxcalc-btn-sub" id="tc-est-btn">推定重量を選んだ銘柄に入れる</button>
+<div class="taxcalc-hint" id="tc-est-out">推定式：長さ（in）× RG² × 0.00095 × 形状係数（パレホ1.0／フィグラド0.85）。定数は公表された実測重量データへのフィットで較正した値です（較正の記録はサイト運営側で保管）。<strong>推定は実測ではありません。</strong></div>
+<div class="taxcalc-row">
+<div>
+<label for="tc-est-range">推定の幅（±％）</label>
+<input id="tc-est-range" type="text" inputmode="numeric" value="15">
+<div class="taxcalc-hint">推定重量の上下限の幅です。推定の銘柄がある場合、この幅で重量を上下させた税額レンジを結果に表示します。</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">STEP 3<span class="en">SHIPPING &amp; EXEMPTION</span></h2>
+<div class="taxcalc-card">
+<div class="taxcalc-row">
+<div>
+<label for="tc-ship">送料</label>
+<input id="tc-ship" type="text" inputmode="decimal" value="30.00">
+</div>
+<div>
+<label for="tc-ins">保険料</label>
+<input id="tc-ins" type="text" inputmode="decimal" value="0.00">
+</div>
+</div>
+<label class="taxcalc-check">
+<input type="checkbox" id="tc-separated" checked>
+<span>送料・保険料はインボイス（請求書）で商品価格と明確に区別されている
+<span class="taxcalc-hint" style="display:block">特例期間の課税価格は「商品価格（＋区別できない場合は送料等を含む価格）× 0.6」です。チェックを外すと、送料・保険料を含めた金額に 0.6 を掛けます。特例廃止後は、この区別にかかわらず、実際に支払った価格に輸入港までの運賃・保険料を加算した金額が課税価格になります。</span></span>
+</label>
+
+<div class="taxcalc-exempt-block">
+<h3>免税判定について</h3>
+<p class="taxcalc-mode-name">標準モード（円未満切捨て後の課税価格で判定）</p>
+<p><strong>課税価格の円未満を切り捨てた金額が1万円以下の場合、関税・消費税・地方消費税を免税として計算します。</strong></p>
+<p>たばこ税・たばこ特別税は免税の対象ではなく、課税価格にかかわらず課税されます。</p>
+<label class="taxcalc-check">
+<input type="checkbox" id="tc-show-ref">
+<span>切り捨て前の課税価格による参考シナリオも表示する
+<span class="taxcalc-hint" style="display:block">（課税価格が1万円前後の境界ケースで、切り捨て前の金額で判定した場合の金額を参考表示します）</span></span>
+</label>
+</div>
+
+<button type="button" class="taxcalc-btn-calc" id="tc-calc-btn">税金を計算する</button>
+<p class="taxcalc-err" id="tc-err" style="display:none"></p>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">計算結果<span class="en">RESULT</span></h2>
+<div class="taxcalc-card" id="tc-result-card">
+<p id="tc-result-placeholder" style="margin-top:0">「税金を計算する」を押すと、ここに結果が表示されます。</p>
+<div id="tc-result-body" style="display:none">
+<div class="taxcalc-note" id="tc-judge-block"></div>
+<p class="taxcalc-judge-label" id="tc-judge-label"></p>
+<div class="taxcalc-note" id="tc-regime-warn" style="display:none"></div>
+<div class="taxcalc-note" id="tc-duty-warn" style="display:none"></div>
+<p class="taxcalc-note-text" id="tc-copy3">この判定はシミュレーターの計算方法を示すもので、税関の最終判断を保証するものではありません。実際の税額は、税関が決定する課税価格・換算レート・重量などによって変わります。</p>
+
+<p class="taxcalc-step">STEP A ― 課税価格</p>
+<table class="taxcalc-table">
+<tr><td>商品価格（円換算）</td><td id="tc-r-goods">―</td></tr>
+<tr><td><span id="tc-r-value-label">課税価格 ＝ 小売価格 × 0.6</span><span id="tc-r-base-note"></span></td><td id="tc-r-value">―</td></tr>
+<tr><td>切り捨て前の課税価格（V_raw・全桁表示）</td><td id="tc-r-vraw">―</td></tr>
+</table>
+<p id="tc-exempt-msg" style="display:none"></p>
+<p class="taxcalc-boundary-note" id="tc-boundary-note" style="display:none"></p>
+<div class="taxcalc-ref-box" id="tc-ref-box" style="display:none"></div>
+
+<p class="taxcalc-step">STEP B ― 関税</p>
+<table class="taxcalc-table">
+<tr><td>関税（課税標準は千円未満切捨て、税額は100円未満切捨て）</td><td id="tc-r-duty">―</td></tr>
+</table>
+
+<p class="taxcalc-step">STEP C ― たばこ税（重量換算・基本通達第19条）</p>
+<table class="taxcalc-table">
+<thead><tr><th>銘柄</th><th>本数</th><th>1本重量</th><th>換算の内訳</th></tr></thead>
+<tbody id="tc-r-items"></tbody>
+</table>
+<table class="taxcalc-table">
+<tr><td>紙巻たばこ換算本数（合計・1本未満の端数は切り捨て）</td><td id="tc-r-conv">―</td></tr>
+<tr><td>たばこ税（国）<span id="tc-r-tobnat-rate">6,802</span>円／千本</td><td id="tc-r-tobnat">―</td></tr>
+<tr><td>たばこ特別税 <span id="tc-r-tobspc-rate">820</span>円／千本</td><td id="tc-r-tobspc">―</td></tr>
+<tr><td>道府県たばこ税 <span id="tc-r-tobpref-rate">1,070</span>円／千本</td><td id="tc-r-tobpref">―</td></tr>
+<tr><td>市町村たばこ税 <span id="tc-r-tobcity-rate">6,552</span>円／千本</td><td id="tc-r-tobcity">―</td></tr>
+<tr class="total"><td>たばこ税 合計</td><td id="tc-r-tobtotal">―</td></tr>
+</table>
+<div class="taxcalc-range-box" id="tc-range-box" style="display:none"></div>
+<div class="taxcalc-range-box" id="tc-alt-box" style="display:none"></div>
+
+<p class="taxcalc-step">STEP D ― 消費税</p>
+<table class="taxcalc-table">
+<tr><td>課税標準（課税価格＋関税＋たばこ税）</td><td id="tc-r-ctbase">―</td></tr>
+<tr><td>消費税（国）7.8%</td><td id="tc-r-ctnat">―</td></tr>
+<tr><td>地方消費税 2.2%相当（国税額×22/78）</td><td id="tc-r-ctloc">―</td></tr>
+<tr class="total"><td>消費税 合計</td><td id="tc-r-cttotal">―</td></tr>
+</table>
+
+<p class="taxcalc-step">STEP E ― 合計</p>
+<table class="taxcalc-table">
+<tr><td>税金 合計</td><td class="taxcalc-big" id="tc-r-taxtotal">―</td></tr>
+<tr><td>送料・保険料（円換算）</td><td id="tc-r-ship">―</td></tr>
+<tr class="total"><td>総支払額（商品＋送料＋保険料＋税金）</td><td id="tc-r-grand">―</td></tr>
+<tr><td>1本あたりの実質単価</td><td class="taxcalc-per" id="tc-r-per">―</td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">ご注意<span class="en">NOTES</span></h2>
+<div class="taxcalc-note">
+<p><strong>目安の金額について：</strong>特例が適用される個人輸入では、購入価格がおよそ16,666円以下だと課税価格が1万円以下に収まるため、目安として「16,666円」という数字が使われることがあります（財務省の資料でもこの目安が示されています）。ただし、これは法律で定められた金額ではなく、為替の換算率や送料の取扱いによって前後します。実際の判定は購入価格ではなく課税価格で行われます。このシミュレーターの標準判定は切り捨て後の課税価格で判定するため、条件によっては購入価格16,667円や16,668円でも免税と計算される場合があります。これは端数処理の取扱いに基づく当サイトの計算方法であり、確定した法解釈ではありません。境界が気になる場合は「切り捨て前の課税価格による参考シナリオも表示する」にチェックを入れてください。</p>
+<p><strong>計算単位について：</strong>このシミュレーターは、1回の輸入分を1つの課税標準としてまとめて計算しています。実際の税関の計算では、品目ごとに計算した税額を税金の種類ごとに合計する方法が取られる場合があり、端数処理の関係で金額が異なることがあります。表示される金額はこのシミュレーターによる試算であり、実際の税関による課税額・納付額を保証するものではありません。</p>
+<p>課税価格の合計が1万円以下の場合は、関税・消費税・地方消費税は免除されますが、<strong>たばこ税・たばこ特別税は免税されず必ず課税されます</strong>（地方たばこ税もあわせて課税されます）。</p>
+<p>前提は「個人使用目的の個人輸入」です。販売目的の輸入には、たばこ事業法に基づく特定販売業の登録が必要です。また、個人で輸入したたばこを転売することは法律で禁止されています。</p>
+<p>60％特例が適用されるのは、海外の小売店・通信販売で購入し、輸入者が<strong>個人的に使用する</strong>場合に限ります。業務用は名義が個人でも適用されませんし、卸売段階の取引も対象外です。対象外の輸入では、特例を使わず原則方式で計算してください（STEP 1 の「課税価格の60％特例の適用条件」で切り替えられます）。</p>
+<p><strong>たばこ税の換算について：</strong>葉巻1本ごとの重量は0.1g単位で計算し（包装・容器の重量は除き、装着されたマウスピース等の重量は含む）、1本が1g未満の銘柄は1本＝紙巻1本、それ以外は品目ごとの総重量を合計して換算し、換算本数の1本未満の端数は合計後に1回だけ切り捨てます（国税庁 たばこ税法基本通達第19条）。重量の根拠が「推定」の銘柄がある場合、表示される税額は推定に基づく目安です。<strong>実測できる場合は実測を優先してください。</strong></p>
+<p><strong>重量の根拠について：</strong>税関が最終的に認定する重量は、入力した重量と異なる場合があります。複数の重量候補がある銘柄は「候補重量」を入力すると、採用値を切り替えて計算でき、候補で計算した場合の税金合計との差も結果に表示します。出典のない標準重量は、このシミュレーターでは初期値として設定していません。</p>
+<p>制度改正への対応：このシミュレーターは<strong>判定日（方式により、税関への提示日または輸入申告日）で制度を自動切替</strong>します（関税法第5条）。課税価格を6割にする特例は<strong>令和10年（2028年）3月末</strong>で廃止され、2028年4月1日からは「実際に支払った価格＋輸入港までの運賃・保険料」が課税価格になります（関税定率法第4条の原則方式）。国のたばこ税は<strong>令和9年・10年・11年の各4月</strong>に0.5円／本ずつ引き上げられ、合計税率は 15,244円 → 15,744円 → 16,244円 → 16,744円（千本あたり）と変わります。</p>
+<p><strong>改正後（2028年4月1日以降）の計算は試算です。</strong>改正法の附則に当該特例の廃止に固有の経過措置があるかは、本シミュレーターの調査では一次資料で確定できませんでした（未確認）。切替は判定日基準（関税法第5条の一般原則）で計算しています。郵便物等での実務計算例もまだ公表されていません。実際の制度・税額は、課税通知書の法令適用日で確定します。</p>
+<p><strong>端数処理の注記：</strong>たばこ税の確定金額については、国税の確定金額の100円未満切捨て（国税通則法第119条・たばこ税法基本通達第22条）という規定があります。本シミュレーターは税目ごとに1円未満を切り捨てて合算する方式で表示しており、税関の実際の確定方法と数円〜最大で数百円異なる場合があります（税関確認を推奨）。</p>
+<p>このほか、郵便物の場合は通関手数料など、税金以外の費用が別途かかる場合があります。</p>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">ご利用上の注意<span class="en">NOTICE</span></h2>
+<div class="taxcalc-note">
+<p>本シミュレーターは、葉巻を個人輸入する際に発生する関税・消費税・たばこ税等の概算額を確認するための参考ツールです。</p>
+<p>表示される金額は、入力された情報や設定された計算条件に基づく推定値であり、実際の課税額を保証するものではありません。</p>
+<p>実際の課税額は、申告内容、課税価格、重量、適用される法令や個別事情等に基づき、税関によって決定されます。</p>
+<p>特に重量や課税価格が推定値の場合、実際の納税額と差が生じることがあります。</p>
+<p>輸入時の正式な税額については、税関の判断をご確認ください。</p>
+<p>本シミュレーターの結果は、輸入計画の参考情報としてご利用ください。</p>
+</div>
+</div>
+
+<div class="taxcalc-head">
+<h2 class="taxcalc-step-head">出典<span class="en">SOURCES</span></h2>
+<div class="taxcalc-card taxcalc-src">
+<p style="margin-top:0">税率・ルールの確認日：<strong>2026年11月9日</strong></p>
+<ul>
+<li>国税庁「たばこ税法基本通達」第19条（葉巻たばこの本数への換算方法）・第22条（端数計算等）<br><a href="https://www.nta.go.jp/law/tsutatsu/kihon/tabako/05.htm">nta.go.jp/law/tsutatsu/kihon/tabako/05.htm</a></li>
+<li>関税法第5条（輸入申告の日に適用される法令による）<br><a href="https://www.japaneselawtranslation.go.jp/ja/laws/view/3703/ja">japaneselawtranslation.go.jp（関税法・英訳併記）</a></li>
+<li>税関「国際郵便を利用した『たばこ』の個人輸入について」（葉巻：関税 協定16%／基本20%、たばこ税等 1kg＝15,244円、消費税10%）<br><a href="https://www.customs.go.jp/tsukan/yubin/tobacco.htm">customs.go.jp/tsukan/yubin/tobacco.htm</a></li>
+<li>税関 カスタムスアンサー3103「たばこの輸入について」（宅配便・一般貨物も同税率／1万円以下でも たばこ税・たばこ特別税は免税されない）<br><a href="https://www.customs.go.jp/tetsuzuki/c-answer/kojin/3103_jr.htm">customs.go.jp/tetsuzuki/c-answer/kojin/3103_jr.htm</a></li>
+<li>税関 カスタムスアンサー1405「課税価格の決定の特例」（個人使用は海外小売価格×0.6）<br><a href="https://www.customs.go.jp/tetsuzuki/c-answer/imtsukan/1405_jr.htm">customs.go.jp/tetsuzuki/c-answer/imtsukan/1405_jr.htm</a></li>
+<li>税関 カスタムスアンサー6103（郵便物の賦課課税と提示日）<br><a href="https://www.customs.go.jp/tetsuzuki/c-answer/imtsukan/6103_jr.htm">customs.go.jp/tetsuzuki/c-answer/imtsukan/6103_jr.htm</a></li>
+<li>財務省「たばこ税等に関する資料」（税率内訳と換算ルール、2026年4月現在）<br><a href="https://www.mof.go.jp/tax_policy/summary/consumption/d09.htm">mof.go.jp/tax_policy/summary/consumption/d09.htm</a></li>
+<li>税関 実行関税率表（2026年10月31日版）第24類（HS 2402.10の関税率：基本20%／WTO16%／CPTPP・EU・英国 2.9%）<br><a href="https://www.customs.go.jp/tariff/2026_10_31/data/j_24.htm">customs.go.jp/tariff/2026_10_31/data/j_24.htm</a></li>
+<li>東京税関「関税・消費税等の税額計算方法（例）」（端数処理の実務）<br><a href="https://www.customs.go.jp/tokyo/yuubin/postal_qa/kanzeikeisan.pdf">customs.go.jp/tokyo/yuubin/postal_qa/kanzeikeisan.pdf</a></li>
+<li>財務省 令和8年度税制改正の説明資料・法律案ページ（0.6特例の廃止・令和10年4月1日施行）<br><a href="https://www.mof.go.jp/about_mof/bills/221diet/kz20260220g.html">mof.go.jp/about_mof/bills/221diet/</a></li>
+<li>税関「関税評価用語等解説」（原則方式＝関税定率法第4条の取引価格方式／問9-3：個人使用貨物の特例の条件）<br><a href="https://www.customs.go.jp/zeikan/seido/kanzeihyouka/yougoshu.htm">customs.go.jp/zeikan/seido/kanzeihyouka/yougoshu.htm</a></li>
+<li>税関 関税評価事例（業務用貨物を個人名義で輸入する場合は特例不可／個人使用目的の通信販売は特例可）<br><a href="https://www.customs.go.jp/zeikan/seido/kanzeihyouka/hyokajirei/hyokajirei4600001.pdf">評価事例4600001</a>／<a href="https://www.customs.go.jp/zeikan/seido/kanzeihyouka/hyokajirei/hyokajirei4600005.pdf">評価事例4600005</a></li>
+</ul>
+</div>
+</div>
+<p class="back-links"><a href="market.html">市場・流通・経営の一覧へ戻る</a>　<a href="../index.html">トップページへ戻る</a></p>
+</div>
+</main>
+<script>
+window.TAX_JUDGMENT_PROFILE = {"boundary":{"lowerExclusive":10000,"upperExclusive":10001},"checkbox":{"defaultChecked":false,"label":"切り捨て前の課税価格による参考シナリオも表示する"},"copySetVersion":"v4R","effectiveFrom":null,"exemptionLimitJPY":10000,"profileVersion":"1.0","referenceBasis":"pre","standardBasis":"post","testSetVersion":"TC-v4R"};
+</script>
+<script>
+"use strict";
+/*
+ * TaxEngine — 葉巻輸入税シミュレーター計算エンジン（実装版 v1.0、2026-11-09）
+ *
+ * 仕様の正本: SPEC-16667-TWOMODE-FINAL-2026-11-09.md
+ * 数値処理: 整数演算方式（分類T-1 採用。テスト計画 INV-10-14-TEST-PLAN-REV4 第2.4節）
+ *   - V_raw は 10^5 スケールの整数 N で保持し、境界比較・floor は整数演算で行う。
+ *   - 境界比較に ε（許容誤差）は用いない。
+ *   - 総額ガードは加算前ガード（第2.4.9項）。合算後に初めて検査する方式は採らない。
+ * 入力検証: テスト計画 REV4 第2.8節（分類T-2 採用）。精度超過・範囲超過・形式不正は
+ *   入力エラーとし、自動切捨て・四捨五入・暗黙の丸め・暗黙の変換は一切行わない。
+ * 換算: たばこ税法基本通達第19条の2経路（軽量経路は本数合算、重量経路は総重量を
+ *   合計してから換算し、端数切捨ては合計後に1回）。識別子 conv:art19-two-path。
+ * 計算単位: 単一計算単位。識別子 unit:single。
+ */
+var TaxEngine = (function () {
+
+  /* ===== ビトラ寸法からの重量推定の定数（1か所に集約） =====
+   * 推定重量(g) ＝ 長さ(in) × RG^2 × VITOLA_WEIGHT_CONSTANT × 形状係数
+   * 形状係数: パレホ 1.0 / フィグラド 0.85（SHAPE_FACTORS）
+   * 定数の根拠: WEIGHT-CONSTANT-CALIBRATION-2026-11-09.md
+   *   主データ（Habanos S.A. 公式・工場ビトラ別重量、n=28、出典・確認日つき）への
+   *   原点通過・最小二乗フィット 0.000952 → 推奨値 0.00095 を採用（2026-11-09、カズ決定）。
+   *   旧仮置き 0.00096（幾何計算ベース）から差し替え。70Cigars の定数・テーブルは
+   *   複製していない（クロスチェックの参照値として扱うのみ）。
+   */
+  var VITOLA_WEIGHT_CONSTANT = 0.00095;
+  var SHAPE_FACTORS = { parejo: 1.0, figurado: 0.85 };
+
+  /* ===== 制度レジーム（施行日切替。行追加で将来改正に対応） =====
+   * factor: 課税価格の60％特例の係数を 10^5 スケールの乗数で表す（特例=6, 原則=10 は
+   * N の算出側で使うため、ここでは特例の有無のみを持つ）。
+   * tobacco: たばこ税等（円／千本）nat=国, spc=特別, pref=道府県, city=市町村。
+   */
+  var REGIMES = [
+    { until: "2027-03-31", special: true,
+      tobacco: { nat: 6802, spc: 820, pref: 1070, city: 6552 },
+      name: "現行制度（60％特例あり・たばこ税は現行税率）" },
+    { until: "2028-03-31", special: true,
+      tobacco: { nat: 7302, spc: 820, pref: 1070, city: 6552 },
+      name: "現行制度（60％特例あり・たばこ税 第1段階引上げ後）" },
+    { until: "2029-03-31", special: false,
+      tobacco: { nat: 7802, spc: 820, pref: 1070, city: 6552 },
+      name: "改正後制度（60％特例廃止・たばこ税 第2段階引上げ後）" },
+    { until: null, special: false,
+      tobacco: { nat: 8302, spc: 820, pref: 1070, city: 6552 },
+      name: "改正後制度（60％特例廃止・たばこ税 第3段階引上げ後）" }
+  ];
+  function pickRegime(dateStr) {
+    for (var i = 0; i < REGIMES.length; i++) {
+      if (!REGIMES[i].until || dateStr <= REGIMES[i].until) return { index: i, row: REGIMES[i] };
+    }
+    var last = REGIMES.length - 1;
+    return { index: last, row: REGIMES[last] };
+  }
+
+  /* ===== 判定プロファイル（仕様書 第5節。9要素を一体管理する） =====
+   * 切替はこのオブジェクト一式の差し替えでのみ行う（部分切替の禁止）。
+   * REGIMES とは独立。
+   */
+  var DEFAULT_PROFILE = {
+    profileVersion: "1.0",            // #1
+    effectiveFrom: null,              // #1 適用開始日（公開時に設定）
+    exemptionLimitJPY: 10000,         // 少額免税のライン（施行令第16条の3）
+    standardBasis: "post",            // #2 見出し判定: "post"=方式1(V) / "pre"=方式2(V_raw)
+    referenceBasis: "pre",            // #3 参考シナリオの判定方式
+    boundary: { lowerExclusive: 10000, upperExclusive: 10001 }, // #5 境界ケースの定義
+    checkbox: {                       // #7
+      label: "切り捨て前の課税価格による参考シナリオも表示する",
+      defaultChecked: false
+    },
+    copySetVersion: "v4R",            // #8 文案セット（文案①〜⑥）の版
+    testSetVersion: "TC-v4R"          // #9 テスト期待値セットの版
+  };
+
+  /* ===== 定数（入力範囲・ガード。テスト計画 REV4 第2.4.2項・第2.8節） ===== */
+  var SCALE = 100000;                 // V_raw の内部スケール（10^5）
+  var GUARD_LIMIT_C = 10000000000000; // 総額ガード: ΣC_i ≦ 10^13（円換算総額10億円）
+  var MAX_FOREIGN_PRICE_P = 99999999; // 外貨価格上限 999,999.99（×100）
+  var MAX_JPY_PRICE = 999999999;      // 円建て価格上限（円）
+  var MAX_RATE_R = 99999;             // レート上限 999.99（×100）
+  var MIN_RATE_R = 1;                 // レート下限 0.01（×100）
+  var MAX_DUTY_SCALED = 100000;       // 関税率上限 100.000%（×1000）
+  var MAX_ELEMENTS = 100;             // 構成要素数上限（商品・送料・保険料の合計）
+  var MAX_COUNT = 99999;              // 1要素あたり本数上限
+  var MAX_W01 = 9999;                 // 1本重量上限 999.9g（0.1g単位）
+
+  /* ===== 整数ユーティリティ ===== */
+  function floorDiv(a, b) { // a,b は非負整数
+    return (a - (a % b)) / b;
+  }
+  function floor100(x) { return floorDiv(x, 100) * 100; }
+  function floor1000(x) { return floorDiv(x, 1000) * 1000; }
+
+  /* ===== 入力文字列のパース（文字列処理で整数化。parseFloat は使わない） =====
+   * 戻り値: { ok:true, value:int } | { ok:false, type:'empty'|'format'|'precision'|'range' }
+   * maxDecimals: 許容する小数桁数。scale: 10^maxDecimals。
+   */
+  function parseDecimal(str, maxDecimals) {
+    if (str === null || str === undefined) return { ok: false, type: "empty" };
+    var s = String(str);
+    if (s === "") return { ok: false, type: "empty" };
+    if (!/^[0-9]+(\.[0-9]+)?$/.test(s)) return { ok: false, type: "format" };
+    var parts = s.split(".");
+    var frac = parts.length > 1 ? parts[1] : "";
+    if (frac.length > maxDecimals) return { ok: false, type: "precision" };
+    var scale = 1;
+    for (var i = 0; i < maxDecimals; i++) scale *= 10;
+    var fracPadded = (frac + "000000").slice(0, maxDecimals);
+    var value = parseInt(parts[0], 10) * scale + (maxDecimals > 0 ? parseInt(fracPadded, 10) : 0);
+    if (!isFinite(value)) return { ok: false, type: "range" };
+    return { ok: true, value: value };
+  }
+  function parseInteger(str) { // 本数など（小数不可）
+    if (str === null || str === undefined || String(str) === "") return { ok: false, type: "empty" };
+    var s = String(str);
+    if (!/^[0-9]+$/.test(s)) {
+      if (/^[0-9]+\.[0-9]+$/.test(s)) return { ok: false, type: "precision" };
+      return { ok: false, type: "format" };
+    }
+    return { ok: true, value: parseInt(s, 10) };
+  }
+
+  /* ===== V_raw の表示文字列（テスト計画 REV4 第2.10節） =====
+   * 整数 N の商と剰余から構築する。浮動小数点経由の文字列化は行わない。
+   * 末尾ゼロの省略以外の丸めは行わない。
+   */
+  function formatVRaw(N) {
+    var q = floorDiv(N, SCALE);
+    var r = N % SCALE;
+    var qs = String(q).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (r === 0) return qs;
+    var frac = ("00000" + r).slice(-5).replace(/0+$/, "");
+    return qs + "." + frac;
+  }
+  /* C スケール（円×10^4）の金額表示。円未満がある場合は小数第2位まで表示する。 */
+  function formatYenC(C) {
+    var sign = C < 0 ? "-" : "";
+    var a = Math.abs(C);
+    var yen = floorDiv(a, 10000);
+    var frac4 = a % 10000;
+    var ys = String(yen).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (frac4 === 0) return sign + ys;
+    var frac = ("0000" + frac4).slice(-4).replace(/0+$/, "");
+    return sign + ys + "." + frac;
+  }
+  function formatYenInt(v) {
+    return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  /* ===== たばこ税換算（基本通達第19条・2経路） =====
+   * itemsW: [{name, count, w01}]（w01 は 0.1g 単位の整数。採用値に解決済み）
+   */
+  function convertItems(itemsW) {
+    var lightSticks = 0, W01 = 0, details = [];
+    itemsW.forEach(function (it) {
+      var d = { name: it.name, count: it.count, w01: it.w01, light: it.w01 < 10, totalW01: null };
+      if (d.light) { lightSticks += it.count; }
+      else { d.totalW01 = it.w01 * it.count; W01 += d.totalW01; }
+      details.push(d);
+    });
+    var heavySticks = floorDiv(W01, 10); // 端数切捨ては合計後に1回だけ
+    return { details: details, lightSticks: lightSticks, W01: W01,
+             heavySticks: heavySticks, N: lightSticks + heavySticks };
+  }
+
+  /* ===== 税額計算の一式（V・関税率・税率表・換算・免税可否から） ===== */
+  function computeBundle(V, dutyRateScaled, tobacco, itemsW, exempt, track) {
+    var duty = 0;
+    var B = floor1000(V);
+    if (!exempt) {
+      var prod = B * dutyRateScaled;
+      if (track) track(prod);
+      duty = floorDiv(prod, 10000000) * 100; // B×税率 → 100円未満切捨て
+    }
+    var conv = convertItems(itemsW);
+    var Ns = conv.N;
+    var tNat = floorDiv(Ns * tobacco.nat, 1000);
+    var tSpc = floorDiv(Ns * tobacco.spc, 1000);
+    var tPref = floorDiv(Ns * tobacco.pref, 1000);
+    var tCity = floorDiv(Ns * tobacco.city, 1000);
+    if (track) {
+      track(Ns * tobacco.nat); track(Ns * tobacco.spc);
+      track(Ns * tobacco.pref); track(Ns * tobacco.city);
+      track(conv.W01);
+    }
+    var tobTotal = tNat + tSpc + tPref + tCity;
+    var S = V + duty + tobTotal;
+    var S1000 = floor1000(S);
+    var ctNat = 0, ctLoc = 0;
+    if (!exempt) {
+      var prod2 = S1000 * 78;
+      if (track) track(prod2);
+      ctNat = floorDiv(prod2, 100000) * 100; // S1000×7.8% → 100円未満切捨て
+      var t1 = floorDiv(ctNat * 22, 78);     // 1円未満切捨て
+      if (track) track(ctNat * 22);
+      ctLoc = floorDiv(t1, 100) * 100;       // 100円未満切捨て
+    }
+    return {
+      dutyBase: B, duty: duty, conv: conv,
+      taxes: { nat: tNat, spc: tSpc, pref: tPref, city: tCity, total: tobTotal },
+      ctBase: S, ctNat: ctNat, ctLoc: ctLoc,
+      taxTotal: duty + tobTotal + ctNat + ctLoc
+    };
+  }
+
+  function judgeExempt(basis, V, N, profile) {
+    if (basis === "pre") return N <= profile.exemptionLimitJPY * SCALE;
+    return V <= profile.exemptionLimitJPY; // "post"
+  }
+
+  /* ===== 本体 =====
+   * input: {
+   *   method: 'postal-assessed'|'postal-declared'|'courier',
+   *   dateStr: 'YYYY-MM-DD',
+   *   specialEligible: bool,          // 60％特例の適用条件を満たすか（M-4）
+   *   currency: 'JPY'|その他,          // JPY のとき専用経路（レートを介さない）
+   *   rateStr: '158.00',              // 外貨の場合のみ
+   *   items: [{ name, priceStr, countStr, weightStr, basis,
+   *             altWeightStr|null, useAlt:bool }],
+   *   shipStr, insStr, separated: bool,
+   *   dutyRateStr: '16' | '2.9' ...   // %表示（小数第3位まで）
+   *   estimateRangePct: int|null,     // 推定銘柄がある場合の幅（%）
+   *   showReference: bool             // 参考シナリオ表示チェック
+   * }
+   * 戻り値: { ok:true, ... } | { ok:false, error:{ type, field, element? } }
+   */
+  function calc(input, profileOpt) {
+    var profile = profileOpt || DEFAULT_PROFILE;
+    function err(type, field, extra) {
+      var e = { type: type, field: field };
+      if (extra) for (var k in extra) e[k] = extra[k];
+      return { ok: false, error: e };
+    }
+
+    /* --- 方式・日付 --- */
+    if (!input.method) return err("empty", "method");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(input.dateStr || "")) return err("empty", "date");
+    var reg = pickRegime(input.dateStr);
+    var regime = reg.row;
+    var postReform = !regime.special; // 日付上、特例期間を過ぎているか
+    var specialApplied = regime.special && !!input.specialEligible;
+
+    /* --- 関税率 --- */
+    var dutyP = parseDecimal(input.dutyRateStr, 3);
+    if (!dutyP.ok) return err(dutyP.type, "dutyRate");
+    if (dutyP.value > MAX_DUTY_SCALED) return err("range", "dutyRate");
+    var dutyRateScaled = dutyP.value;
+
+    /* --- レート（外貨の場合） --- */
+    var isJPY = input.currency === "JPY";
+    var R = 100;
+    if (!isJPY) {
+      var rateP = parseDecimal(input.rateStr, 2);
+      if (!rateP.ok) return err(rateP.type, "rate");
+      if (rateP.value < MIN_RATE_R || rateP.value > MAX_RATE_R) return err("range", "rate");
+      R = rateP.value;
+    }
+
+    /* --- 要素の構築（入力順：商品要素→送料→保険料） --- */
+    var rawItems = input.items || [];
+    if (rawItems.length === 0) return err("empty", "items");
+    if (rawItems.length + 2 > MAX_ELEMENTS) return err("range", "items");
+
+    var elements = []; // {kind, index, C}
+    var itemsW = [];   // 採用値に解決した換算用アイテム
+    var itemsWAlt = []; // 候補の反対側（候補がある場合の比較用）
+    var anyCandidate = false;
+    var maxMid = 0;
+    function track(v) { if (v > maxMid) maxMid = v; }
+
+    for (var i = 0; i < rawItems.length; i++) {
+      var it = rawItems[i];
+      var fieldBase = "items[" + i + "]";
+      /* 要素ごとの通貨（混在時は要素単位で指定できる。仕様書 第2.4.4項の混在合算。
+         UI は単一通貨のみを扱い、この上書きはエンジンの能力として持つ） */
+      var elJPY = isJPY, elR = R;
+      if (it.currency) {
+        elJPY = it.currency === "JPY";
+        if (!elJPY) {
+          if (it.rateStr === null || it.rateStr === undefined) return err("empty", fieldBase + ".rate");
+          var elRateP = parseDecimal(it.rateStr, 2);
+          if (!elRateP.ok) return err(elRateP.type, fieldBase + ".rate");
+          if (elRateP.value < MIN_RATE_R || elRateP.value > MAX_RATE_R) return err("range", fieldBase + ".rate");
+          elR = elRateP.value;
+        }
+      }
+      var priceP, C;
+      if (elJPY) {
+        priceP = parseDecimal(it.priceStr, 0);
+        if (!priceP.ok) return err(priceP.type, fieldBase + ".price");
+        if (priceP.value > MAX_JPY_PRICE) return err("range", fieldBase + ".price");
+        if (priceP.value === 0) return err("range", fieldBase + ".price"); // 商品価格の0はエラー（T-2）
+        C = priceP.value * 10000; // 円建て専用経路
+      } else {
+        priceP = parseDecimal(it.priceStr, 2);
+        if (!priceP.ok) return err(priceP.type, fieldBase + ".price");
+        if (priceP.value > MAX_FOREIGN_PRICE_P) return err("range", fieldBase + ".price");
+        if (priceP.value === 0) return err("range", fieldBase + ".price");
+        C = priceP.value * elR;
+      }
+      elements.push({ kind: "goods", index: i, C: C });
+
+      var countP = parseInteger(it.countStr);
+      if (!countP.ok) return err(countP.type, fieldBase + ".count");
+      if (countP.value < 1 || countP.value > MAX_COUNT) return err("range", fieldBase + ".count");
+
+      var wP = parseDecimal(it.weightStr, 1);
+      if (!wP.ok) return err(wP.type, fieldBase + ".weight");
+      if (wP.value < 1 || wP.value > MAX_W01) return err("range", fieldBase + ".weight");
+
+      var adopted = wP.value, other = null;
+      if (it.altWeightStr !== null && it.altWeightStr !== undefined && String(it.altWeightStr) !== "") {
+        var aP = parseDecimal(it.altWeightStr, 1);
+        if (!aP.ok) return err(aP.type, fieldBase + ".altWeight");
+        if (aP.value < 1 || aP.value > MAX_W01) return err("range", fieldBase + ".altWeight");
+        anyCandidate = true;
+        if (it.useAlt) { adopted = aP.value; other = wP.value; }
+        else { other = aP.value; }
+      }
+      itemsW.push({ name: it.name || ("銘柄 " + (i + 1)), count: countP.value, w01: adopted, basis: it.basis });
+      itemsWAlt.push({ name: it.name || ("銘柄 " + (i + 1)), count: countP.value, w01: other === null ? adopted : other, basis: it.basis });
+    }
+
+    function feeElement(str, kind) {
+      var p, C;
+      if (isJPY) {
+        p = parseDecimal(str, 0);
+        if (!p.ok) return { error: err(p.type, kind) };
+        if (p.value > MAX_JPY_PRICE) return { error: err("range", kind) };
+        C = p.value * 10000;
+      } else {
+        p = parseDecimal(str, 2);
+        if (!p.ok) return { error: err(p.type, kind) };
+        if (p.value > MAX_FOREIGN_PRICE_P) return { error: err("range", kind) };
+        C = p.value * R;
+      }
+      return { C: C };
+    }
+    var shipEl = feeElement(input.shipStr, "ship");
+    if (shipEl.error) return shipEl.error;
+    elements.push({ kind: "shipping", index: 0, C: shipEl.C });
+    var insEl = feeElement(input.insStr, "ins");
+    if (insEl.error) return insEl.error;
+    elements.push({ kind: "insurance", index: 0, C: insEl.C });
+
+    /* --- 総額（表示用。全要素の C 合計。ガード対象ではない） --- */
+    var totalC = 0;
+    elements.forEach(function (e) { totalC += e.C; track(totalC); });
+
+    /* --- 課税価格の対象要素と加算前ガード --- */
+    var taxable = elements.filter(function (e) {
+      if (specialApplied && input.separated) return e.kind === "goods";
+      return true; // 原則方式は全要素。特例・分離不可も全要素
+    });
+    var M = 0;
+    for (var j = 0; j < taxable.length; j++) {
+      var el = taxable[j];
+      track(M + el.C);
+      if (M + el.C > GUARD_LIMIT_C) {
+        return err("guard", el.kind === "goods" ? "items[" + el.index + "].price" : el.kind,
+                   { element: { kind: el.kind, index: el.index } });
+      }
+      M += el.C;
+    }
+    var N = M * (specialApplied ? 6 : 10);
+    track(N);
+    var V = floorDiv(N, SCALE);
+    var vRawStr = formatVRaw(N);
+
+    /* --- 判定 --- */
+    var limit = profile.exemptionLimitJPY;
+    var boundary = N > profile.boundary.lowerExclusive * SCALE &&
+                   N < profile.boundary.upperExclusive * SCALE;
+    var exempt = judgeExempt(profile.standardBasis, V, N, profile);
+
+    /* --- 見出し計算 --- */
+    var bundle = computeBundle(V, dutyRateScaled, regime.tobacco, itemsW, exempt, track);
+    var grandC = totalC + bundle.taxTotal * 10000;
+    var totalCount = 0;
+    itemsW.forEach(function (w) { totalCount += w.count; });
+
+    var out = {
+      ok: true,
+      profile: profile,
+      regimeIndex: reg.index, regimeName: regime.name, tobacco: regime.tobacco,
+      postReform: postReform, specialApplied: specialApplied,
+      method: input.method, dateStr: input.dateStr,
+      N: N, V: V, vRawStr: vRawStr, boundary: boundary, exempt: exempt,
+      dutyRateScaled: dutyRateScaled,
+      dutyBase: bundle.dutyBase, duty: bundle.duty,
+      conv: bundle.conv, taxes: bundle.taxes,
+      ctBase: bundle.ctBase, ctNat: bundle.ctNat, ctLoc: bundle.ctLoc,
+      taxTotal: bundle.taxTotal,
+      goodsC: elements.filter(function (e) { return e.kind === "goods"; })
+                      .reduce(function (s, e) { return s + e.C; }, 0),
+      shipC: shipEl.C, insC: insEl.C, totalC: totalC, grandC: grandC,
+      totalCount: totalCount,
+      perStickC: totalCount > 0 ? grandC / totalCount : 0,
+      maxIntermediate: maxMid,
+      reference: null, range: null, altScenario: null
+    };
+
+    /* --- 参考シナリオ（境界ケースのみ。チェックON時に表示） --- */
+    if (boundary) {
+      var refExempt = judgeExempt(profile.referenceBasis, V, N, profile);
+      var rb = computeBundle(V, dutyRateScaled, regime.tobacco, itemsW, refExempt, null);
+      out.reference = {
+        exempt: refExempt, duty: rb.duty, taxes: rb.taxes,
+        ctNat: rb.ctNat, ctLoc: rb.ctLoc, taxTotal: rb.taxTotal,
+        grandC: totalC + rb.taxTotal * 10000
+      };
+    }
+
+    /* --- 推定の幅による税額レンジ（推定銘柄がある場合に必ず計算） --- */
+    var hasEstimate = itemsW.some(function (w) { return w.basis === "estimate"; });
+    if (hasEstimate) {
+      var pct = (input.estimateRangePct === null || input.estimateRangePct === undefined)
+        ? 15 : input.estimateRangePct;
+      if (!/^[0-9]+$/.test(String(pct)) || +pct < 1 || +pct > 50) {
+        return err("range", "estimateRangePct");
+      }
+      pct = +pct;
+      function scaledItems(fNum) {
+        return itemsW.map(function (w) {
+          if (w.basis !== "estimate") return w;
+          return { name: w.name, count: w.count, basis: w.basis,
+                   w01: floorDiv(w.w01 * fNum, 100) };
+        });
+      }
+      var loB = computeBundle(V, dutyRateScaled, regime.tobacco, scaledItems(100 - pct), exempt, null);
+      var hiB = computeBundle(V, dutyRateScaled, regime.tobacco, scaledItems(100 + pct), exempt, null);
+      out.range = {
+        pct: pct,
+        low: { N: loB.conv.N, tobTotal: loB.taxes.total, taxTotal: loB.taxTotal, grandC: totalC + loB.taxTotal * 10000 },
+        high: { N: hiB.conv.N, tobTotal: hiB.taxes.total, taxTotal: hiB.taxTotal, grandC: totalC + hiB.taxTotal * 10000 }
+      };
+    }
+
+    /* --- 重量候補の比較（採用値と候補値で税金合計の差を併記するため） --- */
+    if (anyCandidate) {
+      var altB = computeBundle(V, dutyRateScaled, regime.tobacco, itemsWAlt, exempt, null);
+      out.altScenario = { N: altB.conv.N, tobTotal: altB.taxes.total, taxTotal: altB.taxTotal };
+    }
+
+    return out;
+  }
+
+  /* ===== ビトラ寸法からの重量推定 =====
+   * 戻り値: 0.1g 単位の整数（w01）。推定式の結果を 0.1g 未満切捨てにする。
+   */
+  function estimateWeightW01(lengthInStr, ringStr, shapeKey) {
+    var L = parseDecimal(lengthInStr, 2);
+    if (!L.ok) return { ok: false, type: L.type, field: "lengthIn" };
+    var rg = parseInteger(ringStr);
+    if (!rg.ok) return { ok: false, type: rg.type, field: "ring" };
+    if (L.value <= 0 || L.value > 2000) return { ok: false, type: "range", field: "lengthIn" };
+    if (rg.value < 1 || rg.value > 100) return { ok: false, type: "range", field: "ring" };
+    var f = SHAPE_FACTORS[shapeKey];
+    if (f === undefined) return { ok: false, type: "format", field: "shape" };
+    var grams = (L.value / 100) * rg.value * rg.value * VITOLA_WEIGHT_CONSTANT * f;
+    var w01 = Math.floor(grams * 10 + 1e-9);
+    if (w01 < 1 || w01 > MAX_W01) return { ok: false, type: "range", field: "weight" };
+    return { ok: true, w01: w01, grams: w01 / 10 };
+  }
+
+  return {
+    REGIMES: REGIMES, DEFAULT_PROFILE: DEFAULT_PROFILE,
+    VITOLA_WEIGHT_CONSTANT: VITOLA_WEIGHT_CONSTANT, SHAPE_FACTORS: SHAPE_FACTORS,
+    calc: calc, convertItems: convertItems, estimateWeightW01: estimateWeightW01,
+    formatVRaw: formatVRaw, formatYenC: formatYenC, formatYenInt: formatYenInt,
+    parseDecimal: parseDecimal, parseInteger: parseInteger,
+    floorDiv: floorDiv, GUARD_LIMIT_C: GUARD_LIMIT_C
+  };
+})();
+
+if (typeof module !== "undefined" && module.exports) module.exports = TaxEngine;
+</script>
+<script>
+"use strict";
+/* TaxUI — 葉巻輸入税シミュレーター画面制御（実装版 v1.0、2026-11-09）
+ * 計算は TaxEngine に委ね、本スクリプトは入力の収集・表示のみを行う。
+ * 判定プロファイルはページ側の window.TAX_JUDGMENT_PROFILE（設定ブロック）を
+ * 一式として差し替えることで切り替える（仕様書 第5.3節：部分切替の禁止）。
+ */
+(function () {
+  var PROFILE = window.TAX_JUDGMENT_PROFILE || TaxEngine.DEFAULT_PROFILE;
+  var $ = function (id) { return document.getElementById(id); };
+  var RATES = { USD: "158.00", EUR: "184.00", GBP: "212.00", CHF: "200.00" };
+  var BASIS_LABEL = { measured: "実測", maker: "メーカー公表", vendor: "業者記載", declared: "購入者申告", estimate: "推定" };
+  var ORIGIN_LABEL = { wto: "キューバ・米国など（EPAなし）", eu: "EU加盟国", uk: "英国", cptpp: "CPTPP加盟国", ch: "スイス", basic: "その他の国（基本税率）", manual: "その他（手入力）" };
+  var METHODS = {
+    "postal-assessed": {
+      name: "国際郵便・賦課課税", estimated: true, dateLabel: "税関への提示予定日（推定）",
+      note: "課税価格20万円以下の郵便物では、税関が日本郵便から提示を受けて税額を決定します（賦課課税）。制度の適用は<strong>税関への提示日</strong>で決まるため、下の日付は<strong>提示予定日（推定）</strong>として入力してください。実際の提示日は、荷物の到着・通関の状況で変わります（関税法第5条ただし書、カスタムスアンサー6103）。",
+      hint: "適用する制度は、税関への提示日で切り替わります。課税価格の60％特例は2028年3月31日まで、2028年4月1日からは改正後の制度（特例なし）になります。国のたばこ税は2027年・2028年・2029年の各4月に段階的に引き上げられます。"
+    },
+    "postal-declared": {
+      name: "国際郵便・申告納税", estimated: false, dateLabel: "輸入申告予定日",
+      note: "課税価格20万円超の郵便物は、名宛人が輸入申告をして納税します（申告納税）。制度の適用は<strong>輸入申告日</strong>で決まります（関税法第5条）。",
+      hint: "適用する制度は、輸入申告の日で切り替わります。課税価格の60％特例は2028年3月31日まで、2028年4月1日からは改正後の制度（特例なし）になります。国のたばこ税は2027年・2028年・2029年の各4月に段階的に引き上げられます。"
+    },
+    "courier": {
+      name: "国際宅配便・一般貨物", estimated: false, dateLabel: "輸入申告予定日",
+      note: "国際宅配便・一般貨物は、輸入申告による納税です。制度の適用は<strong>輸入申告日</strong>で決まります（関税法第5条）。",
+      hint: "適用する制度は、輸入申告の日で切り替わります。課税価格の60％特例は2028年3月31日まで、2028年4月1日からは改正後の制度（特例なし）になります。国のたばこ税は2027年・2028年・2029年の各4月に段階的に引き上げられます。"
+    }
+  };
+  var FIELD_LABEL = {
+    method: "方式", date: "判定日", dutyRate: "関税率", rate: "換算レート",
+    ship: "送料", ins: "保険料", items: "銘柄", estimateRangePct: "推定の幅"
+  };
+  function fieldLabel(field) {
+    var m = /^items\[(\d+)\]\.(price|count|weight|altWeight)$/.exec(field || "");
+    if (m) {
+      var names = { price: "価格", count: "本数", weight: "1本の重量", altWeight: "候補重量" };
+      return "銘柄 " + (+m[1] + 1) + " の" + names[m[2]];
+    }
+    return FIELD_LABEL[field] || field;
+  }
+  function errorMessage(e) {
+    var f = fieldLabel(e.field);
+    switch (e.type) {
+      case "empty": return f + "が入力されていません。";
+      case "format": return f + "の形式が正しくありません。半角数字と小数点のみで入力してください（カンマ・全角数字・指数表記・符号は使えません）。";
+      case "precision": return f + "の小数桁数が許容範囲を超えています。自動で丸めることはしませんので、許容桁数以内で入力してください。";
+      case "range": return f + "が許容範囲を超えています。";
+      case "guard": return "円換算総額が上限（10億円）を超えるため、" + f + "を加算できませんでした。入力を見直してください。";
+      default: return "入力に誤りがあります（" + f + "）。";
+    }
+  }
+  function yenInt(v) { return "¥" + TaxEngine.formatYenInt(v); }
+  /* 円換算額の表示は円単位に丸める（TC表の表示慣例。V_raw の全桁表示とは別） */
+  function yenC(C) { return "¥" + TaxEngine.formatYenInt(Math.round(C / 10000)); }
+  function perStick(perC) {
+    var v = perC / 10000;
+    var s = v.toFixed(2);
+    var parts = s.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "¥" + parts.join(".");
+  }
+  function jpDate(iso) {
+    var p = iso.split("-");
+    return (+p[0]) + "年" + (+p[1]) + "月" + (+p[2]) + "日";
+  }
+  function todayStr() {
+    var t = new Date(), m = ("0" + (t.getMonth() + 1)).slice(-2), d = ("0" + t.getDate()).slice(-2);
+    return t.getFullYear() + "-" + m + "-" + d;
+  }
+
+  /* ===== 銘柄行 ===== */
+  function addItem(data) {
+    data = data || {};
+    var rows = document.querySelectorAll(".taxcalc-item-row");
+    if (rows.length >= 98) {
+      var ie = $("tc-item-err");
+      ie.style.display = "block";
+      ie.textContent = "銘柄は98件までです（送料・保険料と合わせて、構成要素100件が上限です）。";
+      return;
+    }
+    $("tc-item-err").style.display = "none";
+    var wrap = document.createElement("div");
+    wrap.className = "taxcalc-item-row";
+    wrap.innerHTML =
+      '<div class="taxcalc-item-head"><span class="no"></span>' +
+      '<button type="button" class="taxcalc-btn-del">この銘柄を削除</button></div>' +
+      '<div class="taxcalc-row">' +
+      '<div><label>銘柄名（任意）</label><input type="text" class="it-name" placeholder="例：銘柄A"></div>' +
+      '<div><label>価格（この銘柄の合計・選択した通貨）</label><input type="text" class="it-price" inputmode="decimal"></div>' +
+      '<div><label>価格情報の出所</label><select class="it-psrc">' +
+      '<option value="vendor">業者発行インボイス</option><option value="buyer">購入者提出</option>' +
+      '</select></div>' +
+      '<div><label>本数</label><input type="text" class="it-count" inputmode="numeric"></div>' +
+      '<div><label>1本の重量（g）</label><input type="text" class="it-weight" inputmode="decimal"></div>' +
+      '<div><label>重量の根拠</label><select class="it-basis">' +
+      '<option value="measured">実測</option><option value="maker">メーカー公表</option>' +
+      '<option value="vendor">業者記載</option><option value="declared">購入者申告</option>' +
+      '<option value="estimate">推定</option>' +
+      '</select><div class="taxcalc-hint">推定は実測ではありません。実測できる場合は実測を優先してください。</div></div>' +
+      '<div><label>重量の出典・確認日（任意）</label><input type="text" class="it-srcnote" placeholder="例：メーカー公式サイト・2026-11-09確認"></div>' +
+      '<div><label>候補重量（g・任意）</label><input type="text" class="it-alt" inputmode="decimal" placeholder="別の候補がある場合">' +
+      '<label class="taxcalc-check" style="margin-top:.4rem"><input type="checkbox" class="it-usealt"><span>候補重量を採用する</span></label></div>' +
+      '</div>';
+    wrap.querySelector(".it-name").value = data.name || "";
+    wrap.querySelector(".it-price").value = data.price != null ? data.price : "300.00";
+    wrap.querySelector(".it-psrc").value = data.psrc || "vendor";
+    wrap.querySelector(".it-count").value = data.count != null ? data.count : 25;
+    wrap.querySelector(".it-weight").value = data.weight != null ? data.weight : "12.0";
+    wrap.querySelector(".it-basis").value = data.basis || "measured";
+    wrap.querySelector(".it-srcnote").value = data.srcnote || "";
+    wrap.querySelector(".it-alt").value = data.alt || "";
+    wrap.querySelector(".it-usealt").checked = !!data.useAlt;
+    wrap.querySelector(".taxcalc-btn-del").addEventListener("click", function () {
+      if (document.querySelectorAll(".taxcalc-item-row").length <= 1) return;
+      wrap.remove(); renumber(); calc();
+    });
+    ["it-name", "it-price", "it-psrc", "it-count", "it-weight", "it-basis", "it-srcnote", "it-alt", "it-usealt"].forEach(function (cls) {
+      wrap.querySelector("." + cls).addEventListener("change", function () { renumber(); calc(); });
+    });
+    $("tc-items").appendChild(wrap);
+    renumber();
+  }
+  function renumber() {
+    var rows = document.querySelectorAll(".taxcalc-item-row"), sel = $("tc-est-target"), cur = sel.value;
+    sel.innerHTML = "";
+    rows.forEach(function (row, i) {
+      row.querySelector(".no").textContent = "銘柄 " + (i + 1);
+      var nm = row.querySelector(".it-name").value || ("銘柄 " + (i + 1));
+      var opt = document.createElement("option");
+      opt.value = i; opt.textContent = nm; sel.appendChild(opt);
+    });
+    if (cur !== "" && +cur < rows.length) sel.value = cur;
+  }
+  function readItems() {
+    var items = [];
+    document.querySelectorAll(".taxcalc-item-row").forEach(function (row, i) {
+      items.push({
+        name: row.querySelector(".it-name").value || ("銘柄 " + (i + 1)),
+        priceStr: row.querySelector(".it-price").value,
+        priceSource: row.querySelector(".it-psrc").value,
+        countStr: row.querySelector(".it-count").value,
+        weightStr: row.querySelector(".it-weight").value,
+        basis: row.querySelector(".it-basis").value,
+        altWeightStr: row.querySelector(".it-alt").value,
+        useAlt: row.querySelector(".it-usealt").checked
+      });
+    });
+    return items;
+  }
+
+  /* ===== 方式・原産国まわり ===== */
+  function refreshMethodUI() {
+    var m = METHODS[$("tc-method").value];
+    $("tc-method-note").innerHTML = "<p style='margin:0'>" + m.note + "</p>";
+    $("tc-date-label").textContent = m.dateLabel;
+    $("tc-date-hint").textContent = m.hint;
+  }
+  function resolveDuty() {
+    var o = $("tc-origin").value;
+    switch (o) {
+      case "wto": return { rateStr: "16", note: "協定（WTO）税率 16%", kind: "wto" };
+      case "basic": return { rateStr: "20", note: "基本税率 20%", kind: "basic" };
+      case "eu": case "uk": case "cptpp":
+        if ($("tc-epa-ok").checked) return { rateStr: "2.9", note: "EPA税率 2.9%（原産地規則・証明条件を満たす前提）", kind: "epa" };
+        return { rateStr: "16", note: "EPAの適用条件を満たさないため、協定（WTO）税率 16% で計算しています", kind: "epa-fallback" };
+      case "ch":
+        return { rateStr: $("tc-duty-manual").value, note: "スイス原産：手入力の税率で計算しています。申告前に税関で確認してください", kind: "swiss" };
+      default:
+        return { rateStr: $("tc-duty-manual").value, note: "手入力の税率で計算しています", kind: "manual" };
+    }
+  }
+  function refreshOriginUI() {
+    var o = $("tc-origin").value;
+    $("tc-epa-row").style.display = (o === "eu" || o === "uk" || o === "cptpp") ? "block" : "none";
+    $("tc-swiss-warn").style.display = (o === "ch") ? "block" : "none";
+    $("tc-duty-manual-row").style.display = (o === "ch" || o === "manual") ? "block" : "none";
+  }
+
+  /* ===== 計算と描画 ===== */
+  function calc() {
+    var duty = resolveDuty();
+    var rangePct = $("tc-est-range").value;
+    var input = {
+      method: $("tc-method").value,
+      dateStr: $("tc-date").value,
+      specialEligible: $("tc-eligible").value === "yes",
+      currency: $("tc-currency").value,
+      rateStr: $("tc-rate").value,
+      items: readItems(),
+      shipStr: $("tc-ship").value,
+      insStr: $("tc-ins").value,
+      separated: $("tc-separated").checked,
+      dutyRateStr: duty.rateStr,
+      estimateRangePct: rangePct === "" ? null : rangePct,
+      showReference: $("tc-show-ref").checked
+    };
+    var out = TaxEngine.calc(input, PROFILE);
+    var errEl = $("tc-err");
+    if (!out.ok) {
+      errEl.style.display = "block";
+      errEl.textContent = "入力エラー：" + errorMessage(out.error) + " エラーの間は、税額・判定を表示しません。";
+      $("tc-result-body").style.display = "none";
+      var ph = $("tc-result-placeholder");
+      ph.style.display = "block";
+      ph.textContent = "入力エラーがあるため、計算結果は表示されていません。";
+      return;
+    }
+    errEl.style.display = "none";
+    $("tc-result-placeholder").style.display = "none";
+    $("tc-result-body").style.display = "block";
+    render(out, duty, input);
+  }
+
+  function render(out, duty, input) {
+    var m = METHODS[out.method];
+    var judge = "<p style='margin:0'><strong>判定日：" + m.name + "／" + jpDate(out.dateStr) +
+      (m.estimated ? "（提示予定日・推定）" : "（輸入申告日）") + "</strong></p>" +
+      "<p style='margin:.3rem 0 0'>適用制度：" + out.regimeName + "／原産国：" + ORIGIN_LABEL[$("tc-origin").value] +
+      "（関税率は原産国で判定）／発送国：" + $("tc-shipfrom").value + "</p>";
+    if (input.currency === "JPY") {
+      judge += "<p style='margin:.3rem 0 0'>為替の適用日：円建て入力のため換算レートは使用していません。実際の課税では、判定日を基準日とする税関長公示レートが使われます。</p>";
+    } else {
+      judge += "<p style='margin:.3rem 0 0'>為替の適用日：実際の課税では、判定日（" + jpDate(out.dateStr) +
+        "）を基準日とする税関長公示レート（基準日の属する週の前々週の実勢平均）が使われます。本計算は、入力された換算レート（¥" + input.rateStr + "／" + input.currency + "）で換算しています。</p>";
+    }
+    $("tc-judge-block").innerHTML = judge;
+
+    var label = "判定：標準判定（円未満切捨て後の課税価格で判定）／ 課税価格 " +
+      TaxEngine.formatYenInt(out.V) + "円（切り捨て後）で判定しました";
+    if (out.boundary && input.showReference) {
+      label += "。あわせて切り捨て前（" + out.vRawStr + "円）による参考シナリオを表示しています";
+    }
+    $("tc-judge-label").textContent = label;
+
+    var warn = $("tc-regime-warn");
+    if (out.postReform) {
+      warn.style.display = "block";
+      warn.innerHTML = "<p style='margin:0'><span class='taxcalc-badge'>改正後モード（試算）</span></p>" +
+        "<p>判定日が2028年4月1日以降のため、課税価格を6割にする特例は<strong>廃止</strong>されています。課税価格は一般原則（関税定率法第4条）で計算しています：<strong>課税価格 ＝ 実際に支払った価格（商品価格）＋ 輸入港までの運賃・保険料</strong>。送料がインボイスで区別できるかどうかは関係なく、運賃・保険料は課税価格に加算されます。</p>" +
+        "<p>改正後制度について、税関の公式な実務計算例はまだ公表されていません。改正法の附則に当該特例の廃止に固有の経過措置があるかは未確認です。<strong>実際の制度・税額は、課税通知書の法令適用日で確定します。</strong></p>";
+    } else if (!out.specialApplied) {
+      warn.style.display = "block";
+      warn.innerHTML = "<p style='margin:0'><strong>特例対象外のため、60％特例は適用していません。</strong>課税価格は原則方式（実際に支払った価格＋輸入港までの運賃・保険料）で計算しています。特例の適用条件については、STEP 1 の説明を確認してください。</p>";
+    } else { warn.style.display = "none"; warn.innerHTML = ""; }
+
+    var dw = $("tc-duty-warn");
+    if (duty.kind === "epa-fallback" || duty.kind === "swiss" || duty.kind === "manual") {
+      dw.style.display = "block";
+      dw.innerHTML = "<p style='margin:0'><strong>関税率の注記：</strong>" + duty.note + "</p>";
+    } else { dw.style.display = "none"; dw.innerHTML = ""; }
+
+    $("tc-r-goods").textContent = yenC(out.goodsC);
+    $("tc-r-value").textContent = yenInt(out.V);
+    $("tc-r-value-label").textContent = out.specialApplied
+      ? "課税価格 ＝ 小売価格 × 0.6"
+      : "課税価格 ＝ 商品価格＋送料＋保険料（原則方式）";
+    $("tc-r-base-note").textContent = out.specialApplied
+      ? (input.separated ? "（送料・保険料は区別できる前提）" : "（送料・保険料込みの価格が対象）") : "";
+    $("tc-r-vraw").textContent = out.vRawStr + " 円";
+
+    var em = $("tc-exempt-msg");
+    if (out.exempt) {
+      em.style.display = "block";
+      em.innerHTML = "課税価格が1万円以下のため、<strong>関税と消費税・地方消費税は免除</strong>されます。<span class='taxcalc-badge taxcalc-badge-ok'>少額免税</span><br>ただし、<strong>たばこ税・たばこ特別税は免税されず</strong>、地方たばこ税もあわせて、下記のとおり課税されます。";
+    } else { em.style.display = "none"; em.innerHTML = ""; }
+
+    var bn = $("tc-boundary-note");
+    if (out.boundary) {
+      bn.style.display = "block";
+      bn.textContent = "※ 切り捨て前の課税価格（" + out.vRawStr + "円）は1万円を超える境界ケースです。切り捨て前の金額で判定した場合の金額は、「" + PROFILE.checkbox.label + "」にチェックを入れると確認できます。";
+    } else { bn.style.display = "none"; bn.textContent = ""; }
+
+    var rb = $("tc-ref-box");
+    if (out.boundary && input.showReference && out.reference) {
+      var r = out.reference;
+      rb.style.display = "block";
+      rb.innerHTML = "<h4>参考シナリオ：切り捨て前の課税価格で判定した場合</h4>" +
+        "<p>切り捨て前の課税価格は " + out.vRawStr + "円 で、1万円を超えています。この境界の取扱いについて税関の確認は取れていません。税関が切り捨て前の金額で判定した場合は課税となり、税額の目安は " +
+        TaxEngine.formatYenInt(r.taxTotal) + "円（お支払い総額 " + TaxEngine.formatYenC(r.grandC) + "円）です。これは別の考え方で計算した参考値であり、税関の確定判断を示すものではありません。</p>" +
+        "<p class='taxcalc-ref-detail'>内訳：関税 " + TaxEngine.formatYenInt(r.duty) + "円／たばこ税等 " + TaxEngine.formatYenInt(r.taxes.total) +
+        "円／消費税 " + TaxEngine.formatYenInt(r.ctNat) + "円／地方消費税 " + TaxEngine.formatYenInt(r.ctLoc) + "円</p>";
+    } else { rb.style.display = "none"; rb.innerHTML = ""; }
+
+    $("tc-r-duty").textContent = yenInt(out.duty) + (out.exempt ? "（免除）" : "（" + duty.note + "）");
+
+    var tbody = $("tc-r-items"); tbody.innerHTML = "";
+    out.conv.details.forEach(function (d, i) {
+      var src = input.items[i];
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td"); tdName.textContent = d.name;
+      var tdCnt = document.createElement("td"); tdCnt.textContent = d.count + " 本";
+      var tdW = document.createElement("td");
+      tdW.textContent = (d.w01 / 10).toFixed(1) + " g（" + BASIS_LABEL[src.basis] + "）";
+      var tdB = document.createElement("td");
+      tdB.textContent = d.light ? "軽量（1g未満）：1本＝1本換算"
+        : "品目総重量 " + TaxEngine.formatYenInt(d.totalW01 / 10) + " g";
+      tr.appendChild(tdName); tr.appendChild(tdCnt); tr.appendChild(tdW); tr.appendChild(tdB);
+      tbody.appendChild(tr);
+    });
+    $("tc-r-conv").textContent = TaxEngine.formatYenInt(out.conv.N) + " 本" +
+      "（軽量分 " + out.conv.lightSticks + " 本＋重量換算分 " + out.conv.heavySticks + " 本）";
+    $("tc-r-tobnat-rate").textContent = TaxEngine.formatYenInt(out.tobacco.nat);
+    $("tc-r-tobspc-rate").textContent = TaxEngine.formatYenInt(out.tobacco.spc);
+    $("tc-r-tobpref-rate").textContent = TaxEngine.formatYenInt(out.tobacco.pref);
+    $("tc-r-tobcity-rate").textContent = TaxEngine.formatYenInt(out.tobacco.city);
+    $("tc-r-tobnat").textContent = yenInt(out.taxes.nat);
+    $("tc-r-tobspc").textContent = yenInt(out.taxes.spc);
+    $("tc-r-tobpref").textContent = yenInt(out.taxes.pref);
+    $("tc-r-tobcity").textContent = yenInt(out.taxes.city);
+    $("tc-r-tobtotal").textContent = yenInt(out.taxes.total);
+
+    var rangeBox = $("tc-range-box");
+    if (out.range) {
+      rangeBox.style.display = "block";
+      rangeBox.innerHTML = "<strong>推定重量にもとづく税額レンジ（±" + out.range.pct + "%）</strong><br>" +
+        "推定の銘柄があるため、税額は目安です。換算本数 " + out.range.low.N + "〜" + out.range.high.N + " 本／" +
+        "たばこ税 " + yenInt(out.range.low.tobTotal) + "〜" + yenInt(out.range.high.tobTotal) + "／" +
+        "税金合計 " + yenInt(out.range.low.taxTotal) + "〜" + yenInt(out.range.high.taxTotal) + "／" +
+        "総支払額 " + yenC(out.range.low.grandC) + "〜" + yenC(out.range.high.grandC) + "<br>" +
+        "中央の表示は推定重量そのままで計算した値です。<strong>この重量は寸法からの推定値で、実際の重量とは異なる場合があります。最終的な判断と責任は利用者にあります。実測できる場合は実測を優先してください。</strong>";
+    } else { rangeBox.style.display = "none"; rangeBox.innerHTML = ""; }
+
+    var altBox = $("tc-alt-box");
+    if (out.altScenario) {
+      var diff = out.altScenario.taxTotal - out.taxTotal;
+      altBox.style.display = "block";
+      altBox.innerHTML = "<strong>重量候補による比較：</strong>候補重量で計算すると、換算本数 " + out.altScenario.N + " 本／たばこ税等 " +
+        yenInt(out.altScenario.tobTotal) + "／税金合計 " + yenInt(out.altScenario.taxTotal) +
+        "（採用値で計算した税金合計との差 " + (diff >= 0 ? "+" : "−") + TaxEngine.formatYenInt(Math.abs(diff)) + "円）になります。" +
+        "税関が最終的に認定する重量は入力値と異なる場合があり、その場合は税額も変わります。";
+    } else { altBox.style.display = "none"; altBox.innerHTML = ""; }
+
+    $("tc-r-ctbase").textContent = yenInt(out.ctBase) + (out.exempt ? "（消費税は免除）" : "");
+    $("tc-r-ctnat").textContent = yenInt(out.ctNat);
+    $("tc-r-ctloc").textContent = yenInt(out.ctLoc);
+    $("tc-r-cttotal").textContent = yenInt(out.ctNat + out.ctLoc);
+    $("tc-r-taxtotal").textContent = yenInt(out.taxTotal);
+    $("tc-r-ship").textContent = yenC(out.shipC + out.insC);
+    $("tc-r-grand").textContent = yenC(out.grandC);
+    $("tc-r-per").textContent = perStick(out.perStickC) + "／本";
+  }
+
+  /* ===== 推定 ===== */
+  $("tc-est-btn").addEventListener("click", function () {
+    var r = TaxEngine.estimateWeightW01($("tc-est-length").value, $("tc-est-ring").value, $("tc-est-shape").value);
+    if (!r.ok) {
+      $("tc-est-out").textContent = "推定できませんでした：長さとリングゲージを正しく入力してください。";
+      return;
+    }
+    var idx = +$("tc-est-target").value || 0;
+    var row = document.querySelectorAll(".taxcalc-item-row")[idx];
+    if (!row) return;
+    row.querySelector(".it-weight").value = r.grams.toFixed(1);
+    row.querySelector(".it-basis").value = "estimate";
+    $("tc-est-out").textContent = "推定重量は約 " + r.grams.toFixed(1) + " g/本 です（寸法からの推定値で、実際の重量とは異なる場合があります）。選んだ銘柄に反映し、根拠を「推定」にしました。実測できる場合は実測値を入れてください。";
+    calc();
+  });
+  $("tc-est-preset").addEventListener("change", function () {
+    if (!this.value) return;
+    var p = this.value.split(",");
+    $("tc-est-length").value = p[0]; $("tc-est-ring").value = p[1];
+  });
+
+  /* ===== 初期化 ===== */
+  var refCheck = $("tc-show-ref");
+  refCheck.checked = !!PROFILE.checkbox.defaultChecked;
+  var refLabel = refCheck.closest("label").querySelector("span");
+  if (refLabel && refLabel.firstChild) refLabel.firstChild.textContent = PROFILE.checkbox.label + "\n";
+
+  addItem({ name: "", price: "300.00", count: 25, weight: "12.0", basis: "measured" });
+  $("tc-date").value = todayStr();
+  refreshMethodUI();
+  refreshOriginUI();
+  $("tc-method").addEventListener("change", function () { refreshMethodUI(); calc(); });
+  $("tc-origin").addEventListener("change", function () { refreshOriginUI(); calc(); });
+  $("tc-epa-ok").addEventListener("change", calc);
+  $("tc-currency").addEventListener("change", function () {
+    if (RATES[this.value]) $("tc-rate").value = RATES[this.value];
+    $("tc-rate").disabled = (this.value === "JPY");
+    calc();
+  });
+  $("tc-add-item").addEventListener("click", function () { addItem({}); calc(); });
+  $("tc-calc-btn").addEventListener("click", calc);
+  ["tc-date", "tc-eligible", "tc-rate", "tc-ship", "tc-ins", "tc-duty-manual", "tc-est-range", "tc-shipfrom"].forEach(function (id) {
+    $(id).addEventListener("change", calc);
+  });
+  $("tc-separated").addEventListener("change", calc);
+  $("tc-show-ref").addEventListener("change", calc);
+  calc();
+})();
+</script>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-logo-plate"><img src="../assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News" loading="lazy"></div>
+<p class="footer-tag">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<nav class="footer-nav" aria-label="フッターナビゲーション">
+<a href="../about.html">サイトについて</a>
+<a href="../policy.html">編集方針</a>
+<a href="../sources.html">情報源・著作権ポリシー</a>
+<a href="../contact.html">お問い合わせ</a>
+<a href="../privacy.html">プライバシーポリシー</a>
+</nav>
+<div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
+</div>
+</footer>
+<script src="../search.js" defer></script>
+
+</body></html>
