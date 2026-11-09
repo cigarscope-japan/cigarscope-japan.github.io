@@ -610,7 +610,7 @@ main { display: block; }
 .dd-head { text-align: center; margin-bottom: 12px; }
 .dd-en { display: block; font-family: "Cormorant Garamond", "Hiragino Mincho ProN", serif; letter-spacing: .35em; color: #c9a45c; font-size: 1.05rem; }
 .dd-ja { display: block; margin-top: 4px; color: #efe6cf; font-size: .92rem; letter-spacing: .08em; }
-.dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; } /* 3作品の棚（第4弾は特集公開時に追加し、その際に4列へ戻す） */
+.dd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; } /* 4作品の棚（第4弾マイファザーは 2026-11-09 に特集公開と同時に追加） */
 .dd-card { display: block; text-decoration: none; }
 .dd-card img { width: 100%; height: 150px; object-fit: cover; display: block; border: 1px solid #c9a45c; background: #fff; }
 .dd-no { display: block; text-align: center; margin-top: 7px; color: #c9a45c; font-size: .78rem; letter-spacing: .2em; }
