@@ -42,6 +42,7 @@
   .item:active, .item.open { background: #fbf6ea; }
   .item .nm { font-weight: bold; font-size: 15px; }
   .sel-name { color: #1565c0; font-weight: bold; }
+  #pick-sum .jp-amt { color: #1f4e79; font-weight: bold; }
   .item .mt { font-size: 12px; color: #6b6252; }
   .item .dims { font-size: 12px; color: #6b6252; }
   .item .rgrp { display: flex; align-items: baseline; gap: 6px; margin-left: auto; }
@@ -197,10 +198,11 @@
   <p class="count" id="count"></p>
   <div id="list"></div>
   <p class="more" id="more"></p>
+  <p class="cf-sel" id="pick-sum" style="display: none;"><span id="pick-sum-text"></span><button type="button" class="pc-clear" id="pick-change">変更する</button></p>
 
   <section class="calc pc" id="pc">
     <h2>日本の定価と比べる（試作）</h2>
-    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button></p>
+    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pc-clear" id="pc-change" style="display: none;">変更する</button></p>
     <div id="pc-cand"></div>
     <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で探す（例：コイーバ）" autocomplete="off">
     <div class="az" id="az-pc"></div>
@@ -1290,7 +1292,9 @@ function pcRenderList() {
   var btns = pcListEl.querySelectorAll(".pc-item");
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
-      pcSelect(Number(this.getAttribute("data-i")));
+      var idx = Number(this.getAttribute("data-i"));
+      if (typeof F1Nav !== "undefined" && F1Nav) F1Nav.pcUserSelect(idx);
+      else pcSelect(idx);
     });
   }
 }
@@ -1304,6 +1308,7 @@ function pcSelect(i) {
   pcClearEl.style.display = "";
   pcRenderList();
   pcUpdateCompare();
+  if (typeof F1Nav !== "undefined" && F1Nav) F1Nav.onPcSelect(i);
 }
 function pcClear() {
   pcState.sel = -1;
@@ -1312,6 +1317,7 @@ function pcClear() {
   pcClearEl.style.display = "none";
   pcResEl.innerHTML = "";
   pcRenderList();
+  if (typeof F1Nav !== "undefined" && F1Nav) F1Nav.onPcClear();
 }
 function pcUpdateCompare() {
   if (pcState.sel < 0) { pcResEl.innerHTML = ""; return; }
@@ -1439,6 +1445,14 @@ if (typeof MutationObserver !== "undefined") {
  *   色強調（.sel-name＝青 #1565c0＋太字）：「選択中」表示・結果の
  *   「採用した重さ」行・候補案内・理由表示の銘柄名を包む。markAuto は
  *   span を潰さないようテキストノードで末尾に足す方式に変更。
+ * v54 追加：選択後の移動距離の短縮（F1Nav）。銘柄・定価とも、項目を
+ *   選んだらリスト本体を折りたたみ「選択中の要約＋変更するボタン」
+ *   だけにする（変更で検索・A–Z・絞り込みの状態を保ったまま再展開。
+ *   選択の解除は従来どおり）。銘柄を選んだら定価セクションの頭へ、
+ *   定価を選んだら計算フォームの頭へスムーズスクロールする。定価
+ *   リストで選んだ品目が F1A_MAP で製品と結びついていれば、銘柄側
+ *   も自動選択して重さを入れる（逆方向の自動選択。逆引きは "a" と
+ *   "c" の双方から作り、複数製品に結びつく品目は逆選択しない）。
  */
 var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]}};
 var F1Auto = (function () {
@@ -1486,7 +1500,8 @@ var F1Auto = (function () {
       btns[i].addEventListener("click", function () {
         var idx = Number(this.getAttribute("data-i"));
         if (typeof PCUI !== "undefined") {
-          PCUI.select(idx);
+          if (typeof F1Nav !== "undefined" && F1Nav) F1Nav.pcUserSelect(idx);
+          else PCUI.select(idx);
           autoMof = idx;
           markAuto();
         }
@@ -1510,6 +1525,7 @@ var F1Auto = (function () {
     if (typeof F1CalcUI !== "undefined") {
       F1CalcUI.select(it, { scroll: false });
     }
+    if (typeof F1Nav !== "undefined" && F1Nav) F1Nav.afterCigarOpen(it);
     clearCand();
     if (isManualSel()) return; /* 手動選択は保持（候補も出さない） */
     var m = F1A_MAP[it.n];
@@ -1767,6 +1783,179 @@ var F1Fx = (function () {
   load(false);
   return { load: load,
            state: function () { return { edited: edited, autoVal: autoVal }; } };
+})();
+
+/*
+ * v54 追加ブロック：選択後の移動距離を短くするナビゲーション。
+ * 折りたたみは表示の出し分けだけで、選択状態そのものは従来どおり
+ * F1CalcUI / PCUI が保持する。計算エンジン・データ・モーダル・
+ * 為替の自動取得には触れない。
+ */
+var F1Nav = (function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var pcEl = $("pc"), calcEl = $("calc");
+  var sumEl = $("pick-sum"), sumTextEl = $("pick-sum-text");
+  var pickChangeEl = $("pick-change"), pcChangeEl = $("pc-change");
+  var mainParts = [];
+  [".toolbar", ".legend", ".nasem-note"].forEach(function (sel) {
+    var e = document.querySelector(sel);
+    if (e) mainParts.push(e);
+  });
+  ["az-main", "count", "list", "more"].forEach(function (id) {
+    var e = $(id);
+    if (e) mainParts.push(e);
+  });
+  var pcParts = [];
+  ["pc-q", "az-pc", "pc-count", "pc-list"].forEach(function (id) {
+    var e = $(id);
+    if (e) pcParts.push(e);
+  });
+  var mainCollapsed = false, pcCollapsed = false;
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  }
+  function navScroll(el) {
+    if (el && el.scrollIntoView) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+  function selectedCigar() {
+    if (typeof F1CalcUI === "undefined" || typeof DATA === "undefined") {
+      return null;
+    }
+    for (var i = 0; i < DATA.length; i++) {
+      if (F1CalcUI.isSelected(i)) return DATA[i];
+    }
+    return null;
+  }
+  function renderPickSum() {
+    if (!sumEl || !sumTextEl) return;
+    var it = selectedCigar();
+    sumEl.classList.toggle("has-sel", !!it);
+    if (!it) {
+      sumTextEl.textContent = "銘柄は未選択です。";
+      return;
+    }
+    var h = "選択中：" + '<span class="sel-name">' + esc(it.n) + "</span>";
+    var info = (typeof F1Calc !== "undefined")
+      ? F1Calc.weightForItem(it) : null;
+    if (info) h += " ／ 1本の重さ " + info.weightStr + "g";
+    if (typeof PCUI !== "undefined" && PCUI.state.sel >= 0
+        && typeof MOF !== "undefined"
+        && typeof F1A_MAP !== "undefined") {
+      var m = F1A_MAP[it.n], sel = PCUI.state.sel, linked = false;
+      if (m) {
+        if (typeof m.a === "number" && m.a === sel) linked = true;
+        if (m.c && m.c.indexOf(sel) >= 0) linked = true;
+      }
+      if (linked && MOF[sel]) {
+        h += " ／ 日本の定価 " + '<span class="jp-amt">'
+          + yenFmt(MOF[sel][2]) + "</span>（"
+          + pcUnitLabel(MOF[sel]) + "あたり）";
+      }
+    }
+    sumTextEl.innerHTML = h;
+  }
+  function setMainCollapsed(on) {
+    mainCollapsed = on;
+    for (var i = 0; i < mainParts.length; i++) {
+      mainParts[i].style.display = on ? "none" : "";
+    }
+    if (sumEl) sumEl.style.display = on ? "" : "none";
+    if (on) renderPickSum();
+  }
+  function setPcCollapsed(on) {
+    pcCollapsed = on;
+    for (var i = 0; i < pcParts.length; i++) {
+      pcParts[i].style.display = on ? "none" : "";
+    }
+    if (pcChangeEl) pcChangeEl.style.display = on ? "" : "none";
+  }
+  /* 逆引き表：MOF 添字 → 製品名（一意な結びつきだけを採用） */
+  var INV = {};
+  if (typeof F1A_MAP !== "undefined") {
+    var cand = {};
+    Object.keys(F1A_MAP).forEach(function (name) {
+      var m = F1A_MAP[name];
+      if (typeof m.a === "number") INV[m.a] = name;
+      if (m.c) m.c.forEach(function (j) {
+        (cand[j] = cand[j] || []).push(name);
+      });
+    });
+    Object.keys(cand).forEach(function (j) {
+      if (cand[j].length === 1 && !INV[j]) INV[j] = cand[j][0];
+    });
+  }
+  function reverseSelect(mofIdx) {
+    var name = INV[mofIdx];
+    if (!name || typeof DATA === "undefined"
+        || typeof F1CalcUI === "undefined") return false;
+    for (var i = 0; i < DATA.length; i++) {
+      if (DATA[i].n === name) {
+        F1CalcUI.select(DATA[i], { scroll: false });
+        setMainCollapsed(true);
+        return true;
+      }
+    }
+    return false;
+  }
+  /* 銘柄を開いた（＝選択した）直後：リストを畳み、定価セクションへ */
+  function afterCigarOpen(it) {
+    setMainCollapsed(true);
+    renderPickSum();
+    navScroll(pcEl);
+  }
+  /* 定価の選択が変わるたび（自動セット含む）：畳みと要約を同期する */
+  function onPcSelect(i) {
+    if (typeof PCUI !== "undefined" && PCUI.state.sel >= 0) {
+      setPcCollapsed(true);
+    }
+    renderPickSum();
+  }
+  function onPcClear() {
+    setPcCollapsed(false);
+    renderPickSum();
+  }
+  /* 利用者が定価リスト（または候補）から選んだとき：逆方向の自動
+   * 選択をして、計算フォームの頭へ移動する */
+  function pcUserSelect(i) {
+    if (typeof PCUI !== "undefined") PCUI.select(i);
+    reverseSelect(i);
+    navScroll(calcEl);
+  }
+  if (pickChangeEl) pickChangeEl.addEventListener("click", function () {
+    setMainCollapsed(false);
+    var open = document.querySelector("#list .item.open");
+    navScroll(open || mainParts[0] || sumEl);
+  });
+  if (pcChangeEl) pcChangeEl.addEventListener("click", function () {
+    setPcCollapsed(false);
+  });
+  /* 「この重さで計算する」経由の選択でもリストを畳む（ボタンの元の
+   * 処理が先に走るよう、伝播先の #list で受ける） */
+  var listEl = $("list");
+  if (listEl) listEl.addEventListener("click", function (e) {
+    var t = e && e.target;
+    if (t && t.closest && t.closest(".use-wt")) setMainCollapsed(true);
+  });
+  /* 重さの手入力で選択が外れる等、選択表示が変わったら要約も追随 */
+  var cfSelEl = $("cf-sel");
+  if (cfSelEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(function () {
+      if (mainCollapsed) renderPickSum();
+    }).observe(cfSelEl, { childList: true, subtree: true });
+  }
+  return { afterCigarOpen: afterCigarOpen, onPcSelect: onPcSelect,
+           onPcClear: onPcClear, pcUserSelect: pcUserSelect,
+           setMainCollapsed: setMainCollapsed,
+           setPcCollapsed: setPcCollapsed,
+           renderPickSum: renderPickSum,
+           state: function () {
+             return { mainCollapsed: mainCollapsed,
+                      pcCollapsed: pcCollapsed,
+                      inv: Object.keys(INV).length };
+           } };
 })();
 </script>
 </body></html>
