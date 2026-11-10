@@ -1,5 +1,113 @@
 [
  {
+  "title": "Arnold André and Joya de Nicaragua to End Distribution Partnership at Year's End",
+  "summary": "Germany's largest cigar manufacturer, Arnold André, and Nicaragua's oldest cigar maker, Joya de Nicaragua, are ending their long-standing German distribution partnership at the end of the year; no reason or successor distributor has been announced.",
+  "category": "Market & Distribution",
+  "countries": [
+   "Germany"
+  ],
+  "maker": "Arnold André",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/arnold-andre-joya-end-partnership.html"
+ },
+ {
+  "title": "Dunbarton Ships Cosmic Corona Sampler With Two All-New Blends",
+  "summary": "Dunbarton Tobacco & Trust has begun shipping the Cosmic Corona Sampler, a 14-count box of seven cigars — five new coronas from existing lines plus two all-new blends, the Corona Alpha and Corona Omega — all in a 5 x 44 format at $211.30.",
+  "category": "Limited Edition",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Dunbarton Tobacco & Trust",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/dunbarton-cosmic-corona-sampler.html"
+ },
+ {
+  "title": "Liga Tridente Names Santa Clara Its Exclusive U.S. Distributor",
+  "summary": "Liga Tridente, the cigar brand co-owned by entertainer Marlon Wayans, has signed an exclusive U.S. distribution agreement with Santa Clara Inc., part of Tabacalera USA, to bring its brands to premium retailers in major cities across the country.",
+  "category": "Market & Distribution",
+  "countries": [
+   "United States"
+  ],
+  "maker": "Liga Tridente",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/liga-tridente-santa-clara-distribution.html"
+ },
+ {
+  "title": "Hermanos de Armas Ships Eleven Eleven for Veterans Day",
+  "summary": "Hermanos de Armas has begun shipping the Eleven Eleven, a 6 x 52 toro limited to 450 boxes of 22 at $16.50 per cigar, with 11 percent of gross sales going to Team SAPO, a veterans' mental-health organisation.",
+  "category": "Limited Edition",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Hermanos de Armas",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/hermanos-de-armas-eleven-eleven.html"
+ },
+ {
+  "title": "RoMa Craft Sends Foreign & Domestic Back to Stores in a Second, Larger Run",
+  "summary": "The second release of RoMa Craft Tobac's CRAFT Maquette Foreign & Domestic, a 4 x 46 box-pressed petite corona, is heading to stores at $10 per cigar, with production up from 500 bundles to 1,200.",
+  "category": "Limited Edition",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "RoMa Craft Tobac",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/roma-craft-foreign-domestic-2026.html"
+ },
+ {
+  "title": "ChiMolly to Debut Argosy, Its First San Andrés Line, on November 14",
+  "summary": "ChiMolly Cigars will debut Argosy, its fourth line and its first with a Mexican San Andrés wrapper, on November 14 at V-Cut Lounge in Burbank, California, in two sizes at $16 per cigar.",
+  "category": "New Release",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "ChiMolly Cigars",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/chimolly-argosy.html"
+ },
+ {
+  "title": "EGM Begins Shipping Ninfa Jars, 50 Slender Cigars in a Numbered Ceramic Jar",
+  "summary": "EGM Cigars has begun shipping the Ninfa Jar, a handmade Italian ceramic jar holding 50 of its slender 7 x 34 Ninfas, limited to 500 numbered jars at $3,000 each.",
+  "category": "Limited Edition",
+  "countries": [
+   "Dominican Republic"
+  ],
+  "maker": "EGM Cigars",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/egm-ninfa-jars.html"
+ },
+ {
+  "title": "Flor de Selva Año de la Cabra 2027 Ships to Europe; No U.S. Release",
+  "summary": "Maya Selva's Lunar New Year limited edition, the Flor de Selva Año de la Cabra 2027, has begun shipping to European distributors after InterTabac 2026, with 2,027 boxes of 10 at about €27 per cigar in Europe and no U.S. release planned.",
+  "category": "Limited Edition",
+  "countries": [
+   "Honduras"
+  ],
+  "maker": "Maya Selva Cigars",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/flor-de-selva-ano-de-la-cabra-2027.html"
+ },
+ {
+  "title": "MBombay Releases Two Aged Pyramids, the Kesara 2020 and the MQBA Mayura 2019",
+  "summary": "MBombay has released two single-run pyramids rested since they were rolled — the Kesara Pyramid 2020 (834 numbered boxes of 10 at $29.95) and the MQBA Mayura Pyramid 2019 (826 boxes at $39.95) — the first MBombay sizes beyond its toro and robusto.",
+  "category": "Limited Edition",
+  "countries": [
+   "Costa Rica"
+  ],
+  "maker": "MBombay",
+  "type": "News",
+  "date": "2026-11-10",
+  "url": "news/mbombay-kesara-pyramid-2020.html"
+ },
+ {
   "title": "Broncano Adds a Smaller Corona to Its Classic Rubí Line",
   "summary": "Broncano is adding the Classic Rubí Corona, a 5 x 46 corona with a pigtail cap made at Kelner Boutique Factory in the Dominican Republic, with the first shipments reserved for the retailers that supported the brand early on.",
   "category": "New Release",
@@ -73,7 +181,7 @@
  },
  {
   "title": "Powstanie War Bear 2026 Box-Pressed Churchill Set for November 11 Release",
-  "summary": "A barber-pole 7 x 48 box-pressed Churchill from Nica Sueño, limited to 390 boxes of 21 at $16.50, named for Wojtek, the bear enlisted in the Polish army in the Second World War.",
+  "summary": "A barber-pole 7 x 48 box-pressed Churchill from Nica Sueño, limited to 390 boxes of 21 at $16.50 per cigar ($346.50 per box), named for Wojtek, the bear enlisted in the Polish army in the Second World War.",
   "category": "Limited Edition",
   "countries": [
    "Nicaragua"
@@ -1620,5 +1728,17 @@
   "type": "Feature",
   "date": "2026-11-09",
   "url": "features/myfather.html"
+ },
+ {
+  "title": "AJ Fernandez — The Man Who Reached the Top in Another's Name",
+  "summary": "Deep Dive Series Part 5. AJ Fernandez, the master blender behind other men's brands — Montecristo, Ramón Allones, Aging Room — and the empire he built in Estelí.",
+  "category": "Feature",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "AJ Fernandez Cigar Co.",
+  "type": "Feature",
+  "date": "2026-11-10",
+  "url": "features/aj-fernandez.html"
  }
 ]
