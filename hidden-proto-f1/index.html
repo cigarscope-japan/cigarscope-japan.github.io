@@ -41,6 +41,7 @@
           padding: 5px 8px; margin: 0 0 4px; cursor: pointer; font-size: 14px; min-height: 38px; }
   .item:active, .item.open { background: #fbf6ea; }
   .item .nm { font-weight: bold; font-size: 15px; }
+  .sel-name { color: #1565c0; font-weight: bold; }
   .item .mt { font-size: 12px; color: #6b6252; }
   .item .dims { font-size: 12px; color: #6b6252; }
   .item .rgrp { display: flex; align-items: baseline; gap: 6px; margin-left: auto; }
@@ -140,6 +141,12 @@
                 background: #fbf6ea; border-radius: 6px; cursor: pointer;
                 font-family: inherit; }
   .notice-sum { color: #4a2f1d; margin-left: 6px; }
+  .fx-note { font-size: 12px; color: #6b5136; margin: 4px 0 0;
+             line-height: 1.55; }
+  .fx-reload { font-size: 11.5px; padding: 2px 8px; margin-left: 6px;
+               border: 1px solid #c9b98f; background: #fff;
+               border-radius: 4px; cursor: pointer; font-family: inherit;
+               vertical-align: middle; }
   .modal-ov { position: fixed; inset: 0; background: rgba(30, 20, 10, .5);
               z-index: 80; align-items: center; justify-content: center;
               padding: 14px; }
@@ -213,7 +220,7 @@
     <div class="cf-grid">
       <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
       <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option></select></div>
-      <div><label for="cf-rate">為替レート（円／1通貨）</label><input type="text" id="cf-rate" inputmode="decimal" placeholder="例：158"></div>
+      <div><label for="cf-rate">為替レート（円／1通貨）</label><input type="text" id="cf-rate" inputmode="decimal" placeholder="例：158"><p class="fx-note"><span id="fx-note-text">為替レートを取得中…</span><button type="button" class="fx-reload" id="fx-reload">再取得</button></p></div>
       <div><label for="cf-ship">送料（外貨）</label><input type="text" id="cf-ship" inputmode="decimal" placeholder="例：30"></div>
       <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
       <div><label for="cf-weight">1本の重さ（g）</label><input type="text" id="cf-weight" inputmode="decimal" placeholder="銘柄選択で自動入力"></div>
@@ -1041,8 +1048,9 @@ var F1CalcUI = (function () {
       el.classList.remove("has-sel");
       return;
     }
-    el.textContent = "選択中：" + sel.name + " ／ 1本の重さ " + sel.weightStr +
-      "g（" + sel.origText + "）／ 根拠：" + sel.basisLabel;
+    el.innerHTML = "選択中：" + '<span class="sel-name">' + esc(sel.name) +
+      "</span>" + " ／ 1本の重さ " + sel.weightStr +
+      "g（" + esc(sel.origText) + "）／ 根拠：" + esc(sel.basisLabel);
     el.classList.add("has-sel");
   }
 
@@ -1073,7 +1081,7 @@ var F1CalcUI = (function () {
     var h = "";
     if (sel) {
       h += '<p class="cf-basis">採用した重さ：' + sel.weightStr + "g／本（" +
-        esc(sel.name) + "／" + esc(sel.origText) + "）／根拠：" + esc(sel.basisLabel) + "</p>";
+        '<span class="sel-name">' + esc(sel.name) + "</span>" + "／" + esc(sel.origText) + "）／根拠：" + esc(sel.basisLabel) + "</p>";
     } else {
       h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本／根拠：手入力</p>";
     }
@@ -1290,8 +1298,9 @@ function pcSelect(i) {
   pcState.sel = i;
   var it = MOF[i];
   pcSelEl.classList.add("has-sel");
-  pcSelTextEl.textContent = "選択中：" + pcDispName(it) + " ／ 定価 "
-    + yenFmt(it[2]) + "（" + pcUnitLabel(it) + "あたり） ／ 価格設定日 " + it[3];
+  pcSelTextEl.innerHTML = "選択中：" + '<span class="sel-name">' + pcDispName(it) +
+    "</span>" + " ／ 定価 " + yenFmt(it[2]) + "（" + pcUnitLabel(it) +
+    "あたり） ／ 価格設定日 " + it[3];
   pcClearEl.style.display = "";
   pcRenderList();
   pcUpdateCompare();
@@ -1423,6 +1432,13 @@ if (typeof MutationObserver !== "undefined") {
  *   （候補あり／登録ありだが未選択／登録なし／定価未選択、の出し
  *   分け）。銘柄詳細パネルにも定価対応の有無を小さく明示する。
  *   実機報告（Curly Head Natural で価格比較が無言で出ない）への対処。
+ * v53 追加：(1) 為替レートの自動取得（F1Fx：Frankfurter＝欧州中央
+ *   銀行の参照レートをページ表示時に取得し、為替欄の初期値に入れる。
+ *   手入力した値は絶対に上書きしない。出典と公表日、税関の告示レート
+ *   が正本である旨を為替欄の下に小さく出す）。(2) 選択した銘柄名の
+ *   色強調（.sel-name＝青 #1565c0＋太字）：「選択中」表示・結果の
+ *   「採用した重さ」行・候補案内・理由表示の銘柄名を包む。markAuto は
+ *   span を潰さないようテキストノードで末尾に足す方式に変更。
  */
 var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]}};
 var F1Auto = (function () {
@@ -1441,14 +1457,17 @@ var F1Auto = (function () {
   function closeCalc() { showOv(calcModal, false); }
 
   function markAuto() {
+    /* v53: textContent += だと中の .sel-name span が潰れるため、
+     * テキストノードを末尾に足す（表示文言は同一）。 */
     if (selTextEl && selTextEl.textContent.indexOf("自動でセット") < 0) {
-      selTextEl.textContent += "（上の銘柄から自動でセットしました）";
+      selTextEl.appendChild(document.createTextNode(
+        "（上の銘柄から自動でセットしました）"));
     }
   }
   function clearCand() { if (candEl) candEl.innerHTML = ""; }
   function showCand(it, idxs) {
     if (!candEl) return;
-    var html = '<p class="pc-msg">「' + it.n + '」の日本の定価は、自動では'
+    var html = '<p class="pc-msg">「<span class="sel-name">' + it.n + '</span>」の日本の定価は、自動では'
       + '確定しませんでした。下の候補が対応する品目と思われます。'
       + '選んでください。</p>';
     idxs.forEach(function (j) {
@@ -1573,15 +1592,15 @@ var F1Auto = (function () {
     } else {
       var m = F1A_MAP[it.n];
       if (m && m.c && m.c.length) {
-        msg = "「" + it.n + "」の日本の定価には候補があります。"
+        msg = "「" + '<span class="sel-name">' + it.n + "</span>" + "」の日本の定価には候補があります。"
           + "上の「日本の定価と比べる」で候補から選ぶと比較できます。";
       } else if (m && typeof m.a === "number"
                  && typeof MOF !== "undefined" && MOF[m.a]) {
-        msg = "「" + it.n + "」の日本の定価（" + yenFmt(MOF[m.a][2])
+        msg = "「" + '<span class="sel-name">' + it.n + "</span>" + "」の日本の定価（" + yenFmt(MOF[m.a][2])
           + "）は未選択です。上の「日本の定価と比べる」で選ぶと"
           + "比較できます。";
       } else {
-        msg = "「" + it.n + "」は、日本の定価リストに登録が"
+        msg = "「" + '<span class="sel-name">' + it.n + "</span>" + "」は、日本の定価リストに登録が"
           + "ありません（価格比較はできません）。";
       }
     }
@@ -1672,6 +1691,82 @@ var F1Auto = (function () {
            renderPriceStatus: renderPriceStatus,
            decorateDetail: decorateDetail,
            state: function () { return { autoMof: autoMof }; } };
+})();
+
+/*
+ * v53 追加ブロック：為替レートの自動取得。
+ * 取得元は Frankfurter（欧州中央銀行の参照レート、キー不要・CORS可）。
+ * ページ表示時に現在の通貨ペア（対JPY）を取得し、為替欄の初期値に
+ * 入れる。通貨を切り替えたら、その通貨ペアを取り直す。
+ * 利用者が手で書き換えた値は絶対に上書きしない（自動入力は未編集の
+ * ときだけ）。再取得ボタンは明示操作なので、その場合だけ上書きする。
+ * 取得に失敗した場合は従来の状態（空欄）のままにし、理由を小さく
+ * 出す。他の機能には一切影響させない。
+ * 計算エンジン（TaxCore-Integer v1.0）には触れない（為替は入力値）。
+ * 公表レートは小数第3位以下を四捨五入して2桁にそろえる（エンジン
+ * の為替入力仕様が小数2桁までのため）。
+ */
+var F1Fx = (function () {
+  var rateEl = document.getElementById("cf-rate");
+  var curEl = document.getElementById("cf-cur");
+  var noteEl = document.getElementById("fx-note-text");
+  var btnEl = document.getElementById("fx-reload");
+  if (!rateEl || !curEl || !noteEl) return { supported: false };
+  if (typeof fetch !== "function") {
+    noteEl.textContent = "為替レートは手入力できます。";
+    return { supported: false };
+  }
+  var edited = false;  /* 利用者が手で書き換えたら true */
+  var autoVal = "";    /* 直近に自動入力した値（自分の書込みと区別） */
+  var seq = 0;         /* 古い応答を捨てるための連番 */
+
+  function fmtRate(v) {
+    var s = (Math.round(v * 100) / 100).toFixed(2);
+    if (s.indexOf(".") >= 0) s = s.replace(/0+$/, "").replace(/\.$/, "");
+    return s;
+  }
+  function fmtDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+    if (!m) return iso || "";
+    return m[1] + "年" + Number(m[2]) + "月" + Number(m[3]) + "日";
+  }
+  function load(manual) {
+    if (edited && !manual) return;
+    var cur = curEl.value;
+    var my = ++seq;
+    noteEl.textContent = "為替レートを取得中…";
+    fetch("https://api.frankfurter.dev/v1/latest?base="
+      + encodeURIComponent(cur) + "&symbols=JPY")
+      .then(function (res) {
+        if (!res.ok) throw new Error("http " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (my !== seq) return;            /* 通貨切替後の古い応答は捨てる */
+        if (edited && !manual) return;     /* 応答待ちの間に手入力された */
+        var v = data && data.rates ? Number(data.rates.JPY) : NaN;
+        if (!isFinite(v) || v <= 0) throw new Error("bad rate");
+        autoVal = fmtRate(v);
+        rateEl.value = autoVal;
+        edited = false;
+        noteEl.textContent = "自動取得：欧州中央銀行の参照レート（"
+          + fmtDate(data.date) + "公表） 1 " + cur + " = ¥" + autoVal
+          + "。税関での換算は税関の告示レートが正本で、これは目安です。";
+      })
+      .catch(function () {
+        if (my !== seq) return;
+        noteEl.textContent =
+          "為替レートを自動取得できませんでした。手入力できます。";
+      });
+  }
+  rateEl.addEventListener("input", function () {
+    if (rateEl.value !== autoVal) edited = true;
+  });
+  curEl.addEventListener("change", function () { load(false); });
+  if (btnEl) btnEl.addEventListener("click", function () { load(true); });
+  load(false);
+  return { load: load,
+           state: function () { return { edited: edited, autoVal: autoVal }; } };
 })();
 </script>
 </body></html>
