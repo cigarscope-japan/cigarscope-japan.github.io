@@ -1402,8 +1402,11 @@ if (typeof MutationObserver !== "undefined") {
  * - 計算結果と注意書きはモーダル表示。結果モーダルは、計算のたびに
  *   cf-result へ書き込まれる内容（＝成功時のみ表示状態になる）を
  *   MutationObserver で検知して開く。2つのモーダルは同時には開かない。
+ * v50 修正：定価の選択保持（開く操作で消さない・手動選択を上書き
+ *   しない）、NASEM 銘柄への対応拡大（米国版の同名4ブランドは対象外
+ *   のまま）、結果モーダルを開く直前の比較再同期。
  */
-var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]}};
+var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]}};
 var F1Auto = (function () {
   var autoMof = -1; /* 自分が自動セットした MOF 添字（これだけ自動で外す） */
   var candEl = document.getElementById("pc-cand");
@@ -1453,18 +1456,24 @@ var F1Auto = (function () {
       });
     }
   }
-  function dropAuto() {
-    if (autoMof >= 0 && typeof PCUI !== "undefined"
-        && PCUI.state.sel === autoMof) {
-      PCUI.clear();
-    }
-    autoMof = -1;
+  /* v50: 定価の選択は「開く」操作では消さない・手動選択は絶対に
+   * 上書きしない（実機報告「重さで計算するを押すと日本価格が消える」
+   * の根本対処。旧仕様は、対応表のない銘柄を開くたび dropAuto() で
+   * 自動セットを解除し、対応表のある銘柄を開くと手動選択まで自動
+   * セットで置き換えていた。ボタン自体の処理は定価に触れない）。
+   * - 手動で選んだ定価（autoMof と一致しない選択）は開く操作で不変。
+   * - 自動セットは、別の自動対応銘柄を開いたときだけそちらへ移る。
+   * - 候補は、現在の選択が未選択か自動セットのときだけ提示する。 */
+  function isManualSel() {
+    return typeof PCUI !== "undefined" && PCUI.state.sel >= 0
+      && PCUI.state.sel !== autoMof;
   }
   function onOpen(it) {
     if (typeof F1CalcUI !== "undefined") {
       F1CalcUI.select(it, { scroll: false });
     }
     clearCand();
+    if (isManualSel()) return; /* 手動選択は保持（候補も出さない） */
     var m = F1A_MAP[it.n];
     if (m && typeof m.a === "number") {
       if (typeof PCUI !== "undefined") {
@@ -1473,11 +1482,9 @@ var F1Auto = (function () {
         markAuto();
       }
     } else if (m && m.c && m.c.length) {
-      dropAuto();
       showCand(it, m.c);
-    } else {
-      dropAuto();
     }
+    /* 対応のない銘柄を開いても、自動セット済みの定価は保持する */
   }
 
   /* 手で選び直したら、自動セットの所有権を手放す */
@@ -1510,6 +1517,9 @@ var F1Auto = (function () {
   function syncCalcModal() {
     if (!cfResEl) return;
     if (cfResEl.style.display !== "none" && cfResEl.innerHTML) {
+      /* v50: 開く直前に価格比較を再同期し、定価がセットされて
+       * いれば比較（または単位不一致等の案内）を必ずモーダルに出す */
+      if (typeof PCUI !== "undefined") PCUI.syncCalc();
       openCalc();
     } else if (cfResEl.style.display === "none") {
       closeCalc();
