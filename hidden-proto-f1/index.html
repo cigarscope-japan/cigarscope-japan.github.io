@@ -123,6 +123,10 @@
                   color: #7a1f1f; }
   .pc-verdict { font-size: 15px; font-weight: bold; color: #7a1f1f;
                 margin: 7px 0 0; line-height: 1.55; }
+  .pc-result tr.jp th, .pc-result tr.jp td { color: #1f4e79; }
+  .pc-result .jp-amt { color: #1f4e79; }
+  .item .pc-price { font-size: 12.5px; font-weight: bold; color: #1f4e79;
+                    white-space: nowrap; }
   .pc-msg { font-size: 13px; background: #fbf6ea; border-radius: 4px;
             padding: 6px 8px; margin: 8px 0 0; line-height: 1.55; }
   .pc-clear { font-size: 12px; padding: 3px 9px; border: 1px solid #c9b98f;
@@ -245,6 +249,7 @@
       <h3 id="calc-result-title">計算結果</h3>
       <div class="cf-result" id="cf-result"></div>
       <div class="pc-result" id="pc-result"></div>
+      <div id="cf-notes"></div>
     </div>
   </div>
 </main>
@@ -1303,7 +1308,8 @@ function pcUpdateCompare() {
   if (pcState.sel < 0) { pcResEl.innerHTML = ""; return; }
   var it = MOF[pcState.sel];
   var unit = pcUnitLabel(it);
-  var priceTxt = "「" + pcDispName(it) + "」の日本の定価は " + yenFmt(it[2])
+  var priceTxt = "「" + pcDispName(it) + "」の日本の定価は "
+    + '<span class="jp-amt">' + yenFmt(it[2]) + "</span>"
     + "（" + unit + "あたり、価格設定日 " + it[3] + "）です。";
   var lc = pcState.lastCalc;
   if (!lc) {
@@ -1328,19 +1334,22 @@ function pcUpdateCompare() {
   var pct = (Math.abs(diff) / Math.max(jp, G) * 100).toFixed(1);
   var verdict;
   if (diff > 0) {
-    verdict = "海外のほうが " + yenFmt(diff) + " 安い（日本の定価の " + pct + "%）";
+    verdict = "海外のほうが " + yenFmt(diff) + " 安い（"
+      + '<span class="jp-amt">日本の定価の ' + pct + "%</span>）";
   } else if (diff < 0) {
-    verdict = "日本の定価のほうが " + yenFmt(-diff) + " 安い（海外総額の " + pct + "%）";
+    verdict = '<span class="jp-amt">日本の定価</span>のほうが '
+      + yenFmt(-diff) + " 安い（海外総額の " + pct + "%）";
   } else {
-    verdict = "日本の定価と海外総額は同額です";
+    verdict = '<span class="jp-amt">日本の定価</span>と海外総額は同額です';
   }
   pcResEl.innerHTML = "<table>"
-    + "<tr><th>日本の定価（" + C + "本分）</th><td>" + yenFmt(jp) + "</td></tr>"
+    + '<tr class="jp"><th>日本の定価（' + C + "本分）</th><td>" + yenFmt(jp) + "</td></tr>"
     + '<tr class="big"><th>海外総額（' + C + "本分）</th><td>" + yenFmt(G) + "</td></tr>"
     + "</table>"
     + '<p class="pc-verdict">' + verdict + "</p>"
-    + '<p class="pc-msg">内訳：日本の定価 ' + yenFmt(it[2]) + "（" + unit
-    + "あたり）× " + units + "単位 ＝ " + yenFmt(jp)
+    + '<p class="pc-msg">内訳：日本の定価 ' + '<span class="jp-amt">'
+    + yenFmt(it[2]) + "</span>（" + unit
+    + "あたり）× " + units + "単位 ＝ " + '<span class="jp-amt">' + yenFmt(jp) + "</span>"
     + "。海外総額は、上の計算結果（計算時点の本数 " + C
     + " 本、商品代＋送料＋税金の合計）です。</p>";
 }
@@ -1405,6 +1414,10 @@ if (typeof MutationObserver !== "undefined") {
  * v50 修正：定価の選択保持（開く操作で消さない・手動選択を上書き
  *   しない）、NASEM 銘柄への対応拡大（米国版の同名4ブランドは対象外
  *   のまま）、結果モーダルを開く直前の比較再同期。
+ * v51 修正：結果モーダル内の並びを「明細（総支払額まで）→ 価格比較
+ *   → 注意ボックス類」に変更（.cf-note を #cf-notes へ移設。本文・
+ *   文言は不変）。日本の定価の金額は深い青（#1f4e79）で色分けし、
+ *   セレクターの行にも自動対応のある銘柄だけ定価バッジを出す。
  */
 var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]}};
 var F1Auto = (function () {
@@ -1414,6 +1427,7 @@ var F1Auto = (function () {
   var noticeModal = document.getElementById("notice-modal");
   var calcModal = document.getElementById("calc-modal");
   var cfResEl = document.getElementById("cf-result");
+  var cfNotesEl = document.getElementById("cf-notes");
 
   function showOv(el, v) { if (el) el.style.display = v ? "flex" : "none"; }
   function openNotice() { showOv(calcModal, false); showOv(noticeModal, true); }
@@ -1514,8 +1528,22 @@ var F1Auto = (function () {
     if (e && e.target && e.target !== calcModal) return;
     closeCalc();
   });
+  /* v51: モーダル内の並びを「明細 → 価格比較 → 注意ボックス類」
+   * にするため、計算のたびに cf-result 内の .cf-note を #cf-notes
+   * （価格比較の下）へ移す。結果が消えたら移設先も空にする。 */
+  function moveNotes() {
+    if (!cfResEl || !cfNotesEl) return;
+    var notes = cfResEl.querySelectorAll(".cf-note");
+    if (notes.length) {
+      while (cfNotesEl.firstChild) cfNotesEl.removeChild(cfNotesEl.firstChild);
+      for (var i = 0; i < notes.length; i++) cfNotesEl.appendChild(notes[i]);
+    } else if (!cfResEl.innerHTML) {
+      while (cfNotesEl.firstChild) cfNotesEl.removeChild(cfNotesEl.firstChild);
+    }
+  }
   function syncCalcModal() {
     if (!cfResEl) return;
+    moveNotes();
     if (cfResEl.style.display !== "none" && cfResEl.innerHTML) {
       /* v50: 開く直前に価格比較を再同期し、定価がセットされて
        * いれば比較（または単位不一致等の案内）を必ずモーダルに出す */
@@ -1529,9 +1557,38 @@ var F1Auto = (function () {
     new MutationObserver(syncCalcModal).observe(cfResEl,
       { childList: true, attributes: true, subtree: true });
   }
+  /* v51: セレクターの行への定価バッジ。自動対応（F1A_MAP の "a"）が
+   * ある銘柄だけに「定価 ¥X」を青字で出す（候補のみ・対応なしの行
+   * には出さない）。行は検索・絞り込みのたびに描き直されるため、
+   * 描画後に後付けする（密度は変えない：右側グループ内への追加）。 */
+  var mainListEl = document.getElementById("list");
+  function decorateRows() {
+    if (!mainListEl || typeof DATA === "undefined"
+        || typeof MOF === "undefined") return;
+    var rows = mainListEl.querySelectorAll(".item");
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].querySelector(".pc-price")) continue;
+      var it = DATA[Number(rows[i].getAttribute("data-idx"))];
+      if (!it) continue;
+      var m = F1A_MAP[it.n];
+      if (!m || typeof m.a !== "number" || !MOF[m.a]) continue;
+      var rg = rows[i].querySelector(".rgrp");
+      if (!rg) continue;
+      var sp = document.createElement("span");
+      sp.className = "pc-price";
+      sp.textContent = "定価 " + yenFmt(MOF[m.a][2]);
+      var wt = rg.querySelector(".wt");
+      if (wt) rg.insertBefore(sp, wt); else rg.appendChild(sp);
+    }
+  }
+  if (mainListEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(decorateRows).observe(mainListEl,
+      { childList: true, subtree: true });
+  }
+  decorateRows();
   return { onOpen: onOpen, openNotice: openNotice, openCalc: openCalc,
            closeNotice: closeNotice, closeCalc: closeCalc,
-           syncCalcModal: syncCalcModal,
+           syncCalcModal: syncCalcModal, moveNotes: moveNotes,
            state: function () { return { autoMof: autoMof }; } };
 })();
 </script>
