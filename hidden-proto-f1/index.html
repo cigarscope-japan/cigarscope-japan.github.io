@@ -206,16 +206,12 @@
     <h2>日本の定価と比べる（試作）</h2>
     <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pc-clear" id="pc-change" style="display: none;">変更する</button></p>
     <div id="pc-cand"></div>
+    <p class="cf-sel" id="pc-compact" style="display: none;"><span id="pc-compact-text"></span><button type="button" class="pc-clear" id="pc-manual">定価を手で選ぶ</button></p>
     <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で探す（例：コイーバ）" autocomplete="off">
     <div class="az" id="az-pc"></div>
     <p class="count" id="pc-count"></p>
     <div id="pc-list"></div>
-    <div class="notice">
-      <h3>価格比較についての注意</h3>
-      <p>日本の金額は、財務省が公表する小売定価の認可リストに基づく「認可小売定価（税込）」です。価格には設定日（認可日または変更実施日）を併記しています。認可時点の価格のため、実際の店頭価格とは異なる場合があります。</p>
-      <p>海外の金額は、下の計算フォームで計算した総支払額（商品代＋送料＋税金）で、入力した為替レート・送料・関税率と現行制度に基づく概算です。実際の課税額とは異なる場合があります。</p>
-      <p>比較は、同じ本数にそろった場合だけ表示します。日本の販売単位（1本・箱・パック等）と計算フォームの本数がそろわない場合は、金額の比較は表示しません。</p>
-    </div>
+    <p class="notice-line"><button type="button" class="notice-btn" id="pcnote-open">⚠️ 価格比較についての注意</button><span class="notice-sum">日本の金額は認可小売定価（税込）、海外の金額は概算です。比較は本数がそろった場合だけ表示します。</span></p>
   </section>
 
   <section class="calc" id="calc">
@@ -252,6 +248,16 @@
       <p>輸入時の正式な税額については、税関の判断をご確認ください。本シミュレーターの結果は、輸入計画の参考情報としてご利用ください。</p>
       <p>重さの根拠が「実測（NASEM 2021・米国市場）」の場合、その値は2021年に米国市場で購入された製品の実測であり、現在の製品や他国市場向けの仕様とは異なる場合があります。また、米国版の Cohiba／Montecristo／Partagás／Romeo y Julieta は、キューバ版とは別ブランド・別製品です。</p>
       <button type="button" class="modal-close" id="notice-close">閉じる</button>
+    </div>
+  </div>
+  <div class="modal-ov" id="pcnote-modal" style="display: none;">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="pcnote-title">
+      <button type="button" class="modal-x" id="pcnote-x" aria-label="閉じる">×</button>
+      <h3 id="pcnote-title">価格比較についての注意</h3>
+      <p>日本の金額は、財務省が公表する小売定価の認可リストに基づく「認可小売定価（税込）」です。価格には設定日（認可日または変更実施日）を併記しています。認可時点の価格のため、実際の店頭価格とは異なる場合があります。</p>
+      <p>海外の金額は、下の計算フォームで計算した総支払額（商品代＋送料＋税金）で、入力した為替レート・送料・関税率と現行制度に基づく概算です。実際の課税額とは異なる場合があります。</p>
+      <p>比較は、同じ本数にそろった場合だけ表示します。日本の販売単位（1本・箱・パック等）と計算フォームの本数がそろわない場合は、金額の比較は表示しません。</p>
+      <button type="button" class="modal-close" id="pcnote-close">閉じる</button>
     </div>
   </div>
   <div class="modal-ov" id="calc-modal" style="display: none;">
@@ -1455,6 +1461,13 @@ if (typeof MutationObserver !== "undefined") {
  *   リストで選んだ品目が F1A_MAP で製品と結びついていれば、銘柄側
  *   も自動選択して重さを入れる（逆方向の自動選択。逆引きは "a" と
  *   "c" の双方から作り、複数製品に結びつく品目は逆選択しない）。
+ * v56 修正：定価セクションの畳み残し対策と、価格比較の注意の
+ *   モーダル化（実機報告「畳まれない！」）。銘柄を開いたときの
+ *   定価セクションの状態遷移は F1Nav 側に集約し（自動セット／
+ *   候補／登録なし の出し分け）、ここでは「価格比較についての
+ *   注意」を計算側の注意書きと同じ作法（⚠️ボタン＋要点1行＋
+ *   モーダル）で開閉する配線だけを足す。注意の本文は一字も変え
+ *   ていない。モーダルは3種とも排他（同時に開かない）。
  */
 var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]}};
 var F1Auto = (function () {
@@ -1463,14 +1476,17 @@ var F1Auto = (function () {
   var selTextEl = document.getElementById("pc-sel-text");
   var noticeModal = document.getElementById("notice-modal");
   var calcModal = document.getElementById("calc-modal");
+  var pcNoteModal = document.getElementById("pcnote-modal");
   var cfResEl = document.getElementById("cf-result");
   var cfNotesEl = document.getElementById("cf-notes");
 
   function showOv(el, v) { if (el) el.style.display = v ? "flex" : "none"; }
-  function openNotice() { showOv(calcModal, false); showOv(noticeModal, true); }
-  function openCalc() { showOv(noticeModal, false); showOv(calcModal, true); }
+  function openNotice() { showOv(calcModal, false); showOv(pcNoteModal, false); showOv(noticeModal, true); }
+  function openCalc() { showOv(noticeModal, false); showOv(pcNoteModal, false); showOv(calcModal, true); }
+  function openPcNote() { showOv(noticeModal, false); showOv(calcModal, false); showOv(pcNoteModal, true); }
   function closeNotice() { showOv(noticeModal, false); }
   function closeCalc() { showOv(calcModal, false); }
+  function closePcNote() { showOv(pcNoteModal, false); }
 
   function markAuto() {
     /* v53: textContent += だと中の .sel-name span が潰れるため、
@@ -1569,6 +1585,16 @@ var F1Auto = (function () {
   if (calcModal) calcModal.addEventListener("click", function (e) {
     if (e && e.target && e.target !== calcModal) return;
     closeCalc();
+  });
+  var pOpen = document.getElementById("pcnote-open");
+  if (pOpen) pOpen.addEventListener("click", openPcNote);
+  var pClose = document.getElementById("pcnote-close");
+  if (pClose) pClose.addEventListener("click", closePcNote);
+  var pX = document.getElementById("pcnote-x");
+  if (pX) pX.addEventListener("click", closePcNote);
+  if (pcNoteModal) pcNoteModal.addEventListener("click", function (e) {
+    if (e && e.target && e.target !== pcNoteModal) return;
+    closePcNote();
   });
   /* v51: モーダル内の並びを「明細 → 価格比較 → 注意ボックス類」
    * にするため、計算のたびに cf-result 内の .cf-note を #cf-notes
@@ -1704,6 +1730,7 @@ var F1Auto = (function () {
   decorateRows();
   decorateDetail();
   return { onOpen: onOpen, openNotice: openNotice, openCalc: openCalc,
+           openPcNote: openPcNote, closePcNote: closePcNote,
            closeNotice: closeNotice, closeCalc: closeCalc,
            syncCalcModal: syncCalcModal, moveNotes: moveNotes,
            renderPriceStatus: renderPriceStatus,
@@ -1792,12 +1819,25 @@ var F1Fx = (function () {
  * 折りたたみは表示の出し分けだけで、選択状態そのものは従来どおり
  * F1CalcUI / PCUI が保持する。計算エンジン・データ・モーダル・
  * 為替の自動取得には触れない。
+ * v56 修正：定価セクションの畳み残しを直す（実機報告「畳まれ
+ * ない！」）。銘柄を開いた時点で、定価対応の状態に応じて定価
+ * セクションも畳む。自動対応あり＝従来どおり自動セット＋畳み
+ * ／候補あり＝候補ボタン（#pc-cand）を残してリスト本体だけ
+ * 畳む／登録なし＝「登録がありません」の表示＋「定価を手で選
+ * ぶ」ボタンだけのコンパクト表示にして計算フォームへ移動す
+ * る（手で選べば従来どおり畳む）。定価が選択済み（自動・手動
+ * とも）なら従来の畳み状態を維持する。銘柄の選択が重さの手入
+ * 力で外れたら、コンパクト表示も初期状態に戻す。
  */
 var F1Nav = (function () {
   var $ = function (id) { return document.getElementById(id); };
   var pcEl = $("pc"), calcEl = $("calc");
   var sumEl = $("pick-sum"), sumTextEl = $("pick-sum-text");
   var pickChangeEl = $("pick-change"), pcChangeEl = $("pc-change");
+  var pcSelEl = $("pc-sel");
+  var pcCompactEl = $("pc-compact"),
+      pcCompactTextEl = $("pc-compact-text"),
+      pcManualEl = $("pc-manual");
   var mainParts = [];
   [".toolbar", ".legend", ".nasem-note"].forEach(function (sel) {
     var e = document.querySelector(sel);
@@ -1902,20 +1942,57 @@ var F1Nav = (function () {
     }
     return false;
   }
-  /* 銘柄を開いた（＝選択した）直後：リストを畳み、定価セクションへ */
+  /* v56: 定価セクションのコンパクト表示（登録なし銘柄用）。
+   * #pc-sel（通常の選択表示）と #pc-compact（登録なしの表示＋
+   * 「定価を手で選ぶ」ボタン）は出し分けで、同時には見せない。 */
+  function hidePcCompact() {
+    if (pcCompactEl) pcCompactEl.style.display = "none";
+    if (pcSelEl) pcSelEl.style.display = "";
+  }
+  function showPcCompact(it) {
+    setPcCollapsed(true);
+    if (pcChangeEl) pcChangeEl.style.display = "none";
+    if (pcSelEl) pcSelEl.style.display = "none";
+    if (pcCompactEl && pcCompactTextEl) {
+      pcCompactTextEl.innerHTML = "「" + '<span class="sel-name">'
+        + esc(it.n) + "</span>"
+        + "」は、日本の定価リストに登録がありません。";
+      pcCompactEl.style.display = "";
+    }
+  }
+  /* 銘柄を開いた（＝選択した）直後：リストを畳み、定価セクション
+   * の状態も銘柄の定価対応に応じて切り替える（v56） */
   function afterCigarOpen(it) {
     setMainCollapsed(true);
     renderPickSum();
-    navScroll(pcEl);
+    var sel = (typeof PCUI !== "undefined") ? PCUI.state.sel : -1;
+    var m = (typeof F1A_MAP !== "undefined" && it) ? F1A_MAP[it.n] : null;
+    if (sel >= 0 || (m && typeof m.a === "number")) {
+      /* 選択済みなら従来の畳み状態を維持する。自動対応ありは、
+       * この直後に F1Auto が自動セットし onPcSelect で畳まれる */
+      hidePcCompact();
+      navScroll(pcEl);
+    } else if (m && m.c && m.c.length) {
+      /* 候補あり：候補ボタンを残し、リスト本体だけ畳む */
+      hidePcCompact();
+      setPcCollapsed(true);
+      navScroll(pcEl);
+    } else {
+      /* 登録なし：コンパクト表示にして計算フォームへ */
+      showPcCompact(it);
+      navScroll(calcEl);
+    }
   }
   /* 定価の選択が変わるたび（自動セット含む）：畳みと要約を同期する */
   function onPcSelect(i) {
     if (typeof PCUI !== "undefined" && PCUI.state.sel >= 0) {
+      hidePcCompact();
       setPcCollapsed(true);
     }
     renderPickSum();
   }
   function onPcClear() {
+    hidePcCompact();
     setPcCollapsed(false);
     renderPickSum();
   }
@@ -1934,6 +2011,13 @@ var F1Nav = (function () {
   if (pcChangeEl) pcChangeEl.addEventListener("click", function () {
     setPcCollapsed(false);
   });
+  /* v56: 「定価を手で選ぶ」— コンパクト表示から全リストを開く
+   * （検索・A–Z の状態は PCUI 側に保持されたまま） */
+  if (pcManualEl) pcManualEl.addEventListener("click", function () {
+    hidePcCompact();
+    setPcCollapsed(false);
+    navScroll(pcEl);
+  });
   /* 「この重さで計算する」経由の選択でもリストを畳む（ボタンの元の
    * 処理が先に走るよう、伝播先の #list で受ける） */
   var listEl = $("list");
@@ -1946,6 +2030,13 @@ var F1Nav = (function () {
   if (cfSelEl && typeof MutationObserver !== "undefined") {
     new MutationObserver(function () {
       if (mainCollapsed) renderPickSum();
+      /* v56: 重さの手入力で銘柄の選択が外れたら、登録なしの
+       * コンパクト表示も初期状態（全開）に戻す */
+      if (pcCompactEl && pcCompactEl.style.display !== "none"
+          && !selectedCigar()) {
+        hidePcCompact();
+        setPcCollapsed(false);
+      }
     }).observe(cfSelEl, { childList: true, subtree: true });
   }
   return { afterCigarOpen: afterCigarOpen, onPcSelect: onPcSelect,
