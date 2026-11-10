@@ -281,25 +281,3 @@ a { color: #1a4d8f; word-break: break-all; }
 @media (max-width: 640px) {
   .logo-plate { padding: 8px 8px 4px; margin-top: 10px; }
 }
-
-/* ---------- 深掘り第5弾 AJフェルナンデス（2026-11-10 追加） ----------
-   色強調（メーカー名＝紺／店名＝深緑／葉巻名＝バーガンディ。2026-11-09 カズ指定）と、
-   賛辞ボックス・節見出しなど第5弾で初出の体裁。値はゲラ版の定義を Web 用単位に換算したもの */
-.nm-mk { color: #1e3a5f; font-weight: bold; }
-.nm-sh { color: #14532d; font-weight: bold; }
-.nm-cg { color: var(--burgundy); font-weight: bold; }
-.nb { white-space: nowrap; }
-.subtitle {
-  font-size: 1.25rem; font-weight: bold; color: var(--burgundy);
-  text-align: center; letter-spacing: 0.08em; margin: 2px 0 12px;
-}
-.praise { border: 3px solid var(--gold); background: #fdf8ec; padding: 10px 18px 14px; margin: 18px 0; }
-.praise .pt {
-  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
-  letter-spacing: 0.06em; border-bottom: 2px solid var(--gold);
-  padding-bottom: 4px; margin-bottom: 8px;
-}
-.pq { margin: 12px 0; }
-.pq .who { font-weight: bold; color: var(--burgundy); }
-.pq .src2 { font-size: 0.88rem; color: #555; }
-.hook { color: #cc0000; font-weight: bold; font-size: 1.06rem; }
