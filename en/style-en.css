@@ -210,3 +210,61 @@ main{display:block;max-width:1200px;margin:0 auto;padding:44px 24px 10px}
 .card-more{margin:10px 0 0}
 .read-more{display:inline-block;padding:7px 16px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold-deep);font-weight:700;font-size:.85rem;text-decoration:none}
 .read-more:hover{background:var(--gold);color:#171717}
+
+/* ---------- Deep Dive feature pages (2026-11-10, Part 5 AJ Fernandez) ----------
+   Long-form features keep the Japanese edition's burgundy-and-gold identity
+   inside the English chrome. Class names mirror the Japanese features so the
+   translated fragments carry over unchanged. Colour emphasis follows the
+   house rule: makers in navy, shops in deep green, cigar names in burgundy. */
+.feature-body .series-band{background:#7a1f1f;color:#f3d27a;font-weight:700;text-align:center;padding:10px 8px;letter-spacing:.12em;border:3px solid #c98a2e;border-bottom:none;margin-top:6px;font-size:1.35rem}
+.feature-body h2.feature-band{background:#1c1a17;border:3px solid #c98a2e;color:#f3d27a;text-align:center;font-family:var(--sans);font-size:1.7rem;padding:12px 14px;margin:0 0 12px;line-height:1.35}
+.feature-body .subtitle{font-size:1.2rem;font-weight:700;color:#7a1f1f;text-align:center;letter-spacing:.06em;margin:2px 0 12px}
+.feature-body .feature-box{border:3px solid #c98a2e;background:#fffdf6;padding:8px 20px 16px;margin:0 0 26px}
+.feature-body h4{font-size:1.3rem;line-height:1.4;margin:22px 0 6px;color:#7a1f1f;font-weight:700}
+.feature-body img{display:block;width:88%;margin:6px auto;border:1px solid var(--line-light)}
+.feature-body img.wide{width:96%}
+.feature-body img.narrow{width:58%}
+.feature-body img.tiny{width:44%}
+.feature-body img.logo{width:40%;border:none}
+.feature-body .caption{font-size:.86rem;color:#5e5a53;margin:4px 0 14px;line-height:1.6}
+.feature-body .nm-mk{color:#1e3a5f;font-weight:700}
+.feature-body .nm-sh{color:#14532d;font-weight:700}
+.feature-body .nm-cg{color:#7a1f1f;font-weight:700}
+.feature-body .nb{white-space:nowrap}
+.feature-body .praise{border:3px solid #c98a2e;background:#fdf8ec;padding:10px 18px 14px;margin:18px 0}
+.feature-body .praise .pt{font-size:1.1rem;font-weight:700;color:#7a1f1f;letter-spacing:.05em;border-bottom:2px solid #c98a2e;padding-bottom:4px;margin-bottom:8px}
+.feature-body .pq{margin:12px 0}
+.feature-body .pq .who{font-weight:700;color:#7a1f1f}
+.feature-body .pq .src2{font-size:.86rem;color:#5e5a53}
+.feature-body .urabanashi{border:3px solid #7a1f1f;background:#fffdf6;padding:10px 18px 14px;margin:18px 0}
+.feature-body .urabanashi .ut{font-size:1.08rem;font-weight:700;color:#7a1f1f;letter-spacing:.05em;border-bottom:2px solid #c98a2e;padding-bottom:4px;margin-bottom:8px}
+.feature-body .urabanashi.deco{border:6px double #7a1f1f;background:#f8ecd2;padding:0 18px 14px}
+.feature-body .urabanashi.deco .ut{background:#7a1f1f;color:#f3d27a;border-bottom:3px solid #c98a2e;margin:0 -18px 10px;padding:9px 18px 8px}
+.feature-body .spot-head{margin:30px 0 18px;text-align:center}
+.feature-body .spot-head .tag{font-size:.8rem;letter-spacing:.5em;color:#8a6d2f;font-weight:700;margin-bottom:10px}
+.feature-body .spot-head h4{background:#1c1a17;color:#e9cf8f;border:5px double #c98a2e;font-size:1.45rem;margin:0;padding:18px 14px;line-height:1.5;letter-spacing:.03em;text-align:center}
+.feature-body .hook{color:#cc0000;font-weight:700;font-size:1.05rem}
+.feature-body .tabletitle{font-size:1.1rem;font-weight:700;color:#7a1f1f;border-bottom:3px solid #c98a2e;padding-bottom:4px;margin:24px 0 10px}
+.feature-body .roletable{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.92rem;line-height:1.5;margin:10px 0}
+.feature-body .roletable th{background:#7a1f1f;color:#f3d27a;padding:7px 6px;border:1px solid #7a1f1f;text-align:left}
+.feature-body .roletable td{padding:7px 6px;border:1px solid #c9b98a;vertical-align:top;overflow-wrap:break-word}
+.feature-body .roletable tr.alt td{background:#f7f3e8}
+.feature-body .roletable td.brand{font-weight:700;color:#7a1f1f}
+.feature-body .roletable.t-score th:nth-child(1){width:13%}
+.feature-body .roletable.t-score th:nth-child(2){width:47%}
+.feature-body .roletable.t-score th:nth-child(3){width:13%}
+.feature-body .roletable.t-score th:nth-child(4){width:27%}
+.feature-body .roletable.t-role th:nth-child(1){width:27%}
+.feature-body .roletable.t-role th:nth-child(2){width:22%}
+.feature-body .roletable.t-role th:nth-child(3){width:16%}
+.feature-body .roletable.t-role th:nth-child(4){width:15%}
+.feature-body .roletable.t-role th:nth-child(5){width:20%}
+.feature-body .gallery-band{font-size:1.55rem;font-weight:700;color:#fff;background:#7a1f1f;padding:10px 14px;margin:26px 0 12px}
+.feature-body .gcard{border:2px solid #7a1f1f;background:#fffdf6;padding:12px 16px 14px;margin:14px 0}
+.feature-body .gcard h5{font-size:1.25rem;line-height:1.35;margin:0 0 6px;color:#7a1f1f}
+.feature-body .gcard img{width:62%}
+.feature-body .gcard img.small{width:46%}
+.feature-body .gdata{font-size:1.02rem;line-height:1.65}
+.feature-body .gprice{font-size:1.15rem;font-weight:700}
+.feature-body .glink{display:block;font-weight:700;margin-top:8px}
+.feature-body .feature-sources{font-size:.86rem;color:#5e5a53;border-top:2px solid #999;margin-top:28px;padding-top:10px;line-height:1.7}
