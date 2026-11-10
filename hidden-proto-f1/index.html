@@ -8,90 +8,84 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: #fff; color: #26221c;
          font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif;
-         font-size: 18px; line-height: 1.8; }
-  .brand-band { background: #4a2f1d; color: #f5ead2; padding: 14px 20px;
-                border-bottom: 3px solid #b08d3c; letter-spacing: .14em; font-size: 15px; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 18px 56px; }
-  h1 { font-size: 28px; margin: 8px 0 4px; color: #26221c; letter-spacing: .04em;
+         font-size: 16px; line-height: 1.55; }
+  .brand-band { background: #4a2f1d; color: #f5ead2; padding: 7px 14px;
+                border-bottom: 3px solid #b08d3c; letter-spacing: .14em; font-size: 13px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 12px 12px 28px; }
+  h1 { font-size: 20px; margin: 2px 0 2px; color: #26221c; letter-spacing: .03em;
        font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif; }
-  .en { font-size: 13px; letter-spacing: .3em; color: #8a6a1f; margin: 0 0 16px; }
-  .proto-banner { background: #fdf3f3; border: 2px solid #7a1f1f; border-radius: 6px;
-                  padding: 14px 16px; font-size: 18px; font-weight: bold; color: #7a1f1f;
-                  margin: 0 0 22px; }
-  .proto-banner span { display: block; font-weight: normal; font-size: 16px; color: #5a4a3a; margin-top: 4px; }
-  .controls { background: #fbf6ea; border: 1px solid #d9c48a; border-radius: 6px;
-              padding: 16px; margin: 0 0 18px; }
-  .cuba-toggle { display: flex; align-items: center; gap: 12px; font-size: 20px;
-                 font-weight: bold; cursor: pointer; padding: 6px 0 12px; }
-  .cuba-toggle input { width: 28px; height: 28px; accent-color: #4a2f1d; }
-  .cuba-toggle small { font-weight: normal; font-size: 15px; color: #6b6252; }
-  #q { width: 100%; font-size: 20px; padding: 14px 14px; border: 2px solid #b08d3c;
-       border-radius: 6px; background: #fff; }
-  .count { font-size: 16px; color: #6b6252; margin: 10px 2px 14px; }
-  .legend { font-size: 15px; margin: 0 0 18px; line-height: 2.1; }
-  .badge { display: inline-block; font-size: 14px; font-weight: bold; color: #fff;
-           border-radius: 4px; padding: 1px 9px; margin-right: 6px; white-space: nowrap; }
+  .lead { font-size: 15px; color: #6b6252; margin: 0 0 8px; }
+  .proto-banner { background: #fdf3f3; border: 1px solid #7a1f1f; border-radius: 4px;
+                  padding: 5px 10px; font-size: 14px; font-weight: bold; color: #7a1f1f;
+                  margin: 0 0 10px; }
+  .toolbar { display: flex; align-items: center; gap: 10px; background: #fbf6ea;
+             border: 1px solid #d9c48a; border-radius: 6px; padding: 8px 10px; margin: 0 0 6px; }
+  .cuba-toggle { display: flex; align-items: center; gap: 7px; font-size: 16px;
+                 font-weight: bold; cursor: pointer; white-space: nowrap; min-height: 40px; }
+  .cuba-toggle input { width: 24px; height: 24px; accent-color: #4a2f1d; margin: 0; }
+  #q { flex: 1; min-width: 0; height: 44px; font-size: 16px; padding: 9px 10px;
+       border: 2px solid #b08d3c; border-radius: 6px; background: #fff; }
+  .count { font-size: 14px; color: #6b6252; margin: 0 2px 6px; }
+  .legend { font-size: 14px; margin: 0 0 10px; line-height: 1.7; color: #4a4234; }
+  .badge { display: inline-block; font-size: 12px; font-weight: bold; color: #fff;
+           border-radius: 4px; padding: 0 7px; line-height: 1.9; white-space: nowrap; }
+  .legend .badge { font-size: 11.5px; padding: 0 5px; margin-right: 3px; }
   .b-official { background: #4a2f1d; }
   .b-product  { background: #31572c; }
   .b-nasem    { background: #7a1f1f; }
   .b-ccwest   { background: #8a6a1f; }
   .b-estimate { background: #5f5f7a; }
-  #detail { display: none; border: 1.5px solid #4a2f1d; border-top: 5px solid #b08d3c;
-            background: #fffdf8; border-radius: 4px; padding: 20px; margin: 0 0 22px; }
-  #detail h2 { font-size: 24px; margin: 0 0 6px; line-height: 1.5;
-               font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif; }
-  #detail .sub { font-size: 16px; color: #6b6252; margin: 0 0 14px; }
-  .weight-big { font-size: 34px; font-weight: bold; color: #7a1f1f; margin: 6px 0 12px; }
-  .weight-big small { font-size: 17px; color: #26221c; font-weight: normal; }
-  #detail table { width: 100%; border-collapse: collapse; font-size: 17px; }
-  #detail th { text-align: left; color: #4a2f1d; padding: 7px 10px 7px 0; width: 34%;
-               vertical-align: top; border-bottom: 1px solid #e3d9c8; }
-  #detail td { padding: 7px 0; border-bottom: 1px solid #e3d9c8; }
-  #detail .note { font-size: 16px; background: #fbf6ea; border-radius: 4px;
-                  padding: 10px 12px; margin: 14px 0 0; }
-  #closeDetail { display: inline-block; margin-top: 16px; font-size: 17px; padding: 10px 22px;
-                 background: #4a2f1d; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
-  .item { display: block; width: 100%; text-align: left; background: #fff;
+  .item { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1px 8px;
+          width: 100%; text-align: left; background: #fff; font-family: inherit;
           border: 1px solid #e3d9c8; border-left: 5px solid #b08d3c; border-radius: 4px;
-          padding: 14px 16px; margin: 0 0 10px; cursor: pointer; font-size: 18px; }
-  .item:active { background: #fbf6ea; }
-  .item .nm { font-weight: bold; font-size: 19px; display: block; }
-  .item .mt { font-size: 15px; color: #6b6252; display: block; margin: 2px 0 6px; }
-  .item .wt { font-size: 19px; font-weight: bold; color: #7a1f1f; }
-  .item .dims { font-size: 15px; color: #6b6252; margin-left: 8px; }
-  .more { font-size: 16px; color: #6b6252; text-align: center; padding: 8px 0; }
-  footer { margin-top: 40px; font-size: 15px; color: #6b6252;
-           border-top: 1px solid #e3d9c8; padding-top: 16px; }
+          padding: 8px 10px; margin: 0 0 6px; cursor: pointer; font-size: 16px; min-height: 44px; }
+  .item:active, .item.open { background: #fbf6ea; }
+  .item .nm { font-weight: bold; font-size: 17px; }
+  .item .mt { font-size: 13px; color: #6b6252; }
+  .item .dims { font-size: 14px; color: #6b6252; }
+  .item .rgrp { display: flex; align-items: baseline; gap: 8px; margin-left: auto; }
+  .item .wt { font-size: 17px; font-weight: bold; color: #7a1f1f; white-space: nowrap; }
+  .acc { border: 1px solid #d9c48a; border-top: none; background: #fffdf8;
+         border-radius: 0 0 4px 4px; padding: 8px 12px 10px; margin: -7px 0 8px;
+         font-size: 16px; }
+  .acc .acc-wt { font-size: 22px; font-weight: bold; color: #7a1f1f; margin: 2px 0 6px; }
+  .acc .acc-wt small { font-size: 14px; color: #26221c; font-weight: normal; }
+  .acc table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .acc th { text-align: left; color: #4a2f1d; padding: 3px 8px 3px 0; width: 20%;
+            vertical-align: top; border-bottom: 1px solid #eee2c8; }
+  .acc td { padding: 3px 0; border-bottom: 1px solid #eee2c8; }
+  .acc .note { font-size: 14px; background: #fbf6ea; border-radius: 4px;
+               padding: 7px 9px; margin: 8px 0 0; }
+  .more { font-size: 14px; color: #6b6252; text-align: center; padding: 6px 0; }
+  .calc-ph { border: 2px dashed #c9b98f; border-radius: 6px; color: #8a7a52;
+             background: #fdfaf2; text-align: center; padding: 20px 14px;
+             margin: 18px 0 0; font-size: 15px; }
+  footer { margin-top: 22px; font-size: 13px; line-height: 1.6; color: #6b6252;
+           border-top: 1px solid #e3d9c8; padding-top: 10px; }
+  footer p { margin: 0 0 6px; }
 </style>
 </head><body>
 <div class="brand-band">CigarScope Japan</div>
 <main class="wrap">
   <h1>銘柄から重さを表示（試作）</h1>
-  <p class="en">FEATURE F1 PROTOTYPE</p>
+  <p class="lead">銘柄を選ぶと、その葉巻の重さが自動で出ます。</p>
+  <div class="proto-banner">試作版です。正式公開前のテスト用ページです。</div>
 
-  <div class="proto-banner">試作版です。正式公開前のテスト用ページです。
-    <span>葉巻輸入税シミュレーターの追加機能F1（銘柄を選ぶと重さが自動で出る）の操作感を確かめるための試作です。数値はすべて出典のあるデータだけを使っています。</span>
-  </div>
-
-  <div class="controls">
-    <label class="cuba-toggle"><input type="checkbox" id="cubaOnly"> キューバだけに絞る
-      <small>（チェックするとキューバ側のデータだけを表示）</small></label>
-    <input type="search" id="q" placeholder="名前で探す（例：Montecristo、Robustos、Davidoff）" autocomplete="off">
+  <div class="toolbar">
+    <label class="cuba-toggle"><input type="checkbox" id="cubaOnly">キューバ</label>
+    <input type="search" id="q" placeholder="名前で探す（例：Montecristo）" autocomplete="off">
   </div>
 
   <p class="legend">
-    <span class="badge b-official">公式重量（Habanos）</span>
-    <span class="badge b-product">製品公表</span>
-    <span class="badge b-nasem">実測（NASEM）</span>
-    <span class="badge b-ccwest">推計（CCW）</span>
-    <span class="badge b-estimate">推定（寸法から計算）</span><br>
-    重さの「種別」で意味が違います。公式重量はメーカー公称、実測は実際に量った値、推計・推定は計算で求めた目安です。
+    <span class="badge b-official">公式</span><span class="badge b-product">製品公表</span><span class="badge b-nasem">実測</span><span class="badge b-ccwest">推計</span><span class="badge b-estimate">推定</span>
+    ＝重さの種別。公式はメーカー公称、実測は実際に量った値、推計・推定は計算で求めた目安です。
   </p>
 
-  <section id="detail" aria-live="polite"></section>
   <p class="count" id="count"></p>
   <div id="list"></div>
   <p class="more" id="more"></p>
+
+  <div class="calc-ph">ここに計算システム（価格・送料・本数の入力と税額結果）が入ります</div>
 
   <footer>
     <p>データ出典：キューバ工場ビトラ＝Cuban Cigar Website（Habanos S.A. 公式重量リストの掲載、確認日 2026-11-10）。「推計（CCW）」は同サイトが計算で補完した値です。製品公表＝Eneas Magazine 製品スペック（habanos.com 出典明記）ほか。実測＝NASEM『Premium Cigars』Appendix F（2021年・米国市場）。推定＝長さ×太さから式で計算した目安で、実測値ではありません。</p>
@@ -106,6 +100,13 @@ var TYPE_LABEL = {
   nasem: "実測（NASEM 2021・米国市場）",
   ccwest: "推計（CCW）",
   estimate: "推定（寸法から計算）"
+};
+var SHORT_LABEL = {
+  official: "公式",
+  product: "製品公表",
+  nasem: "実測",
+  ccwest: "推計",
+  estimate: "推定"
 };
 var TYPE_ORDER = { product: 0, nasem: 1, estimate: 2, official: 3, ccwest: 4 };
 DATA.sort(function (a, b) {
@@ -129,8 +130,8 @@ var cubaEl = document.getElementById("cubaOnly");
 var listEl = document.getElementById("list");
 var countEl = document.getElementById("count");
 var moreEl = document.getElementById("more");
-var detailEl = document.getElementById("detail");
 var LIMIT = 80;
+var openIdx = -1;
 function filtered() {
   var q = fold(qEl.value.trim());
   var cuba = cubaEl.checked;
@@ -140,36 +141,12 @@ function filtered() {
     return fold(it.n + " " + it.sub).indexOf(q) >= 0;
   });
 }
-function render() {
-  var rows = filtered();
-  countEl.textContent = rows.length + " 件が見つかりました（全 " + DATA.length + " 件中）";
-  var html = "";
-  rows.slice(0, LIMIT).forEach(function (it, i) {
-    html += '<button type="button" class="item" data-idx="' + DATA.indexOf(it) + '">'
-      + '<span class="nm">' + it.n + "</span>"
-      + '<span class="mt">' + it.sub + "</span>"
-      + '<span class="badge b-' + it.type + '">' + TYPE_LABEL[it.type] + "</span>"
-      + '<span class="wt">' + weightLabel(it) + "</span>"
-      + '<span class="dims">' + it.len + "mm × RG" + (it.rg == null ? "―" : it.rg) + "</span>"
-      + "</button>";
-  });
-  listEl.innerHTML = html || '<p class="more">見つかりませんでした。名前の一部だけでも探せます。</p>';
-  moreEl.textContent = rows.length > LIMIT
-    ? "先頭 " + LIMIT + " 件を表示しています。名前で絞り込むと残りも出ます。" : "";
-  var btns = listEl.querySelectorAll(".item");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-      showDetail(DATA[Number(this.getAttribute("data-idx"))]);
-    });
-  }
-}
-function showDetail(it) {
+function detailHTML(it) {
   var lenTxt = it.lenLabel ? it.lenLabel : (it.len + "mm");
   var rgTxt = it.rgLabel ? it.rgLabel : (it.rg == null ? "―" : "RG " + it.rg);
-  var html = "<h2>" + it.n + "</h2>"
-    + '<p class="sub">' + it.sub + "</p>"
-    + '<span class="badge b-' + it.type + '">' + TYPE_LABEL[it.type] + "</span>"
-    + '<p class="weight-big">' + weightLabel(it) + " <small>（1本あたり）</small></p>"
+  var html = '<div class="acc">'
+    + '<p class="acc-wt">' + weightLabel(it) + " <small>（1本あたり）</small> "
+    + '<span class="badge b-' + it.type + '">' + TYPE_LABEL[it.type] + "</span></p>"
     + "<table>"
     + "<tr><th>長さ</th><td>" + lenTxt + "</td></tr>"
     + "<tr><th>太さ</th><td>" + rgTxt + "</td></tr>"
@@ -183,17 +160,45 @@ function showDetail(it) {
       + "）。実測値ではないため、税額は幅を持って見てください。</p>";
   }
   if (it.note) html += '<p class="note">' + it.note + "</p>";
-  html += '<button type="button" id="closeDetail">閉じる</button>';
-  detailEl.innerHTML = html;
-  detailEl.style.display = "block";
-  document.getElementById("closeDetail").addEventListener("click", function () {
-    detailEl.style.display = "none";
-    detailEl.innerHTML = "";
-  });
-  detailEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  html += "</div>";
+  return html;
 }
-qEl.addEventListener("input", render);
-cubaEl.addEventListener("change", render);
+function render() {
+  var rows = filtered();
+  countEl.textContent = rows.length + " 件が見つかりました（全 " + DATA.length + " 件中）";
+  var html = "";
+  rows.slice(0, LIMIT).forEach(function (it) {
+    var di = DATA.indexOf(it);
+    var open = di === openIdx;
+    html += '<button type="button" class="item' + (open ? " open" : "") + '" data-idx="' + di + '">'
+      + '<span class="nm">' + it.n + "</span>"
+      + '<span class="mt">' + it.sub + "</span>"
+      + '<span class="dims">' + it.len + "mm × RG" + (it.rg == null ? "―" : it.rg) + "</span>"
+      + '<span class="rgrp"><span class="badge b-' + it.type + '">' + SHORT_LABEL[it.type] + "</span>"
+      + '<span class="wt">' + weightLabel(it) + "</span></span>"
+      + "</button>";
+    if (open) html += detailHTML(it);
+  });
+  listEl.innerHTML = html || '<p class="more">見つかりませんでした。名前の一部だけでも探せます。</p>';
+  moreEl.textContent = rows.length > LIMIT
+    ? "先頭 " + LIMIT + " 件を表示しています。名前で絞り込むと残りも出ます。" : "";
+  var btns = listEl.querySelectorAll(".item");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      toggleDetail(Number(this.getAttribute("data-idx")));
+    });
+  }
+}
+function toggleDetail(idx) {
+  openIdx = (openIdx === idx) ? -1 : idx;
+  render();
+  if (openIdx >= 0) {
+    var el = listEl.querySelector(".item.open");
+    if (el && el.scrollIntoView) el.scrollIntoView({ block: "nearest" });
+  }
+}
+qEl.addEventListener("input", function () { openIdx = -1; render(); });
+cubaEl.addEventListener("change", function () { openIdx = -1; render(); });
 render();
 </script>
 </body></html>
