@@ -2,8 +2,8 @@
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>銘柄データ試作（F1）| CigarScope Japan</title>
-<meta name="description" content="葉巻輸入税シミュレーター追加機能F1（銘柄から重さを自動表示）の試作ページです。">
+<title>銘柄と税額計算の試作（F1）| CigarScope Japan</title>
+<meta name="description" content="葉巻輸入税シミュレーター追加機能F1（銘柄から重さを自動表示し、税額まで計算する）の試作ページです。">
 <style>
   * { box-sizing: border-box; }
   body { margin: 0; background: #fff; color: #26221c;
@@ -57,9 +57,51 @@
   .acc .note { font-size: 12px; background: #fbf6ea; border-radius: 4px;
                padding: 5px 7px; margin: 6px 0 0; }
   .more { font-size: 12px; color: #6b6252; text-align: center; padding: 4px 0; }
-  .calc-ph { border: 2px dashed #c9b98f; border-radius: 6px; color: #8a7a52;
-             background: #fdfaf2; text-align: center; padding: 12px 10px;
-             margin: 12px 0 0; font-size: 13px; }
+  .calc { border: 1px solid #d9c48a; border-radius: 6px; padding: 10px;
+          margin: 12px 0 0; background: #fffdf8; }
+  .calc h2 { font-size: 15px; margin: 0 0 6px; color: #4a2f1d;
+             border-left: 5px solid #b08d3c; padding-left: 7px; }
+  .cf-sel { font-size: 13px; background: #fbf6ea; border-radius: 4px;
+            padding: 5px 7px; margin: 0 0 8px; line-height: 1.5; }
+  .cf-sel.has-sel { background: #fdf3f3; border: 1px solid #d9a3a3; }
+  .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 10px; }
+  .cf-grid label { display: block; font-size: 12px; color: #4a4234; margin: 0 0 2px; }
+  .cf-grid input[type="text"], .cf-grid select { width: 100%; height: 38px; font-size: 15px;
+            padding: 6px 8px; border: 1px solid #c9b98f; border-radius: 5px;
+            background: #fff; font-family: inherit; }
+  .cf-wide { grid-column: 1 / -1; }
+  .cf-sep { display: flex; align-items: center; gap: 6px; font-size: 13px;
+            min-height: 38px; cursor: pointer; }
+  .cf-sep input { width: 20px; height: 20px; accent-color: #4a2f1d; margin: 0; flex: none; }
+  #cf-btn { width: 100%; height: 44px; font-size: 16px; font-weight: bold; color: #fff;
+            background: #4a2f1d; border: none; border-radius: 6px; margin: 9px 0 0;
+            cursor: pointer; font-family: inherit; }
+  #cf-btn:active { background: #7a1f1f; }
+  .cf-err { display: none; background: #fdf3f3; border: 1px solid #7a1f1f; color: #7a1f1f;
+            border-radius: 4px; padding: 6px 8px; font-size: 13px; margin: 8px 0 0; }
+  .cf-result { display: none; margin: 10px 0 0; }
+  .cf-basis { font-size: 13px; margin: 0 0 6px; line-height: 1.5; }
+  .cf-result table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .cf-result th { text-align: left; color: #4a2f1d; padding: 3px 8px 3px 0;
+                  border-bottom: 1px solid #eee2c8; font-weight: normal; vertical-align: top; }
+  .cf-result td { text-align: right; padding: 3px 0; border-bottom: 1px solid #eee2c8;
+                  white-space: nowrap; }
+  .cf-result .big th, .cf-result .big td { font-size: 17px; font-weight: bold; color: #7a1f1f; }
+  .cf-sub { font-size: 11.5px; color: #6b6252; white-space: nowrap; }
+  .cf-note { font-size: 12px; background: #fbf6ea; border-radius: 4px;
+             padding: 5px 7px; margin: 6px 0 0; line-height: 1.55; }
+  .use-wt { display: block; width: 100%; height: 40px; margin: 7px 0 0; font-size: 14px;
+            font-weight: bold; color: #fff; background: #4a2f1d; border: none;
+            border-radius: 5px; cursor: pointer; font-family: inherit; }
+  .use-wt:active { background: #7a1f1f; }
+  .sel-chip { font-size: 10.5px; font-weight: bold; color: #fff; background: #7a1f1f;
+              border-radius: 4px; padding: 0 5px; line-height: 1.8; white-space: nowrap; }
+  .item.selected { border-left-color: #7a1f1f; background: #fdf6f6; }
+  .notice { font-size: 12px; color: #4a4234; border: 1px solid #e3d9c8; border-radius: 6px;
+            padding: 8px 10px; margin: 10px 0 0; background: #fff; line-height: 1.55; }
+  .notice h3 { font-size: 13px; margin: 0 0 4px; color: #4a2f1d; }
+  .notice p { margin: 0 0 4px; }
+  .notice p:last-child { margin-bottom: 0; }
   footer { margin-top: 16px; font-size: 12px; line-height: 1.55; color: #6b6252;
            border-top: 1px solid #e3d9c8; padding-top: 8px; }
   footer p { margin: 0 0 6px; }
@@ -67,8 +109,8 @@
 </head><body>
 <div class="brand-band">CigarScope Japan</div>
 <main class="wrap">
-  <h1>銘柄から重さを表示（試作）</h1>
-  <p class="lead">銘柄を選ぶと、その葉巻の重さが自動で出ます。</p>
+  <h1>銘柄から税額計算（試作）</h1>
+  <p class="lead">銘柄を選ぶと重さが自動で入り、そのまま税額まで計算できます。</p>
   <div class="proto-banner">試作版です。正式公開前のテスト用ページです。</div>
 
   <div class="toolbar">
@@ -85,13 +127,515 @@
   <div id="list"></div>
   <p class="more" id="more"></p>
 
-  <div class="calc-ph">ここに計算システム（価格・送料・本数の入力と税額結果）が入ります</div>
+  <section class="calc" id="calc">
+    <h2>税額を計算する（試作）</h2>
+    <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を開き、「この重さで計算する」を押すと重さが自動で入ります。重さは手入力もできます。</p>
+    <div class="cf-grid">
+      <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
+      <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option></select></div>
+      <div><label for="cf-rate">為替レート（円／1通貨）</label><input type="text" id="cf-rate" inputmode="decimal" placeholder="例：158"></div>
+      <div><label for="cf-ship">送料（外貨）</label><input type="text" id="cf-ship" inputmode="decimal" placeholder="例：30"></div>
+      <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
+      <div><label for="cf-weight">1本の重さ（g）</label><input type="text" id="cf-weight" inputmode="decimal" placeholder="銘柄選択で自動入力"></div>
+      <div class="cf-wide"><label for="cf-duty">関税率</label><select id="cf-duty"><option value="16">協定（WTO）16%</option><option value="2.9">CPTPP・EPA等 2.9%</option><option value="20">基本 20%</option></select></div>
+      <label class="cf-sep cf-wide"><input type="checkbox" id="cf-sep">送料は商品価格と区別できる（インボイスで分離表示される）</label>
+    </div>
+    <button type="button" id="cf-btn">計算する</button>
+    <p class="cf-err" id="cf-err"></p>
+    <div class="cf-result" id="cf-result"></div>
+    <div class="notice">
+      <h3>ご利用上の注意</h3>
+      <p>本シミュレーターは、葉巻を個人輸入する際に発生する関税・消費税・たばこ税等の概算額を確認するための参考ツールです。表示される金額は、入力された情報や設定された計算条件に基づく推定値であり、実際の課税額を保証するものではありません。</p>
+      <p>実際の課税額は、申告内容、課税価格、重量、適用される法令や個別事情等に基づき、税関によって決定されます。特に重量や課税価格が推定値の場合、実際の納税額と差が生じることがあります。</p>
+      <p>輸入時の正式な税額については、税関の判断をご確認ください。本シミュレーターの結果は、輸入計画の参考情報としてご利用ください。</p>
+    </div>
+  </section>
 
   <footer>
     <p>データ出典：キューバ工場ビトラ＝Cuban Cigar Website（Habanos S.A. 公式重量リストの掲載、確認日 2026-11-10）。「推計（CCW）」は同サイトが計算で補完した値です。製品公表＝Eneas Magazine 製品スペック（habanos.com 出典明記）ほか。実測＝NASEM『Premium Cigars』Appendix F（2021年・米国市場）。推定＝長さ×太さから式で計算した目安で、実測値ではありません。</p>
+    <p>税額計算は、公開中のシミュレーターと同じ検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。60％特例は個人使用の前提で適用し、制度の判定日には今日の日付を使います。送料が空欄の場合は0として計算します。</p>
     <p>このページはテスト用です。サイト内の他のページからはリンクされていません。</p>
   </footer>
 </main>
+<script>
+"use strict";
+/*
+ * TaxEngine — 葉巻輸入税シミュレーター計算エンジン（実装版 v1.0、2026-11-09）
+ *
+ * 仕様の正本: SPEC-16667-TWOMODE-FINAL-2026-11-09.md
+ * 数値処理: 整数演算方式（分類T-1 採用。テスト計画 INV-10-14-TEST-PLAN-REV4 第2.4節）
+ *   - V_raw は 10^5 スケールの整数 N で保持し、境界比較・floor は整数演算で行う。
+ *   - 境界比較に ε（許容誤差）は用いない。
+ *   - 総額ガードは加算前ガード（第2.4.9項）。合算後に初めて検査する方式は採らない。
+ * 入力検証: テスト計画 REV4 第2.8節（分類T-2 採用）。精度超過・範囲超過・形式不正は
+ *   入力エラーとし、自動切捨て・四捨五入・暗黙の丸め・暗黙の変換は一切行わない。
+ * 換算: たばこ税法基本通達第19条の2経路（軽量経路は本数合算、重量経路は総重量を
+ *   合計してから換算し、端数切捨ては合計後に1回）。識別子 conv:art19-two-path。
+ * 計算単位: 単一計算単位。識別子 unit:single。
+ */
+var TaxEngine = (function () {
+
+  /* ===== ビトラ寸法からの重量推定の定数（1か所に集約） =====
+   * 推定重量(g) ＝ 長さ(in) × RG^2 × VITOLA_WEIGHT_CONSTANT × 形状係数
+   * 形状係数: パレホ 1.0 / フィグラド 0.85（SHAPE_FACTORS）
+   * 定数の根拠: WEIGHT-CONSTANT-CALIBRATION-2026-11-09.md
+   *   主データ（Habanos S.A. 公式・工場ビトラ別重量、n=28、出典・確認日つき）への
+   *   原点通過・最小二乗フィット 0.000952 → 推奨値 0.00095 を採用（2026-11-09、カズ決定）。
+   *   旧仮置き 0.00096（幾何計算ベース）から差し替え。70Cigars の定数・テーブルは
+   *   複製していない（クロスチェックの参照値として扱うのみ）。
+   */
+  var VITOLA_WEIGHT_CONSTANT = 0.00095;
+  var SHAPE_FACTORS = { parejo: 1.0, figurado: 0.85 };
+
+  /* ===== 制度レジーム（施行日切替。行追加で将来改正に対応） =====
+   * factor: 課税価格の60％特例の係数を 10^5 スケールの乗数で表す（特例=6, 原則=10 は
+   * N の算出側で使うため、ここでは特例の有無のみを持つ）。
+   * tobacco: たばこ税等（円／千本）nat=国, spc=特別, pref=道府県, city=市町村。
+   */
+  var REGIMES = [
+    { until: "2027-03-31", special: true,
+      tobacco: { nat: 6802, spc: 820, pref: 1070, city: 6552 },
+      name: "現行制度（60％特例あり・たばこ税は現行税率）" },
+    { until: "2028-03-31", special: true,
+      tobacco: { nat: 7302, spc: 820, pref: 1070, city: 6552 },
+      name: "現行制度（60％特例あり・たばこ税 第1段階引上げ後）" },
+    { until: "2029-03-31", special: false,
+      tobacco: { nat: 7802, spc: 820, pref: 1070, city: 6552 },
+      name: "改正後制度（60％特例廃止・たばこ税 第2段階引上げ後）" },
+    { until: null, special: false,
+      tobacco: { nat: 8302, spc: 820, pref: 1070, city: 6552 },
+      name: "改正後制度（60％特例廃止・たばこ税 第3段階引上げ後）" }
+  ];
+  function pickRegime(dateStr) {
+    for (var i = 0; i < REGIMES.length; i++) {
+      if (!REGIMES[i].until || dateStr <= REGIMES[i].until) return { index: i, row: REGIMES[i] };
+    }
+    var last = REGIMES.length - 1;
+    return { index: last, row: REGIMES[last] };
+  }
+
+  /* ===== 判定プロファイル（仕様書 第5節。9要素を一体管理する） =====
+   * 切替はこのオブジェクト一式の差し替えでのみ行う（部分切替の禁止）。
+   * REGIMES とは独立。
+   */
+  var DEFAULT_PROFILE = {
+    profileVersion: "1.0",            // #1
+    effectiveFrom: null,              // #1 適用開始日（公開時に設定）
+    exemptionLimitJPY: 10000,         // 少額免税のライン（施行令第16条の3）
+    standardBasis: "post",            // #2 見出し判定: "post"=方式1(V) / "pre"=方式2(V_raw)
+    referenceBasis: "pre",            // #3 参考シナリオの判定方式
+    boundary: { lowerExclusive: 10000, upperExclusive: 10001 }, // #5 境界ケースの定義
+    checkbox: {                       // #7
+      label: "切り捨て前の課税価格による参考シナリオも表示する",
+      defaultChecked: false
+    },
+    copySetVersion: "v4R",            // #8 文案セット（文案①〜⑥）の版
+    testSetVersion: "TC-v4R"          // #9 テスト期待値セットの版
+  };
+
+  /* ===== 定数（入力範囲・ガード。テスト計画 REV4 第2.4.2項・第2.8節） ===== */
+  var SCALE = 100000;                 // V_raw の内部スケール（10^5）
+  var GUARD_LIMIT_C = 10000000000000; // 総額ガード: ΣC_i ≦ 10^13（円換算総額10億円）
+  var MAX_FOREIGN_PRICE_P = 99999999; // 外貨価格上限 999,999.99（×100）
+  var MAX_JPY_PRICE = 999999999;      // 円建て価格上限（円）
+  var MAX_RATE_R = 99999;             // レート上限 999.99（×100）
+  var MIN_RATE_R = 1;                 // レート下限 0.01（×100）
+  var MAX_DUTY_SCALED = 100000;       // 関税率上限 100.000%（×1000）
+  var MAX_ELEMENTS = 100;             // 構成要素数上限（商品・送料・保険料の合計）
+  var MAX_COUNT = 99999;              // 1要素あたり本数上限
+  var MAX_W01 = 9999;                 // 1本重量上限 999.9g（0.1g単位）
+
+  /* ===== 整数ユーティリティ ===== */
+  function floorDiv(a, b) { // a,b は非負整数
+    return (a - (a % b)) / b;
+  }
+  function floor100(x) { return floorDiv(x, 100) * 100; }
+  function floor1000(x) { return floorDiv(x, 1000) * 1000; }
+
+  /* ===== 入力文字列のパース（文字列処理で整数化。parseFloat は使わない） =====
+   * 戻り値: { ok:true, value:int } | { ok:false, type:'empty'|'format'|'precision'|'range' }
+   * maxDecimals: 許容する小数桁数。scale: 10^maxDecimals。
+   */
+  function parseDecimal(str, maxDecimals) {
+    if (str === null || str === undefined) return { ok: false, type: "empty" };
+    var s = String(str);
+    if (s === "") return { ok: false, type: "empty" };
+    if (!/^[0-9]+(\.[0-9]+)?$/.test(s)) return { ok: false, type: "format" };
+    var parts = s.split(".");
+    var frac = parts.length > 1 ? parts[1] : "";
+    if (frac.length > maxDecimals) return { ok: false, type: "precision" };
+    var scale = 1;
+    for (var i = 0; i < maxDecimals; i++) scale *= 10;
+    var fracPadded = (frac + "000000").slice(0, maxDecimals);
+    var value = parseInt(parts[0], 10) * scale + (maxDecimals > 0 ? parseInt(fracPadded, 10) : 0);
+    if (!isFinite(value)) return { ok: false, type: "range" };
+    return { ok: true, value: value };
+  }
+  function parseInteger(str) { // 本数など（小数不可）
+    if (str === null || str === undefined || String(str) === "") return { ok: false, type: "empty" };
+    var s = String(str);
+    if (!/^[0-9]+$/.test(s)) {
+      if (/^[0-9]+\.[0-9]+$/.test(s)) return { ok: false, type: "precision" };
+      return { ok: false, type: "format" };
+    }
+    return { ok: true, value: parseInt(s, 10) };
+  }
+
+  /* ===== V_raw の表示文字列（テスト計画 REV4 第2.10節） =====
+   * 整数 N の商と剰余から構築する。浮動小数点経由の文字列化は行わない。
+   * 末尾ゼロの省略以外の丸めは行わない。
+   */
+  function formatVRaw(N) {
+    var q = floorDiv(N, SCALE);
+    var r = N % SCALE;
+    var qs = String(q).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (r === 0) return qs;
+    var frac = ("00000" + r).slice(-5).replace(/0+$/, "");
+    return qs + "." + frac;
+  }
+  /* C スケール（円×10^4）の金額表示。円未満がある場合は小数第2位まで表示する。 */
+  function formatYenC(C) {
+    var sign = C < 0 ? "-" : "";
+    var a = Math.abs(C);
+    var yen = floorDiv(a, 10000);
+    var frac4 = a % 10000;
+    var ys = String(yen).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (frac4 === 0) return sign + ys;
+    var frac = ("0000" + frac4).slice(-4).replace(/0+$/, "");
+    return sign + ys + "." + frac;
+  }
+  function formatYenInt(v) {
+    return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  /* ===== たばこ税換算（基本通達第19条・2経路） =====
+   * itemsW: [{name, count, w01}]（w01 は 0.1g 単位の整数。採用値に解決済み）
+   */
+  function convertItems(itemsW) {
+    var lightSticks = 0, W01 = 0, details = [];
+    itemsW.forEach(function (it) {
+      var d = { name: it.name, count: it.count, w01: it.w01, light: it.w01 < 10, totalW01: null };
+      if (d.light) { lightSticks += it.count; }
+      else { d.totalW01 = it.w01 * it.count; W01 += d.totalW01; }
+      details.push(d);
+    });
+    var heavySticks = floorDiv(W01, 10); // 端数切捨ては合計後に1回だけ
+    return { details: details, lightSticks: lightSticks, W01: W01,
+             heavySticks: heavySticks, N: lightSticks + heavySticks };
+  }
+
+  /* ===== 税額計算の一式（V・関税率・税率表・換算・免税可否から） ===== */
+  function computeBundle(V, dutyRateScaled, tobacco, itemsW, exempt, track) {
+    var duty = 0;
+    var B = floor1000(V);
+    if (!exempt) {
+      var prod = B * dutyRateScaled;
+      if (track) track(prod);
+      duty = floorDiv(prod, 10000000) * 100; // B×税率 → 100円未満切捨て
+    }
+    var conv = convertItems(itemsW);
+    var Ns = conv.N;
+    var tNat = floorDiv(Ns * tobacco.nat, 1000);
+    var tSpc = floorDiv(Ns * tobacco.spc, 1000);
+    var tPref = floorDiv(Ns * tobacco.pref, 1000);
+    var tCity = floorDiv(Ns * tobacco.city, 1000);
+    if (track) {
+      track(Ns * tobacco.nat); track(Ns * tobacco.spc);
+      track(Ns * tobacco.pref); track(Ns * tobacco.city);
+      track(conv.W01);
+    }
+    var tobTotal = tNat + tSpc + tPref + tCity;
+    var S = V + duty + tobTotal;
+    var S1000 = floor1000(S);
+    var ctNat = 0, ctLoc = 0;
+    if (!exempt) {
+      var prod2 = S1000 * 78;
+      if (track) track(prod2);
+      ctNat = floorDiv(prod2, 100000) * 100; // S1000×7.8% → 100円未満切捨て
+      var t1 = floorDiv(ctNat * 22, 78);     // 1円未満切捨て
+      if (track) track(ctNat * 22);
+      ctLoc = floorDiv(t1, 100) * 100;       // 100円未満切捨て
+    }
+    return {
+      dutyBase: B, duty: duty, conv: conv,
+      taxes: { nat: tNat, spc: tSpc, pref: tPref, city: tCity, total: tobTotal },
+      ctBase: S, ctNat: ctNat, ctLoc: ctLoc,
+      taxTotal: duty + tobTotal + ctNat + ctLoc
+    };
+  }
+
+  function judgeExempt(basis, V, N, profile) {
+    if (basis === "pre") return N <= profile.exemptionLimitJPY * SCALE;
+    return V <= profile.exemptionLimitJPY; // "post"
+  }
+
+  /* ===== 本体 =====
+   * input: {
+   *   method: 'postal-assessed'|'postal-declared'|'courier',
+   *   dateStr: 'YYYY-MM-DD',
+   *   specialEligible: bool,          // 60％特例の適用条件を満たすか（M-4）
+   *   currency: 'JPY'|その他,          // JPY のとき専用経路（レートを介さない）
+   *   rateStr: '158.00',              // 外貨の場合のみ
+   *   items: [{ name, priceStr, countStr, weightStr, basis,
+   *             altWeightStr|null, useAlt:bool }],
+   *   shipStr, insStr, separated: bool,
+   *   dutyRateStr: '16' | '2.9' ...   // %表示（小数第3位まで）
+   *   estimateRangePct: int|null,     // 推定銘柄がある場合の幅（%）
+   *   showReference: bool             // 参考シナリオ表示チェック
+   * }
+   * 戻り値: { ok:true, ... } | { ok:false, error:{ type, field, element? } }
+   */
+  function calc(input, profileOpt) {
+    var profile = profileOpt || DEFAULT_PROFILE;
+    function err(type, field, extra) {
+      var e = { type: type, field: field };
+      if (extra) for (var k in extra) e[k] = extra[k];
+      return { ok: false, error: e };
+    }
+
+    /* --- 方式・日付 --- */
+    if (!input.method) return err("empty", "method");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(input.dateStr || "")) return err("empty", "date");
+    var reg = pickRegime(input.dateStr);
+    var regime = reg.row;
+    var postReform = !regime.special; // 日付上、特例期間を過ぎているか
+    var specialApplied = regime.special && !!input.specialEligible;
+
+    /* --- 関税率 --- */
+    var dutyP = parseDecimal(input.dutyRateStr, 3);
+    if (!dutyP.ok) return err(dutyP.type, "dutyRate");
+    if (dutyP.value > MAX_DUTY_SCALED) return err("range", "dutyRate");
+    var dutyRateScaled = dutyP.value;
+
+    /* --- レート（外貨の場合） --- */
+    var isJPY = input.currency === "JPY";
+    var R = 100;
+    if (!isJPY) {
+      var rateP = parseDecimal(input.rateStr, 2);
+      if (!rateP.ok) return err(rateP.type, "rate");
+      if (rateP.value < MIN_RATE_R || rateP.value > MAX_RATE_R) return err("range", "rate");
+      R = rateP.value;
+    }
+
+    /* --- 要素の構築（入力順：商品要素→送料→保険料） --- */
+    var rawItems = input.items || [];
+    if (rawItems.length === 0) return err("empty", "items");
+    if (rawItems.length + 2 > MAX_ELEMENTS) return err("range", "items");
+
+    var elements = []; // {kind, index, C}
+    var itemsW = [];   // 採用値に解決した換算用アイテム
+    var itemsWAlt = []; // 候補の反対側（候補がある場合の比較用）
+    var anyCandidate = false;
+    var maxMid = 0;
+    function track(v) { if (v > maxMid) maxMid = v; }
+
+    for (var i = 0; i < rawItems.length; i++) {
+      var it = rawItems[i];
+      var fieldBase = "items[" + i + "]";
+      /* 要素ごとの通貨（混在時は要素単位で指定できる。仕様書 第2.4.4項の混在合算。
+         UI は単一通貨のみを扱い、この上書きはエンジンの能力として持つ） */
+      var elJPY = isJPY, elR = R;
+      if (it.currency) {
+        elJPY = it.currency === "JPY";
+        if (!elJPY) {
+          if (it.rateStr === null || it.rateStr === undefined) return err("empty", fieldBase + ".rate");
+          var elRateP = parseDecimal(it.rateStr, 2);
+          if (!elRateP.ok) return err(elRateP.type, fieldBase + ".rate");
+          if (elRateP.value < MIN_RATE_R || elRateP.value > MAX_RATE_R) return err("range", fieldBase + ".rate");
+          elR = elRateP.value;
+        }
+      }
+      var priceP, C;
+      if (elJPY) {
+        priceP = parseDecimal(it.priceStr, 0);
+        if (!priceP.ok) return err(priceP.type, fieldBase + ".price");
+        if (priceP.value > MAX_JPY_PRICE) return err("range", fieldBase + ".price");
+        if (priceP.value === 0) return err("range", fieldBase + ".price"); // 商品価格の0はエラー（T-2）
+        C = priceP.value * 10000; // 円建て専用経路
+      } else {
+        priceP = parseDecimal(it.priceStr, 2);
+        if (!priceP.ok) return err(priceP.type, fieldBase + ".price");
+        if (priceP.value > MAX_FOREIGN_PRICE_P) return err("range", fieldBase + ".price");
+        if (priceP.value === 0) return err("range", fieldBase + ".price");
+        C = priceP.value * elR;
+      }
+      elements.push({ kind: "goods", index: i, C: C });
+
+      var countP = parseInteger(it.countStr);
+      if (!countP.ok) return err(countP.type, fieldBase + ".count");
+      if (countP.value < 1 || countP.value > MAX_COUNT) return err("range", fieldBase + ".count");
+
+      var wP = parseDecimal(it.weightStr, 1);
+      if (!wP.ok) return err(wP.type, fieldBase + ".weight");
+      if (wP.value < 1 || wP.value > MAX_W01) return err("range", fieldBase + ".weight");
+
+      var adopted = wP.value, other = null;
+      if (it.altWeightStr !== null && it.altWeightStr !== undefined && String(it.altWeightStr) !== "") {
+        var aP = parseDecimal(it.altWeightStr, 1);
+        if (!aP.ok) return err(aP.type, fieldBase + ".altWeight");
+        if (aP.value < 1 || aP.value > MAX_W01) return err("range", fieldBase + ".altWeight");
+        anyCandidate = true;
+        if (it.useAlt) { adopted = aP.value; other = wP.value; }
+        else { other = aP.value; }
+      }
+      itemsW.push({ name: it.name || ("銘柄 " + (i + 1)), count: countP.value, w01: adopted, basis: it.basis });
+      itemsWAlt.push({ name: it.name || ("銘柄 " + (i + 1)), count: countP.value, w01: other === null ? adopted : other, basis: it.basis });
+    }
+
+    function feeElement(str, kind) {
+      var p, C;
+      if (isJPY) {
+        p = parseDecimal(str, 0);
+        if (!p.ok) return { error: err(p.type, kind) };
+        if (p.value > MAX_JPY_PRICE) return { error: err("range", kind) };
+        C = p.value * 10000;
+      } else {
+        p = parseDecimal(str, 2);
+        if (!p.ok) return { error: err(p.type, kind) };
+        if (p.value > MAX_FOREIGN_PRICE_P) return { error: err("range", kind) };
+        C = p.value * R;
+      }
+      return { C: C };
+    }
+    var shipEl = feeElement(input.shipStr, "ship");
+    if (shipEl.error) return shipEl.error;
+    elements.push({ kind: "shipping", index: 0, C: shipEl.C });
+    var insEl = feeElement(input.insStr, "ins");
+    if (insEl.error) return insEl.error;
+    elements.push({ kind: "insurance", index: 0, C: insEl.C });
+
+    /* --- 総額（表示用。全要素の C 合計。ガード対象ではない） --- */
+    var totalC = 0;
+    elements.forEach(function (e) { totalC += e.C; track(totalC); });
+
+    /* --- 課税価格の対象要素と加算前ガード --- */
+    var taxable = elements.filter(function (e) {
+      if (specialApplied && input.separated) return e.kind === "goods";
+      return true; // 原則方式は全要素。特例・分離不可も全要素
+    });
+    var M = 0;
+    for (var j = 0; j < taxable.length; j++) {
+      var el = taxable[j];
+      track(M + el.C);
+      if (M + el.C > GUARD_LIMIT_C) {
+        return err("guard", el.kind === "goods" ? "items[" + el.index + "].price" : el.kind,
+                   { element: { kind: el.kind, index: el.index } });
+      }
+      M += el.C;
+    }
+    var N = M * (specialApplied ? 6 : 10);
+    track(N);
+    var V = floorDiv(N, SCALE);
+    var vRawStr = formatVRaw(N);
+
+    /* --- 判定 --- */
+    var limit = profile.exemptionLimitJPY;
+    var boundary = N > profile.boundary.lowerExclusive * SCALE &&
+                   N < profile.boundary.upperExclusive * SCALE;
+    var exempt = judgeExempt(profile.standardBasis, V, N, profile);
+
+    /* --- 見出し計算 --- */
+    var bundle = computeBundle(V, dutyRateScaled, regime.tobacco, itemsW, exempt, track);
+    var grandC = totalC + bundle.taxTotal * 10000;
+    var totalCount = 0;
+    itemsW.forEach(function (w) { totalCount += w.count; });
+
+    var out = {
+      ok: true,
+      profile: profile,
+      regimeIndex: reg.index, regimeName: regime.name, tobacco: regime.tobacco,
+      postReform: postReform, specialApplied: specialApplied,
+      method: input.method, dateStr: input.dateStr,
+      N: N, V: V, vRawStr: vRawStr, boundary: boundary, exempt: exempt,
+      dutyRateScaled: dutyRateScaled,
+      dutyBase: bundle.dutyBase, duty: bundle.duty,
+      conv: bundle.conv, taxes: bundle.taxes,
+      ctBase: bundle.ctBase, ctNat: bundle.ctNat, ctLoc: bundle.ctLoc,
+      taxTotal: bundle.taxTotal,
+      goodsC: elements.filter(function (e) { return e.kind === "goods"; })
+                      .reduce(function (s, e) { return s + e.C; }, 0),
+      shipC: shipEl.C, insC: insEl.C, totalC: totalC, grandC: grandC,
+      totalCount: totalCount,
+      perStickC: totalCount > 0 ? grandC / totalCount : 0,
+      maxIntermediate: maxMid,
+      reference: null, range: null, altScenario: null
+    };
+
+    /* --- 参考シナリオ（境界ケースのみ。チェックON時に表示） --- */
+    if (boundary) {
+      var refExempt = judgeExempt(profile.referenceBasis, V, N, profile);
+      var rb = computeBundle(V, dutyRateScaled, regime.tobacco, itemsW, refExempt, null);
+      out.reference = {
+        exempt: refExempt, duty: rb.duty, taxes: rb.taxes,
+        ctNat: rb.ctNat, ctLoc: rb.ctLoc, taxTotal: rb.taxTotal,
+        grandC: totalC + rb.taxTotal * 10000
+      };
+    }
+
+    /* --- 推定の幅による税額レンジ（推定銘柄がある場合に必ず計算） --- */
+    var hasEstimate = itemsW.some(function (w) { return w.basis === "estimate"; });
+    if (hasEstimate) {
+      var pct = (input.estimateRangePct === null || input.estimateRangePct === undefined)
+        ? 15 : input.estimateRangePct;
+      if (!/^[0-9]+$/.test(String(pct)) || +pct < 1 || +pct > 50) {
+        return err("range", "estimateRangePct");
+      }
+      pct = +pct;
+      function scaledItems(fNum) {
+        return itemsW.map(function (w) {
+          if (w.basis !== "estimate") return w;
+          return { name: w.name, count: w.count, basis: w.basis,
+                   w01: floorDiv(w.w01 * fNum, 100) };
+        });
+      }
+      var loB = computeBundle(V, dutyRateScaled, regime.tobacco, scaledItems(100 - pct), exempt, null);
+      var hiB = computeBundle(V, dutyRateScaled, regime.tobacco, scaledItems(100 + pct), exempt, null);
+      out.range = {
+        pct: pct,
+        low: { N: loB.conv.N, tobTotal: loB.taxes.total, taxTotal: loB.taxTotal, grandC: totalC + loB.taxTotal * 10000 },
+        high: { N: hiB.conv.N, tobTotal: hiB.taxes.total, taxTotal: hiB.taxTotal, grandC: totalC + hiB.taxTotal * 10000 }
+      };
+    }
+
+    /* --- 重量候補の比較（採用値と候補値で税金合計の差を併記するため） --- */
+    if (anyCandidate) {
+      var altB = computeBundle(V, dutyRateScaled, regime.tobacco, itemsWAlt, exempt, null);
+      out.altScenario = { N: altB.conv.N, tobTotal: altB.taxes.total, taxTotal: altB.taxTotal };
+    }
+
+    return out;
+  }
+
+  /* ===== ビトラ寸法からの重量推定 =====
+   * 戻り値: 0.1g 単位の整数（w01）。推定式の結果を 0.1g 未満切捨てにする。
+   */
+  function estimateWeightW01(lengthInStr, ringStr, shapeKey) {
+    var L = parseDecimal(lengthInStr, 2);
+    if (!L.ok) return { ok: false, type: L.type, field: "lengthIn" };
+    var rg = parseInteger(ringStr);
+    if (!rg.ok) return { ok: false, type: rg.type, field: "ring" };
+    if (L.value <= 0 || L.value > 2000) return { ok: false, type: "range", field: "lengthIn" };
+    if (rg.value < 1 || rg.value > 100) return { ok: false, type: "range", field: "ring" };
+    var f = SHAPE_FACTORS[shapeKey];
+    if (f === undefined) return { ok: false, type: "format", field: "shape" };
+    var grams = (L.value / 100) * rg.value * rg.value * VITOLA_WEIGHT_CONSTANT * f;
+    var w01 = Math.floor(grams * 10 + 1e-9);
+    if (w01 < 1 || w01 > MAX_W01) return { ok: false, type: "range", field: "weight" };
+    return { ok: true, w01: w01, grams: w01 / 10 };
+  }
+
+  return {
+    REGIMES: REGIMES, DEFAULT_PROFILE: DEFAULT_PROFILE,
+    VITOLA_WEIGHT_CONSTANT: VITOLA_WEIGHT_CONSTANT, SHAPE_FACTORS: SHAPE_FACTORS,
+    calc: calc, convertItems: convertItems, estimateWeightW01: estimateWeightW01,
+    formatVRaw: formatVRaw, formatYenC: formatYenC, formatYenInt: formatYenInt,
+    parseDecimal: parseDecimal, parseInteger: parseInteger,
+    floorDiv: floorDiv, GUARD_LIMIT_C: GUARD_LIMIT_C
+  };
+})();
+
+if (typeof module !== "undefined" && module.exports) module.exports = TaxEngine;
+</script>
 <script>
 var DATA = [{"n": "109", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 184, "rg": 50, "w": 17.3, "wl": "17.30g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Aguilas", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 143, "rg": 50, "w": 11.6, "wl": "11.60g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Almuerzos", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 130, "rg": 40, "w": 7.52, "wl": "7.52g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Aromosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 140, "rg": 56, "w": 16.09, "wl": "16.09g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Belvederes", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 125, "rg": 39, "w": 6.43, "wl": "6.43g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Bohemios", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 134, "rg": 51, "w": 12.64, "wl": "12.64g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Bondadosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 154, "rg": 46, "w": 12.3, "wl": "12.30g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Brevas JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 133, "rg": 42, "w": 8.21, "wl": "8.21g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Britanicas", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 137, "rg": 46, "w": 9.34, "wl": "9.34g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Britanicas Extra", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 137, "rg": 48, "w": 10.16, "wl": "10.16g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Butifarra No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Perfecto", "cuba": true, "len": 180, "rg": 58, "w": 18.57, "wl": "18.57g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cadetes", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 115, "rg": 36, "w": 5.43, "wl": "5.43g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Campanas", "sub": "Habanos S.A.（工場ビトラ）／通称 Pyramid", "cuba": true, "len": 140, "rg": 52, "w": 12.45, "wl": "12.45g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cañonazo", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 150, "rg": 52, "w": 14.67, "wl": "14.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cañonazo Especial", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 166, "rg": 52, "w": 16.7, "wl": "16.70g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cañonazo No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 180, "rg": 52, "w": 17.6, "wl": "17.60g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cañonazo No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 190, "rg": 52, "w": 19.25, "wl": "19.25g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cañonazo Pt", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 150, "rg": 52, "w": 14.67, "wl": "14.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Caprichos", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 95, "rg": 47, "w": 8.04, "wl": "8.04g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Capuleto", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 162, "rg": 52, "w": 17.0, "wl": "17.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Carlotas", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 143, "rg": 35, "w": 6.39, "wl": "6.39g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Carolinas", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 121, "rg": 26, "w": 2.94, "wl": "2.94g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cazadores", "sub": "Habanos S.A.（工場ビトラ）／通称 Lonsdale", "cuba": true, "len": 162, "rg": 43, "w": 11.27, "wl": "11.27g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cazadores Especiales", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 162, "rg": 47, "w": 13.72, "wl": "13.72g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cazadores JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 152, "rg": 43, "w": 10.0, "wl": "10.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Centro Fino", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 130, "rg": 50, "w": 13.01, "wl": "13.01g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Centro Gordo", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 100, "rg": 54, "w": 10.55, "wl": "10.55g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cervantes", "sub": "Habanos S.A.（工場ビトラ）／通称 Lonsdale", "cuba": true, "len": 165, "rg": 42, "w": 10.8, "wl": "10.80g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Chicos", "sub": "Habanos S.A.（工場ビトラ）／通称 Cigarillo", "cuba": true, "len": 106, "rg": 29, "w": 3.0, "wl": "3.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Club", "sub": "Habanos S.A.（工場ビトラ）／通称 Cigarillo", "cuba": true, "len": 96, "rg": 22, "w": 1.2, "wl": "1.20g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Club Allones", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 135, "rg": 47, "w": 11.25, "wl": "11.25g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Coloniales", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 132, "rg": 44, "w": 9.18, "wl": "9.18g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Conchas No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 115, "rg": 50, "w": 11.13, "wl": "11.13g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Conchitas", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 127, "rg": 35, "w": 5.29, "wl": "5.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Conservas", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 145, "rg": 43, "w": 9.66, "wl": "9.66g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Conservas (old)", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 145, "rg": 44, "w": 9.57, "wl": "9.57g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Conservas JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 140, "rg": 44, "w": 9.2, "wl": "9.20g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Coronas", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 142, "rg": 42, "w": 9.29, "wl": "9.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Coronas Gordas", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 143, "rg": 46, "w": 11.41, "wl": "11.41g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Coronas Grandes", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 155, "rg": 42, "w": 10.14, "wl": "10.14g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Coronitas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 117, "rg": 40, "w": 6.78, "wl": "6.78g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cosacos", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 135, "rg": 42, "w": 8.84, "wl": "8.84g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cremas", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 140, "rg": 40, "w": 8.11, "wl": "8.11g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cremas JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 136, "rg": 40, "w": 7.59, "wl": "7.59g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cristales", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 150, "rg": 41, "w": 8.97, "wl": "8.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Cristales Mano", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 150, "rg": 41, "w": 8.97, "wl": "8.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Culebras", "sub": "Habanos S.A.（工場ビトラ）／通称 Culebra", "cuba": true, "len": 146, "rg": 39, "w": 6.67, "wl": "6.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Culebras (straight)", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 146, "rg": 39, "w": 6.67, "wl": "6.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "D No.5", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 110, "rg": 50, "w": 10.34, "wl": "10.34g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "D No.6", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 90, "rg": 50, "w": 8.46, "wl": "8.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dalias", "sub": "Habanos S.A.（工場ビトラ）／通称 Lonsdale", "cuba": true, "len": 170, "rg": 43, "w": 11.86, "wl": "11.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dalias Cortas", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 135, "rg": 43, "w": 9.42, "wl": "9.42g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Damas", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 145, "rg": 52, "w": 14.18, "wl": "14.18g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Del Valle", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 124, "rg": 50, "w": 11.66, "wl": "11.66g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Deleites", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 132, "rg": 56, "w": 14.77, "wl": "14.77g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Delicados", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Panetela", "cuba": true, "len": 192, "rg": 38, "w": 10.29, "wl": "10.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Delicados Extra", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Panetela", "cuba": true, "len": 185, "rg": 36, "w": 8.9, "wl": "8.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Deliciosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Slim Panetela", "cuba": true, "len": 159, "rg": 33, "w": 6.23, "wl": "6.23g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Deliciosos (old)", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 159, "rg": 35, "w": 6.67, "wl": "6.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Delirios", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Corona", "cuba": true, "len": 167, "rg": 45, "w": 12.55, "wl": "12.55g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Demi Tasse", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 100, "rg": 32, "w": 3.7, "wl": "3.70g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Demi Tip", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 126, "rg": 29, "w": 3.68, "wl": "3.68g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Diademas", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Perfecto", "cuba": true, "len": 233, "rg": 55, "w": 21.62, "wl": "21.62g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dichosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Coronas", "cuba": true, "len": 150, "rg": 48, "w": 12.92, "wl": "12.92g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Dignos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 135, "rg": 50, "w": 13.48, "wl": "13.48g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dinoras", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 145, "rg": 53, "w": 15.97, "wl": "15.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Discretos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 130, "rg": 52, "w": 12.71, "wl": "12.71g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dobles", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 155, "rg": 50, "w": 14.58, "wl": "14.58g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dobles Pt", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 155, "rg": 50, "w": 14.58, "wl": "14.58g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Duke", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 140, "rg": 54, "w": 14.21, "wl": "14.21g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Duke No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 54, "w": 17.26, "wl": "17.26g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Duke No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 125, "rg": 54, "w": 13.22, "wl": "13.22g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Dulcineas", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Perfecto", "cuba": true, "len": 232, "rg": 47, "w": 17.3, "wl": "17.30g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Edmundo", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 135, "rg": 52, "w": 13.2, "wl": "13.20g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Edmundo Grueso", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 135, "rg": 54, "w": 13.9, "wl": "13.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Eminentes", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 132, "rg": 42, "w": 8.66, "wl": "8.66g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Eminentes (old)", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 132, "rg": 44, "w": 8.74, "wl": "8.74g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Encantos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 146, "rg": 54, "w": 15.28, "wl": "15.28g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Entreactos", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 100, "rg": 30, "w": 3.27, "wl": "3.27g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Epicures", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 110, "rg": 35, "w": 4.81, "wl": "4.81g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Especiales", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 134, "rg": 45, "w": 8.63, "wl": "8.63g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Exitosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 115, "rg": 54, "w": 12.12, "wl": "12.12g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Exquisitos", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 145, "rg": 46, "w": 11.9, "wl": "11.90g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Favoritos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Perfecto", "cuba": true, "len": 120, "rg": 42, "w": 7.64, "wl": "7.64g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Felipe 94", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 115, "rg": 45, "w": 8.64, "wl": "8.64g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Flechas", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 156, "rg": 49, "w": 13.9, "wl": "13.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Fortunas", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 52, "w": 16.44, "wl": "16.44g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Forum", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 135, "rg": 46, "w": 9.2, "wl": "9.20g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Fragancias", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 160, "rg": 52, "w": 15.84, "wl": "15.84g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Franciscanos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 116, "rg": 40, "w": 6.72, "wl": "6.72g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Franciscos", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 143, "rg": 44, "w": 9.94, "wl": "9.94g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Galanes", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 120, "rg": 52, "w": 11.16, "wl": "11.16g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Generosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 132, "rg": 42, "w": 9.45, "wl": "9.45g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Geniales", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 150, "rg": 54, "w": 15.23, "wl": "15.23g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Genios", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 140, "rg": 52, "w": 13.69, "wl": "13.69g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Genios 5", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 140, "rg": 52, "w": 13.69, "wl": "13.69g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Gloriosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Pyramid", "cuba": true, "len": 155, "rg": 59, "w": 22.44, "wl": "22.44g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Gordito", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 141, "rg": 50, "w": 13.3, "wl": "13.30g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Gran Corona", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Corona", "cuba": true, "len": 235, "rg": 47, "w": 18.79, "wl": "18.79g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Gran Coronas Partagás Largas", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Perfecto", "cuba": true, "len": 237, "rg": 50, "w": 20.8, "wl": "20.80g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Gran Piramide", "sub": "Habanos S.A.（工場ビトラ）／通称 Pyramid", "cuba": true, "len": 160, "rg": 57, "w": 21.62, "wl": "21.62g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Grandiosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 178, "rg": 60, "w": 24.48, "wl": "24.48g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Gustosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 168, "rg": 52, "w": 18.41, "wl": "18.41g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Half Corona", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 90, "rg": 44, "w": 7.11, "wl": "7.11g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermoso Corto", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 120, "rg": 48, "w": 9.38, "wl": "9.38g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermoso Especial", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 120, "rg": 48, "w": 10.4, "wl": "10.40g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermosos No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 167, "rg": 48, "w": 14.28, "wl": "14.28g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermosos No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 157, "rg": 48, "w": 13.42, "wl": "13.42g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermosos No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 140, "rg": 48, "w": 11.97, "wl": "11.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hermosos No.4", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 127, "rg": 48, "w": 10.86, "wl": "10.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Hidalgos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 125, "rg": 57, "w": 14.34, "wl": "14.34g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Idilicos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 142, "rg": 52, "w": 13.89, "wl": "13.89g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Ilustres", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 162, "rg": 46, "w": 12.63, "wl": "12.63g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Infantes", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Perfecto", "cuba": true, "len": 98, "rg": 37, "w": 4.51, "wl": "4.51g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Insólito", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 141, "rg": 50, "w": 13.3, "wl": "13.30g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Joffres Grandes", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Perfecto", "cuba": true, "len": 170, "rg": 56, "w": 17.88, "wl": "17.88g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Julieta No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 181, "rg": 50, "w": 17.02, "wl": "17.02g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Julieta No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Churchill", "cuba": true, "len": 178, "rg": 47, "w": 15.07, "wl": "15.07g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Julieta No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Corona", "cuba": true, "len": 170, "rg": 47, "w": 14.19, "wl": "14.19g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Julieta No.6", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 120, "rg": 33, "w": 4.77, "wl": "4.77g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Julietas Grandes", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 190, "rg": 56, "w": 22.79, "wl": "22.79g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito Especial", "sub": "Habanos S.A.（工場ビトラ）／通称 Lonsdale", "cuba": true, "len": 192, "rg": 40, "w": 10.56, "wl": "10.56g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Panetela", "cuba": true, "len": 192, "rg": 38, "w": 10.29, "wl": "10.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 152, "rg": 38, "w": 8.15, "wl": "8.15g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 115, "rg": 26, "w": 2.81, "wl": "2.81g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.4", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 119, "rg": 52, "w": 12.84, "wl": "12.84g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.5", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 144, "rg": 54, "w": 17.47, "wl": "17.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.6", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 166, "rg": 56, "w": 20.42, "wl": "20.42g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Laguito No.7", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 178, "rg": 58, "w": 23.49, "wl": "23.49g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Lanzas", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 156, "rg": 52, "w": 14.72, "wl": "14.72g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Lirios", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 127, "rg": 50, "w": 11.78, "wl": "11.78g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Londres", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 126, "rg": 40, "w": 7.29, "wl": "7.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Lusitanias", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 184, "rg": 50, "w": 17.86, "wl": "17.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maduro No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 145, "rg": 50, "w": 13.77, "wl": "13.77g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Mágicos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 115, "rg": 52, "w": 11.24, "wl": "11.24g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magníficos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 127, "rg": 58, "w": 16.48, "wl": "16.48g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magnum 48", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 110, "rg": 48, "w": 9.41, "wl": "9.41g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magnum 50", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 160, "rg": 50, "w": 15.05, "wl": "15.05g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magnum 54", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 120, "rg": 54, "w": 12.69, "wl": "12.69g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magnum 56", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 150, "rg": 56, "w": 17.01, "wl": "17.01g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Magnum Especial", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 55, "w": 16.43, "wl": "16.43g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Majestuosos 58", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 150, "rg": 58, "w": 21.0, "wl": "21.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Mañanitas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 100, "rg": 46, "w": 6.81, "wl": "6.81g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Manolin", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Perfecto", "cuba": true, "len": 232, "rg": 47, "w": 18.17, "wl": "18.17g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Robusto", "cuba": true, "len": 230, "rg": 55, "w": 24.22, "wl": "24.22g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 182, "rg": 55, "w": 17.59, "wl": "17.59g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 165, "rg": 55, "w": 17.38, "wl": "17.38g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas No.3", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 155, "rg": 55, "w": 18.35, "wl": "18.35g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas No.4", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 145, "rg": 55, "w": 15.27, "wl": "15.27g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Maravillas No.5", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 175, "rg": 55, "w": 16.91, "wl": "16.91g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Mareva Gruesa", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 120, "rg": 46, "w": 9.57, "wl": "9.57g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Marevas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 129, "rg": 42, "w": 8.46, "wl": "8.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Marinas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 115, "rg": 50, "w": 10.81, "wl": "10.81g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Media Coronas", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 142, "rg": 38, "w": 7.27, "wl": "7.27g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Medio Siglo", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 102, "rg": 52, "w": 11.42, "wl": "11.42g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Mini", "sub": "Habanos S.A.（工場ビトラ）／通称 Cigarillo", "cuba": true, "len": 82, "rg": 19, "w": 0.77, "wl": "0.77g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Minutos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 110, "rg": 42, "w": 7.46, "wl": "7.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Mitos", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 174, "rg": 53, "w": 17.98, "wl": "17.98g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Modernas", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 175, "rg": 56, "w": 17.53, "wl": "17.53g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Montesco", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 130, "rg": 55, "w": 16.0, "wl": "16.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Nacionales", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 140, "rg": 40, "w": 8.28, "wl": "8.28g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Nacionales JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 134, "rg": 42, "w": 8.28, "wl": "8.28g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Nacionales Mano", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona", "cuba": true, "len": 140, "rg": 40, "w": 8.28, "wl": "8.28g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Naturales", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 155, "rg": 37, "w": 7.25, "wl": "7.25g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Ninfas", "sub": "Habanos S.A.（工場ビトラ）／通称 Slim Panetela", "cuba": true, "len": 178, "rg": 33, "w": 7.07, "wl": "7.07g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Noblezas", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 138, "rg": 52, "w": 13.49, "wl": "13.49g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Nuevos", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 156, "rg": 49, "w": 13.98, "wl": "13.98g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "O' Reilly", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 160, "rg": 56, "w": 16.84, "wl": "16.84g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Originales", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 125, "rg": 54, "w": 12.29, "wl": "12.29g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Paco", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Corona", "cuba": true, "len": 180, "rg": 49, "w": 15.84, "wl": "15.84g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Palmas", "sub": "Habanos S.A.（工場ビトラ）／通称 Slim Panetela", "cuba": true, "len": 170, "rg": 33, "w": 6.76, "wl": "6.76g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Palmitas", "sub": "Habanos S.A.（工場ビトラ）／通称 Slim Panetela", "cuba": true, "len": 152, "rg": 32, "w": 5.68, "wl": "5.68g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Panetelas", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 117, "rg": 34, "w": 4.94, "wl": "4.94g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Panetelas Largas", "sub": "Habanos S.A.（工場ビトラ）／通称 Slim Panetela", "cuba": true, "len": 175, "rg": 28, "w": 5.01, "wl": "5.01g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Paraísos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 120, "rg": 50, "w": 13.01, "wl": "13.01g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Parejos", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 166, "rg": 38, "w": 8.9, "wl": "8.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Partagas 15", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 165, "rg": 48, "w": 15.56, "wl": "15.56g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Partagas 16", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 50, "w": 16.04, "wl": "16.04g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Partagas 170", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 56, "w": 20.47, "wl": "20.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Perfectos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Perfecto", "cuba": true, "len": 127, "rg": 44, "w": 7.36, "wl": "7.36g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Perfectos-mano", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Perfecto", "cuba": true, "len": 127, "rg": 44, "w": 7.36, "wl": "7.36g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Perlas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 102, "rg": 40, "w": 5.91, "wl": "5.91g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 108, "rg": 31, "w": 3.65, "wl": "3.65g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Belicosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 125, "rg": 52, "w": 11.43, "wl": "11.43g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Bouquet", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Perfecto", "cuba": true, "len": 101, "rg": 43, "w": 6.06, "wl": "6.06g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Cazadores", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 105, "rg": 43, "w": 6.04, "wl": "6.04g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Cetros", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 129, "rg": 40, "w": 7.75, "wl": "7.75g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Cetros JLP", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 127, "rg": 38, "w": 6.32, "wl": "6.32g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Coronas", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 129, "rg": 42, "w": 8.46, "wl": "8.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Edmundo", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 110, "rg": 52, "w": 10.76, "wl": "10.76g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 120, "rg": 52, "w": 10.76, "wl": "10.76g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Pirámides", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 127, "rg": 50, "w": 11.16, "wl": "11.16g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Petit Robustos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 102, "rg": 50, "w": 9.59, "wl": "9.59g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Piramides", "sub": "Habanos S.A.（工場ビトラ）／通称 Pyramid", "cuba": true, "len": 156, "rg": 52, "w": 14.26, "wl": "14.26g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Piramides Extra", "sub": "Habanos S.A.（工場ビトラ）／通称 Pyramid", "cuba": true, "len": 160, "rg": 54, "w": 15.1, "wl": "15.10g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Placeras", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 125, "rg": 34, "w": 5.27, "wl": "5.27g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Placeres", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 132, "rg": 53, "w": 13.41, "wl": "13.41g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Preciosos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 145, "rg": 50, "w": 13.81, "wl": "13.81g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Preferidos", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 127, "rg": 38, "w": 6.71, "wl": "6.71g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Primor", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 182, "rg": 55, "w": 17.59, "wl": "17.59g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Prominente Corto", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 130, "rg": 49, "w": 11.58, "wl": "11.58g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Prominentes", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Corona", "cuba": true, "len": 194, "rg": 49, "w": 17.86, "wl": "17.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Prominentes Cortas", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 141, "rg": 49, "w": 12.04, "wl": "12.04g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Puritos", "sub": "Habanos S.A.（工場ビトラ）／通称 Cigarillo", "cuba": true, "len": 109, "rg": 26, "w": 2.09, "wl": "2.09g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Radiantes", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 180, "rg": 56, "w": 19.65, "wl": "19.65g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Regalos", "sub": "Habanos S.A.（工場ビトラ）／通称 Corona Extra", "cuba": true, "len": 137, "rg": 46, "w": 10.93, "wl": "10.93g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Reyes", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 110, "rg": 40, "w": 6.37, "wl": "6.37g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Robustos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 124, "rg": 50, "w": 11.66, "wl": "11.66g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Robustos Especiales", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 192, "rg": 50, "w": 18.29, "wl": "18.29g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Robustos Extra", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 170, "rg": 48, "w": 15.65, "wl": "15.65g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Robustos No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 156, "rg": 50, "w": 14.67, "wl": "14.67g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Rodolfo", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Pyramid", "cuba": true, "len": 180, "rg": 54, "w": 17.08, "wl": "17.08g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Romeo", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 162, "rg": 52, "w": 13.22, "wl": "13.22g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Roque", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 57, "w": 19.8, "wl": "19.80g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Salomon", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Perfecto", "cuba": true, "len": 184, "rg": 57, "w": 16.97, "wl": "16.97g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Salomon No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Perfecto", "cuba": true, "len": 174, "rg": 57, "w": 16.14, "wl": "16.14g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Secretos", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 110, "rg": 40, "w": 7.5, "wl": "7.50g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Segundos", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 148, "rg": 52, "w": 14.47, "wl": "14.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Seoane", "sub": "Habanos S.A.（工場ビトラ）／通称 Small Panetela", "cuba": true, "len": 126, "rg": 33, "w": 5.01, "wl": "5.01g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Short", "sub": "Habanos S.A.（工場ビトラ）／通称 Short", "cuba": true, "len": 82, "rg": 26, "w": 1.7, "wl": "1.70g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Short del Valle", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 102, "rg": 50, "w": 9.59, "wl": "9.59g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Short Piramides", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Pyramid", "cuba": true, "len": 120, "rg": 55, "w": 12.24, "wl": "12.24g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Singulares", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 130, "rg": 53, "w": 13.2, "wl": "13.20g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sobresalientes", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 153, "rg": 53, "w": 15.0, "wl": "15.00g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sobresalientes No.2", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 185, "rg": 53, "w": 19.47, "wl": "19.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sports", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 117, "rg": 35, "w": 5.12, "wl": "5.12g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Standard", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 123, "rg": 40, "w": 6.9, "wl": "6.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Standard Mano", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Corona", "cuba": true, "len": 123, "rg": 40, "w": 6.9, "wl": "6.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sublime No.1", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 154, "rg": 54, "w": 15.64, "wl": "15.64g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sublimes", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 164, "rg": 54, "w": 16.65, "wl": "16.65g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sublimes Extra", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 184, "rg": 54, "w": 18.68, "wl": "18.68g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Superiores", "sub": "Habanos S.A.（工場ビトラ）／通称 Long Corona", "cuba": true, "len": 146, "rg": 40, "w": 8.46, "wl": "8.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Sutiles", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 145, "rg": 49, "w": 10.62, "wl": "10.62g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Tacos", "sub": "Habanos S.A.（工場ビトラ）／通称 Perfecto", "cuba": true, "len": 158, "rg": 47, "w": 10.79, "wl": "10.79g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Tacos Imperiales", "sub": "Habanos S.A.（工場ビトラ）／通称 Grand Corona", "cuba": true, "len": 168, "rg": 49, "w": 12.88, "wl": "12.88g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Topes", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 125, "rg": 56, "w": 13.89, "wl": "13.89g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Toppers", "sub": "Habanos S.A.（工場ビトラ）／通称 Panetela", "cuba": true, "len": 160, "rg": 39, "w": 8.29, "wl": "8.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Torre Iznaga", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 170, "rg": 52, "w": 16.44, "wl": "16.44g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Torres", "sub": "Habanos S.A.（工場ビトラ）／通称 Petit Robusto", "cuba": true, "len": 110, "rg": 54, "w": 11.52, "wl": "11.52g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Trabucos", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 110, "rg": 38, "w": 5.8, "wl": "5.80g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Triangulares", "sub": "Habanos S.A.（工場ビトラ）／通称 Pyramid", "cuba": true, "len": 135, "rg": 56, "w": 13.41, "wl": "13.41g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Triunfo", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 192, "rg": 52, "w": 18.78, "wl": "18.78g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Tropicales", "sub": "Habanos S.A.（工場ビトラ）／通称 Double Robusto", "cuba": true, "len": 175, "rg": 54, "w": 18.32, "wl": "18.32g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Universales", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 134, "rg": 38, "w": 7.13, "wl": "7.13g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Small Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／111mm × RG30", "cuba": true, "len": 111, "rg": 30, "w": 3.68, "wl": "3.68g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Slim Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／140mm × RG30", "cuba": true, "len": 140, "rg": 30, "w": 4.6, "wl": "4.60g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Long Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／152mm × RG42", "cuba": true, "len": 152, "rg": 42, "w": 9.66, "wl": "9.66g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／138mm × RG41", "cuba": true, "len": 138, "rg": 41, "w": 7.61, "wl": "7.61g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／130mm × RG35", "cuba": true, "len": 130, "rg": 35, "w": 5.39, "wl": "5.39g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG41", "cuba": true, "len": 127, "rg": 41, "w": 7.0, "wl": "7.00g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Giant Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／220mm × RG48", "cuba": true, "len": 220, "rg": 48, "w": 18.95, "wl": "18.95g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Cigarillo）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／109mm × RG20", "cuba": true, "len": 109, "rg": 20, "w": 1.47, "wl": "1.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Double Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／171mm × RG39", "cuba": true, "len": 171, "rg": 39, "w": 8.92, "wl": "8.92g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／90mm × RG42", "cuba": true, "len": 90, "rg": 42, "w": 5.7, "wl": "5.70g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Small Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG29", "cuba": true, "len": 127, "rg": 29, "w": 3.69, "wl": "3.69g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／156mm × RG37", "cuba": true, "len": 156, "rg": 37, "w": 7.18, "wl": "7.18g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG44", "cuba": true, "len": 127, "rg": 44, "w": 8.86, "wl": "8.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／126mm × RG40", "cuba": true, "len": 126, "rg": 40, "w": 7.29, "wl": "7.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／160mm × RG39", "cuba": true, "len": 160, "rg": 39, "w": 8.33, "wl": "8.33g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Small Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／135mm × RG29", "cuba": true, "len": 135, "rg": 29, "w": 3.86, "wl": "3.86g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／95mm × RG42", "cuba": true, "len": 95, "rg": 42, "w": 6.03, "wl": "6.03g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona Extra）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／118mm × RG46", "cuba": true, "len": 118, "rg": 46, "w": 8.97, "wl": "8.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／161mm × RG36", "cuba": true, "len": 161, "rg": 36, "w": 7.59, "wl": "7.59g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Lonsdale）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／162mm × RG40", "cuba": true, "len": 162, "rg": 40, "w": 9.29, "wl": "9.29g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona Extra）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／130mm × RG48", "cuba": true, "len": 130, "rg": 48, "w": 11.2, "wl": "11.20g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／138mm × RG42", "cuba": true, "len": 138, "rg": 42, "w": 8.72, "wl": "8.72g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Grand Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／162mm × RG46", "cuba": true, "len": 162, "rg": 46, "w": 12.33, "wl": "12.33g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／142mm × RG42", "cuba": true, "len": 142, "rg": 42, "w": 8.51, "wl": "8.51g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／132mm × RG44", "cuba": true, "len": 132, "rg": 44, "w": 8.74, "wl": "8.74g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／125mm × RG39", "cuba": true, "len": 125, "rg": 39, "w": 6.21, "wl": "6.21g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Slim Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／150mm × RG28", "cuba": true, "len": 150, "rg": 28, "w": 4.29, "wl": "4.29g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Corona Extra）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG48", "cuba": true, "len": 127, "rg": 48, "w": 10.47, "wl": "10.47g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Double Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／190mm × RG47", "cuba": true, "len": 190, "rg": 47, "w": 15.86, "wl": "15.86g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Long Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／150mm × RG41", "cuba": true, "len": 150, "rg": 41, "w": 8.27, "wl": "8.27g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Double Robusto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／172mm × RG50", "cuba": true, "len": 172, "rg": 50, "w": 15.41, "wl": "15.41g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／125mm × RG42", "cuba": true, "len": 125, "rg": 42, "w": 7.54, "wl": "7.54g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／129mm × RG40", "cuba": true, "len": 129, "rg": 40, "w": 7.04, "wl": "7.04g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／106mm × RG43", "cuba": true, "len": 106, "rg": 43, "w": 6.99, "wl": "6.99g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Double Robusto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／184mm × RG50", "cuba": true, "len": 184, "rg": 50, "w": 17.52, "wl": "17.52g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Lonsdale）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／162mm × RG44", "cuba": true, "len": 162, "rg": 44, "w": 11.2, "wl": "11.20g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／113mm × RG38", "cuba": true, "len": 113, "rg": 38, "w": 6.03, "wl": "6.03g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Long Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／146mm × RG40", "cuba": true, "len": 146, "rg": 40, "w": 8.46, "wl": "8.46g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Slim Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／150mm × RG30", "cuba": true, "len": 150, "rg": 30, "w": 4.94, "wl": "4.94g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Grand Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／167mm × RG48", "cuba": true, "len": 167, "rg": 48, "w": 14.38, "wl": "14.38g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／122mm × RG42", "cuba": true, "len": 122, "rg": 42, "w": 7.73, "wl": "7.73g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Pyramid）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／156mm × RG52", "cuba": true, "len": 156, "rg": 52, "w": 14.37, "wl": "14.37g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Grand Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／157mm × RG48", "cuba": true, "len": 157, "rg": 48, "w": 13.52, "wl": "13.52g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG45", "cuba": true, "len": 127, "rg": 45, "w": 8.18, "wl": "8.18g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／125mm × RG40", "cuba": true, "len": 125, "rg": 40, "w": 17.02, "wl": "17.02g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／89mm × RG37", "cuba": true, "len": 89, "rg": 37, "w": 4.14, "wl": "4.14g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Lonsdale）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／195mm × RG44", "cuba": true, "len": 195, "rg": 44, "w": 13.5, "wl": "13.50g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Grand Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／143mm × RG46", "cuba": true, "len": 143, "rg": 46, "w": 10.9, "wl": "10.90g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／102mm × RG40", "cuba": true, "len": 102, "rg": 40, "w": 5.91, "wl": "5.91g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／129mm × RG42", "cuba": true, "len": 129, "rg": 42, "w": 8.14, "wl": "8.14g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Long Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／150mm × RG44", "cuba": true, "len": 150, "rg": 44, "w": 10.44, "wl": "10.44g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／143mm × RG44", "cuba": true, "len": 143, "rg": 44, "w": 9.94, "wl": "9.94g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／171mm × RG44", "cuba": true, "len": 171, "rg": 44, "w": 11.22, "wl": "11.22g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／120mm × RG38", "cuba": true, "len": 120, "rg": 38, "w": 6.44, "wl": "6.44g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Small Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／130mm × RG29", "cuba": true, "len": 130, "rg": 29, "w": 3.91, "wl": "3.91g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／110mm × RG40", "cuba": true, "len": 110, "rg": 40, "w": 6.37, "wl": "6.37g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／140mm × RG40", "cuba": true, "len": 140, "rg": 40, "w": 7.64, "wl": "7.64g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／139mm × RG38", "cuba": true, "len": 139, "rg": 38, "w": 7.34, "wl": "7.34g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／120mm × RG41", "cuba": true, "len": 120, "rg": 41, "w": 5.5, "wl": "5.50g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Short Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／120mm × RG35", "cuba": true, "len": 120, "rg": 35, "w": 3.97, "wl": "3.97g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Petit Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／127mm × RG40", "cuba": true, "len": 127, "rg": 40, "w": 5.98, "wl": "5.98g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "名称不明（Panetela）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／163mm × RG38", "cuba": true, "len": 163, "rg": 38, "w": 8.61, "wl": "8.61g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Double Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／178mm × RG48", "cuba": true, "len": 178, "rg": 48, "w": 15.33, "wl": "15.33g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Lonsdale）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／160mm × RG42", "cuba": true, "len": 160, "rg": 42, "w": 10.22, "wl": "10.22g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Cigarillo）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／101mm × RG28", "cuba": true, "len": 101, "rg": 28, "w": 2.89, "wl": "2.89g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／110mm × RG42", "cuba": true, "len": 110, "rg": 42, "w": 7.44, "wl": "7.44g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Grand Corona）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／145mm × RG47", "cuba": true, "len": 145, "rg": 47, "w": 12.1, "wl": "12.10g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／120mm × RG40", "cuba": true, "len": 120, "rg": 40, "w": null, "wl": "", "type": "estimate", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW の表で重さが「Unknown」のため、寸法から推定した目安です"}, {"n": "名称不明（Petit Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／128mm × RG44", "cuba": true, "len": 128, "rg": 44, "w": 7.74, "wl": "7.74g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／163mm × RG44", "cuba": true, "len": 163, "rg": 44, "w": 9.86, "wl": "9.86g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／146mm × RG44", "cuba": true, "len": 146, "rg": 44, "w": 8.83, "wl": "8.83g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "名称不明（Petit Perfecto）", "sub": "Habanos S.A.（工場ビトラ）／元の表では名称が Unknown／114mm × RG44", "cuba": true, "len": 114, "rg": 44, "w": 6.9, "wl": "6.90g", "type": "ccwest", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Vegueritos", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 127, "rg": 37, "w": 6.1, "wl": "6.10g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Vegueritos Mano", "sub": "Habanos S.A.（工場ビトラ）／通称 Short Panetela", "cuba": true, "len": 127, "rg": 37, "w": 6.1, "wl": "6.10g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Venerables", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto", "cuba": true, "len": 128, "rg": 53, "w": 13.22, "wl": "13.22g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Veronas", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 148, "rg": 55, "w": 15.12, "wl": "15.12g", "type": "official", "shape": "フィグラド", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Victoria", "sub": "Habanos S.A.（工場ビトラ）／通称 Robusto Extra", "cuba": true, "len": 150, "rg": 57, "w": 17.62, "wl": "17.62g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Visibles Inmensos", "sub": "Habanos S.A.（工場ビトラ）／通称 Giant Robusto", "cuba": true, "len": 495, "rg": 53, "w": 51.14, "wl": "51.14g", "type": "ccwest", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": "CCW が同ブランドの他サイズから計算で補完した推計値（「*」印）"}, {"n": "Wide Short", "sub": "Habanos S.A.（工場ビトラ）／通称 Short", "cuba": true, "len": 100, "rg": 31, "w": 2.7, "wl": "2.70g", "type": "official", "shape": "パレホ", "src": "Cuban Cigar Website（Habanos公式重量リスト）／確認日 2026-11-10", "note": ""}, {"n": "Romeo y Julieta Club Kings", "sub": "Romeo y Julieta／ビトラ Marevas（キューバ）", "cuba": true, "len": 129, "rg": 42, "w": 9.29, "wl": "9.29g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Montecristo Open Junior", "sub": "Montecristo／ビトラ Trabucos（キューバ）", "cuba": true, "len": 110, "rg": 38, "w": 6.37, "wl": "6.37g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Bolívar Petit Coronas", "sub": "Bolívar／ビトラ Marevas（キューバ）", "cuba": true, "len": 129, "rg": 42, "w": 8.75, "wl": "8.75g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Quai d'Orsay No.50", "sub": "Quai d'Orsay／ビトラ D No.5（キューバ）", "cuba": true, "len": 110, "rg": 50, "w": 12.16, "wl": "12.16g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Juan López Selección No.2", "sub": "Juan López／ビトラ Robustos（キューバ）", "cuba": true, "len": 124, "rg": 50, "w": 11.83, "wl": "11.83g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Hoyo de Monterrey Souvenir de Luxe", "sub": "Hoyo de Monterrey／ビトラ Marevas（キューバ）", "cuba": true, "len": 129, "rg": 42, "w": 8.53, "wl": "8.53g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Romeo y Julieta Wide Churchills", "sub": "Romeo y Julieta／ビトラ Montesco（キューバ）", "cuba": true, "len": 130, "rg": 55, "w": 18.26, "wl": "18.26g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Partagás Serie D No.4", "sub": "Partagás／ビトラ Robustos（キューバ）", "cuba": true, "len": 124, "rg": 50, "w": 12.75, "wl": "12.75g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Montecristo No.4", "sub": "Montecristo／ビトラ Marevas（キューバ）", "cuba": true, "len": 129, "rg": 42, "w": 8.46, "wl": "8.46g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Romeo y Julieta Romeo No.1", "sub": "Romeo y Julieta／ビトラ Cremas（キューバ）", "cuba": true, "len": 140, "rg": 40, "w": 8.11, "wl": "8.11g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Hoyo de Monterrey Le Hoyo de Río Seco", "sub": "Hoyo de Monterrey／ビトラ Aromosos（キューバ）", "cuba": true, "len": 140, "rg": 56, "w": 20.87, "wl": "20.87g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Montecristo Supremos Edición Limitada 2019", "sub": "Montecristo／ビトラ Montesco（キューバ）", "cuba": true, "len": 130, "rg": 55, "w": 16.62, "wl": "16.62g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Quai d'Orsay Senadores Edición Limitada 2019", "sub": "Quai d'Orsay／ビトラ Hermosos No.2（キューバ）", "cuba": true, "len": 157, "rg": 48, "w": 15.7, "wl": "15.7g", "type": "product", "shape": "パレホ", "src": "Eneas Magazine 製品紹介記事（出典として habanos.com を明示）／確認日 2026-11-09", "note": ""}, {"n": "Padrón 1964 Anniversary Series Exclusivo", "sub": "Padrón／ビトラ Exclusivo（ニカラグア）", "cuba": false, "len": 139.7, "rg": 50, "w": null, "wl": "", "type": "estimate", "shape": "パレホ", "src": "Cigar Aficionado Ratings（LENGTH 5 1/2\" / GAUGE 50）／確認日 2026-11-10", "note": "長さは 5.5 inch を mm 換算（×25.4）。ボックスプレス形状"}, {"n": "Oliva Serie V Double Robusto", "sub": "Oliva／ビトラ Double Robusto（ニカラグア）", "cuba": false, "len": 127, "rg": 54, "w": null, "wl": "", "type": "estimate", "shape": "パレホ", "src": "Cigars of Cuba（Oliva ブランドページ、DOUBLE ROBUSTO 54 x 127）／確認日 2026-11-10", "note": ""}, {"n": "My Father Le Bijou 1922 Torpedo Box Pressed", "sub": "My Father／ビトラ Torpedo（ニカラグア）", "cuba": false, "len": 156, "rg": 52, "w": null, "wl": "", "type": "estimate", "shape": "フィグラド", "src": "Tecon GmbH 製品情報（Length 156mm / Ring gauge 52）／確認日 2026-11-10", "note": "トーピード形状のため推定経路ではフィグラド係数 0.85 を適用"}, {"n": "Davidoff Aniversario Special “R”", "sub": "Davidoff（米国版）／実測データ", "cuba": false, "len": 124.69, "lenLabel": "124.69mm／124.49mm（2個体の実測）", "rg": 51, "rgLabel": "約50〜51（直径実測 20.13mm／19.98mm から換算）", "w": null, "wl": "14.9g／15.5g（2個体）", "type": "nasem", "shape": "パレホ", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": "個体別：14.9g（124.69mm・直径20.13mm）、15.5g（124.49mm・直径19.98mm）"}, {"n": "Davidoff Aniversario No. 3", "sub": "Davidoff（米国版）／実測データ", "cuba": false, "len": 153.48, "lenLabel": "153.48mm（実測）", "rg": 49, "rgLabel": "約49（直径実測 19.6mm から換算）", "w": null, "wl": "19.2g", "type": "nasem", "shape": "パレホ", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": ""}, {"n": "Davidoff Churchill Robusto", "sub": "Davidoff（米国版）／実測データ", "cuba": false, "len": 134.85, "lenLabel": "134.85mm（実測）", "rg": 49, "rgLabel": "約49（直径実測 19.38mm から換算）", "w": null, "wl": "15.0g", "type": "nasem", "shape": "パレホ", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": ""}, {"n": "La Gloria Cubana Wavell Maduro", "sub": "La Gloria Cubana（米国版）／実測データ", "cuba": false, "len": 125.63, "lenLabel": "125.63mm（実測）", "rg": 46, "rgLabel": "約46（直径実測 18.35mm から換算）", "w": null, "wl": "13.5g（2本とも）", "type": "nasem", "shape": "パレホ", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": "2本を秤量し、いずれも 13.5g"}, {"n": "Arturo Fuente Hemingway Signature", "sub": "Arturo Fuente／実測データ", "cuba": false, "len": 152, "lenLabel": "約152mm", "rg": null, "rgLabel": "―（報告書に直径の記載なし）", "w": null, "wl": "10.4〜11.9g（3個体）", "type": "nasem", "shape": "フィグラド", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": "個体別：11.9g／10.4g／11.1g。同一製品でも ±7% 程度の個体差"}, {"n": "Arturo Fuente Hemingway Short Story", "sub": "Arturo Fuente／実測データ", "cuba": false, "len": 100, "lenLabel": "約100mm", "rg": null, "rgLabel": "―（報告書に直径の記載なし）", "w": null, "wl": "7.8〜8.2g", "type": "nasem", "shape": "フィグラド", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": "実測値の幅（個体差）"}, {"n": "Arturo Fuente Curly Head Natural", "sub": "Arturo Fuente／実測データ", "cuba": false, "len": 170.1, "lenLabel": "170.1mm（実測）", "rg": 41, "rgLabel": "約41（直径実測 16.10mm から換算）", "w": null, "wl": "10.3g", "type": "nasem", "shape": "パレホ", "src": "NASEM『Premium Cigars』Appendix F（2021年・米国市場で購入し実測）／出典：海外重量資料調査報告 §3-3 転記", "note": ""}];
 var TYPE_LABEL = {
@@ -160,6 +704,7 @@ function detailHTML(it) {
       + "）。実測値ではないため、税額は幅を持って見てください。</p>";
   }
   if (it.note) html += '<p class="note">' + it.note + "</p>";
+  html += '<button type="button" class="use-wt" data-idx="' + DATA.indexOf(it) + '">この重さで計算する</button>';
   html += "</div>";
   return html;
 }
@@ -170,11 +715,12 @@ function render() {
   rows.slice(0, LIMIT).forEach(function (it) {
     var di = DATA.indexOf(it);
     var open = di === openIdx;
-    html += '<button type="button" class="item' + (open ? " open" : "") + '" data-idx="' + di + '">'
+    var sel = (typeof F1CalcUI !== "undefined" && F1CalcUI.isSelected(di));
+    html += '<button type="button" class="item' + (open ? " open" : "") + (sel ? " selected" : "") + '" data-idx="' + di + '">'
       + '<span class="nm">' + it.n + "</span>"
       + '<span class="mt">' + it.sub + "</span>"
       + '<span class="dims">' + it.len + "mm × RG" + (it.rg == null ? "―" : it.rg) + "</span>"
-      + '<span class="rgrp"><span class="badge b-' + it.type + '">' + SHORT_LABEL[it.type] + "</span>"
+      + '<span class="rgrp">' + (sel ? '<span class="sel-chip">選択中</span>' : '') + '<span class="badge b-' + it.type + '">' + SHORT_LABEL[it.type] + "</span>"
       + '<span class="wt">' + weightLabel(it) + "</span></span>"
       + "</button>";
     if (open) html += detailHTML(it);
@@ -186,6 +732,14 @@ function render() {
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
       toggleDetail(Number(this.getAttribute("data-idx")));
+    });
+  }
+  var uws = listEl.querySelectorAll(".use-wt");
+  for (var j = 0; j < uws.length; j++) {
+    uws[j].addEventListener("click", function () {
+      if (typeof F1CalcUI !== "undefined") {
+        F1CalcUI.select(DATA[Number(this.getAttribute("data-idx"))]);
+      }
     });
   }
 }
@@ -200,5 +754,259 @@ function toggleDetail(idx) {
 qEl.addEventListener("input", function () { openIdx = -1; render(); });
 cubaEl.addEventListener("change", function () { openIdx = -1; render(); });
 render();
+</script>
+<script>
+/* F1Calc — 試作ページの計算連携（2026-11-10、v45）。
+ * 計算式は一切持たず、検証済みエンジン TaxEngine（TaxCore-Integer v1.0）に委ねる。
+ * 純粋関数部分（F1Calc）は DOM に依存せず、Node でも検証できる。
+ * 橋渡しの約束事:
+ *  - 60%特例は「個人使用」前提で常に適用可（specialEligible=true）。判定日は今日。
+ *  - 送料が空欄なら 0 として扱う。保険料は 0 固定（試作では入力欄を持たない）。
+ *  - 公表重量が小数第2位まである銘柄（例 9.29g）は、エンジンの入力単位である
+ *    0.1g に四捨五入して渡す（換算した場合は結果に明示する）。
+ *  - NASEM 実測で複数個体の値がある銘柄は、先頭の値を採用し、もう一方を
+ *    エンジンの候補重量（altWeight）として渡し、結果で比較表示する。
+ *  - 推計（CCW）は CCW 自身の計算補完値のため、エンジン上は推定として扱い、
+ *    税額レンジ表示の対象にする。表示ラベルは「推計（CCW）」のままにする。
+ */
+var F1Calc = (function () {
+  var BASIS = {
+    official: { engine: "maker",    label: "公式重量（Habanos）" },
+    product:  { engine: "maker",    label: "製品公表" },
+    nasem:    { engine: "measured", label: "実測（NASEM 2021・米国市場）" },
+    ccwest:   { engine: "estimate", label: "推計（CCW）" },
+    estimate: { engine: "estimate", label: "推定（寸法から計算）" },
+    manual:   { engine: "declared", label: "手入力" }
+  };
+  function toW01(w) { return Math.floor(w * 10 + 0.5 + 1e-9); }
+  function w01ToStr(w01) { return (w01 / 10).toFixed(1); }
+  /* NASEM の wl（例 "14.9g／15.5g（2個体）"、"10.4〜11.9g（3個体）"）から数値を取り出す。
+   * 括弧内（個体数など）は除いてから抽出する。 */
+  function nasemValues(wl) {
+    var s = (wl || "").replace(/（[^）]*）/g, "");
+    var ms = s.match(/[0-9]+(\.[0-9]+)?/g);
+    if (!ms) return [];
+    var out = [];
+    for (var i = 0; i < ms.length; i++) out.push(parseFloat(ms[i]));
+    return out;
+  }
+  /* 銘柄データ → 計算用の重さ情報
+   * {weightStr, altWeightStr, basisKey, basisLabel, origText} を返す。 */
+  function weightForItem(it) {
+    var b = BASIS[it.type] || BASIS.manual;
+    if (it.type === "estimate") {
+      var lenIn = (it.len / 25.4).toFixed(2);
+      var r = TaxEngine.estimateWeightW01(lenIn, String(it.rg),
+        it.shape === "フィグラド" ? "figurado" : "parejo");
+      if (!r.ok) return null;
+      return { weightStr: w01ToStr(r.w01), altWeightStr: null, basisKey: b.engine,
+               basisLabel: b.label,
+               origText: "寸法（" + it.len + "mm × RG" + it.rg + "）から推定（0.1g未満は切り捨て）" };
+    }
+    if (it.w !== null && it.w !== undefined) {
+      var w01 = toW01(it.w);
+      var conv = (Math.abs(it.w * 10 - w01) > 1e-9)
+        ? "（公表値 " + it.w + "g を0.1g単位に換算）" : "";
+      return { weightStr: w01ToStr(w01), altWeightStr: null, basisKey: b.engine,
+               basisLabel: b.label, origText: it.wl + conv };
+    }
+    if (it.type === "nasem") {
+      var vs = nasemValues(it.wl);
+      if (vs.length === 0) return null;
+      var alt = vs.length > 1 ? w01ToStr(toW01(vs[1])) : null;
+      return { weightStr: w01ToStr(toW01(vs[0])), altWeightStr: alt,
+               basisKey: b.engine, basisLabel: b.label,
+               origText: it.wl + (alt ? "（先頭の値を採用し、もう一方は候補として比較表示）" : "") };
+    }
+    return null;
+  }
+  function todayStr() {
+    var t = new Date(), m = ("0" + (t.getMonth() + 1)).slice(-2),
+        d = ("0" + t.getDate()).slice(-2);
+    return t.getFullYear() + "-" + m + "-" + d;
+  }
+  /* フォーム値 f と選択情報 sel から TaxEngine.calc の入力を組み立てる */
+  function buildInput(f, sel) {
+    return {
+      method: "postal-assessed",
+      dateStr: todayStr(),
+      specialEligible: true,
+      currency: f.currency,
+      rateStr: f.rate,
+      items: [{
+        name: sel && sel.name ? sel.name : "銘柄",
+        priceStr: f.price, countStr: f.count, weightStr: f.weight,
+        basis: sel ? sel.basisKey : "declared",
+        altWeightStr: sel ? sel.altWeightStr : null, useAlt: false
+      }],
+      shipStr: (f.ship === "" || f.ship === null || f.ship === undefined) ? "0" : f.ship,
+      insStr: "0",
+      separated: !!f.separated,
+      dutyRateStr: f.duty,
+      estimateRangePct: null,
+      showReference: true
+    };
+  }
+  return { BASIS: BASIS, toW01: toW01, w01ToStr: w01ToStr,
+           nasemValues: nasemValues, weightForItem: weightForItem,
+           buildInput: buildInput, todayStr: todayStr };
+})();
+if (typeof module !== "undefined" && module.exports) module.exports = F1Calc;
+
+/* F1CalcUI — 画面連携（ブラウザ専用）。銘柄リスト側の render() から呼ばれる。 */
+var F1CalcUI = (function () {
+  var api = { select: function () {}, isSelected: function () { return false; } };
+  if (typeof document === "undefined") return api;
+  var $ = function (id) { return document.getElementById(id); };
+  var sel = null; /* {idx, name, type, weightStr, altWeightStr, basisKey, basisLabel, origText} */
+  var settingWeight = false;
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  }
+  function yenInt(v) { return "¥" + TaxEngine.formatYenInt(v); }
+  function yenC(C) { return "¥" + TaxEngine.formatYenInt(Math.round(C / 10000)); }
+
+  var FIELD_LABEL = { rate: "為替レート", ship: "送料", dutyRate: "関税率" };
+  function fieldLabel(field) {
+    var m = /^items\[(\d+)\]\.(price|count|weight|altWeight)$/.exec(field || "");
+    if (m) {
+      var names = { price: "商品価格", count: "本数", weight: "1本の重さ", altWeight: "候補重量" };
+      return names[m[2]];
+    }
+    return FIELD_LABEL[field] || field;
+  }
+  function errorMessage(e) {
+    var f = fieldLabel(e.field);
+    switch (e.type) {
+      case "empty": return f + "が入力されていません。";
+      case "format": return f + "の形式が正しくありません。半角数字と小数点のみで入力してください（カンマ・全角数字・符号は使えません）。";
+      case "precision": return f + "の小数桁数が許容範囲を超えています（価格・送料・レートは小数第2位まで、重さは小数第1位まで）。自動で丸めることはしません。";
+      case "range": return f + "が許容範囲を超えています。";
+      case "guard": return "円換算総額が上限（10億円）を超えるため計算できませんでした。入力を見直してください。";
+      default: return "入力に誤りがあります（" + f + "）。";
+    }
+  }
+
+  function updateSelDisplay() {
+    var el = $("cf-sel");
+    if (!el) return;
+    if (!sel) {
+      el.textContent = "銘柄は未選択です。上のリストで銘柄を開き、「この重さで計算する」を押すと重さが自動で入ります。重さは手入力もできます。";
+      el.classList.remove("has-sel");
+      return;
+    }
+    el.textContent = "選択中：" + sel.name + " ／ 1本の重さ " + sel.weightStr +
+      "g（" + sel.origText + "）／ 根拠：" + sel.basisLabel;
+    el.classList.add("has-sel");
+  }
+
+  function select(it) {
+    var info = F1Calc.weightForItem(it);
+    if (!info) return;
+    sel = { idx: DATA.indexOf(it), name: it.n, type: it.type,
+            weightStr: info.weightStr, altWeightStr: info.altWeightStr,
+            basisKey: info.basisKey, basisLabel: info.basisLabel,
+            origText: info.origText };
+    settingWeight = true;
+    $("cf-weight").value = info.weightStr;
+    settingWeight = false;
+    updateSelDisplay();
+    if (typeof render === "function") render();
+    var c = $("calc");
+    if (c && c.scrollIntoView) c.scrollIntoView({ block: "start" });
+  }
+  function isSelected(idx) { return !!sel && sel.idx === idx; }
+
+  function row(k, v, extra) {
+    return "<tr><th>" + k + (extra ? ' <span class="cf-sub">' + extra + "</span>" : "") +
+      "</th><td>" + v + "</td></tr>";
+  }
+  function resultHTML(out, f) {
+    var h = "";
+    if (sel) {
+      h += '<p class="cf-basis">採用した重さ：' + sel.weightStr + "g／本（" +
+        esc(sel.name) + "／" + esc(sel.origText) + "）／根拠：" + esc(sel.basisLabel) + "</p>";
+    } else {
+      h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本／根拠：手入力</p>";
+    }
+    h += "<table>";
+    h += row("課税価格", yenInt(out.V), "（切り捨て前 " + out.vRawStr + "円）");
+    h += row("関税（" + esc(f.duty) + "%）", out.exempt ? "¥0（免除）" : yenInt(out.duty));
+    h += row("たばこ税等", yenInt(out.taxes.total), "（換算 " + out.conv.N + " 本）");
+    h += row("消費税", out.exempt ? "¥0（免除）" : yenInt(out.ctNat));
+    h += row("地方消費税", out.exempt ? "¥0（免除）" : yenInt(out.ctLoc));
+    h += '<tr class="big"><th>税金合計</th><td>' + yenInt(out.taxTotal) + "</td></tr>";
+    h += row("商品＋送料（円換算）", yenC(out.totalC));
+    h += '<tr class="big"><th>総支払額</th><td>' + yenC(out.grandC) + "</td></tr>";
+    h += "</table>";
+    h += '<p class="cf-note">たばこ税等の内訳：国 ' + yenInt(out.taxes.nat) +
+      "／特別 " + yenInt(out.taxes.spc) + "／道府県 " + yenInt(out.taxes.pref) +
+      "／市町村 " + yenInt(out.taxes.city) + "。課税価格は個人使用の特例（×0.6）で計算し、" +
+      (f.separated ? "送料は課税価格に含めていません。" : "送料も含めた価格が対象です。") +
+      "適用制度：" + esc(out.regimeName) + "。</p>";
+    if (out.exempt) {
+      h += '<p class="cf-note"><strong>少額免税：</strong>課税価格が1万円以下のため、関税と消費税・地方消費税は免除されます。ただし、たばこ税・たばこ特別税は免税されず、上記のとおり課税されます。</p>';
+    }
+    if (out.range) {
+      var kind = sel && sel.type === "ccwest" ? "推計" : "推定";
+      h += '<p class="cf-note"><strong>税額レンジ（重さが' + kind + 'のため ±' + out.range.pct +
+        '%）：</strong>税金合計 ' + yenInt(out.range.low.taxTotal) + "〜" +
+        yenInt(out.range.high.taxTotal) + "／総支払額 " + yenC(out.range.low.grandC) +
+        "〜" + yenC(out.range.high.grandC) +
+        "。上の金額は採用した重さそのままで計算した値です。この重さは計算で求めた目安で実測値ではないため、実際の税額はこの幅の中で変わります。実測できる場合は実測を優先してください。</p>";
+    }
+    if (out.altScenario && sel) {
+      var diff = out.altScenario.taxTotal - out.taxTotal;
+      h += '<p class="cf-note"><strong>候補重量での比較：</strong>もう一方の実測値（' +
+        sel.altWeightStr + 'g）で計算すると、換算 ' + out.altScenario.N +
+        " 本／税金合計 " + yenInt(out.altScenario.taxTotal) + "（採用値との差 " +
+        (diff >= 0 ? "+" : "−") + TaxEngine.formatYenInt(Math.abs(diff)) +
+        "円）になります。</p>";
+    }
+    if (out.boundary && out.reference) {
+      h += '<p class="cf-note">※ 切り捨て前の課税価格（' + out.vRawStr +
+        '円）が1万円前後の境界ケースです。切り捨て前の金額で判定した場合は、税金合計 ' +
+        yenInt(out.reference.taxTotal) + "／総支払額 " + yenC(out.reference.grandC) +
+        " となります（参考値）。</p>";
+    }
+    return h;
+  }
+
+  function calc() {
+    var f = { price: $("cf-price").value, currency: $("cf-cur").value,
+              rate: $("cf-rate").value, ship: $("cf-ship").value,
+              count: $("cf-count").value, weight: $("cf-weight").value,
+              duty: $("cf-duty").value, separated: $("cf-sep").checked };
+    var out = TaxEngine.calc(F1Calc.buildInput(f, sel));
+    var errEl = $("cf-err"), resEl = $("cf-result");
+    if (!out.ok) {
+      errEl.style.display = "block";
+      errEl.textContent = "入力エラー：" + errorMessage(out.error) + " エラーの間は、税額を表示しません。";
+      resEl.style.display = "none";
+      resEl.innerHTML = "";
+      return;
+    }
+    errEl.style.display = "none";
+    resEl.style.display = "block";
+    resEl.innerHTML = resultHTML(out, f);
+  }
+
+  api.select = select;
+  api.isSelected = isSelected;
+  /* このスクリプトはフォーム要素より後ろに置かれるため、その場で配線できる */
+  var btn = $("cf-btn");
+  if (btn) btn.addEventListener("click", calc);
+  var wEl = $("cf-weight");
+  if (wEl) wEl.addEventListener("input", function () {
+    if (settingWeight) return;
+    if (sel && this.value !== sel.weightStr) {
+      sel = null;
+      updateSelDisplay();
+      if (typeof render === "function") render();
+    }
+  });
+  return api;
+})();
 </script>
 </body></html>
