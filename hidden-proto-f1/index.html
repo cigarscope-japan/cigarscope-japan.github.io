@@ -128,6 +128,31 @@
   .pc-clear { font-size: 12px; padding: 3px 9px; border: 1px solid #c9b98f;
               background: #fff; border-radius: 4px; cursor: pointer;
               font-family: inherit; margin-left: 6px; }
+  #pc-cand { margin: 2px 0 4px; }
+  #pc-cand .pc-msg { margin: 8px 0 6px; }
+  .notice-line { font-size: 13px; margin: 10px 0 0; }
+  .notice-btn { font-size: 14px; font-weight: bold; color: #7a1f1f;
+                padding: 6px 12px; border: 1px solid #b08d3c;
+                background: #fbf6ea; border-radius: 6px; cursor: pointer;
+                font-family: inherit; }
+  .notice-sum { color: #4a2f1d; margin-left: 6px; }
+  .modal-ov { position: fixed; inset: 0; background: rgba(30, 20, 10, .5);
+              z-index: 80; align-items: center; justify-content: center;
+              padding: 14px; }
+  .modal-box { position: relative; background: #fff; border-radius: 8px;
+               max-width: 580px; width: 100%; max-height: 84vh;
+               overflow-y: auto; padding: 18px 18px 16px;
+               font-size: 14px; line-height: 1.75; color: #33302a; }
+  .modal-box h3 { font-size: 16px; margin: 0 28px 8px 0; color: #7a1f1f; }
+  .modal-box p { margin: 0 0 8px; }
+  .modal-x { position: absolute; top: 8px; right: 8px; width: 34px;
+             height: 34px; font-size: 18px; line-height: 1; border: none;
+             background: #f3ead2; color: #4a2f1d; border-radius: 50%;
+             cursor: pointer; font-family: inherit; }
+  .modal-close { display: block; margin: 12px auto 0; font-size: 14px;
+                 padding: 7px 26px; border: 1px solid #b08d3c;
+                 background: #fbf6ea; border-radius: 6px; cursor: pointer;
+                 font-family: inherit; color: #4a2f1d; }
   footer { margin-top: 16px; font-size: 12px; line-height: 1.55; color: #6b6252;
            border-top: 1px solid #e3d9c8; padding-top: 8px; }
   footer p { margin: 0 0 6px; }
@@ -162,9 +187,25 @@
   <div id="list"></div>
   <p class="more" id="more"></p>
 
+  <section class="calc pc" id="pc">
+    <h2>日本の定価と比べる（試作）</h2>
+    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button></p>
+    <div id="pc-cand"></div>
+    <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で探す（例：コイーバ）" autocomplete="off">
+    <div class="az" id="az-pc"></div>
+    <p class="count" id="pc-count"></p>
+    <div id="pc-list"></div>
+    <div class="notice">
+      <h3>価格比較についての注意</h3>
+      <p>日本の金額は、財務省が公表する小売定価の認可リストに基づく「認可小売定価（税込）」です。価格には設定日（認可日または変更実施日）を併記しています。認可時点の価格のため、実際の店頭価格とは異なる場合があります。</p>
+      <p>海外の金額は、下の計算フォームで計算した総支払額（商品代＋送料＋税金）で、入力した為替レート・送料・関税率と現行制度に基づく概算です。実際の課税額とは異なる場合があります。</p>
+      <p>比較は、同じ本数にそろった場合だけ表示します。日本の販売単位（1本・箱・パック等）と計算フォームの本数がそろわない場合は、金額の比較は表示しません。</p>
+    </div>
+  </section>
+
   <section class="calc" id="calc">
     <h2>税額を計算する（試作）</h2>
-    <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を開き、「この重さで計算する」を押すと重さが自動で入ります。重さは手入力もできます。</p>
+    <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
       <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
       <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option></select></div>
@@ -177,30 +218,7 @@
     </div>
     <button type="button" id="cf-btn">計算する</button>
     <p class="cf-err" id="cf-err"></p>
-    <div class="cf-result" id="cf-result"></div>
-    <div class="notice">
-      <h3>ご利用上の注意</h3>
-      <p>本シミュレーターは、葉巻を個人輸入する際に発生する関税・消費税・たばこ税等の概算額を確認するための参考ツールです。表示される金額は、入力された情報や設定された計算条件に基づく推定値であり、実際の課税額を保証するものではありません。</p>
-      <p>実際の課税額は、申告内容、課税価格、重量、適用される法令や個別事情等に基づき、税関によって決定されます。特に重量や課税価格が推定値の場合、実際の納税額と差が生じることがあります。</p>
-      <p>輸入時の正式な税額については、税関の判断をご確認ください。本シミュレーターの結果は、輸入計画の参考情報としてご利用ください。</p>
-      <p>重さの根拠が「実測（NASEM 2021・米国市場）」の場合、その値は2021年に米国市場で購入された製品の実測であり、現在の製品や他国市場向けの仕様とは異なる場合があります。また、米国版の Cohiba／Montecristo／Partagás／Romeo y Julieta は、キューバ版とは別ブランド・別製品です。</p>
-    </div>
-  </section>
-
-  <section class="calc pc" id="pc">
-    <h2>日本の定価と比べる（試作）</h2>
-    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。下の検索窓か A–Z から、日本で販売されている銘柄を選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button></p>
-    <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で探す（例：コイーバ）" autocomplete="off">
-    <div class="az" id="az-pc"></div>
-    <p class="count" id="pc-count"></p>
-    <div id="pc-list"></div>
-    <div class="pc-result" id="pc-result"></div>
-    <div class="notice">
-      <h3>価格比較についての注意</h3>
-      <p>日本の金額は、財務省が公表する小売定価の認可リストに基づく「認可小売定価（税込）」です。価格には設定日（認可日または変更実施日）を併記しています。認可時点の価格のため、実際の店頭価格とは異なる場合があります。</p>
-      <p>海外の金額は、上の計算フォームで計算した総支払額（商品代＋送料＋税金）で、入力した為替レート・送料・関税率と現行制度に基づく概算です。実際の課税額とは異なる場合があります。</p>
-      <p>比較は、同じ本数にそろった場合だけ表示します。日本の販売単位（1本・箱・パック等）と計算フォームの本数がそろわない場合は、金額の比較は表示しません。</p>
-    </div>
+    <p class="notice-line"><button type="button" class="notice-btn" id="notice-open">⚠️ ご利用上の注意</button><span class="notice-sum">計算結果は概算です。実際の課税額は税関の判断によります。</span></p>
   </section>
 
   <footer>
@@ -209,6 +227,26 @@
     <p>税額計算は、公開中のシミュレーターと同じ検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。60％特例は個人使用の前提で適用し、制度の判定日には今日の日付を使います。送料が空欄の場合は0として計算します。</p>
     <p>このページはテスト用です。サイト内の他のページからはリンクされていません。</p>
   </footer>
+
+  <div class="modal-ov" id="notice-modal" style="display: none;">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+      <button type="button" class="modal-x" id="notice-x" aria-label="閉じる">×</button>
+      <h3 id="notice-title">ご利用上の注意</h3>
+      <p>本シミュレーターは、葉巻を個人輸入する際に発生する関税・消費税・たばこ税等の概算額を確認するための参考ツールです。表示される金額は、入力された情報や設定された計算条件に基づく推定値であり、実際の課税額を保証するものではありません。</p>
+      <p>実際の課税額は、申告内容、課税価格、重量、適用される法令や個別事情等に基づき、税関によって決定されます。特に重量や課税価格が推定値の場合、実際の納税額と差が生じることがあります。</p>
+      <p>輸入時の正式な税額については、税関の判断をご確認ください。本シミュレーターの結果は、輸入計画の参考情報としてご利用ください。</p>
+      <p>重さの根拠が「実測（NASEM 2021・米国市場）」の場合、その値は2021年に米国市場で購入された製品の実測であり、現在の製品や他国市場向けの仕様とは異なる場合があります。また、米国版の Cohiba／Montecristo／Partagás／Romeo y Julieta は、キューバ版とは別ブランド・別製品です。</p>
+      <button type="button" class="modal-close" id="notice-close">閉じる</button>
+    </div>
+  </div>
+  <div class="modal-ov" id="calc-modal" style="display: none;">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="calc-result-title">
+      <button type="button" class="modal-x" id="calc-x" aria-label="閉じる">×</button>
+      <h3 id="calc-result-title">計算結果</h3>
+      <div class="cf-result" id="cf-result"></div>
+      <div class="pc-result" id="pc-result"></div>
+    </div>
+  </div>
 </main>
 <script>
 "use strict";
@@ -843,6 +881,7 @@ function toggleDetail(idx) {
   if (openIdx >= 0) {
     var el = listEl.querySelector(".item.open");
     if (el && el.scrollIntoView) el.scrollIntoView({ block: "nearest" });
+    if (typeof F1Auto !== "undefined") F1Auto.onOpen(DATA[openIdx]);
   }
 }
 qEl.addEventListener("input", function () { openIdx = -1; render(); });
@@ -993,7 +1032,7 @@ var F1CalcUI = (function () {
     var el = $("cf-sel");
     if (!el) return;
     if (!sel) {
-      el.textContent = "銘柄は未選択です。上のリストで銘柄を開き、「この重さで計算する」を押すと重さが自動で入ります。重さは手入力もできます。";
+      el.textContent = "銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。";
       el.classList.remove("has-sel");
       return;
     }
@@ -1002,7 +1041,7 @@ var F1CalcUI = (function () {
     el.classList.add("has-sel");
   }
 
-  function select(it) {
+  function select(it, opts) {
     var info = F1Calc.weightForItem(it);
     if (!info) return;
     sel = { idx: DATA.indexOf(it), name: it.n, type: it.type,
@@ -1014,8 +1053,10 @@ var F1CalcUI = (function () {
     settingWeight = false;
     updateSelDisplay();
     if (typeof render === "function") render();
-    var c = $("calc");
-    if (c && c.scrollIntoView) c.scrollIntoView({ block: "start" });
+    if (!opts || opts.scroll !== false) {
+      var c = $("calc");
+      if (c && c.scrollIntoView) c.scrollIntoView({ block: "start" });
+    }
   }
   function isSelected(idx) { return !!sel && sel.idx === idx; }
 
@@ -1186,7 +1227,7 @@ var pcSelTextEl = document.getElementById("pc-sel-text");
 var pcClearEl = document.getElementById("pc-clear");
 var pcResEl = document.getElementById("pc-result");
 var PC_LIMIT = 80;
-var PC_SEL_DEFAULT = "日本の銘柄は未選択です。下の検索窓か A–Z から、日本で販売されている銘柄を選んでください。";
+var PC_SEL_DEFAULT = "日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。";
 
 function pcFold(s) { return fold(s).replace(/[・･·\s]/g, ""); }
 function pcBrand(it) { return MOF_BRANDS[it[1]]; }
@@ -1267,7 +1308,7 @@ function pcUpdateCompare() {
   var lc = pcState.lastCalc;
   if (!lc) {
     pcResEl.innerHTML = '<p class="pc-msg">' + priceTxt
-      + "上の計算フォームで計算すると、海外総額との比較がここに出ます。</p>";
+      + "「計算する」ボタンを押すと、結果のポップアップで海外総額との比較も表示されます。</p>";
     return;
   }
   var N = it[4], C = lc.count, G = lc.grand;
@@ -1300,7 +1341,7 @@ function pcUpdateCompare() {
     + '<p class="pc-verdict">' + verdict + "</p>"
     + '<p class="pc-msg">内訳：日本の定価 ' + yenFmt(it[2]) + "（" + unit
     + "あたり）× " + units + "単位 ＝ " + yenFmt(jp)
-    + "。海外総額は、上の計算フォームの結果（計算時点の本数 " + C
+    + "。海外総額は、上の計算結果（計算時点の本数 " + C
     + " 本、商品代＋送料＋税金の合計）です。</p>";
 }
 function pcSyncCalc() {
@@ -1347,5 +1388,141 @@ if (typeof MutationObserver !== "undefined") {
       { childList: true, attributes: true, subtree: true });
   }
 }
+</script>
+<script>
+"use strict";
+/*
+ * v49 追加ブロック：上の入力が下へ自動で伝わる連動と、2つのモーダル。
+ * - 銘柄を開くと、重さが計算フォームへ自動入力される（F1CalcUI.select を
+ *   スクロールなしで呼ぶだけ。エンジンには触れない）。
+ * - 製品に対応する財務省リスト品目があれば、日本の定価を価格比較へ
+ *   自動セットする。対応表 F1A_MAP は、ブランド一致＋製品名の正規化
+ *   完全一致（＋目視検証済みの表記ゆれ）を満たすものだけを収録した。
+ *   曖昧な製品は候補ボタンを提示し、自動では確定しない。
+ * - 計算結果と注意書きはモーダル表示。結果モーダルは、計算のたびに
+ *   cf-result へ書き込まれる内容（＝成功時のみ表示状態になる）を
+ *   MutationObserver で検知して開く。2つのモーダルは同時には開かない。
+ */
+var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]}};
+var F1Auto = (function () {
+  var autoMof = -1; /* 自分が自動セットした MOF 添字（これだけ自動で外す） */
+  var candEl = document.getElementById("pc-cand");
+  var selTextEl = document.getElementById("pc-sel-text");
+  var noticeModal = document.getElementById("notice-modal");
+  var calcModal = document.getElementById("calc-modal");
+  var cfResEl = document.getElementById("cf-result");
+
+  function showOv(el, v) { if (el) el.style.display = v ? "flex" : "none"; }
+  function openNotice() { showOv(calcModal, false); showOv(noticeModal, true); }
+  function openCalc() { showOv(noticeModal, false); showOv(calcModal, true); }
+  function closeNotice() { showOv(noticeModal, false); }
+  function closeCalc() { showOv(calcModal, false); }
+
+  function markAuto() {
+    if (selTextEl && selTextEl.textContent.indexOf("自動でセット") < 0) {
+      selTextEl.textContent += "（上の銘柄から自動でセットしました）";
+    }
+  }
+  function clearCand() { if (candEl) candEl.innerHTML = ""; }
+  function showCand(it, idxs) {
+    if (!candEl) return;
+    var html = '<p class="pc-msg">「' + it.n + '」の日本の定価は、自動では'
+      + '確定しませんでした。下の候補が対応する品目と思われます。'
+      + '選んでください。</p>';
+    idxs.forEach(function (j) {
+      var mm = MOF[j];
+      html += '<button type="button" class="item pc-item" data-i="' + j + '">'
+        + '<span class="nm">' + mm[0] + "</span>"
+        + '<span class="mt">' + MOF_BRANDS[mm[1]] + "</span>"
+        + '<span class="dims">' + pcUnitLabel(mm) + " ・ 設定日 " + mm[3]
+        + "</span>"
+        + '<span class="rgrp"><span class="wt">' + yenFmt(mm[2])
+        + "</span></span></button>";
+    });
+    candEl.innerHTML = html;
+    var btns = candEl.querySelectorAll(".pc-item");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var idx = Number(this.getAttribute("data-i"));
+        if (typeof PCUI !== "undefined") {
+          PCUI.select(idx);
+          autoMof = idx;
+          markAuto();
+        }
+        clearCand();
+      });
+    }
+  }
+  function dropAuto() {
+    if (autoMof >= 0 && typeof PCUI !== "undefined"
+        && PCUI.state.sel === autoMof) {
+      PCUI.clear();
+    }
+    autoMof = -1;
+  }
+  function onOpen(it) {
+    if (typeof F1CalcUI !== "undefined") {
+      F1CalcUI.select(it, { scroll: false });
+    }
+    clearCand();
+    var m = F1A_MAP[it.n];
+    if (m && typeof m.a === "number") {
+      if (typeof PCUI !== "undefined") {
+        PCUI.select(m.a);
+        autoMof = m.a;
+        markAuto();
+      }
+    } else if (m && m.c && m.c.length) {
+      dropAuto();
+      showCand(it, m.c);
+    } else {
+      dropAuto();
+    }
+  }
+
+  /* 手で選び直したら、自動セットの所有権を手放す */
+  var pcListEl = document.getElementById("pc-list");
+  if (pcListEl) pcListEl.addEventListener("click", function () {
+    autoMof = -1;
+  });
+  var pcClearEl = document.getElementById("pc-clear");
+  if (pcClearEl) pcClearEl.addEventListener("click", function () {
+    autoMof = -1;
+  });
+
+  /* モーダルの配線 */
+  var nOpen = document.getElementById("notice-open");
+  if (nOpen) nOpen.addEventListener("click", openNotice);
+  var nClose = document.getElementById("notice-close");
+  if (nClose) nClose.addEventListener("click", closeNotice);
+  var nX = document.getElementById("notice-x");
+  if (nX) nX.addEventListener("click", closeNotice);
+  if (noticeModal) noticeModal.addEventListener("click", function (e) {
+    if (e && e.target && e.target !== noticeModal) return;
+    closeNotice();
+  });
+  var cX = document.getElementById("calc-x");
+  if (cX) cX.addEventListener("click", closeCalc);
+  if (calcModal) calcModal.addEventListener("click", function (e) {
+    if (e && e.target && e.target !== calcModal) return;
+    closeCalc();
+  });
+  function syncCalcModal() {
+    if (!cfResEl) return;
+    if (cfResEl.style.display !== "none" && cfResEl.innerHTML) {
+      openCalc();
+    } else if (cfResEl.style.display === "none") {
+      closeCalc();
+    }
+  }
+  if (typeof MutationObserver !== "undefined" && cfResEl) {
+    new MutationObserver(syncCalcModal).observe(cfResEl,
+      { childList: true, attributes: true, subtree: true });
+  }
+  return { onOpen: onOpen, openNotice: openNotice, openCalc: openCalc,
+           closeNotice: closeNotice, closeCalc: closeCalc,
+           syncCalcModal: syncCalcModal,
+           state: function () { return { autoMof: autoMof }; } };
+})();
 </script>
 </body></html>
