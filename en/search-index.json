@@ -1550,18 +1550,6 @@
   "url": "news/battleborn-2026.html"
  },
  {
-  "title": "The Fuente Story and the Legend of Opus X",
-  "summary": "How a Tampa family firm came to grow wrapper in the Dominican Republic and create the cigar that changed an industry.",
-  "category": "Feature",
-  "countries": [
-   "Dominican Republic"
-  ],
-  "maker": "Arturo Fuente",
-  "type": "Feature (Japanese)",
-  "date": "2026-11-06",
-  "url": "../features/opusx.html"
- },
- {
   "title": "Padrón: Sixty Years of the King Who Never Advertises",
   "summary": "No advertising, no shortcuts: the Padrón family's six decades from Havana to Estelí.",
   "category": "Feature",
@@ -1584,5 +1572,53 @@
   "type": "Feature (Japanese)",
   "date": "2026-11-08",
   "url": "../features/joya.html"
+ },
+ {
+  "title": "Opus X and Its Limited Lines",
+  "summary": "Deep Dive Series Part 1. Fuente Fuente Opus X, the Dominican puro distributed by allocation: the core line, Angel's Share, Lost City, Forbidden X, and the Heaven and Earth limited lines.",
+  "category": "Feature",
+  "countries": [
+   "Dominican Republic"
+  ],
+  "maker": "Arturo Fuente",
+  "type": "Feature",
+  "date": "2026-11-06",
+  "url": "features/opusx.html"
+ },
+ {
+  "title": "Padrón — Sixty Years of the King Who Never Advertises",
+  "summary": "Deep Dive Series Part 2. Padrón, the family firm at the summit of Nicaraguan cigars: sixty years of the king who never advertises, from Pinar del Río to Estelí.",
+  "category": "Feature",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Padrón Cigars (Tabacos Cubanica S.A.)",
+  "type": "Feature",
+  "date": "2026-11-07",
+  "url": "features/padron.html"
+ },
+ {
+  "title": "Joya de Nicaragua — Good, Affordable, and the Pride of Nicaragua's Oldest Maker",
+  "summary": "Deep Dive Series Part 3. Joya de Nicaragua, founded in 1968: Nicaragua's oldest premium brand — its upheavals, its classic lines from Clásico to Antaño, and prices checked at retailers shipping to Japan.",
+  "category": "Feature",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Joya de Nicaragua",
+  "type": "Feature",
+  "date": "2026-11-08",
+  "url": "features/joya.html"
+ },
+ {
+  "title": "My Father: The Pride of an Exiled Torcedor, a House Named for a Father",
+  "summary": "Deep Dive Series Part 4. My Father Cigars: Don Pepín García's exile from Cuba, the Estelí empire built on Cuban handwork, three Cigar of the Year No. 1 finishes, and the García family behind them.",
+  "category": "Feature",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "My Father Cigars",
+  "type": "Feature",
+  "date": "2026-11-09",
+  "url": "features/myfather.html"
  }
 ]
