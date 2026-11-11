@@ -46,6 +46,15 @@
   .item .nm { font-weight: bold; font-size: 15px; }
   .sel-name { color: #1565c0; font-weight: bold; }
   #pick-sum .jp-amt { color: #1f4e79; font-weight: bold; }
+  /* v73: 畳まれた要約を「消えた」ように見せない（パネル化＋開くボタンの明示） */
+  #pick-sum { border: 1px dashed #b08d3c; background: #fdf8ec;
+             padding: 8px 10px; }
+  .pick-sum-label { display: block; font-size: 11px; color: #6b6252;
+             margin: 0 0 2px; }
+  .pick-change-btn { font-size: 14px; font-weight: bold;
+             color: #7a1f1f; padding: 8px 14px; border: 2px solid #7a1f1f;
+             background: #fff; border-radius: 6px; cursor: pointer;
+             font-family: inherit; margin-left: 8px; white-space: nowrap; }
   .item .mt { font-size: 12px; color: #6b6252; }
   .item .dims { font-size: 12px; color: #6b6252; }
   .item .rgrp { display: flex; align-items: baseline; gap: 6px; margin-left: auto; }
@@ -266,11 +275,11 @@
   <p class="count" id="count"></p>
   <div id="list"></div>
   <p class="more" id="more"></p>
-  <p class="cf-sel" id="pick-sum" style="display: none;"><span id="pick-sum-text"></span><button type="button" class="pc-clear" id="pick-change">変更する</button></p>
+  <p class="cf-sel" id="pick-sum" style="display: none;"><span class="pick-sum-label">選択中の銘柄（銘柄リストは畳まれています）</span><span id="pick-sum-text"></span><button type="button" class="pick-change-btn" id="pick-change">銘柄を選び直す ▾</button></p>
 
   <section class="calc pc" id="pc">
     <h2>日本の定価と比べる（試作）</h2>
-    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pc-clear" id="pc-change" style="display: none;">変更する</button></p>
+    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pick-change-btn" id="pc-change" style="display: none;">定価を選び直す ▾</button></p>
     <div id="pc-cand"></div>
     <p class="cf-sel" id="pc-compact" style="display: none;"><span id="pc-compact-text"></span><button type="button" class="pc-clear" id="pc-manual">定価を手で選ぶ</button></p>
     <div id="pc-q-wrap">
@@ -286,7 +295,7 @@
   <section class="calc" id="calc">
     <h2>税額を計算する（試作）</h2>
     <div class="cf-steps">
-      <p><span class="st">1</span>上のリストで銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>下の「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。</p>
+      <p><span class="st">1</span>上のリストで銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>下の「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。銘柄を選ぶとリストは要約に畳まれますが、「銘柄を選び直す」でいつでも開けます。</p>
     </div>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
@@ -1134,6 +1143,9 @@ var F1CalcUI = (function () {
   var settingWeight = false;
   /* v58 統合：計算リスト（複数銘柄）と、寸法推定時の根拠上書き */
   var listItems = []; /* [{name, priceStr, countStr, weightStr, basis, altWeightStr, useAlt}] */
+  /* v73: 直近のリスト計算の結果スナップショット（価格比較の描画用）。
+   * 単品計算・計算エラーでは null。エンジンには触れない表示専用データ。 */
+  var lastListCalc = null;
   var manualBasis = null; /* 寸法推定を使ったとき "estimate"。手入力に戻すと null */
   var METHOD_LABEL = {
     "postal-assessed": "国際郵便・賦課課税",
@@ -1296,7 +1308,7 @@ var F1CalcUI = (function () {
         : "課税価格は原則方式で計算しています。") +
       "適用制度：" + esc(out.regimeName) + "。</p>";
     if (listMode) {
-      h += '<p class="cf-note">たばこ税の換算は、軽量（1g未満）の銘柄は1本＝紙巻1本、それ以外は全銘柄の総重量を合計してから換算し、換算本数の端数は合計後に1回だけ切り捨てます（たばこ税法基本通達第19条）。価格比較（日本の定価と比べる）は、単品の計算のときだけ表示されます。</p>';
+      h += '<p class="cf-note">たばこ税の換算は、軽量（1g未満）の銘柄は1本＝紙巻1本、それ以外は全銘柄の総重量を合計してから換算し、換算本数の端数は合計後に1回だけ切り捨てます（たばこ税法基本通達第19条）。</p>';
     }
     if (out.exempt) {
       h += '<p class="cf-note"><strong>少額免税：</strong>課税価格が1万円以下のため、関税と消費税・地方消費税は免除されます。ただし、たばこ税・たばこ特別税は免税されず、上記のとおり課税されます。</p>';
@@ -1460,7 +1472,7 @@ var F1CalcUI = (function () {
     if (note) {
       if (listItems.length) {
         note.style.display = "";
-        note.textContent = "「計算する」では上のリストの合算で計算します（送料・保険料・為替・関税率・判定日はフォームの値を使います）。リストを空にすると、フォームの単品計算に戻ります。価格比較は単品計算のときだけ表示されます。";
+        note.textContent = "「計算する」では上のリストの合算で計算します（送料・保険料・為替・関税率・判定日はフォームの値を使います）。リストを空にすると単品計算に戻ります。日本の定価との比較も、結果のポップアップに出ます。";
       } else {
         note.style.display = "none";
         note.textContent = "";
@@ -1519,7 +1531,7 @@ var F1CalcUI = (function () {
     justAddedIdx = listItems.length - 1;
     renderList();
     setAddHint("done", "追加しました（" + listItems.length +
-      "件目）。別の銘柄は、上のリストで選び直して同じ手順で追加できます。全部入れたら「計算する」を押してください。", true);
+      "件目）。別の銘柄は、上の要約の「銘柄を選び直す」からリストを開いて選んでください。全部入れたら「計算する」を押してください。", true);
   }
 
   function calc() {
@@ -1529,6 +1541,7 @@ var F1CalcUI = (function () {
     var out = TaxEngine.calc(F1Calc.buildInput(f, listMode ? null : sel));
     var errEl = $("cf-err"), resEl = $("cf-result");
     if (!out.ok) {
+      lastListCalc = null;
       errEl.style.display = "block";
       errEl.textContent = "入力エラー：" + errorMessage(out.error) + " エラーの間は、税額を表示しません。";
       resEl.style.display = "none";
@@ -1538,10 +1551,19 @@ var F1CalcUI = (function () {
     errEl.style.display = "none";
     resEl.style.display = "block";
     resEl.innerHTML = resultHTML(out, f, listMode);
+    /* v73: リスト計算のときだけ、比較描画用に結果を保持する */
+    lastListCalc = listMode ? {
+      grand: Math.round(out.grandC / 10000),
+      totalCount: out.totalCount,
+      items: listItems.map(function (it) {
+        return { name: it.name, count: parseFloat(it.countStr) };
+      })
+    } : null;
   }
 
   api.select = select;
   api.isSelected = isSelected;
+  api.lastListCalc = function () { return lastListCalc; };
   /* このスクリプトはフォーム要素より後ろに置かれるため、その場で配線できる */
   var btn = $("cf-btn");
   if (btn) btn.addEventListener("click", calc);
@@ -1833,7 +1855,107 @@ function pcUpdateCompare() {
     + "。海外総額は、上の計算結果（計算時点の本数 " + C
     + " 本、商品代＋送料＋税金の合計）です。</p>";
 }
+/* v73: 計算リスト（複数銘柄）の価格比較。銘柄ごとの定価小計は
+ * F1A_MAP（銘柄名→MOF品目）で引き、販売単位で割り切れる場合だけ
+ * 金額にする（単品と同じルール）。合計の判定文は v52 の書式にそろえ、
+ * 定価金額は .jp / .jp-amt（深い青 #1f4e79）で出す。対象外の銘柄は
+ * 理由つきで明示し、カバー件数も出す。全件そろったときだけ合計同士の
+ * 差額・割合を出す（対象がそろわない合計比べはしない）。 */
+function pcEscHtml(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+}
+function pcRenderListCompare(snap) {
+  var rows = "", notes = [], covered = 0, jpTotal = 0, covSticks = 0;
+  snap.items.forEach(function (li) {
+    var C = li.count, nm = pcEscHtml(li.name);
+    var m = (typeof F1A_MAP !== "undefined") ? F1A_MAP[li.name] : null;
+    var reason = null, it = null, sub = 0, units = 0;
+    if (!m) {
+      reason = "日本の定価リストに登録がありません";
+    } else if (m.c && m.c.length) {
+      reason = "定価の候補が複数あり、自動では特定できません"
+        + "（上の「日本の定価と比べる」で候補を確認できます）";
+    } else if (typeof m.a === "number" && typeof MOF !== "undefined"
+               && MOF[m.a]) {
+      it = MOF[m.a];
+      if (!it[4]) {
+        reason = "公表資料から販売単位の本数が読み取れないため、"
+          + "金額の比較はしません";
+      } else if (C % it[4] !== 0) {
+        reason = "販売単位は「" + pcUnitLabel(it) + "」のため、" + C
+          + "本では単位がそろいません（" + it[4]
+          + "の倍数にすると比べられます）";
+      } else {
+        units = C / it[4];
+        sub = it[2] * units;
+      }
+    } else {
+      reason = "日本の定価リストに登録がありません";
+    }
+    if (it && !reason) {
+      covered++; jpTotal += sub; covSticks += C;
+      rows += "<tr><th>" + nm + "（" + C + "本分）</th><td>"
+        + yenFmt(sub) + "</td></tr>";
+      notes.push("「" + nm + "」定価 " + yenFmt(it[2]) + "（"
+        + pcUnitLabel(it) + "あたり）× " + units + "単位 ＝ "
+        + yenFmt(sub));
+    } else {
+      rows += "<tr><th>" + nm + "（" + C + "本分）</th><td>"
+        + "比較対象外</td></tr>";
+      notes.push("「" + nm + "」" + reason);
+    }
+  });
+  var total = snap.items.length;
+  if (!covered) {
+    pcResEl.innerHTML = '<p class="pc-msg">日本の定価との比較：'
+      + "このリストの銘柄は、定価の登録がない等のため、比較できません。</p>"
+      + '<p class="pc-msg">理由：' + notes.join("。") + "。</p>";
+    return;
+  }
+  var full = covered === total;
+  rows += '<tr class="jp"><th>日本の定価合計（'
+    + (full ? "全" + covSticks : "比較対象 " + covered + "件・" + covSticks)
+    + "本分）</th><td>" + yenFmt(jpTotal) + "</td></tr>";
+  rows += '<tr class="big"><th>海外総額（リスト全体・税金・送料込み）</th><td>'
+    + yenFmt(snap.grand) + "</td></tr>";
+  var html = "<table>" + rows + "</table>";
+  if (full) {
+    var diff = jpTotal - snap.grand;
+    var pct = (Math.abs(diff) / Math.max(jpTotal, snap.grand) * 100).toFixed(1);
+    var verdict;
+    if (diff > 0) {
+      verdict = "海外のほうが " + yenFmt(diff) + " 安い（"
+        + '<span class="jp-amt">日本の定価の ' + pct + "%</span>）";
+    } else if (diff < 0) {
+      verdict = '<span class="jp-amt">日本の定価</span>のほうが '
+        + yenFmt(-diff) + " 安い（海外総額の " + pct + "%）";
+    } else {
+      verdict = '<span class="jp-amt">日本の定価</span>と海外総額は同額です';
+    }
+    html += '<p class="pc-verdict">' + verdict + "</p>"
+      + '<p class="pc-msg">内訳：' + notes.join("。")
+      + "。海外総額は、上の計算結果（リスト合計 " + snap.totalCount
+      + " 本、商品代＋送料＋税金の合計）です。</p>";
+  } else {
+    html += '<p class="pc-msg">比較できたのは ' + covered + "件／全 "
+      + total + "件です。対象外の銘柄があるため、合計同士の差額・割合は"
+      + "表示していません。</p>"
+      + '<p class="pc-msg">内訳と対象外の理由：' + notes.join("。")
+      + "。</p>";
+  }
+  pcResEl.innerHTML = html;
+}
 function pcSyncCalc() {
+  /* v73: 計算リストの結果が表示されている間は、単品用の読み取りは
+   * せず、リスト専用の比較を描く（スナップショットは F1CalcUI が
+   * 計算のたびに更新する。単品計算に戻れば null になる）。 */
+  var snap = (typeof F1CalcUI !== "undefined" && F1CalcUI.lastListCalc)
+    ? F1CalcUI.lastListCalc() : null;
+  if (snap) {
+    pcState.lastCalc = null;
+    pcRenderListCompare(snap);
+    return;
+  }
   /* 総支払額の行だけを拾う（「税金合計」も .big 行のため、行ラベルで特定する）。
    * 読み取れない場合は比較を出さない（誤った金額で比べない）。 */
   var cfResEl = document.getElementById("cf-result");
@@ -1852,6 +1974,7 @@ function pcSyncCalc() {
 }
 var PCUI = { select: pcSelect, clear: pcClear, renderList: pcRenderList,
              syncCalc: pcSyncCalc, updateCompare: pcUpdateCompare,
+             renderListCompare: pcRenderListCompare,
              filtered: pcFilteredIdx, state: pcState };
 
 (function () {
@@ -2090,6 +2213,10 @@ var F1Auto = (function () {
   function renderPriceStatus() {
     var el = document.getElementById("pc-result");
     if (!el) return;
+    /* v73: リスト計算のときは、比較欄は PCUI のリスト比較が担う
+     * （単品用の「未選択」案内で上書きしない） */
+    if (typeof F1CalcUI !== "undefined" && F1CalcUI.lastListCalc
+        && F1CalcUI.lastListCalc()) return;
     if (typeof PCUI !== "undefined" && PCUI.state.sel >= 0) return;
     var it = calcItem();
     var msg;
