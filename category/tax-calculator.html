@@ -132,13 +132,53 @@
             border: 1px solid #b08d3c; border-radius: 5px; cursor: pointer;
             font-family: inherit; }
   .tcv58 .cf-sub-btn:active { background: #f3ead2; }
+  /* v71: 使い方ステップ（追加フローの見える化） */
+  .tcv58 .cf-steps { background: #f3ead2; border: 1px solid #d9c48a; border-radius: 6px;
+            padding: 8px 10px; margin: 0 0 8px; font-size: 13px; line-height: 1.65;
+            color: #4a4234; }
+  .tcv58 .cf-steps p { margin: 0; }
+  .tcv58 .cf-steps .st { display: inline-block; min-width: 20px; height: 20px;
+            line-height: 20px; text-align: center; background: #7a1f1f; color: #fff;
+            border-radius: 50%; font-size: 12px; font-weight: bold; margin: 0 2px; }
+  /* v71: 追加ボタンの主ボタン化と状態ヒント */
+  .tcv58 .cf-add-btn { width: 100%; min-height: 48px; margin: 10px 0 0; padding: 8px 10px;
+            font-size: 16px; font-weight: bold; color: #fff; background: #7a1f1f;
+            border: none; border-radius: 6px; cursor: pointer; font-family: inherit; }
+  .tcv58 .cf-add-btn:active { background: #5f1717; }
+  .tcv58 .cf-add-btn.notready { background: #a08b7d; }
+  .tcv58 .cf-add-hint { font-size: 12.5px; color: #6b5136; margin: 5px 2px 0;
+            line-height: 1.55; }
+  .tcv58 .cf-add-hint.err { color: #7a1f1f; font-weight: bold; }
+  .tcv58 .cf-add-hint.done { color: #31572c; font-weight: bold; }
+  /* v71: 追加済みリストの見出し帯（件数・合計）と空状態 */
+  .tcv58 .cf-list-head { display: flex; flex-wrap: wrap; align-items: baseline;
+            gap: 2px 10px; background: #4a2f1d; color: #fff; border-radius: 6px;
+            padding: 7px 10px; margin: 12px 0 0; line-height: 1.5; }
+  .tcv58 .cf-list-head .lh-t { font-size: 15px; font-weight: bold; }
+  .tcv58 .cf-list-head .lh-sum { font-size: 13px; margin-left: auto; }
+  .tcv58 .cf-list-empty { font-size: 12.5px; color: #6b6252; background: #fff;
+            border: 1px dashed #c9b98f; border-radius: 6px; padding: 7px 10px;
+            margin: 8px 0 0; line-height: 1.55; }
+  /* v71: 追加された葉巻はカードとして独立させる（枠・番号・大見出し） */
+  .tcv58 .cf-list-idx { flex: none; width: 24px; height: 24px; line-height: 24px;
+            text-align: center; background: #7a1f1f; color: #fff; border-radius: 50%;
+            font-size: 13px; font-weight: bold; margin-top: 1px; }
+  .tcv58 .cf-list-main { flex: 1 1 auto; min-width: 0; }
+  .tcv58 .cf-list-name { font-size: 16px; font-weight: bold; color: #26221c; }
+  .tcv58 .cf-list-meta { font-size: 13px; color: #4a4234; margin-top: 1px; }
+  .tcv58 .cf-list-meta b { color: #7a1f1f; }
+  @keyframes tcv58CfFlash { 0% { background: #ffe9a8; } 100% { background: #fff; } }
+  .tcv58 .cf-list-row.just-added { animation: tcv58CfFlash 1.8s ease-out; }
   .tcv58 .cf-list-block { margin: 9px 0 0; }
-  .tcv58 .cf-list-row { display: flex; align-items: center; gap: 7px; font-size: 13px;
-            background: #fbf6ea; border: 1px solid #e3d9c8; border-radius: 4px;
-            padding: 5px 8px; margin: 5px 0 0; line-height: 1.5; }
-  .tcv58 .cf-list-del { margin-left: auto; flex: none; font-size: 12px; padding: 3px 9px;
-            border: 1px solid #c9b98f; background: #fff; border-radius: 4px;
-            cursor: pointer; font-family: inherit; }
+  .tcv58 .cf-list-row { display: flex; align-items: flex-start; gap: 8px;
+            background: #fff; border: 2px solid #7a1f1f; border-radius: 6px;
+            padding: 8px 10px; margin: 6px 0 0; line-height: 1.5;
+            box-shadow: 0 1px 3px rgba(74, 47, 29, .18); }
+  .tcv58 .cf-list-del { flex: none; font-size: 13px; font-weight: bold; color: #7a1f1f;
+            min-height: 36px; padding: 6px 12px; border: 1.5px solid #7a1f1f;
+            background: #fdf6f6; border-radius: 5px; cursor: pointer;
+            font-family: inherit; }
+  .tcv58 .cf-list-del:active { background: #f6e3e3; }
   .tcv58 .cf-list-note { font-size: 12.5px; color: #4a4234; margin: 6px 0 0;
             line-height: 1.55; }
   .tcv58 .cf-wide { grid-column: 1 / -1; }
@@ -292,6 +332,9 @@
 
   <section class="calc" id="calc">
     <h2>税額を計算する</h2>
+    <div class="cf-steps">
+      <p><span class="st">1</span>上のリストで銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>下の「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。</p>
+    </div>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
       <div class="cf-wide"><label for="cf-method">輸送・課税の方式</label><select id="cf-method"><option value="postal-assessed">国際郵便・賦課課税（課税価格20万円以下）</option><option value="postal-declared">国際郵便・申告納税（課税価格20万円超）</option><option value="courier">国際宅配便・一般貨物</option></select><p class="fx-note" id="cf-method-note"></p></div>
@@ -321,8 +364,11 @@
       <p class="fx-note" id="cf-est-out">推定式：長さ（in）× RG² × 0.00095 × 形状係数（パレホ1.0／フィグラド0.85）。推定は寸法からの目安で、実測値ではありません。実測できる場合は実測を優先してください。</p>
     </details>
     <div class="cf-list-block">
-      <button type="button" class="cf-sub-btn" id="cf-add-list">＋ この内容を計算リストに追加（複数銘柄の合算）</button>
+      <button type="button" class="cf-add-btn notready" id="cf-add-list">＋ この葉巻をリストに追加</button>
+      <p class="cf-add-hint" id="cf-add-hint">価格・本数・重さを入れてから押してください。銘柄は上のリストで選ぶと、重さが自動で入ります。</p>
+      <div class="cf-list-head" id="cf-list-head" style="display: none;"><span class="lh-t" id="cf-list-title">追加した葉巻</span><span class="lh-sum" id="cf-list-sum"></span></div>
       <div id="cf-list"></div>
+      <p class="cf-list-empty" id="cf-list-empty">まだ追加されていません。2銘柄以上を合わせるときは、銘柄ごとに上のボタンで追加してください（1銘柄だけなら追加は不要です）。</p>
       <p class="cf-list-note" id="cf-list-note" style="display: none;"></p>
     </div>
     <button type="button" id="cf-btn">計算する</button>
@@ -1299,6 +1345,7 @@ var F1CalcUI = (function () {
     if (ua) ua.checked = false;
     updateUseAltRow();
     updateSelDisplay();
+    refreshAddState();
     if (typeof render === "function") render();
     if (!opts || opts.scroll !== false) {
       var c = $("calc");
@@ -1421,36 +1468,110 @@ var F1CalcUI = (function () {
     };
   }
 
-  /* v58: 計算リストの描画 */
+  /* v71: 表示専用の数値パース（合計・小計の見える化用。計算はエンジンが担う） */
+  function parseNum(s) {
+    var v = parseFloat(String(s == null ? "" : s).replace(/[,\s　]/g, ""));
+    return isFinite(v) ? v : null;
+  }
+  function fmtAmt(v) {
+    var r = Math.round(v * 100) / 100;
+    return r.toLocaleString("ja-JP", { maximumFractionDigits: 2 });
+  }
+  function fmtG(v) {
+    var r = Math.round(v * 10) / 10;
+    return (r % 1 === 0) ? String(r) : r.toFixed(1);
+  }
+  function curLabel() {
+    var c = $("cf-cur");
+    return c ? c.value : "";
+  }
+
+  /* v71: 計算リストの描画（追加した葉巻をカード化し、見出し帯に合計を出す） */
+  var justAddedIdx = -1;
   function renderList() {
     var wrap = $("cf-list"), note = $("cf-list-note");
+    var head = $("cf-list-head"), title = $("cf-list-title"),
+        sumEl = $("cf-list-sum"), emptyEl = $("cf-list-empty");
     if (!wrap) return;
     wrap.innerHTML = "";
+    var totCount = 0, totWeight = 0, totPrice = 0;
+    var okC = true, okW = true, okP = true;
     listItems.forEach(function (it, i) {
+      var c = parseNum(it.countStr), w = parseNum(it.weightStr),
+          p = parseNum(it.priceStr);
+      if (c === null) okC = false; else totCount += c;
+      if (c === null || w === null) okW = false; else totWeight += c * w;
+      if (p === null) okP = false; else totPrice += p;
       var div = document.createElement("div");
-      div.className = "cf-list-row";
-      var txt = document.createElement("span");
-      txt.textContent = (i + 1) + ". " + it.name + "：" + it.priceStr + "／" +
-        it.countStr + "本／" + it.weightStr + "g（" +
+      div.className = "cf-list-row" + (i === justAddedIdx ? " just-added" : "");
+      var idx = document.createElement("span");
+      idx.className = "cf-list-idx";
+      idx.textContent = String(i + 1);
+      var main = document.createElement("div");
+      main.className = "cf-list-main";
+      var nm = document.createElement("div");
+      nm.className = "cf-list-name";
+      nm.textContent = it.name;
+      var meta = document.createElement("div");
+      meta.className = "cf-list-meta";
+      meta.appendChild(document.createTextNode(
+        it.countStr + "本 × " + it.weightStr + "g/本（" +
         (BASIS_SHORT[it.basis] || it.basis) +
-        (it.useAlt ? "・候補重量を採用" : "") + "）";
+        (it.useAlt ? "・候補重量を採用" : "") + "）"));
+      if (c !== null && w !== null) {
+        meta.appendChild(document.createTextNode(" ＝ "));
+        var b = document.createElement("b");
+        b.textContent = fmtG(c * w) + "g";
+        meta.appendChild(b);
+      }
+      meta.appendChild(document.createTextNode(
+        " ／ 価格 " + it.priceStr + (curLabel() ? " " + curLabel() : "")));
+      main.appendChild(nm);
+      main.appendChild(meta);
       var del = document.createElement("button");
       del.type = "button";
       del.className = "cf-list-del";
       del.textContent = "削除";
       del.addEventListener("click", function () {
         listItems.splice(i, 1);
+        justAddedIdx = -1;
         renderList();
       });
-      div.appendChild(txt);
+      div.appendChild(idx);
+      div.appendChild(main);
       div.appendChild(del);
       wrap.appendChild(div);
+      if (i === justAddedIdx && div.scrollIntoView) {
+        try {
+          var reduce = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          div.scrollIntoView({ block: "nearest",
+                               behavior: reduce ? "auto" : "smooth" });
+        } catch (e) { /* スクロール補助が失敗しても無視する */ }
+      }
     });
+    justAddedIdx = -1;
+    if (head && title && sumEl) {
+      if (listItems.length) {
+        head.style.display = "";
+        title.textContent = "追加した葉巻（" + listItems.length + "件）";
+        var parts = [];
+        if (okC) parts.push("合計 " + fmtAmt(totCount) + "本");
+        if (okW) parts.push(fmtG(totWeight) + "g");
+        if (okP) parts.push("商品価格 " + fmtAmt(totPrice) +
+                            (curLabel() ? " " + curLabel() : ""));
+        sumEl.textContent = parts.join(" ・ ");
+      } else {
+        head.style.display = "none";
+        title.textContent = "追加した葉巻";
+        sumEl.textContent = "";
+      }
+    }
+    if (emptyEl) emptyEl.style.display = listItems.length ? "none" : "";
     if (note) {
       if (listItems.length) {
         note.style.display = "";
-        note.textContent = "計算リストに " + listItems.length +
-          " 件あります。「計算する」ではリストの合算で計算します（送料・保険料・為替・関税率・判定日はフォームの値を使います）。リストを空にすると、フォームの単品計算に戻ります。価格比較は単品計算のときだけ表示されます。";
+        note.textContent = "「計算する」では上のリストの合算で計算します（送料・保険料・為替・関税率・判定日はフォームの値を使います）。リストを空にすると、フォームの単品計算に戻ります。価格比較は単品計算のときだけ表示されます。";
       } else {
         note.style.display = "none";
         note.textContent = "";
@@ -1458,18 +1579,44 @@ var F1CalcUI = (function () {
     }
   }
 
-  /* v58: 現在のフォーム内容を計算リストへ追加 */
+  /* v71: 追加ボタンの状態ヒント（不足項目・追加完了をボタンのすぐ下に出す） */
+  var addHintSticky = false;
+  function setAddHint(mode, text, sticky) {
+    var h = $("cf-add-hint");
+    if (!h) return;
+    h.className = "cf-add-hint" + (mode ? " " + mode : "");
+    h.textContent = text;
+    addHintSticky = !!sticky;
+  }
+  function refreshAddState() {
+    var btnEl = $("cf-add-list");
+    var ready = !!($("cf-price") && $("cf-price").value.trim() &&
+                   $("cf-count") && $("cf-count").value.trim() &&
+                   $("cf-weight") && $("cf-weight").value.trim());
+    if (btnEl) btnEl.classList.toggle("notready", !ready);
+    if (!addHintSticky) {
+      setAddHint("", ready
+        ? "押すと、この内容が下の「追加した葉巻」に加わります。"
+        : "価格・本数・重さを入れてから押してください。銘柄は上のリストで選ぶと、重さが自動で入ります。",
+        false);
+    }
+  }
+
+  /* v58: 現在のフォーム内容を計算リストへ追加（v71: ヒント連動・追加直後の
+   * ハイライトとスクロールで、追加されたことが目で追えるようにした） */
   function addToList() {
     var errEl = $("cf-err");
     var f = gatherForm();
     if (!f.price || !f.count || !f.weight) {
       errEl.style.display = "block";
       errEl.textContent = "価格・本数・重さを入れてから、計算リストに追加してください。";
+      setAddHint("err", "まだ追加できません：" + errEl.textContent, true);
       return;
     }
     if (listItems.length >= 98) {
       errEl.style.display = "block";
       errEl.textContent = "銘柄は98件までです（本サイト版と同じ上限）。";
+      setAddHint("err", errEl.textContent, true);
       return;
     }
     errEl.style.display = "none";
@@ -1480,7 +1627,10 @@ var F1CalcUI = (function () {
       altWeightStr: sel ? sel.altWeightStr : null,
       useAlt: !!(sel && sel.altWeightStr && f.useAlt)
     });
+    justAddedIdx = listItems.length - 1;
     renderList();
+    setAddHint("done", "追加しました（" + listItems.length +
+      "件目）。別の銘柄は、上のリストで選び直して同じ手順で追加できます。全部入れたら「計算する」を押してください。", true);
   }
 
   function calc() {
@@ -1516,6 +1666,8 @@ var F1CalcUI = (function () {
       if (typeof render === "function") render();
     }
     if (manualBasis && this.value === "") manualBasis = null;
+    addHintSticky = false;
+    refreshAddState();
   });
 
   /* ===== v58 統合分の配線 ===== */
@@ -1570,13 +1722,23 @@ var F1CalcUI = (function () {
     manualBasis = "estimate";
     updateUseAltRow();
     updateSelDisplay();
+    refreshAddState();
     if (typeof render === "function") render();
     outEl.textContent = "推定重量は約 " + (r.w01 / 10).toFixed(1) +
       " g/本 です（寸法からの推定値で、実際の重量とは異なる場合があります）。重さ欄に入れ、根拠を「推定」にしました。推定の幅による税額レンジも結果に表示します。実測できる場合は実測値を入れてください。";
   });
   var addListBtn = $("cf-add-list");
   if (addListBtn) addListBtn.addEventListener("click", addToList);
+  ["cf-price", "cf-count"].forEach(function (id) {
+    var el = $(id);
+    if (el) el.addEventListener("input", function () {
+      addHintSticky = false;
+      refreshAddState();
+    });
+  });
+  if (curEl2) curEl2.addEventListener("change", renderList);
   renderList();
+  refreshAddState();
   return api;
 })();
 </script>
