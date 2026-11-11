@@ -29,6 +29,13 @@ img.stack { width: 100%; }
 .roletable.t-gone th:nth-child(2) { width: 14%; }
 .roletable.t-gone th:nth-child(3) { width: 16%; }
 .roletable.t-gone th:nth-child(4) { width: 40%; }
+/* 表：自動レイアウトでは日本語の銘柄名の列（どこでも改行でき最小幅が極小）が、改行禁止の見出し行や数値・年表記の列の最小幅に潰れて読めなくなるため、銘柄名の列に最小幅150pxを確保し、見出し行の改行を許可する（2026-11-11） */
+.roletable td.brand { min-width: 150px; }
+.roletable th { white-space: normal; }
+/* 裏話ボックス統一仕様（2026-11-09確定）：全面帯見出し（バーガンディ地・金文字・金の◆マーカー）＋帯の下の金の太罫＋6px二重罫＋一段濃いクリーム地。検証ボックスなど性質の異なるボックスは対象外（2026-11-11） */
+.urabanashi.deco { border: 6px double var(--burgundy); background: #f8ecd2; padding: 0 18px 14px; }
+.urabanashi.deco .ut { background: var(--burgundy); color: var(--gold-light); border-bottom: 3px solid var(--gold); margin: 0 -18px 10px; padding: 9px 18px 8px; }
+.urabanashi.deco .ut::before { content: "◆ "; color: var(--gold); }
 </style>
 </head><body>
 <header class="site-header">
@@ -86,7 +93,7 @@ img.stack { width: 100%; }
 <p>ここに、調査で判明した混線のドラマがあります。「サン・ルイ・レイのプロミネンテ」と呼ばれる葉巻には、実は<strong>二つの別物</strong>が混ざっていたのです。</p>
 <p>一つは、上のブランドの先行銘柄<span class="nm-cg">セイント・ルイ・レイ プロミネンテ</span>（194mm × RG49）。1988年に登場し、1998年に廃盤。当初は商品名すらない特別注文品で、後にビトラ名そのまま「プロミネンテ」と名付けられたとされます。バンドなし、50本スライドリッド箱入りでした。</p>
 <p>もう一つは、綴りの違う別ブランド<span class="nm-mk">サン・ルイ・レイ（San Luis Rey）</span>の<span class="nm-cg">ダブルコロナ</span>（194mm × RG49、工場名プロミネンテス）。こちらは1980年代後半、Saint Luis Rey が英国専売だったことへの対抗として、ドイツ市場向けに作られた姉妹ブランドの銘柄です。Min Ron Nee 自身が「おそらく1989年に単一バッチだけが生産され、公式には2000年に終了した。私自身、見たことがない」と記すほどの稀少品で、<strong>「San Luis Rey Prominente」という銘柄は存在しません</strong>。</p>
-<div class="urabanashi"><div class="ut">裏話 ― 「最も稀少なダブルコロナ」はどっちだ</div>
+<div class="urabanashi deco"><div class="ut">裏話 ― 「最も稀少なダブルコロナ」はどっちだ</div>
 <p><span class="nm-sh">Cgars</span> の Cigar Advisor はかつて「革命後時代で最も稀少なダブルコロナは San Luis Rey Double Coronas」と答えましたが、その後の検証では、この答え自体が二つの銘柄の混線の上に成り立っていたことが分かりました。Min Ron Nee の見解では、より稀少なのは San 側のダブルコロナ（1989年の単一バッチ説）です。同じ「サン・ルイ・レイ」、同じ194mm。綴り一文字の違いが、稀少性の序列まで入れ替えてしまう――記録の薄い巨人たちの世界では、こうした混線が今も静かに続いています。（本編の事実関係は上記の通り分離して記載しました）</p></div>
 <h4>■ 栽培家の名を冠した旗艦の死 ― <span class="nb">ドン・アレハンドロ</span></h4>
 <p><span class="nm-mk">ベガス・ロバイナ</span>は、伝説の栽培農家アレハンドロ・ロバイナ本人の名を冠したブランドです。存命中に自分の名のブランドを持った、唯一の栽培家でした（1997年創設）。ロバイナ家は1845年から続く栽培農家。その「家長」の名を冠した旗艦が、プロミネンテスの<span class="nm-cg">ドン・アレハンドロ</span>（194mm × RG49、25本ドレスボックス）でした。</p>
@@ -136,12 +143,12 @@ img.stack { width: 100%; }
 <img src="img/havahavana-maravillas-book.jpg">
 <div class="caption">写真：<span class="nm-sh">Hava Havana</span> — <span class="nm-cg">マラビージャス</span>の Colección Habanos 2015 復刻ブック。原版そのものではなく、2015年のコレクション版の外観です</div>
 <img src="img/illus-monterrey.jpg">
-<div class="caption"><span class="illus">【イラスト再現】</span><span class="nm-cg">オヨ モンテレイ</span>原版（233mm × RG55）の再現画。箔包み＋個別スライド箱という CCW 記載の包装仕様をもとに描きました（写真ではありません）</div>
+<div class="caption"><span class="illus">【AI生成イメージ】</span><span class="nm-cg">オヨ モンテレイ</span>原版（233mm × RG55）のイメージ。箔包み＋個別スライド箱という CCW 記載の包装仕様をもとにAIで生成したイメージです。実物を再現したものではありません</div>
 <img src="img/illus-dulcineas.jpg">
-<div class="caption"><span class="illus">【イラスト再現】</span><span class="nm-cg">サンチョ・パンサ ドゥルシネアス</span>（232mm × RG47）の再現画。仕様資料をもとに描きました（写真ではありません）</div>
+<div class="caption"><span class="illus">【AI生成イメージ】</span><span class="nm-cg">サンチョ・パンサ ドゥルシネアス</span>（232mm × RG47）のイメージ。仕様資料をもとにAIで生成したイメージです。実物を再現したものではありません</div>
 <p>三兄弟の掉尾は、<span class="nm-mk">パンチ</span>の第2世代です。<span class="nm-cg">ディアデマス・エクストラ</span>は1980年に第1世代（233×55）が終わると、やや長く細い第2世代（235mm × RG47）に置き換えられ、それも1988年に廃盤となりました。</p>
 <img src="img/illus-diademas-extra.jpg">
-<div class="caption"><span class="illus">【イラスト再現】</span><span class="nm-cg">パンチ ディアデマス・エクストラ</span>原版（第1世代）の再現画。原版2世代の写真は未発見のため、ディアデマス共通仕様（金フォイル包み）をもとに描きました（写真ではありません）</div>
+<div class="caption"><span class="illus">【AI生成イメージ】</span><span class="nm-cg">パンチ ディアデマス・エクストラ</span>原版（第1世代）のイメージ。原版2世代の写真は未発見のため、ディアデマス共通仕様（金フォイル包み）をもとにAIで生成したイメージです。実物を再現したものではありません</div>
 <h4>■ 一度だけ蘇った巨人 ― <span class="nb">ディアデマス・エクストラの復活</span></h4>
 <p>そして三兄弟には、劇的な後日談があります。<span class="nm-cg">パンチ ディアデマス・エクストラ</span>は2008年、イタリア向けの地域限定品（エディシオン・レヒオナル）として、第1世代の姿（233mm × RG55）で<strong>一度だけ蘇った</strong>のです。ディストリビューターは Diadema S.p.A.、1,020箱×10本。箔の調達トラブルで実発売は2009年末から2010年初頭にずれ込みました。地域限定品史上最大の一本であり、「消えた巨人が一度だけ蘇った」事例として、六章のレヒオナル論へ橋を架ける存在です。</p>
 <img src="img/egm-diademas-extra-re2008.jpg">
@@ -183,8 +190,8 @@ img.stack { width: 100%; }
 <p>答えは、<span class="nm-cg">パルタガス ファブロソス</span>（237mm × RG50）でした。<span class="nm-cg">ルシタニアス</span>（194mm）を43mmも上回る、<span class="nm-mk">パルタガス</span>最長の巨人。両端の窄まるジャイアント・ペルフェクトです。発売は1960年以前、<strong>廃盤は1970年</strong>。工場名（ビトラ・デ・ガレラ）は「グラン・コロナス・パルタガス・ラルガス」といいます。</p>
 <p>この同定には、紆余曲折がありました。調査の初期段階で Perelman の事典の工場名一覧から拾った「パルタガス・ラルガス 237×50（生産終了）」という一行が、別の何かではなく、まさにこの<span class="nm-cg">ファブロソス</span>の工場名だったのです。商品名と工場名の関係で同一物と確定しました。そして決め手は、専門データベース Cuban Cigar Website の「Wanted List（写真募集中リスト）」でした。そこには商品名・発売・廃盤年が明記される一方で、<strong>CCW 自身がこの銘柄の写真を所持していない</strong>のです。専門データベースですら実物の姿を追えない――それほど現存確認の乏しい巨人でした。<span class="nm-mk">House of Grauer</span> はこれを「<span class="nm-cg">モンテクリスト A</span> を超えうる唯一の葉巻」と呼び、クリスティーズでは単品1本が予想100〜200ポンドに対し605ポンドで落札された記録が残ります。</p>
 <img src="img/illus-fabulosos.jpg">
-<div class="caption"><span class="illus">【イラスト再現】</span><span class="nm-cg">パルタガス ファブロソス</span>（237mm × RG50）の再現画。実物の写真は専門データベースも所持しておらず未発見のため、Perelman 事典の「Perfecto Fabuloso 9¼×50」の記述と工場名をもとにイラストで再現しました（写真ではありません）</div>
-<div class="urabanashi"><div class="ut">裏話 ― 「ファブロソス」という名の系譜</div>
+<div class="caption"><span class="illus">【AI生成イメージ】</span><span class="nm-cg">パルタガス ファブロソス</span>（237mm × RG50）のイメージ。実物の写真は専門データベースも所持しておらず未発見のため、Perelman 事典の「Perfecto Fabuloso 9¼×50」の記述と工場名をもとにAIで生成したイメージです。実物を再現したものではありません</div>
+<div class="urabanashi deco"><div class="ut">裏話 ― 「ファブロソス」という名の系譜</div>
 <p>「ファブロソス（素晴らしき者）」という名は、歴史上、少なくとも5度使われました。①本章の<span class="nm-cg">パルタガス ファブロソス</span>（237×50、–1970年）。②<span class="nm-mk">ロメオ・イ・フリエタ</span>の第1世代（190×47、1960年代廃盤）。③同・第2世代（235×47、1985年頃–1988年頃）。④2004年の Colección Habanos「<span class="nm-cg">ファブロソス No.6</span>」（180mm × RG52、書籍型20本箱）。<span class="nm-sh">LCDH Nyon</span> に 7,900スイスフラン（約¥1,526,000）の掲載がありますが在庫切れです。⑤2016年の Colección Habanos XVI「<span class="nm-cg">ファブロソス No.2</span>」（190mm × RG52、世界2,000箱）。<span class="nm-sh">TopCubans</span> に 11,044ドル（約¥1,746,000）で掲載されています（在庫状態は要再確認）。販売ページ自身が「歴史的な名前『ファブロソス』を冠したビトラ」と明記する通り、この名は巨人の記憶を呼び戻すための名として、繰り返し使われてきたのです。長さ自体は巨人級でなくなっても、名の系譜は生きています。</p></div>
 <p>編集長の記憶の答えは、こうして二つに分かれました。銘柄としての「すごい長いパルタガス」は<span class="nm-cg">ファブロソス</span>。そして「すごい長い葉巻を巻く男」の記憶は、九章の人物へ続きます。</p>
 <h4>◆ 六、なぜ消えたのか ― <span class="nb">削除リストの波と、巨人たちの移住</span></h4>
@@ -229,9 +236,9 @@ img.stack { width: 100%; }
 <tr><td class="brand">ディプロマティコス レヘンダリオ</td><td>178×47</td><td>イタリア</td><td>2023／2025</td><td>番号付き10,000箱×10本</td></tr>
 </tbody></table>
 <p>なお、参考枠として160〜177mmかつRG52以上の太物が12銘柄あります（<span class="nm-cg">カピトリオ</span>、<span class="nm-cg">リベルタドーレス</span>、<span class="nm-cg">エミネンテス</span>等）。また<span class="nm-mk">クアバ</span>唯一の ER は<span class="nm-cg">クアバ APAC</span>（2020年組／2021年発売、156×52のペルフェクト、8,888箱×10本）で、四章のクアバ節への接続として記録しておきます。</p>
-<div class="notebox"><div class="nt">未確認ボックス ― リストにだけ存在したかもしれない巨人</div>
-<p><span class="nm-mk">シフエンテス</span>の<span class="nm-cg">スーペル・エストゥペンドス</span>は、公称スペック（235mm × RG47、工場名グラン・コロナ）こそ正しいものの、扱いに注意が要る一本です。1975年の「提案（プロポーズド）」銘柄とされ、Cuban Cigar Website は「実際の生産は一度も確認されていない」と明記し、Min Ron Nee は「紙の上にだけ存在した銘柄の一つ」と推測しました。一方で現物は複数確認でき、Halfwheel は二次市場で1本85ドルで購入して実喫レビュー（所要約4時間、84点）を残し、実測は公称235mmではなく約229mm（9インチ）でした。本編の正規メンバーには入れず、「リストにだけ存在したかもしれない巨人」として、ここに分離して記録します。</p>
-<p>同ブランドの<span class="nm-cg">アルテサス・レアーレス</span>は別枠の正規素材です。公式184mm × RG57のサロモネス型で、革命後の通常生産でこの形状が作られた唯一の例と位置づけられます。ただし実測には食い違いがあり、Min Ron Nee 所蔵箱の実物は174〜179mm、1975年公式カタログ掲載個体は181mmでした。両記した上で、所蔵実物の計量に基づく実測側が<strong>有力かも？</strong>しれません（カタログ個体の181mmは両者の中間に位置します）。実生産の終了は1975年とみられます。</p></div>
+<div class="spot-head"><div class="tag">SPOT</div><h4>リストにだけ存在した巨人 ― シフエンテス スーペル・エストゥペンドス</h4></div>
+<p><span class="nm-mk">シフエンテス</span>の<span class="nm-cg">スーペル・エストゥペンドス</span>は、実在が確認できておらず、記録も曖昧な一本です。公称スペック（235mm × RG47、工場名グラン・コロナ）こそ正しいものの、1975年の「提案（プロポーズド）」銘柄とされ、Cuban Cigar Website は「実際の生産は一度も確認されていない」と明記し、Min Ron Nee は「紙の上にだけ存在した銘柄の一つ」と推測しました。一方で現物は複数確認でき、Halfwheel は二次市場で1本85ドルで購入して実喫レビュー（所要約4時間、84点）を残し、実測は公称235mmではなく約229mm（9インチ）でした。</p>
+<p>同じ<span class="nm-mk">シフエンテス</span>の<span class="nm-cg">アルテサス・レアーレス</span>は、公式184mm × RG57のサロモネス型で、革命後の通常生産でこの形状が作られた唯一の例と位置づけられます。ただし実測には食い違いがあり、Min Ron Nee 所蔵箱の実物は174〜179mm、1975年公式カタログ掲載個体は181mmでした。両記した上で、所蔵実物の計量に基づく実測側が<strong>有力かも？</strong>しれません（カタログ個体の181mmは両者の中間に位置します）。実生産の終了は1975年とみられます。</p>
 <img src="img/cigarsconnect-dunhill-estupendos.jpg" class="narrow">
 <div class="caption">写真：Cigars-Connect — <span class="nm-mk">ダンヒル</span>の<span class="nm-cg">エストゥペンドス</span>（チューボ10本箱）。ハバナ・クラブとは別ビトラですが、ブランドごと消えた外資の時代を伝える参考図版です</div>
 <p>外資ブランドの消滅も、この章の底流です。<span class="nm-mk">ダンヒル</span>のキューバ生産は1991年に終わり、<span class="nm-mk">ダビドフ</span>も1989年発表から1991年に撤退を完了しました。四章の<span class="nm-cg">ハバナ・クラブ</span>と<span class="nm-cg">80 アニベルサリオ</span>は、その外資の時代の最後の巨人たちだったのです。</p>
@@ -256,7 +263,7 @@ img.stack { width: 100%; }
 <h4>■ 市場の生んだ「太さ」の肥大</h4>
 <p>もう一つの運動は、太さでした。起点はレイエス家の大型サイズ群です。<span class="nm-mk">キューバ・アリアドス</span>の "The General" がサイズの系譜として先行し、名前とブランドを変えた<span class="nm-mk">プロス・インディオス</span>の<span class="nm-cg">ザ・チーフ</span>（18インチ × RG66、457mm）が1995年末以降に登場しました（「1987年」「1994年」という具体年は裏付けがなく、ここでは採用しません）。2000年代に実際に小売販売され、実吸レビューも残る市販品でしたが、ラッパー葉を2枚のみで巻くこだわりゆえ大きな葉が揃わず、頻繁には作られなかった「看板を掲げた間欠・小ロット生産」が実態です。レイエス Sr. は2012年に死去し、商標は2021年に<span class="nm-mk">オリバ</span>が取得。現在は過去製品（廃番）と判定します。太リング時代の起点としてのレイエスの位置づけは、クリスチャン・エイロアの証言（「太リング時代は彼から始まった」）で支持されます。</p>
 <img src="img/illus-chief.jpg">
-<div class="caption"><span class="illus">【イラスト再現】</span><span class="nm-cg">プロス・インディオス ザ・チーフ</span>（18インチ × RG66）の再現画。確証のある実物写真が未発見のため（コミュニティ写真は個体の同定が取れませんでした）、寸法資料をもとにイラストで再現しました（写真ではありません）</div>
+<div class="caption"><span class="illus">【AI生成イメージ】</span><span class="nm-cg">プロス・インディオス ザ・チーフ</span>（18インチ × RG66）のイメージ。確証のある実物写真が未発見のため（コミュニティ写真は個体の同定が取れませんでした）、寸法資料をもとにAIで生成したイメージです。実物を再現したものではありません</div>
 <p>転機はペレス・カリーヨでした。1997/98年の<span class="nm-cg">ラ・グロリア・クバーナ セリエR</span>で太リングを全国区にし、2000年には RG60 を提案。<span class="nm-mk">Cigar Aficionado</span> は彼を「太リングのゴッドファーザー」と呼びます。2012年12月、同誌がランキングに "Grandes" 部門を新設したことは、6×60 が「定番の格」になった制度上の節目でした。その後は加速します。<span class="nm-mk">E.P.カリーヨ</span> <span class="nm-cg">INCH No.70</span>（7×70）、<span class="nm-mk">アサイラム</span> <span class="nm-cg">880</span>（8×80）、<span class="nm-mk">JFR ルナティック</span> <span class="nm-cg">"The Size That Shall Not Be Named"</span>（10インチ × RG100、2023年）。<span class="nm-cg">アサイラム April Fools' 9×90</span>（229mm × RG90）に至っては、2021年の SNS のエイプリルフール冗談に小売店が本気で注文し、商品化されたものです。SNS映えが巨人を生んだ、最も直接的な実例でした。</p>
 <img src="img/neptune-asylum-aprilfools-9x90.jpg" class="stack">
 <div class="caption">写真：<span class="nm-sh">Neptune Cigar</span> — <span class="nm-cg">アサイラム April Fools' 2026 Year of the Horse</span>（9×90）。冗談から生まれ、毎年の年次品になりました</div>
@@ -302,14 +309,14 @@ img.stack { width: 100%; }
 <img src="img/cueto-cnd.jpg" class="narrow">
 <div class="caption">写真：Caribbean News Digital — FITCuba 2014 で長いカスタムロールを手にするクエト</div>
 <p>普段のクエトは、記録用の怪物ばかりを巻いているわけではありません。ラ・トリアダで売られる彼の得意なカスタムロールは、<span class="nm-cg">サロモン</span>、<span class="nm-cg">プレシデンテス</span>、<span class="nm-cg">マノリン</span>――いずれも本特集で辿ってきた、巨人たちのフォーマットの末裔です。2024年の国際集会「El Legado de Cueto」では、全長約2.2mのダブル・フィグラードがオークションに出ました。キューバの最長記録は、国家のリストではなく、一人のトルセドールの「技の記録」として更新され続けてきたのです。七章のアメリカ側の最大（売買が成立した商品）と並べると、対比は鮮やかです。</p>
-<div class="urabanashi"><div class="ut">裏話 ― クエトの「次は100m」宣言（未確認）</div>
+<div class="urabanashi deco"><div class="ut">裏話 ― クエトの「次は100m」宣言（未確認）</div>
 <p>クエトは「生きている限り、最長はキューバにある」と語り、次の目標は100mだと伝えられます（AZERTAC 報道ベースの伝聞として、格を落として紹介します）。80歳を超えたトルセドールの言葉が冗談か本気かは、誰にも分かりません。ただ、11mから90mまで自らの記録を塗り替えてきた男の言葉です。笑って済ませるには、実績が重すぎます。</p></div>
 <div class="spot-head"><div class="tag">SIDE STORIES</div><h4>裏話集 ― <span class="nb">格を落として楽しむ三つの話</span></h4></div>
-<div class="urabanashi"><div class="ut">裏話1 ― シナトラとロンズデール（伝聞）</div>
+<div class="urabanashi deco"><div class="ut">裏話1 ― シナトラとロンズデール（伝聞）</div>
 <p>フランク・シナトラは、<span class="nm-mk">サン・ルイ・レイ</span>のロンズデールの大ファンだったと伝えられます（Quill &amp; Pad が「そう主張されている」と格を落として紹介する逸話です）。三章のカルト的人気の遠い源流として、噂の格で置いておきます。</p></div>
-<div class="urabanashi"><div class="ut">裏話2 ― シャトー・ディケムの死（逸話）</div>
+<div class="urabanashi deco"><div class="ut">裏話2 ― シャトー・ディケムの死（逸話）</div>
 <p><span class="nm-mk">ダビドフ</span>のキューバ時代の銘柄「シャトー・ディケム」は、ワイナリー側が名称の保護を求めたため、1982年に生産終了を余儀なくされたと <span class="nm-sh">Cgars</span> の資料は語ります。「非・葉巻業界の組織に殺された唯一の葉巻」という触れ込みですが、一次裏取りは弱い話です。面白さの分だけ、格を落としてどうぞ。</p></div>
-<div class="urabanashi"><div class="ut">裏話3 ― 「廃盤かどうか、誰にも分からない」問題</div>
+<div class="urabanashi deco"><div class="ut">裏話3 ― 「廃盤かどうか、誰にも分からない」問題</div>
 <p>三章の<span class="nm-cg">サン・ルイ・レイ ダブルコロナ</span>には、2013年の削除リスト掲載後も「2010年にもバッチが出た形跡がある」という周辺の混乱が残ります。愛好家の間では「消えたはずのものが突然戻るのがキューバ」という笑い話になっているそうです。削除リストへの掲載は事実として本編に書きましたが、その運用の実態は、ハバナの外からは完全には見えません。これもまた、記録の薄い巨人たちの世界の現実です。</p></div>
 
 <h4>◆ 十、日本で買うなら ― <span class="nb">巨人の値段</span></h4>
@@ -343,7 +350,7 @@ img.stack { width: 100%; }
 <h4>◆ 結び ― <span class="nb">巨人はどこへ行ったのか</span></h4>
 <p>辿ってきた系譜を、一行ずつ締めます。キューバの巨人は、革命と国有化の第一波をくぐり、2010年・2013年・2017年の削除リストの波で通常カタログから消えました。しかし絶滅したのではありません。限定品の「特別な姿」として蘇り、地域限定品へ移住し、オークション市場で「愛でる巨人」として生きています。大西洋の向こうでは、亡命世代が「長さ」を家宝として運び、市場競争が「太さ」を RG134 まで肥大させました。マニラでは、キューバ標準より21mm長いダブルコロナが、静かに現行登録に残り続けています。そしてハバナの片隅では、80歳を超えたトルセドールが、いまも世界最長の記録を自らの手で守っています。</p>
 <p>最後に、冒頭のお断りをもう一度。この系譜は網羅ではありません。専門データベースですら写真を持たない<span class="nm-cg">ファブロソス</span>のような巨人が実在した以上、記録に残らないハウスロールや、無名のまま絶滅したブランドの長物は、今もどこかに眠っている可能性があります。もし読者の皆さんのヒュミドールの奥に、名もなき巨人が眠っていたら――それは、この系譜の続きです。編集部は、その報告を待っています。</p>
-<div class="footer">編集長の深掘りシリーズ 第6弾「幻の巨人たち ― 消えた長物たちの系譜」／ CigarScope Japan 編集部（編集人：仔犬）。価格・在庫は2026年11月10日時点の巡回データに基づきます（$1＝¥158、£1＝¥212、CHF1＝約¥193、€1＝約¥178）。裏付けの格付け：本特集の銘柄データは専門データベース（Cuban Cigar Website、Perelman『Pocket Cyclopedia of Havana Cigars』、Min Ron Nee 事典）、専門誌（Halfwheel、Cigar Aficionado、Cigar Journal、CigarsLover Magazine、Quill &amp; Pad）、オークション記録（Christie's、Bond Roberts、Online Cigar Auctions ほか）で裏取りした範囲に基づきます。寸法に食い違いがあるものは両記し、実物の裏付けがある側に「有力かも？」と添え、断定はしていません。イラスト再現と明記した図版は、写真が未発見の銘柄について仕様資料をもとに描いた再現画であり、実物の写真ではありません。写真クレジットは各キャプションに記載しました。</div>
+<div class="footer">編集長の深掘りシリーズ 第6弾「幻の巨人たち ― 消えた長物たちの系譜」／ CigarScope Japan 編集部（編集人：仔犬）。価格・在庫は2026年11月10日時点の巡回データに基づきます（$1＝¥158、£1＝¥212、CHF1＝約¥193、€1＝約¥178）。裏付けの格付け：本特集の銘柄データは専門データベース（Cuban Cigar Website、Perelman『Pocket Cyclopedia of Havana Cigars』、Min Ron Nee 事典）、専門誌（Halfwheel、Cigar Aficionado、Cigar Journal、CigarsLover Magazine、Quill &amp; Pad）、オークション記録（Christie's、Bond Roberts、Online Cigar Auctions ほか）で裏取りした範囲に基づきます。寸法に食い違いがあるものは両記し、実物の裏付けがある側に「有力かも？」と添え、断定はしていません。AI生成イメージと明記した図版は、写真が未発見の銘柄について仕様資料をもとにAIで生成したイメージであり、実物を再現したものではありません。写真クレジットは各キャプションに記載しました。</div>
 
 </main>
 <footer class="site-footer">
