@@ -71,9 +71,27 @@
   .cf-sel.has-sel { background: #fdf3f3; border: 1px solid #d9a3a3; }
   .cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 10px; }
   .cf-grid label { display: block; font-size: 12px; color: #4a4234; margin: 0 0 2px; }
-  .cf-grid input[type="text"], .cf-grid select { width: 100%; height: 38px; font-size: 15px;
+  .cf-grid input[type="text"], .cf-grid select, .cf-grid input[type="date"] { width: 100%; height: 38px; font-size: 15px;
             padding: 6px 8px; border: 1px solid #c9b98f; border-radius: 5px;
             background: #fff; font-family: inherit; }
+  .cf-est { border: 1px solid #e3d9c8; border-radius: 5px; padding: 7px 9px;
+            margin: 9px 0 0; background: #fff; }
+  .cf-est summary { font-size: 13px; font-weight: bold; color: #4a2f1d;
+            cursor: pointer; }
+  .cf-sub-btn { width: 100%; height: 38px; margin: 8px 0 0; font-size: 14px;
+            font-weight: bold; color: #4a2f1d; background: #fbf6ea;
+            border: 1px solid #b08d3c; border-radius: 5px; cursor: pointer;
+            font-family: inherit; }
+  .cf-sub-btn:active { background: #f3ead2; }
+  .cf-list-block { margin: 9px 0 0; }
+  .cf-list-row { display: flex; align-items: center; gap: 7px; font-size: 13px;
+            background: #fbf6ea; border: 1px solid #e3d9c8; border-radius: 4px;
+            padding: 5px 8px; margin: 5px 0 0; line-height: 1.5; }
+  .cf-list-del { margin-left: auto; flex: none; font-size: 12px; padding: 3px 9px;
+            border: 1px solid #c9b98f; background: #fff; border-radius: 4px;
+            cursor: pointer; font-family: inherit; }
+  .cf-list-note { font-size: 12.5px; color: #4a4234; margin: 6px 0 0;
+            line-height: 1.55; }
   .cf-wide { grid-column: 1 / -1; }
   .cf-sep { display: flex; align-items: center; gap: 6px; font-size: 13px;
             min-height: 38px; cursor: pointer; }
@@ -179,7 +197,7 @@
 <main class="wrap">
   <h1>銘柄から税額計算（試作）</h1>
   <p class="lead">銘柄を選ぶと重さが自動で入り、そのまま税額まで計算できます。</p>
-  <div class="proto-banner">試作版です。正式公開前のテスト用ページです。</div>
+  <div class="proto-banner">試作版（v58：本サイト版の機能を統合した統合試験版）です。正式公開前のテスト用ページです。</div>
 
   <div class="toolbar">
     <div class="toolbar-toggles">
@@ -229,14 +247,36 @@
     <h2>税額を計算する（試作）</h2>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
+      <div class="cf-wide"><label for="cf-method">輸送・課税の方式</label><select id="cf-method"><option value="postal-assessed">国際郵便・賦課課税（課税価格20万円以下）</option><option value="postal-declared">国際郵便・申告納税（課税価格20万円超）</option><option value="courier">国際宅配便・一般貨物</option></select><p class="fx-note" id="cf-method-note"></p></div>
+      <div><label for="cf-date">判定日（申告・提示の予定日）</label><input type="date" id="cf-date"></div>
+      <div><label for="cf-eligible">課税価格の60％特例</label><select id="cf-eligible"><option value="yes">個人使用・小売購入（特例を適用）</option><option value="no">対象外（業務用など・原則方式）</option></select></div>
       <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
-      <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option></select></div>
+      <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option><option value="JPY">JPY（日本円）</option></select></div>
       <div><label for="cf-rate">為替レート（円／1通貨）</label><input type="text" id="cf-rate" inputmode="decimal" placeholder="例：158"><p class="fx-note"><span id="fx-note-text">為替レートを取得中…</span><button type="button" class="fx-reload" id="fx-reload">再取得</button></p></div>
       <div><label for="cf-ship">送料（外貨）</label><input type="text" id="cf-ship" inputmode="decimal" placeholder="例：30"></div>
+      <div><label for="cf-ins">保険料（外貨）</label><input type="text" id="cf-ins" inputmode="decimal" placeholder="例：0"></div>
       <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
       <div><label for="cf-weight">1本の重さ（g）</label><input type="text" id="cf-weight" inputmode="decimal" placeholder="銘柄選択で自動入力"></div>
-      <div class="cf-wide"><label for="cf-duty">関税率</label><select id="cf-duty"><option value="16">協定（WTO）16%</option><option value="2.9">CPTPP・EPA等 2.9%</option><option value="20">基本 20%</option></select></div>
-      <label class="cf-sep cf-wide"><input type="checkbox" id="cf-sep">送料は商品価格と区別できる（インボイスで分離表示される）</label>
+      <div><label for="cf-range">推定の幅（±％）</label><input type="text" id="cf-range" inputmode="numeric" placeholder="空欄なら15"></div>
+      <div class="cf-wide"><label for="cf-duty">関税率</label><select id="cf-duty"><option value="16">協定（WTO）16%</option><option value="2.9">CPTPP・EPA等 2.9%</option><option value="20">基本 20%</option><option value="manual">手入力（下の欄に税率）</option></select><p class="fx-note">関税率は発送国ではなく原産国で判定します。2.9%は原産地規則と原産地証明の条件を満たす場合だけ使えます（満たさない場合は16%）。スイス原産の税率は実行関税率表だけでは一意に決まらないため、税関で確認した税率を手入力してください。</p></div>
+      <div class="cf-wide" id="cf-duty-manual-row" style="display: none;"><label for="cf-duty-manual">関税率を手入力（%）</label><input type="text" id="cf-duty-manual" inputmode="decimal" placeholder="例：16"></div>
+      <label class="cf-sep cf-wide"><input type="checkbox" id="cf-sep">送料・保険料は商品価格と区別できる（インボイスで分離表示される）</label>
+      <label class="cf-sep cf-wide" id="cf-usealt-row" style="display: none;"><input type="checkbox" id="cf-usealt"><span id="cf-usealt-label">候補重量を採用する</span></label>
+    </div>
+    <details class="cf-est">
+      <summary>重さが分からないとき：長さと太さから推定する</summary>
+      <div class="cf-grid" style="margin-top: 7px;">
+        <div><label for="cf-est-len">長さ（mm）</label><input type="text" id="cf-est-len" inputmode="decimal" placeholder="例：127"></div>
+        <div><label for="cf-est-rg">リングゲージ（RG）</label><input type="text" id="cf-est-rg" inputmode="numeric" placeholder="例：50"></div>
+        <div><label for="cf-est-shape">形状</label><select id="cf-est-shape"><option value="parejo">パレホ（まっすぐ）</option><option value="figurado">フィグラド（先細り）</option></select></div>
+      </div>
+      <button type="button" class="cf-sub-btn" id="cf-est-btn">推定重量を重さ欄に入れる</button>
+      <p class="fx-note" id="cf-est-out">推定式：長さ（in）× RG² × 0.00095 × 形状係数（パレホ1.0／フィグラド0.85）。推定は寸法からの目安で、実測値ではありません。実測できる場合は実測を優先してください。</p>
+    </details>
+    <div class="cf-list-block">
+      <button type="button" class="cf-sub-btn" id="cf-add-list">＋ この内容を計算リストに追加（複数銘柄の合算）</button>
+      <div id="cf-list"></div>
+      <p class="cf-list-note" id="cf-list-note" style="display: none;"></p>
     </div>
     <button type="button" id="cf-btn">計算する</button>
     <p class="cf-err" id="cf-err"></p>
@@ -246,7 +286,7 @@
   <footer>
     <p>データ出典：キューバ工場ビトラ＝Cuban Cigar Website（Habanos S.A. 公式重量リストの掲載、確認日 2026-11-10）。「推計（CCW）」は同サイトが計算で補完した値です。製品公表＝Eneas Magazine 製品スペック（habanos.com 出典明記）ほか。実測＝NASEM『Premium Cigars』Appendix F（2021年・米国市場、全58サブブランドの実測を収録）。推定＝長さ×太さから式で計算した目安で、実測値ではありません。</p>
     <p>日本の定価データ：財務省「製造たばこの小売定価の認可」公表資料に基づく認可小売定価リスト（葉巻 2,059品目、2026-11-10 取得）。価格は販売単位あたりの税込価格で、価格設定日とセットで表示しています。</p>
-    <p>税額計算は、公開中のシミュレーターと同じ検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。60％特例は個人使用の前提で適用し、制度の判定日には今日の日付を使います。送料が空欄の場合は0として計算します。</p>
+    <p>税額計算は、公開中のシミュレーターと同じ検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。制度の判定日はフォームの判定日（初期値は今日）で切り替わり、輸送・課税の方式、60％特例の対象外（原則方式）、保険料、複数銘柄の合算、寸法からの重量推定も、本サイト版と同じくフォームで選べます。送料・保険料が空欄の場合は0として計算します。</p>
     <p>このページはテスト用です。サイト内の他のページからはリンクされていません。</p>
   </footer>
 
@@ -929,12 +969,14 @@ if (nonCubaEl) nonCubaEl.addEventListener("change", function () {
 render();
 </script>
 <script>
-/* F1Calc — 試作ページの計算連携（2026-11-10、v45）。
+/* F1Calc — 試作ページの計算連携（2026-11-10、v45。v58で本サイト版の機能を統合）。
  * 計算式は一切持たず、検証済みエンジン TaxEngine（TaxCore-Integer v1.0）に委ねる。
  * 純粋関数部分（F1Calc）は DOM に依存せず、Node でも検証できる。
  * 橋渡しの約束事:
- *  - 60%特例は「個人使用」前提で常に適用可（specialEligible=true）。判定日は今日。
- *  - 送料が空欄なら 0 として扱う。保険料は 0 固定（試作では入力欄を持たない）。
+ *  - 輸送・課税の方式、判定日、60%特例の適用可否はフォームで選べる
+ *    （初期値は従来どおり postal-assessed／今日／特例適用＝個人使用前提）。
+ *    f に無い項目は従来の初期値にフォールバックする（後方互換）。
+ *  - 送料・保険料が空欄なら 0 として扱う。複数銘柄は f.items（計算リスト）を渡す。
  *  - 公表重量が小数第2位まである銘柄（例 9.29g）は、エンジンの入力単位である
  *    0.1g に四捨五入して渡す（換算した場合は結果に明示する）。
  *  - NASEM 実測で複数個体の値がある銘柄は、先頭の値を採用し、もう一方を
@@ -998,25 +1040,36 @@ var F1Calc = (function () {
         d = ("0" + t.getDate()).slice(-2);
     return t.getFullYear() + "-" + m + "-" + d;
   }
-  /* フォーム値 f と選択情報 sel から TaxEngine.calc の入力を組み立てる */
+  /* フォーム値 f と選択情報 sel から TaxEngine.calc の入力を組み立てる。
+   * v58: f.items があれば計算リスト（複数銘柄）をそのまま使う。
+   * f の追加項目（method/date/eligible/ins/rangePct/useAlt/basisKey）が
+   * 無い場合は v57 までの初期値と一致する（回帰フィクスチャで担保）。 */
   function buildInput(f, sel) {
-    return {
-      method: "postal-assessed",
-      dateStr: todayStr(),
-      specialEligible: true,
-      currency: f.currency,
-      rateStr: f.rate,
-      items: [{
+    var items;
+    if (f.items && f.items.length) {
+      items = f.items;
+    } else {
+      items = [{
         name: sel && sel.name ? sel.name : "銘柄",
         priceStr: f.price, countStr: f.count, weightStr: f.weight,
-        basis: sel ? sel.basisKey : "declared",
-        altWeightStr: sel ? sel.altWeightStr : null, useAlt: false
-      }],
+        basis: f.basisKey || (sel ? sel.basisKey : "declared"),
+        altWeightStr: sel ? sel.altWeightStr : null,
+        useAlt: !!f.useAlt
+      }];
+    }
+    return {
+      method: f.method || "postal-assessed",
+      dateStr: f.date || todayStr(),
+      specialEligible: f.eligible !== false,
+      currency: f.currency,
+      rateStr: f.rate,
+      items: items,
       shipStr: (f.ship === "" || f.ship === null || f.ship === undefined) ? "0" : f.ship,
-      insStr: "0",
+      insStr: (f.ins === "" || f.ins === null || f.ins === undefined) ? "0" : f.ins,
       separated: !!f.separated,
       dutyRateStr: f.duty,
-      estimateRangePct: null,
+      estimateRangePct: (f.rangePct === "" || f.rangePct === null ||
+        f.rangePct === undefined) ? null : f.rangePct,
       showReference: true
     };
   }
@@ -1033,6 +1086,32 @@ var F1CalcUI = (function () {
   var $ = function (id) { return document.getElementById(id); };
   var sel = null; /* {idx, name, type, weightStr, altWeightStr, basisKey, basisLabel, origText} */
   var settingWeight = false;
+  /* v58 統合：計算リスト（複数銘柄）と、寸法推定時の根拠上書き */
+  var listItems = []; /* [{name, priceStr, countStr, weightStr, basis, altWeightStr, useAlt}] */
+  var manualBasis = null; /* 寸法推定を使ったとき "estimate"。手入力に戻すと null */
+  var METHOD_LABEL = {
+    "postal-assessed": "国際郵便・賦課課税",
+    "postal-declared": "国際郵便・申告納税",
+    "courier": "国際宅配便・一般貨物"
+  };
+  var METHOD_NOTE = {
+    "postal-assessed": "課税価格20万円以下の郵便物は、税関が日本郵便から提示を受けて税額を決めます。制度は税関への提示日で切り替わるため、判定日は提示予定日として入れてください。",
+    "postal-declared": "課税価格20万円超の郵便物は、名宛人が輸入申告をして納税します。制度は輸入申告日で切り替わります。",
+    "courier": "国際宅配便・一般貨物は輸入申告による納税です。制度は輸入申告日で切り替わります。"
+  };
+  var BASIS_SHORT = { maker: "メーカー公表", measured: "実測", vendor: "業者記載",
+                      declared: "申告・手入力", estimate: "推定" };
+  function jpDate(iso) {
+    var p = String(iso || "").split("-");
+    return p.length === 3 ? (+p[0]) + "年" + (+p[1]) + "月" + (+p[2]) + "日" : String(iso || "");
+  }
+  function perStick(perC) {
+    var v = perC / 10000;
+    var s = v.toFixed(2);
+    var parts = s.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "¥" + parts.join(".");
+  }
 
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -1040,7 +1119,8 @@ var F1CalcUI = (function () {
   function yenInt(v) { return "¥" + TaxEngine.formatYenInt(v); }
   function yenC(C) { return "¥" + TaxEngine.formatYenInt(Math.round(C / 10000)); }
 
-  var FIELD_LABEL = { rate: "為替レート", ship: "送料", dutyRate: "関税率" };
+  var FIELD_LABEL = { rate: "為替レート", ship: "送料", ins: "保険料", dutyRate: "関税率",
+                      date: "判定日", method: "輸送・課税の方式", estimateRangePct: "推定の幅" };
   function fieldLabel(field) {
     var m = /^items\[(\d+)\]\.(price|count|weight|altWeight)$/.exec(field || "");
     if (m) {
@@ -1061,10 +1141,28 @@ var F1CalcUI = (function () {
     }
   }
 
+  function updateUseAltRow() {
+    var rowEl = $("cf-usealt-row");
+    if (!rowEl) return;
+    if (sel && sel.altWeightStr) {
+      rowEl.style.display = "";
+      $("cf-usealt-label").textContent =
+        "候補重量（もう一方の実測値 " + sel.altWeightStr + "g）を採用する";
+    } else {
+      rowEl.style.display = "none";
+      var cb = $("cf-usealt");
+      if (cb) cb.checked = false;
+    }
+  }
   function updateSelDisplay() {
     var el = $("cf-sel");
     if (!el) return;
     if (!sel) {
+      if (manualBasis === "estimate") {
+        el.textContent = "重さは寸法からの推定値を入れています（根拠：推定）。上のリストで銘柄を選ぶと、その銘柄の重さに切り替わります。";
+        el.classList.add("has-sel");
+        return;
+      }
       el.textContent = "銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。";
       el.classList.remove("has-sel");
       return;
@@ -1082,9 +1180,13 @@ var F1CalcUI = (function () {
             weightStr: info.weightStr, altWeightStr: info.altWeightStr,
             basisKey: info.basisKey, basisLabel: info.basisLabel,
             origText: info.origText };
+    manualBasis = null;
     settingWeight = true;
     $("cf-weight").value = info.weightStr;
     settingWeight = false;
+    var ua = $("cf-usealt");
+    if (ua) ua.checked = false;
+    updateUseAltRow();
     updateSelDisplay();
     if (typeof render === "function") render();
     if (!opts || opts.scroll !== false) {
@@ -1098,13 +1200,28 @@ var F1CalcUI = (function () {
     return "<tr><th>" + k + (extra ? ' <span class="cf-sub">' + extra + "</span>" : "") +
       "</th><td>" + v + "</td></tr>";
   }
-  function resultHTML(out, f) {
+  function resultHTML(out, f, listMode) {
     var h = "";
-    if (sel) {
+    if (listMode) {
+      h += '<p class="cf-basis">計算リスト（' + listItems.length + "銘柄・合計 " +
+        out.totalCount + "本）で計算しました。</p>";
+    } else if (sel) {
       h += '<p class="cf-basis">採用した重さ：' + sel.weightStr + "g／本（" +
         '<span class="sel-name">' + esc(sel.name) + "</span>" + "／" + esc(sel.origText) + "）／根拠：" + esc(sel.basisLabel) + "</p>";
     } else {
-      h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本／根拠：手入力</p>";
+      h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本／根拠：" +
+        (manualBasis === "estimate" ? "推定（寸法から計算）" : "手入力") + "</p>";
+    }
+    h += '<p class="cf-basis">方式：' + esc(METHOD_LABEL[out.method] || out.method) +
+      "／判定日：" + jpDate(out.dateStr) + "／適用制度：" + esc(out.regimeName) + "</p>";
+    if (listMode) {
+      h += "<table>";
+      out.conv.details.forEach(function (d) {
+        h += row(esc(d.name), d.count + " 本 × " + (d.w01 / 10).toFixed(1) + "g",
+          d.light ? "軽量（1g未満）：1本＝1本換算"
+                  : "品目総重量 " + (d.totalW01 / 10).toFixed(1) + "g");
+      });
+      h += "</table>";
     }
     h += "<table>";
     h += row("課税価格", yenInt(out.V), "（切り捨て前 " + out.vRawStr + "円）");
@@ -1113,14 +1230,27 @@ var F1CalcUI = (function () {
     h += row("消費税", out.exempt ? "¥0（免除）" : yenInt(out.ctNat));
     h += row("地方消費税", out.exempt ? "¥0（免除）" : yenInt(out.ctLoc));
     h += '<tr class="big"><th>税金合計</th><td>' + yenInt(out.taxTotal) + "</td></tr>";
-    h += row("商品＋送料（円換算）", yenC(out.totalC));
-    h += '<tr class="big"><th>総支払額</th><td>' + yenC(out.grandC) + "</td></tr>";
+    h += row(out.insC > 0 ? "商品＋送料＋保険料（円換算）" : "商品＋送料（円換算）", yenC(out.totalC));
+    h += '<tr class="big"><th>' + (listMode ? "総支払額（リスト合計）" : "総支払額") +
+      "</th><td>" + yenC(out.grandC) + "</td></tr>";
+    h += row("1本あたりの実質単価", perStick(out.perStickC));
     h += "</table>";
+    if (out.postReform) {
+      h += '<p class="cf-note"><strong>改正後モード（試算）：</strong>判定日が2028年4月1日以降のため、課税価格を6割にする特例は廃止されています。課税価格は原則方式（実際に支払った価格＋輸入港までの運賃・保険料）で計算しています。改正後の制度について税関の公式な実務計算例はまだ公表されていないため、この金額は試算です。</p>';
+    } else if (!out.specialApplied) {
+      h += '<p class="cf-note"><strong>特例の対象外：</strong>60％特例を使わず、原則方式（実際に支払った価格＋輸入港までの運賃・保険料）で計算しています。</p>';
+    }
     h += '<p class="cf-note">たばこ税等の内訳：国 ' + yenInt(out.taxes.nat) +
       "／特別 " + yenInt(out.taxes.spc) + "／道府県 " + yenInt(out.taxes.pref) +
-      "／市町村 " + yenInt(out.taxes.city) + "。課税価格は個人使用の特例（×0.6）で計算し、" +
-      (f.separated ? "送料は課税価格に含めていません。" : "送料も含めた価格が対象です。") +
+      "／市町村 " + yenInt(out.taxes.city) + "。" +
+      (out.specialApplied
+        ? "課税価格は個人使用の特例（×0.6）で計算し、" +
+          (f.separated ? "送料・保険料は課税価格に含めていません。" : "送料・保険料も含めた価格が対象です。")
+        : "課税価格は原則方式で計算しています。") +
       "適用制度：" + esc(out.regimeName) + "。</p>";
+    if (listMode) {
+      h += '<p class="cf-note">たばこ税の換算は、軽量（1g未満）の銘柄は1本＝紙巻1本、それ以外は全銘柄の総重量を合計してから換算し、換算本数の端数は合計後に1回だけ切り捨てます（たばこ税法基本通達第19条）。価格比較（日本の定価と比べる）は、単品の計算のときだけ表示されます。</p>';
+    }
     if (out.exempt) {
       h += '<p class="cf-note"><strong>少額免税：</strong>課税価格が1万円以下のため、関税と消費税・地方消費税は免除されます。ただし、たばこ税・たばこ特別税は免税されず、上記のとおり課税されます。</p>';
     }
@@ -1132,13 +1262,24 @@ var F1CalcUI = (function () {
         "〜" + yenC(out.range.high.grandC) +
         "。上の金額は採用した重さそのままで計算した値です。この重さは計算で求めた目安で実測値ではないため、実際の税額はこの幅の中で変わります。実測できる場合は実測を優先してください。</p>";
     }
-    if (out.altScenario && sel) {
+    if (out.altScenario && sel && !listMode) {
       var diff = out.altScenario.taxTotal - out.taxTotal;
-      h += '<p class="cf-note"><strong>候補重量での比較：</strong>もう一方の実測値（' +
-        sel.altWeightStr + 'g）で計算すると、換算 ' + out.altScenario.N +
+      h += '<p class="cf-note"><strong>候補重量での比較：</strong>' +
+        ($("cf-usealt") && $("cf-usealt").checked
+          ? "候補重量（" + sel.altWeightStr + "g）を採用しています。元の実測値（" +
+            sel.weightStr + "g）で計算すると、換算 "
+          : "もう一方の実測値（" + sel.altWeightStr + "g）で計算すると、換算 ") +
+        out.altScenario.N +
         " 本／税金合計 " + yenInt(out.altScenario.taxTotal) + "（採用値との差 " +
         (diff >= 0 ? "+" : "−") + TaxEngine.formatYenInt(Math.abs(diff)) +
         "円）になります。</p>";
+    }
+    if (out.altScenario && listMode) {
+      var diffL = out.altScenario.taxTotal - out.taxTotal;
+      h += '<p class="cf-note"><strong>候補重量での比較：</strong>候補重量のある銘柄を候補側で計算すると、換算 ' +
+        out.altScenario.N + " 本／税金合計 " + yenInt(out.altScenario.taxTotal) +
+        "（採用値との差 " + (diffL >= 0 ? "+" : "−") +
+        TaxEngine.formatYenInt(Math.abs(diffL)) + "円）になります。</p>";
     }
     if (out.boundary && out.reference) {
       h += '<p class="cf-note">※ 切り捨て前の課税価格（' + out.vRawStr +
@@ -1149,12 +1290,93 @@ var F1CalcUI = (function () {
     return h;
   }
 
+  /* v58: フォーム全体の読み取り（方式・判定日・特例・保険料・推定の幅・
+   * 関税率の手入力解決・候補重量の採用を含む） */
+  function gatherForm() {
+    var dutySel = $("cf-duty").value;
+    return {
+      price: $("cf-price").value, currency: $("cf-cur").value,
+      rate: $("cf-rate").value, ship: $("cf-ship").value,
+      ins: $("cf-ins") ? $("cf-ins").value : "",
+      count: $("cf-count").value, weight: $("cf-weight").value,
+      duty: dutySel === "manual" ? $("cf-duty-manual").value : dutySel,
+      separated: $("cf-sep").checked,
+      method: $("cf-method") ? $("cf-method").value : "postal-assessed",
+      date: $("cf-date") ? $("cf-date").value : "",
+      eligible: $("cf-eligible") ? $("cf-eligible").value !== "no" : true,
+      rangePct: $("cf-range") ? $("cf-range").value : "",
+      useAlt: $("cf-usealt") ? $("cf-usealt").checked : false,
+      basisKey: manualBasis || undefined
+    };
+  }
+
+  /* v58: 計算リストの描画 */
+  function renderList() {
+    var wrap = $("cf-list"), note = $("cf-list-note");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    listItems.forEach(function (it, i) {
+      var div = document.createElement("div");
+      div.className = "cf-list-row";
+      var txt = document.createElement("span");
+      txt.textContent = (i + 1) + ". " + it.name + "：" + it.priceStr + "／" +
+        it.countStr + "本／" + it.weightStr + "g（" +
+        (BASIS_SHORT[it.basis] || it.basis) +
+        (it.useAlt ? "・候補重量を採用" : "") + "）";
+      var del = document.createElement("button");
+      del.type = "button";
+      del.className = "cf-list-del";
+      del.textContent = "削除";
+      del.addEventListener("click", function () {
+        listItems.splice(i, 1);
+        renderList();
+      });
+      div.appendChild(txt);
+      div.appendChild(del);
+      wrap.appendChild(div);
+    });
+    if (note) {
+      if (listItems.length) {
+        note.style.display = "";
+        note.textContent = "計算リストに " + listItems.length +
+          " 件あります。「計算する」ではリストの合算で計算します（送料・保険料・為替・関税率・判定日はフォームの値を使います）。リストを空にすると、フォームの単品計算に戻ります。価格比較は単品計算のときだけ表示されます。";
+      } else {
+        note.style.display = "none";
+        note.textContent = "";
+      }
+    }
+  }
+
+  /* v58: 現在のフォーム内容を計算リストへ追加 */
+  function addToList() {
+    var errEl = $("cf-err");
+    var f = gatherForm();
+    if (!f.price || !f.count || !f.weight) {
+      errEl.style.display = "block";
+      errEl.textContent = "価格・本数・重さを入れてから、計算リストに追加してください。";
+      return;
+    }
+    if (listItems.length >= 98) {
+      errEl.style.display = "block";
+      errEl.textContent = "銘柄は98件までです（本サイト版と同じ上限）。";
+      return;
+    }
+    errEl.style.display = "none";
+    listItems.push({
+      name: sel ? sel.name : "手入力の銘柄",
+      priceStr: f.price, countStr: f.count, weightStr: f.weight,
+      basis: sel ? sel.basisKey : (manualBasis || "declared"),
+      altWeightStr: sel ? sel.altWeightStr : null,
+      useAlt: !!(sel && sel.altWeightStr && f.useAlt)
+    });
+    renderList();
+  }
+
   function calc() {
-    var f = { price: $("cf-price").value, currency: $("cf-cur").value,
-              rate: $("cf-rate").value, ship: $("cf-ship").value,
-              count: $("cf-count").value, weight: $("cf-weight").value,
-              duty: $("cf-duty").value, separated: $("cf-sep").checked };
-    var out = TaxEngine.calc(F1Calc.buildInput(f, sel));
+    var f = gatherForm();
+    var listMode = listItems.length > 0;
+    if (listMode) f.items = listItems;
+    var out = TaxEngine.calc(F1Calc.buildInput(f, listMode ? null : sel));
     var errEl = $("cf-err"), resEl = $("cf-result");
     if (!out.ok) {
       errEl.style.display = "block";
@@ -1165,7 +1387,7 @@ var F1CalcUI = (function () {
     }
     errEl.style.display = "none";
     resEl.style.display = "block";
-    resEl.innerHTML = resultHTML(out, f);
+    resEl.innerHTML = resultHTML(out, f, listMode);
   }
 
   api.select = select;
@@ -1178,10 +1400,72 @@ var F1CalcUI = (function () {
     if (settingWeight) return;
     if (sel && this.value !== sel.weightStr) {
       sel = null;
+      updateUseAltRow();
       updateSelDisplay();
       if (typeof render === "function") render();
     }
+    if (manualBasis && this.value === "") manualBasis = null;
   });
+
+  /* ===== v58 統合分の配線 ===== */
+  var dateEl = $("cf-date");
+  if (dateEl && !dateEl.value) dateEl.value = F1Calc.todayStr();
+  var methodEl = $("cf-method"), methodNoteEl = $("cf-method-note");
+  function refreshMethodNote() {
+    if (methodEl && methodNoteEl) methodNoteEl.textContent = METHOD_NOTE[methodEl.value] || "";
+  }
+  if (methodEl) methodEl.addEventListener("change", refreshMethodNote);
+  refreshMethodNote();
+  var dutyEl = $("cf-duty"), dutyManualRow = $("cf-duty-manual-row");
+  function refreshDutyRow() {
+    if (dutyEl && dutyManualRow) {
+      dutyManualRow.style.display = dutyEl.value === "manual" ? "" : "none";
+    }
+  }
+  if (dutyEl) dutyEl.addEventListener("change", refreshDutyRow);
+  refreshDutyRow();
+  var curEl2 = $("cf-cur"), rateEl2 = $("cf-rate"), fxNoteEl = $("fx-note-text");
+  if (curEl2 && rateEl2) curEl2.addEventListener("change", function () {
+    var isJ = curEl2.value === "JPY";
+    rateEl2.disabled = isJ;
+    if (isJ) {
+      /* 為替自動取得ブロック（後段）の表示を後追いで上書きする */
+      setTimeout(function () {
+        if (curEl2.value === "JPY" && fxNoteEl) {
+          fxNoteEl.textContent = "円建てのため、換算レートは使いません。";
+        }
+      }, 1600);
+    }
+  });
+  var estBtn = $("cf-est-btn");
+  if (estBtn) estBtn.addEventListener("click", function () {
+    var outEl = $("cf-est-out");
+    var lenMm = parseFloat($("cf-est-len").value);
+    if (!isFinite(lenMm) || lenMm <= 0) {
+      outEl.textContent = "長さ（mm）を入れてください。";
+      return;
+    }
+    var lenIn = (lenMm / 25.4).toFixed(2);
+    var r = TaxEngine.estimateWeightW01(lenIn, $("cf-est-rg").value,
+      $("cf-est-shape").value);
+    if (!r.ok) {
+      outEl.textContent = "推定できませんでした：長さとリングゲージを正しく入れてください。";
+      return;
+    }
+    settingWeight = true;
+    $("cf-weight").value = (r.w01 / 10).toFixed(1);
+    settingWeight = false;
+    sel = null;
+    manualBasis = "estimate";
+    updateUseAltRow();
+    updateSelDisplay();
+    if (typeof render === "function") render();
+    outEl.textContent = "推定重量は約 " + (r.w01 / 10).toFixed(1) +
+      " g/本 です（寸法からの推定値で、実際の重量とは異なる場合があります）。重さ欄に入れ、根拠を「推定」にしました。推定の幅による税額レンジも結果に表示します。実測できる場合は実測値を入れてください。";
+  });
+  var addListBtn = $("cf-add-list");
+  if (addListBtn) addListBtn.addEventListener("click", addToList);
+  renderList();
   return api;
 })();
 </script>
