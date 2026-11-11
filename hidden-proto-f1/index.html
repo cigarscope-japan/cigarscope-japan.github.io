@@ -277,21 +277,6 @@
   <p class="more" id="more"></p>
   <p class="cf-sel" id="pick-sum" style="display: none;"><span class="pick-sum-label">選択中の銘柄（銘柄リストは畳まれています）</span><span id="pick-sum-text"></span><button type="button" class="pick-change-btn" id="pick-change">銘柄を選び直す ▾</button></p>
 
-  <section class="calc pc" id="pc">
-    <h2>日本の定価と比べる（試作）</h2>
-    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pick-change-btn" id="pc-change" style="display: none;">定価を選び直す ▾</button></p>
-    <div id="pc-cand"></div>
-    <p class="cf-sel" id="pc-compact" style="display: none;"><span id="pc-compact-text"></span><button type="button" class="pc-clear" id="pc-manual">定価を手で選ぶ</button></p>
-    <div id="pc-q-wrap">
-      <label class="q-label" for="pc-q">🔍 日本の銘柄名で検索</label>
-      <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で検索（コイーバ など）" autocomplete="off">
-    </div>
-    <div class="az" id="az-pc"></div>
-    <p class="count" id="pc-count"></p>
-    <div id="pc-list"></div>
-    <p class="notice-line"><button type="button" class="notice-btn" id="pcnote-open">⚠️ 価格比較についての注意</button><span class="notice-sum">日本の金額は認可小売定価（税込）、海外の金額は概算です。比較は本数がそろった場合だけ表示します。</span></p>
-  </section>
-
   <section class="calc" id="calc">
     <h2>税額を計算する（試作）</h2>
     <div class="cf-steps">
@@ -299,16 +284,16 @@
     </div>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
+      <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
+      <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
+      <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option><option value="JPY">JPY（日本円）</option></select></div>
+      <div><label for="cf-weight">1本の重さ（g）</label><input type="text" id="cf-weight" inputmode="decimal" placeholder="銘柄選択で自動入力"></div>
       <div class="cf-wide"><label for="cf-method">輸送・課税の方式</label><select id="cf-method"><option value="postal-assessed">国際郵便・賦課課税（課税価格20万円以下）</option><option value="postal-declared">国際郵便・申告納税（課税価格20万円超）</option><option value="courier">国際宅配便・一般貨物</option></select><p class="fx-note" id="cf-method-note"></p></div>
       <div><label for="cf-date">判定日（申告・提示の予定日）</label><input type="date" id="cf-date"></div>
       <div><label for="cf-eligible">課税価格の60％特例</label><select id="cf-eligible"><option value="yes">個人使用・小売購入（特例を適用）</option><option value="no">対象外（業務用など・原則方式）</option></select></div>
-      <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
-      <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option><option value="JPY">JPY（日本円）</option></select></div>
       <div><label for="cf-rate">為替レート（円／1通貨）</label><input type="text" id="cf-rate" inputmode="decimal" placeholder="例：158"><p class="fx-note"><span id="fx-note-text">為替レートを取得中…</span><button type="button" class="fx-reload" id="fx-reload">再取得</button></p></div>
       <div><label for="cf-ship">送料（外貨）</label><input type="text" id="cf-ship" inputmode="decimal" placeholder="例：30"></div>
       <div><label for="cf-ins">保険料（外貨）</label><input type="text" id="cf-ins" inputmode="decimal" placeholder="例：0"></div>
-      <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
-      <div><label for="cf-weight">1本の重さ（g）</label><input type="text" id="cf-weight" inputmode="decimal" placeholder="銘柄選択で自動入力"></div>
       <div><label for="cf-range">推定の幅（±％）</label><input type="text" id="cf-range" inputmode="numeric" placeholder="空欄なら15"></div>
       <div class="cf-wide"><label for="cf-duty">関税率</label><select id="cf-duty"><option value="16">協定（WTO）16%</option><option value="2.9">CPTPP・EPA等 2.9%</option><option value="20">基本 20%</option><option value="manual">手入力（下の欄に税率）</option></select><p class="fx-note">関税率は発送国ではなく原産国で判定します。2.9%は原産地規則と原産地証明の条件を満たす場合だけ使えます（満たさない場合は16%）。スイス原産の税率は実行関税率表だけでは一意に決まらないため、税関で確認した税率を手入力してください。</p></div>
       <div class="cf-wide" id="cf-duty-manual-row" style="display: none;"><label for="cf-duty-manual">関税率を手入力（%）</label><input type="text" id="cf-duty-manual" inputmode="decimal" placeholder="例：16"></div>
@@ -337,6 +322,22 @@
     <p class="cf-err" id="cf-err"></p>
     <p class="notice-line"><button type="button" class="notice-btn" id="notice-open">⚠️ ご利用上の注意</button><span class="notice-sum">計算結果は概算です。実際の課税額は税関の判断によります。</span></p>
   </section>
+
+  <section class="calc pc" id="pc">
+    <h2>日本の定価と比べる（試作）</h2>
+    <p class="cf-sel" id="pc-sel"><span id="pc-sel-text">日本の銘柄は未選択です。上のリストで銘柄を選ぶと、対応する品目がある場合は自動でセットされます。手で選ぶ場合は、下の検索窓か A–Z から選んでください。</span><button type="button" class="pc-clear" id="pc-clear" style="display: none;">選択を外す</button><button type="button" class="pick-change-btn" id="pc-change" style="display: none;">定価を選び直す ▾</button></p>
+    <div id="pc-cand"></div>
+    <p class="cf-sel" id="pc-compact" style="display: none;"><span id="pc-compact-text"></span><button type="button" class="pc-clear" id="pc-manual">定価を手で選ぶ</button></p>
+    <div id="pc-q-wrap">
+      <label class="q-label" for="pc-q">🔍 日本の銘柄名で検索</label>
+      <input type="search" class="pc-q" id="pc-q" placeholder="日本の銘柄名で検索（コイーバ など）" autocomplete="off">
+    </div>
+    <div class="az" id="az-pc"></div>
+    <p class="count" id="pc-count"></p>
+    <div id="pc-list"></div>
+    <p class="notice-line"><button type="button" class="notice-btn" id="pcnote-open">⚠️ 価格比較についての注意</button><span class="notice-sum">日本の金額は認可小売定価（税込）、海外の金額は概算です。比較は本数がそろった場合だけ表示します。</span></p>
+  </section>
+
 
   <footer>
     <p>データ出典：キューバ工場ビトラ＝Cuban Cigar Website（Habanos S.A. 公式重量リストの掲載、確認日 2026-11-10）。「推計（CCW）」は同サイトが計算で補完した値です。製品公表＝Eneas Magazine 製品スペック（habanos.com 出典明記）ほか。実測＝NASEM『Premium Cigars』Appendix F（2021年・米国市場、全58サブブランドの実測を収録）。推定＝長さ×太さから式で計算した目安で、実測値ではありません。</p>
@@ -2054,6 +2055,14 @@ if (typeof MutationObserver !== "undefined") {
  *   上部の並びを縦積みに変更（チェック2つと検索窓を分けて検索窓
  *   を全幅にし、見出しラベルと具体例つきプレースホルダで役割を
  *   明示。定価側の検索窓にも同じ見出しラベル）。
+ *   v74 修正：レイアウト改修（実機報告「選択して下まで下りないと
+ *   本数と金額を入力出来ないのはダメ」）。フラグメント側で定価
+ *   セクションを計算フォームの後ろへ移し、フォームの先頭に本数・
+ *   商品価格・通貨・重さを並べ替えた。これに合わせ、銘柄選択直後の
+ *   スクロール先を定価セクションから計算フォームの頭へ変更
+ *   （afterCigarOpen の自動対応・候補の両分岐。「定価を手で選ぶ」の
+ *   pcEl へのスクロールは据え置き）。定価の畳み込み自体は従来どおり
+ *   onPcSelect が担う。
  */
 var F1A_MAP = {"Romeo y Julieta Club Kings":{"a":2014},"Bolívar Petit Coronas":{"a":1716},"Quai d'Orsay No.50":{"a":1147},"Romeo y Julieta Wide Churchills":{"a":2005},"Partagás Serie D No.4":{"c":[1469,739]},"Montecristo No.4":{"a":1756},"Romeo y Julieta Romeo No.1":{"a":803},"Ramón Allones Gigantes":{"a":1814},"Ramón Allones Specially Selected":{"a":1817},"Ramón Allones Small Club Coronas":{"a":1812},"Partagás Lusitanias":{"a":1479},"Partagás Serie P No.2":{"a":1453},"Partagás Serie E No.2":{"a":1465},"Partagás Serie D No.5":{"a":1463},"Montecristo No.1":{"a":1744},"Montecristo No.2":{"a":1755},"Montecristo Edmundo":{"a":1748},"Montecristo Petit Edmundo":{"a":1750},"Montecristo Double Edmundo":{"a":1770},"Cohiba Siglo I":{"a":1174},"Cohiba Siglo II":{"a":1175},"Cohiba Siglo III":{"a":1177},"Cohiba Siglo IV":{"a":1178},"Cohiba Siglo V":{"a":1179},"Cohiba Siglo VI":{"a":1180},"Cohiba Espléndidos":{"a":1166},"Cohiba Robustos":{"a":1199},"Cohiba Lancero":{"a":1198},"Cohiba Behike 52":{"a":1160},"Cohiba Behike 54":{"a":1161},"Cohiba Behike 56":{"a":1162},"Hoyo de Monterrey Double Coronas":{"a":1660},"Hoyo de Monterrey Epicure No.1":{"a":1653},"Hoyo de Monterrey Epicure No.2":{"a":1655},"Hoyo de Monterrey Epicure Especial":{"c":[1663,1664]},"Romeo y Julieta Churchills":{"a":2022},"Romeo y Julieta Short Churchills":{"a":2002},"Romeo y Julieta Petit Churchills":{"c":[2027]},"Bolívar Belicosos Finos":{"a":1714},"Bolívar Royal Coronas":{"a":1717},"Punch Punch":{"a":1481},"San Cristóbal La Fuerza":{"c":[1213]},"San Cristóbal La Punta":{"a":1214},"San Cristóbal El Príncipe":{"a":1212},"Trinidad Fundadores":{"c":[1404]},"Trinidad Vigía":{"a":1399},"Fonseca Cosacos":{"a":1525},"Fonseca KDT Cadetes":{"c":[1524]},"H. Upmann Sir Winston":{"a":878},"H. Upmann Magnum 46":{"c":[880]},"H. Upmann Magnum 50":{"c":[513]},"Acid Blondie":{"a":73},"Arturo Fuente Hemingway Short Story":{"a":910},"Arturo Fuente Hemingway Signature":{"a":909},"Padrón 2000 Maduro “Handmade”":{"a":1446},"Rocky Patel 1990 Vintage Robusto":{"a":1983},"Rocky Patel 1992 Vintage Sumatra Robusto":{"a":1986},"Rocky Patel 1999 Vintage Robusto":{"a":1995},"Davidoff Aniversario No. 3":{"c":[1277,1278]},"Davidoff Aniversario Special “R”":{"c":[1336,1337]},"Punch Clasico London Club":{"c":[756,758]},"AJ Fernandez 20th Anniversary Toro":{"a": 21},"AJ Fernandez 20th Anniversary Belicoso":{"a": 22},"AJ Fernandez Enclave Connecticut Toro":{"a": 23},"AJ Fernandez Enclave Connecticut Robusto":{"a": 24},"AJ Fernandez Enclave Habano Toro":{"a": 25},"AJ Fernandez Enclave Habano Robusto":{"a": 26},"AJ Fernandez Enclave Broadleaf Toro":{"a": 27},"AJ Fernandez Enclave Broadleaf Robusto":{"a": 28},"AJ Fernandez San Lotano Oval Habano Toro":{"a": 29},"AJ Fernandez San Lotano Oval Habano Robusto":{"a": 30},"AJ Fernandez San Lotano Connecticut Toro":{"a": 31},"AJ Fernandez San Lotano Connecticut Robusto":{"a": 32},"AJ Fernandez San Lotano Habano Toro":{"a": 33},"AJ Fernandez San Lotano Habano Robusto":{"a": 34},"AJ Fernandez San Lotano The Bull Toro":{"a": 35},"AJ Fernandez San Lotano The Bull Robusto":{"a": 36},"AJ Fernandez San Lotano Maduro Toro":{"a": 37},"AJ Fernandez San Lotano Maduro Robusto":{"a": 38},"AJ Fernandez Días de Gloria Short Churchill":{"a": 39},"AJ Fernandez Días de Gloria Toro":{"a": 40},"AJ Fernandez Días de Gloria Brazil Robusto":{"a": 41},"AJ Fernandez Días de Gloria Robusto":{"a": 42},"AJ Fernandez New World Oscuro Petit Corona":{"a": 43},"AJ Fernandez New World Cameroon Short Robusto":{"a": 44},"AJ Fernandez New World Cameroon Double Robusto":{"a": 45},"AJ Fernandez New World Cameroon Toro":{"a": 46},"AJ Fernandez New World Connecticut Toro":{"a": 47},"AJ Fernandez New World Connecticut Robusto":{"a": 48},"AJ Fernandez New World Decenio Robusto":{"a": 49},"AJ Fernandez New World Dorado Gordito":{"a": 50},"AJ Fernandez New World Dorado Toro":{"a": 51},"AJ Fernandez New World Dorado Figurado":{"a": 52},"AJ Fernandez New World Dorado Robusto":{"a": 53},"AJ Fernandez New World Puro Especial Short Churchill":{"a": 54},"AJ Fernandez New World Puro Especial Toro":{"a": 55},"AJ Fernandez New World Puro Especial Robusto":{"a": 56},"AJ Fernandez Blend 15 Short Robusto":{"a": 57},"AJ Fernandez Blend 15 Toro":{"a": 58},"AJ Fernandez Blend 15 Robusto":{"a": 59},"AJ Fernandez Bellas Artes Short Churchill":{"a": 60},"AJ Fernandez Bellas Artes Toro":{"a": 61},"AJ Fernandez Bellas Artes Maduro Toro":{"a": 62},"AJ Fernandez Bellas Artes Maduro Lancero":{"a": 63},"AJ Fernandez Bellas Artes Maduro Robusto":{"a": 64},"AJ Fernandez Bellas Artes Robusto":{"a": 65},"AJ Fernandez Last Call Habano Corticas":{"a": 66},"AJ Fernandez Last Call Habano Chiquitas":{"a": 67},"AJ Fernandez Last Call Habano Flaquitas":{"a": 68},"AJ Fernandez Last Call Habano Geniales":{"a": 69},"AJ Fernandez Last Call Habano Pequeñas":{"a": 70}};
 var F1Auto = (function () {
@@ -2561,12 +2570,12 @@ var F1Nav = (function () {
       /* 選択済みなら従来の畳み状態を維持する。自動対応ありは、
        * この直後に F1Auto が自動セットし onPcSelect で畳まれる */
       hidePcCompact();
-      navScroll(pcEl);
+      navScroll(calcEl);
     } else if (m && m.c && m.c.length) {
       /* 候補あり：候補ボタンを残し、リスト本体だけ畳む */
       hidePcCompact();
       setPcCollapsed(true);
-      navScroll(pcEl);
+      navScroll(calcEl);
     } else {
       /* 登録なし：コンパクト表示にして計算フォームへ */
       showPcCompact(it);
