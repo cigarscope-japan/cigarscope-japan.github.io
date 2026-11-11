@@ -220,6 +220,36 @@
                border: 1px solid #c9b98f; background: #fff;
                border-radius: 4px; cursor: pointer; font-family: inherit;
                vertical-align: middle; }
+  .pre-mini { margin: 4px 0 8px; padding: 6px 8px; font-size: 12px;
+             color: #6d5b3a; background: #f7efda; border: 1px dashed #cbb27a;
+             border-radius: 6px; display: flex; align-items: center;
+             justify-content: space-between; gap: 8px; }
+  .pre-open { font-family: inherit; font-size: 12px; font-weight: bold;
+             color: #7a1f1f; background: #fff; border: 1px solid #cbb27a;
+             border-radius: 999px; padding: 4px 10px; cursor: pointer;
+             flex: 0 0 auto; }
+  .nasem-ack-row { margin: 8px 0 0; padding-top: 7px;
+             border-top: 1px dashed #cbb27a; }
+  .nasem-ack-label { display: flex; align-items: flex-start; gap: 6px;
+             font-size: 12.5px; font-weight: bold; cursor: pointer;
+             line-height: 1.5; }
+  .nasem-ack-label input { width: 17px; height: 17px; margin: 1px 0 0;
+             accent-color: #7a1f1f; flex: 0 0 auto; }
+  .tc-note-pop { position: fixed; right: 10px; bottom: 84px; z-index: 120;
+             width: 250px; max-width: 64vw; background: #fffdf5;
+             border: 1px solid #b08d3c; border-left: 5px solid #7a1f1f;
+             border-radius: 8px; box-shadow: 0 6px 22px rgba(60, 40, 10, .28);
+             padding: 10px 28px 9px 12px; font-size: 12.5px; line-height: 1.55;
+             color: #4a4234; }
+  .tc-note-t { margin: 0 0 4px; font-weight: bold; color: #7a1f1f;
+             font-size: 13px; }
+  .tc-note-list { margin: 0; padding-left: 16px; }
+  .tc-note-list li { margin: 0 0 2px; }
+  .tc-note-x { position: absolute; top: 4px; right: 4px; width: 26px;
+             height: 26px; border: none; border-radius: 50%;
+             background: #f3ead2; color: #4a2f1d; font-size: 15px;
+             line-height: 26px; cursor: pointer; font-family: inherit;
+             padding: 0; }
   .modal-ov { position: fixed; inset: 0; background: rgba(30, 20, 10, .5);
               z-index: 80; align-items: center; justify-content: center;
               padding: 14px; }
@@ -263,15 +293,18 @@
     <span class="badge b-official">公式</span><span class="badge b-product">製品公表</span><span class="badge b-nasem">実測</span><span class="badge b-ccwest">推計</span><span class="badge b-estimate">推定</span>
     ＝重さの種別。公式はメーカー公称、実測は実際に量った値、推計・推定は計算で求めた目安です。
   </p>
+  <p class="pre-mini" id="legend-mini" style="display: none;"><span>重さの種別（公式・実測・推計・推定）</span><button type="button" class="pre-open" id="legend-open">表示する ▾</button></p>
 
   <div class="notice nasem-note">
     <h3>⚠️ 実測（NASEM）データについての注意</h3>
     <p>「実測」の重さは、2021年に米国市場で購入された製品を実際に量った値です。現在の製品や米国以外の市場向けの仕様とは、重さが異なる場合があります。</p>
     <p>Cohiba／Montecristo／Partagás／Romeo y Julieta の米国版は、キューバ版とは別ブランド・別製品です。同名でも中身は異なります。</p>
     <p>実測値には個体差があり、同じ製品でも ±1g 前後ぶれることがあります。</p>
+    <p class="nasem-ack-row"><label class="nasem-ack-label"><input type="checkbox" id="nasem-ack"> 注意書きの内容を確認しました（チェックすると、次回からこの注意は表示されません）</label></p>
   </div>
 
   <div class="az" id="az-main"></div>
+  <p class="pre-mini" id="az-mini" style="display: none;"><span>A–Z 頭文字で探す</span><button type="button" class="pre-open" id="az-open">表示する ▾</button></p>
   <p class="count" id="count"></p>
   <div id="list"></div>
   <p class="more" id="more"></p>
@@ -345,6 +378,16 @@
     <p>税額計算は、公開中のシミュレーターと同じ検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。制度の判定日はフォームの判定日（初期値は今日）で切り替わり、輸送・課税の方式、60％特例の対象外（原則方式）、保険料、複数銘柄の合算、寸法からの重量推定も、本サイト版と同じくフォームで選べます。送料・保険料が空欄の場合は0として計算します。</p>
     <p>このページはテスト用です。サイト内の他のページからはリンクされていません。</p>
   </footer>
+
+  <div class="tc-note-pop" id="tc-note-pop" style="display: none;" role="note" aria-label="注意書き">
+    <button type="button" class="tc-note-x" id="tc-note-x" aria-label="注意書きを閉じる">×</button>
+    <p class="tc-note-t">⚠️ ご注意</p>
+    <ul class="tc-note-list">
+      <li>重さ・税額は目安です。</li>
+      <li>実測値には個体差があります。</li>
+      <li>最終的な課税は税関の判断によります。</li>
+    </ul>
+  </div>
 
   <div class="modal-ov" id="notice-modal" style="display: none;">
     <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="notice-title">
@@ -2428,6 +2471,17 @@ var F1Fx = (function () {
  * とも）なら従来の畳み状態を維持する。銘柄の選択が重さの手入
  * 力で外れたら、コンパクト表示も初期状態に戻す。
  */
+/*
+ * v75 追加：選び直し時の導線（実機報告「追加して、選び直すと
+ * 葉巻リストが下に来る」）。銘柄を選び直したら、前回までに選択・
+ * 追加が済んでいれば凡例と A–Z を1行の畳み表示にし、スクロールは
+ * ツールバー先頭へ戻して、検索窓とリストの先頭がすぐ画面に入る
+ * ようにする（畳んだ項目はその場で開ける）。NASEM 注意は畳まず、
+ * 全文下の同意チェックで非表示にでき、状態は localStorage に残す
+ * （ページ下部の一般的な「ご注意」は対象外）。要所（リスト追加時・
+ * 計算結果の表示時）には右下へ小さな注意ポップアップを出す
+ * （TcNotePop、×で閉じる、自動では消えない）。
+ */
 var F1Nav = (function () {
   var $ = function (id) { return document.getElementById(id); };
   var pcEl = $("pc"), calcEl = $("calc");
@@ -2438,14 +2492,28 @@ var F1Nav = (function () {
       pcCompactTextEl = $("pc-compact-text"),
       pcManualEl = $("pc-manual");
   var mainParts = [];
-  [".toolbar", ".legend", ".nasem-note"].forEach(function (sel) {
+  [".toolbar"].forEach(function (sel) {
     var e = document.querySelector(sel);
     if (e) mainParts.push(e);
   });
-  ["az-main", "count", "list", "more"].forEach(function (id) {
+  ["count", "list", "more"].forEach(function (id) {
     var e = $(id);
     if (e) mainParts.push(e);
   });
+  /* v75: 凡例と A–Z は「前置き」として別管理し、再オープン時は
+   * 1行に畳む。NASEM 注意も別管理（同意チェックで非表示）。 */
+  var preBlocks = [
+    { el: document.querySelector(".legend"), mini: $("legend-mini"),
+      btn: $("legend-open"), open: false },
+    { el: $("az-main"), mini: $("az-mini"),
+      btn: $("az-open"), open: false }
+  ];
+  var preambleMini = false;
+  var nasemEl = document.querySelector(".nasem-note");
+  var ACK_KEY = "csj-taxcalc-nasem-ack";
+  var nasemAck = false;
+  try { nasemAck = window.localStorage.getItem(ACK_KEY) === "1"; }
+  catch (e) { nasemAck = false; }
   var pcParts = [];
   ["pc-q-wrap", "az-pc", "pc-count", "pc-list"].forEach(function (id) {
     var e = $(id);
@@ -2498,11 +2566,26 @@ var F1Nav = (function () {
     }
     sumTextEl.innerHTML = h;
   }
+  function applyPreamble() {
+    for (var i = 0; i < preBlocks.length; i++) {
+      var b = preBlocks[i];
+      if (!b.el || !b.mini) continue;
+      var compact = !mainCollapsed && preambleMini && !b.open;
+      b.el.style.display = (mainCollapsed || compact) ? "none" : "";
+      b.mini.style.display = compact ? "" : "none";
+    }
+  }
+  function applyNasem() {
+    if (!nasemEl) return;
+    nasemEl.style.display = (mainCollapsed || nasemAck) ? "none" : "";
+  }
   function setMainCollapsed(on) {
     mainCollapsed = on;
     for (var i = 0; i < mainParts.length; i++) {
       mainParts[i].style.display = on ? "none" : "";
     }
+    applyPreamble();
+    applyNasem();
     if (sumEl) sumEl.style.display = on ? "" : "none";
     if (on) renderPickSum();
   }
@@ -2562,6 +2645,8 @@ var F1Nav = (function () {
   /* 銘柄を開いた（＝選択した）直後：リストを畳み、定価セクション
    * の状態も銘柄の定価対応に応じて切り替える（v56） */
   function afterCigarOpen(it) {
+    /* v75: 選択が済んだら、次に開くときは前置きを畳む */
+    preambleMini = true;
     setMainCollapsed(true);
     renderPickSum();
     var sel = (typeof PCUI !== "undefined") ? PCUI.state.sel : -1;
@@ -2604,12 +2689,32 @@ var F1Nav = (function () {
   }
   if (pickChangeEl) pickChangeEl.addEventListener("click", function () {
     setMainCollapsed(false);
-    var open = document.querySelector("#list .item.open");
-    navScroll(open || mainParts[0] || sumEl);
+    /* v75: 開いたらリストの先頭が見える位置へ戻す（前回選んだ行
+     * ではなく先頭。前置きは畳まれているため、検索窓とリストの
+     * 先頭がそのまま画面に入る） */
+    navScroll(mainParts[0] || sumEl);
   });
   if (pcChangeEl) pcChangeEl.addEventListener("click", function () {
     setPcCollapsed(false);
   });
+  /* v75: 畳んだ前置き（凡例・A–Z）はその場で開ける */
+  preBlocks.forEach(function (b) {
+    if (b.btn) b.btn.addEventListener("click", function () {
+      b.open = true;
+      applyPreamble();
+    });
+  });
+  /* v75: NASEM 注意の同意チェック。チェックしたらボックス自体を
+   * 非表示にし、状態を localStorage に保存する（次回訪問時も
+   * 非表示のまま）。ページ下部の一般的な「ご注意」は対象外。 */
+  var ackEl = $("nasem-ack");
+  if (ackEl) ackEl.addEventListener("change", function () {
+    if (!ackEl.checked) return;
+    nasemAck = true;
+    try { window.localStorage.setItem(ACK_KEY, "1"); } catch (e) {}
+    applyNasem();
+  });
+  applyNasem();
   /* v56: 「定価を手で選ぶ」— コンパクト表示から全リストを開く
    * （検索・A–Z の状態は PCUI 側に保持されたまま） */
   if (pcManualEl) pcManualEl.addEventListener("click", function () {
@@ -2622,7 +2727,10 @@ var F1Nav = (function () {
   var listEl = $("list");
   if (listEl) listEl.addEventListener("click", function (e) {
     var t = e && e.target;
-    if (t && t.closest && t.closest(".use-wt")) setMainCollapsed(true);
+    if (t && t.closest && t.closest(".use-wt")) {
+      preambleMini = true;
+      setMainCollapsed(true);
+    }
   });
   /* 重さの手入力で選択が外れる等、選択表示が変わったら要約も追随 */
   var cfSelEl = $("cf-sel");
@@ -2646,8 +2754,43 @@ var F1Nav = (function () {
            state: function () {
              return { mainCollapsed: mainCollapsed,
                       pcCollapsed: pcCollapsed,
+                      preambleMini: preambleMini,
+                      nasemAck: nasemAck,
                       inv: Object.keys(INV).length };
            } };
 })();
+
+/*
+ * v75: 要所の注意書きポップアップ。リストへ追加したときと、計算
+ * 結果（総合計）を出したときに、画面右下へ小さなオーバーレイを
+ * 出す。×で閉じる。自動では消えない。全面モーダルにはせず、
+ * 小窓の外側の操作は塞がない。
+ */
+var TcNotePop = (function () {
+  function $(id) { return document.getElementById(id); }
+  var popEl = $("tc-note-pop"), xEl = $("tc-note-x");
+  if (!popEl) return { show: function () {}, hide: function () {} };
+  function show() { popEl.style.display = ""; }
+  function hide() { popEl.style.display = "none"; }
+  if (xEl) xEl.addEventListener("click", hide);
+  var listEl = $("cf-list");
+  if (listEl && typeof MutationObserver !== "undefined") {
+    var last = listEl.querySelectorAll(".cf-list-row").length;
+    new MutationObserver(function () {
+      var n = listEl.querySelectorAll(".cf-list-row").length;
+      if (n > last) show();
+      last = n;
+    }).observe(listEl, { childList: true });
+  }
+  var modalEl = $("calc-modal");
+  if (modalEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(function () {
+      var d = modalEl.style.display;
+      if (d && d !== "none") show();
+    }).observe(modalEl, { attributes: true, attributeFilter: ["style"] });
+  }
+  return { show: show, hide: hide };
+})();
+
 </script>
 </body></html>
