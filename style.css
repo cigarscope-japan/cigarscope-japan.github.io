@@ -307,7 +307,12 @@ a { color: #1a4d8f; word-break: break-all; }
 .share-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 10px; }
 .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; border: 1px solid #cbbfa8; background: #fff; color: #2b2118; text-decoration: none; cursor: pointer; box-sizing: border-box; font-family: inherit; line-height: 1; position: relative; -webkit-tap-highlight-color: transparent; }
 .share-btn svg { width: 20px; height: 20px; flex: none; }
-.share-btn:hover { background: #f3ecdc; }
+.share-btn.sh-x { background: #000; border-color: #000; color: #fff; }
+.share-btn.sh-native { background: #1d9bf0; border-color: #1d9bf0; color: #fff; }
+.share-btn.sh-line { background: #00c300; border-color: #00c300; color: #fff; }
+.share-btn.sh-fb { background: #1877f2; border-color: #1877f2; color: #fff; }
+.share-btn.sh-copy { background: #595959; border-color: #595959; color: #fff; }
+.share-btn:hover { filter: brightness(1.13); }
 .share-btn.copied { background: #2e7d32; border-color: #2e7d32; color: #fff; }
 .share-btn.copied::after { content: attr(data-done); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); background: #2b2118; color: #fff; font-size: .72rem; font-weight: bold; line-height: 1.3; padding: 3px 8px; border-radius: 4px; white-space: nowrap; pointer-events: none; z-index: 6; }
 .share-bar.share-bottom { margin: 14px 0 4px; border-top: 1px solid #ddd2bd; padding-top: 10px; }
