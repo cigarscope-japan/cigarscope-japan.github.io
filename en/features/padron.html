@@ -186,6 +186,7 @@
 document.querySelectorAll('.sh-copy').forEach(function(b){b.addEventListener('click',function(){cp(b.getAttribute('data-url'),b);});});
 document.querySelectorAll('.sh-native').forEach(function(b){b.addEventListener('click',function(){var u=b.getAttribute('data-url');if(navigator.share){navigator.share({title:b.getAttribute('data-title'),url:u}).catch(function(){});}else{cp(u,b);}});});})();
 </script>
+<p class="back-links"><a href="../index.html">&larr; Back to top page</a></p>
     </article>
   </main>
   <footer class="site-footer">
