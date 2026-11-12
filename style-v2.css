@@ -760,3 +760,14 @@ main { display: block; }
 .taxcalc-range-box{background:#fbf6ea;border:1px dashed var(--gold-dark);border-radius:8px;padding:.7rem .9rem;margin-top:.8rem;font-size:.92rem}
 .taxcalc-src{font-size:.85rem}
 .taxcalc-src li{margin:.3rem 0}
+/* シェアボタン（2026-11-12 v80・カズ指示で全記事に追加。Yahoo!ニュース式にタイトル直下＋記事末尾） */
+.share-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 18px}
+.share-bar .share-cap{font-weight:bold;font-size:.95rem;margin-right:2px}
+.share-btn{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:8px 14px;border-radius:8px;border:1px solid #cbbfa8;background:#fff;color:#2b2118;font-size:.95rem;font-weight:bold;text-decoration:none;cursor:pointer;line-height:1.2;box-sizing:border-box;font-family:inherit}
+.share-btn svg{width:19px;height:19px;flex:none}
+.share-btn.sh-x{background:#000;border-color:#000;color:#fff}
+.share-btn.sh-line{background:#06c755;border-color:#06c755;color:#fff}
+.share-btn.sh-fb{background:#1877f2;border-color:#1877f2;color:#fff}
+.share-btn.sh-native{background:#7a1f1f;border-color:#7a1f1f;color:#fff}
+.share-btn.copied{background:#2e7d32!important;border-color:#2e7d32!important;color:#fff}
+.share-bar.share-bottom{margin:22px 0 6px;border-top:1px solid #ddd2bd;padding-top:14px}
