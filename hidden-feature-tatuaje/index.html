@@ -30,14 +30,16 @@ img.stack { width: 100%; }
 .roletable.t-lines th:nth-child(4) { width: 43%; }
 .roletable.t-lines td.brand { min-width: 0; }
 /* 写真入り表は固定レイアウトにして、画像の縦横比で列幅が押し広がらないようにする（2026-11-12） */
-.roletable.t-lines, .roletable.t-monster { display: table; table-layout: fixed; }
-.roletable.t-lines td, .roletable.t-monster td { overflow-wrap: break-word; }
+.roletable.t-lines, .roletable.t-monster, .roletable.t-jp { display: table; table-layout: fixed; }
+.roletable.t-lines td, .roletable.t-monster td, .roletable.t-jp td { overflow-wrap: break-word; }
 /* 主要ライン表の写真列（2026-11-12追加） */
 .roletable td.photo { padding: 5px; }
 .roletable td.photo img.thumb { width: 100%; height: 62px; object-fit: cover; display: block; }
 .roletable td.photo .ai-tag { font-size: 0.68rem; color: #7a1f1f; font-weight: bold; text-align: center; margin-top: 3px; line-height: 1.3; }
 /* 写真ライトボックス（2026-11-12 カズ指示で標準仕様化）：記事内の写真はタップでポップアップ拡大 */
 main img { cursor: zoom-in; }
+main img.noimg { cursor: default; }
+.roletable td.photo img.noimg { object-fit: contain; background: #eeeae0; }
 #lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box; }
 #lightbox.open { display: flex; }
 #lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out; }
@@ -53,12 +55,14 @@ main img { cursor: zoom-in; }
 /* 本文中の言及箇所サムネイル（2026-11-12追加） */
 .inthumb { float: right; width: 104px; margin: 4px 0 8px 12px; }
 .inthumb img { width: 100%; height: auto; display: block; border: 1px solid #d8c9a3; margin-bottom: 4px; }
-.inthumb .ai-tag { font-size: 0.66rem; color: #7a1f1f; font-weight: bold; text-align: center; line-height: 1.3; }
+.inthumb .ai-tag { display: block; font-size: 0.66rem; color: #7a1f1f; font-weight: bold; text-align: center; line-height: 1.35; margin-top: 1px; }
+.caption { line-height: 1.45; }
 .ai-note { font-size: 0.72rem; color: #7a1f1f; font-weight: bold; text-align: center; margin: 5px 0 1px; line-height: 1.35; }
-.roletable.t-jp th:nth-child(1) { width: 34%; }
-.roletable.t-jp th:nth-child(2) { width: 22%; }
-.roletable.t-jp th:nth-child(3) { width: 20%; }
-.roletable.t-jp th:nth-child(4) { width: 24%; }
+.roletable.t-jp th:nth-child(1) { width: 19%; }
+.roletable.t-jp th:nth-child(2) { width: 27%; }
+.roletable.t-jp th:nth-child(3) { width: 15%; }
+.roletable.t-jp th:nth-child(4) { width: 16%; }
+.roletable.t-jp th:nth-child(5) { width: 23%; }
 /* 裏話ボックス統一仕様（2026-11-09確定）：全面帯見出し（バーガンディ地・金文字・金の◆マーカー）＋帯の下の金の太罫＋6px二重罫＋一段濃いクリーム地 */
 .urabanashi.deco { border: 6px double var(--burgundy); background: #f8ecd2; padding: 0 18px 14px; }
 .urabanashi.deco .ut { background: var(--burgundy); color: var(--gold-light); border-bottom: 3px solid var(--gold); margin: 0 -18px 10px; padding: 9px 18px 8px; }
@@ -136,15 +140,15 @@ main img { cursor: zoom-in; }
 <tr><td class="photo"><img class="thumb" src="img/atlantic-cazadores.jpg" alt="セレクシオン・デ・カサドレス（ブラウン・レーベル）の写真" data-cap="セレクシオン・デ・カサドレス（ブラウン・レーベル） — 写真：Atlantic Cigar"></td><td class="brand">セレクシオン・デ・カサドレス（ブラウン・レーベル）</td><td>2003</td><td>創業ライン。キューバ式箱、茶バンド、トリプルキャップ。マイアミ生産が本流。派生に3年周期を標榜した強めの Cojonú、黒の第2バンドの Reserva</td></tr>
 <tr class="alt"><td class="photo"><img class="thumb" src="img/ilovecigar-cabaiguan.jpg" alt="カバイグアンの写真" data-cap="カバイグアン（Cabaiguan）の箱 — 写真：I Love Cigar"></td><td class="brand">カバイグアン（Cabaiguan）</td><td>2006</td><td>マイルドなライン。タトゥアヘ初のエクアドル産コネチカット・シェード・ラッパー。キューバの町カバイグアンに由来。バンドに Tatuaje の名がなく、当初は別ブランドと誤解されたと本人が語る。派生 Guapos は力を上げた版</td></tr>
 <tr><td class="photo"><img class="thumb" src="img/cigarcountry-havana-vi.jpg" alt="ハバナVI（レッド・レーベル）の写真" data-cap="ハバナVI アーティスタスの開箱 — 写真：Cigar Country"></td><td class="brand">ハバナVI（レッド・レーベル）</td><td>2006</td><td>初のニカラグア生産。ブラウン・レーベルより中庸で安価な代替。初期6ビトラの頭文字が H-A-V-A-N-A</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-line-verocu.jpg" alt="AI生成イメージ：ベロクー（Verocu）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ベロクー（Verocu）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">ベロクー（Verocu）</td><td>2007限定→2015定番</td><td>ハバナVI の強化版。リヘロを加えた「レッド・レーベルのステロイド版」が本人の表現。当初は米国の東西で分けた地域限定だった</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-line-riqueza.jpg" alt="AI生成イメージ：ラ・リケサ（La Riqueza）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ラ・リケサ（La Riqueza）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">ラ・リケサ（La Riqueza）</td><td>2008</td><td>「富」の意。コネチカット・ブロードリーフ・ラッパー。ジョンソン／ガルシア両者にとって初のブロードリーフ製品だったとされる。2017年に価格表から外れ、2022年に SE として復活</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-line-triunfador.jpg" alt="AI生成イメージ：エル・トリウンファドール（El Triunfador）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：エル・トリウンファドール（El Triunfador）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">エル・トリウンファドール（El Triunfador）</td><td>2008限定→2010定番</td><td>「勝者」の意。始まりは2008年の限定ランセロ（現 Original）。赤バンドの定番ライン（2010年）は別ブレンド</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-line-ambos.jpg" alt="AI生成イメージ：アンボス・ムンドス（Ambos Mundos）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：アンボス・ムンドス（Ambos Mundos）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">アンボス・ムンドス（Ambos Mundos）</td><td>2009</td><td>「二つの世界」。同一のニカラグア・コアに Habano と Sumatra の2ラッパーを用意したバリュー志向ライン。2017年に価格表から除外</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ベロクー（Verocu）</td><td>2007限定→2015定番</td><td>ハバナVI の強化版。リヘロを加えた「レッド・レーベルのステロイド版」が本人の表現。当初は米国の東西で分けた地域限定だった</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ラ・リケサ（La Riqueza）</td><td>2008</td><td>「富」の意。コネチカット・ブロードリーフ・ラッパー。ジョンソン／ガルシア両者にとって初のブロードリーフ製品だったとされる。2017年に価格表から外れ、2022年に SE として復活</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">エル・トリウンファドール（El Triunfador）</td><td>2008限定→2010定番</td><td>「勝者」の意。始まりは2008年の限定ランセロ（現 Original）。赤バンドの定番ライン（2010年）は別ブレンド</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">アンボス・ムンドス（Ambos Mundos）</td><td>2009</td><td>「二つの世界」。同一のニカラグア・コアに Habano と Sumatra の2ラッパーを用意したバリュー志向ライン。2017年に価格表から除外</td></tr>
 <tr class="alt"><td class="photo"><img class="thumb" src="img/santaclara-fausto.jpg" alt="ファウストの写真" data-cap="ファウスト FT166 の箱 — 写真：Santa Clara Cigars"></td><td class="brand">ファウスト（Fausto）</td><td>2011</td><td>ホノルルの店舗限定だった T110（2009年）の定番化。本人がポートフォリオ最強クラスと認める。FT114／FT127／FT140／FT153／FT166 の5サイズ</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-line-avion.jpg" alt="AI生成イメージ：アビオン（Avion）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：アビオン（Avion）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">アビオン（Avion）</td><td>2011–2013</td><td>ファウスト・ブレンドのボックスプレス・ペルフェクト版を年1サイズずつ出す企画。'11、'12、'13 で完結</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-line-casita.jpg" alt="AI生成イメージ：ラ・カシータ・クリオージャ（La Casita Criolla）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ラ・カシータ・クリオージャ（La Casita Criolla）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">ラ・カシータ・クリオージャ（La Casita Criolla）</td><td>2011（2012年説もあり）</td><td>ラッパー、バインダー、フィラーの全てがコネチカット・ブロードリーフという100％ブロードリーフ</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-line-tattoo.jpg" alt="AI生成イメージ：タトゥー（Tattoo）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：タトゥー（Tattoo）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">タトゥー（Tattoo）</td><td>2014定番</td><td>ブランド名の英訳を冠した低価格ライン。カバレロ $5（約¥790）から。TACUBA 製、50本箱</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-line-nuevitas.jpg" alt="AI生成イメージ：ヌエビタス（Nuevitas）の雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ヌエビタス（Nuevitas）の雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td class="brand">ヌエビタス（Nuevitas）</td><td>初期→2018復活</td><td>最初期はガルシア家ではなく Tabacalera Tropical 製だった例外的ライン。2007年に終了し、2018年にマイファザー製のニカラグア・プーロとして復活</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">アビオン（Avion）</td><td>2011–2013</td><td>ファウスト・ブレンドのボックスプレス・ペルフェクト版を年1サイズずつ出す企画。'11、'12、'13 で完結</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ラ・カシータ・クリオージャ（La Casita Criolla）</td><td>2011（2012年説もあり）</td><td>ラッパー、バインダー、フィラーの全てがコネチカット・ブロードリーフという100％ブロードリーフ</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">タトゥー（Tattoo）</td><td>2014定番</td><td>ブランド名の英訳を冠した低価格ライン。カバレロ $5（約¥790）から。TACUBA 製、50本箱</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ヌエビタス（Nuevitas）</td><td>初期→2018復活</td><td>最初期はガルシア家ではなく Tabacalera Tropical 製だった例外的ライン。2007年に終了し、2018年にマイファザー製のニカラグア・プーロとして復活</td></tr>
 </tbody></table>
 <img src="img/ilovecigar-cabaiguan.jpg">
 <div class="caption">写真：<span class="nm-sh">I Love Cigar</span> — <span class="nm-cg">カバイグアン</span> の箱。バンドにブランド名が入らなかったため、当初はタトゥアヘとは別のブランドだと思われていた、とジョンソンは振り返ります</div>
@@ -167,15 +171,15 @@ main img { cursor: zoom-in; }
 <div class="caption">写真：Halfwheel — <span class="nm-cg">モンスター・シリーズ</span> 全13作のバンドが一堂に会したコレクション。ドレスボックスは二次市場で定価の2〜3倍で取引されることも珍しくありません</div>
 <div class="tabletitle">モンスター・シリーズ全13作（2008–2019）</div>
 <table class="roletable t-monster"><thead><tr><th>写真</th><th>年</th><th>作品</th><th>生産数</th><th>備考</th></tr></thead><tbody>
-<tr><td class="photo"><img class="thumb" src="img/ai-monster-frank.jpg" alt="AI生成イメージ：ザ・フランクの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・フランクの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2008</td><td class="brand">ザ・フランク（The Frank）</td><td>666箱</td><td>フランケンシュタインの怪物。シリーズの原点</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2008</td><td class="brand">ザ・フランク（The Frank）</td><td>666箱</td><td>フランケンシュタインの怪物。シリーズの原点</td></tr>
 <tr class="alt"><td class="photo"><img class="thumb" src="img/halfwheel-drac-crop.jpg" alt="ザ・ドラックの写真" data-cap="ザ・ドラック — フット（吸い口の反対側）に巻かれた黒バンドが特徴（モンスター・シリーズ集合写真からの切り出し）写真：Halfwheel" style="object-position: bottom"></td><td>2009</td><td class="brand">ザ・ドラック（The Drac）</td><td>1,300箱</td><td>ドラキュラ。例外的に増産された年</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-monster-face.jpg" alt="AI生成イメージ：ザ・フェイスの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・フェイスの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2010</td><td class="brand">ザ・フェイス（The Face）</td><td>666箱</td><td>レザーフェイスがモチーフ</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-monster-wolfman.jpg" alt="AI生成イメージ：ザ・ウルフマンの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・ウルフマンの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2011</td><td class="brand">ザ・ウルフマン（The Wolfman）</td><td>666箱</td><td>狼男</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-monster-mummy.jpg" alt="AI生成イメージ：ザ・マミーの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・マミーの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2012</td><td class="brand">ザ・マミー（The Mummy）</td><td>666箱</td><td>ミイラ男</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-monster-jv13.jpg" alt="AI生成イメージ：ザ・JV13／ジェイソンの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・JV13／ジェイソンの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2013</td><td class="brand">ザ・JV13／ジェイソン（The JV13 "Jason"）</td><td>666箱</td><td>「13日の金曜日」のジェイソン</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-monster-jekyll.jpg" alt="AI生成イメージ：ザ・ジキルの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・ジキルの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2014</td><td class="brand">ザ・ジキル（The Jekyll）</td><td>666箱</td><td>ジキル博士。翌年のハイドと箱を並べると一枚絵になる仕掛け</td></tr>
-<tr class="alt"><td class="photo"><img class="thumb" src="img/ai-monster-hyde.jpg" alt="AI生成イメージ：ザ・ハイドの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・ハイドの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2015</td><td class="brand">ザ・ハイド（The Hyde）</td><td>666箱</td><td>ハイド氏。ジキルと対になる意匠</td></tr>
-<tr><td class="photo"><img class="thumb" src="img/ai-monster-krueger.jpg" alt="AI生成イメージ：ザ・クルーガーの雰囲気を描いたイメージ（実物の製品写真ではありません）" data-cap="AI生成イメージ：ザ・クルーガーの雰囲気を描いたイメージです。実物の製品写真ではありません"><div class="ai-tag">※画像がないためイメージ生成物（AI生成）</div></td><td>2016</td><td class="brand">ザ・クルーガー（The Krueger）</td><td>666箱</td><td>フレディ・クルーガーがモチーフ</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2010</td><td class="brand">ザ・フェイス（The Face）</td><td>666箱</td><td>レザーフェイスがモチーフ</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2011</td><td class="brand">ザ・ウルフマン（The Wolfman）</td><td>666箱</td><td>狼男</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2012</td><td class="brand">ザ・マミー（The Mummy）</td><td>666箱</td><td>ミイラ男</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2013</td><td class="brand">ザ・JV13／ジェイソン（The JV13 "Jason"）</td><td>666箱</td><td>「13日の金曜日」のジェイソン</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2014</td><td class="brand">ザ・ジキル（The Jekyll）</td><td>666箱</td><td>ジキル博士。翌年のハイドと箱を並べると一枚絵になる仕掛け</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2015</td><td class="brand">ザ・ハイド（The Hyde）</td><td>666箱</td><td>ハイド氏。ジキルと対になる意匠</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td>2016</td><td class="brand">ザ・クルーガー（The Krueger）</td><td>666箱</td><td>フレディ・クルーガーがモチーフ</td></tr>
 <tr class="alt"><td class="photo"><img class="thumb" src="img/halfwheel-michael-crop.jpg" alt="ザ・マイケルの写真" data-cap="ザ・マイケル — 紺色のバンド（モンスター・シリーズ集合写真からの切り出し）写真：Halfwheel"></td><td>2017</td><td class="brand">ザ・マイケル（The Michael）</td><td>666箱</td><td>マイケル・マイヤーズがモチーフ</td></tr>
 <tr><td class="photo"><img class="thumb" src="img/halfwheel-bride-crop.jpg" alt="ザ・ブライドの写真" data-cap="ザ・ブライド — 白地にモスグリーンのバンド（モンスター・シリーズ集合写真からの切り出し）写真：Halfwheel"></td><td>2018</td><td class="brand">ザ・ブライド（The Bride）</td><td>666箱</td><td>フランケンシュタインの花嫁。通算13作目で「最終作」として発表された</td></tr>
 <tr class="alt"><td class="photo"><img class="thumb" src="img/halfwheel-chuck-tiff.jpg" alt="ザ・チャックとザ・ティフの写真" data-cap="ザ・チャックとザ・ティフの棺型ボックス — 写真：Halfwheel"></td><td>2019</td><td class="brand">ザ・チャック／ザ・ティフ（The Chuck／The Tiff）</td><td>700箱</td><td>「チャイルド・プレイ」の二人。遡って第11・12作と位置づけられ、「Unlucky 26」として26店舗へ。2つの棺箱を連結すると一枚絵になる</td></tr>
@@ -206,16 +210,16 @@ main img { cursor: zoom-in; }
 <p>最後は日本との接点です。編集部の日本葉巻データベース（財務省の認可リストと国内店舗の販売を照合した全2,487件）で、ブランド「Tatuaje」として収録されているのは28件。その全てが「現行販売確認済み」で、製造メーカーは全件 <span class="nm-mk">マイファザー・シガーズS.A.</span> と記録されています。販売が確認できる主な店は <span class="nm-sh">大越酒店さん</span>、<span class="nm-sh">はまきどんやさん</span>、<span class="nm-sh">AUN Smokeさん</span> です。米国のブティック・ブランドという印象に反して、日本でも案外たっぷり買える。それが実数から見える姿です。</p>
 <p>うち、財務省の認可（小売定価の設定）と店舗販売の両方が確認できたのは9品目。店舗価格は認可定価と一致しています。2025年に Cigar Aficionado の第3位・96点を取った <span class="nm-cg">ブラック・レーベル ペティ・ランセロ</span> が、日本では ¥1,900 で普通に買える。この事実が、本特集の日本パートで一番の驚きかもしれません。</p>
 <div class="tabletitle">日本で買えるタトゥアヘ ― 認可・販売の両確認が取れた9品目（1本価格）</div>
-<table class="roletable t-jp"><thead><tr><th>品目</th><th>認可定価</th><th>販売確認店</th><th>備考</th></tr></thead><tbody>
-<tr><td class="brand">セリエP ホンジュラス ロブスト</td><td>¥1,300</td><td>大越酒店さん／はまきどんやさん</td><td>認可2026-03-02。現行ラインナップで最も手頃な入口</td></tr>
-<tr class="alt"><td class="brand">ブラック ペティランセロ</td><td>¥1,900</td><td>大越酒店さん／はまきどんやさん</td><td>認可2025-10-20。CA Top 25 of 2025 第3位・96点の当の銘柄</td></tr>
-<tr><td class="brand">ラトリエ LAT52</td><td>¥2,100</td><td>はまきどんやさん</td><td>認可2024-01-31。七章の LAT シリーズの長男</td></tr>
-<tr class="alt"><td class="brand">ラトリエ ラ・ミッション 1959</td><td>¥2,100</td><td>大越酒店さん／はまきどんやさん</td><td>認可2024-01-31。ボルドーのシャトーへのオマージュ作</td></tr>
-<tr><td class="brand">10周年 ベル・アンクル ペルフェクト</td><td>¥2,100</td><td>大越酒店さん</td><td>認可2025-10-20。2013年の10周年記念サイズ</td></tr>
-<tr class="alt"><td class="brand">カバイグアン グアポ No.52</td><td>¥2,100</td><td>大越酒店さん／はまきどんやさん</td><td>認可2026-03-02。カバイグアンの強化版グアポス</td></tr>
-<tr><td class="brand">メキシカン・エクスペリメント ME II ベリコソ</td><td>¥2,300</td><td>大越酒店さん／はまきどんやさん</td><td>認可2024-01-31。サン・アンドレスのラッパーの実験作</td></tr>
-<tr class="alt"><td class="brand">エル・トリウンファドール ランセロ オリジナル</td><td>¥2,500</td><td>大越酒店さん／はまきどんやさん</td><td>認可2025-10-20。2008年の原点ブレンドのランセロが日本でも買える</td></tr>
-<tr><td class="brand">コホヌ 2006</td><td>¥2,900</td><td>大越酒店さん／はまきどんやさん</td><td>認可2023-06-23。3年周期の強めのシリーズ</td></tr>
+<table class="roletable t-jp"><thead><tr><th>写真</th><th>品目</th><th>認可定価</th><th>販売確認店</th><th>備考</th></tr></thead><tbody>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">セリエP ホンジュラス ロブスト</td><td>¥1,300</td><td>大越酒店さん／はまきどんやさん</td><td>認可2026-03-02。現行ラインナップで最も手頃な入口</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ブラック ペティランセロ</td><td>¥1,900</td><td>大越酒店さん／はまきどんやさん</td><td>認可2025-10-20。CA Top 25 of 2025 第3位・96点の当の銘柄</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ラトリエ LAT52</td><td>¥2,100</td><td>はまきどんやさん</td><td>認可2024-01-31。七章の LAT シリーズの長男</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">ラトリエ ラ・ミッション 1959</td><td>¥2,100</td><td>大越酒店さん／はまきどんやさん</td><td>認可2024-01-31。ボルドーのシャトーへのオマージュ作</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">10周年 ベル・アンクル ペルフェクト</td><td>¥2,100</td><td>大越酒店さん</td><td>認可2025-10-20。2013年の10周年記念サイズ</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">カバイグアン グアポ No.52</td><td>¥2,100</td><td>大越酒店さん／はまきどんやさん</td><td>認可2026-03-02。カバイグアンの強化版グアポス</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">メキシカン・エクスペリメント ME II ベリコソ</td><td>¥2,300</td><td>大越酒店さん／はまきどんやさん</td><td>認可2024-01-31。サン・アンドレスのラッパーの実験作</td></tr>
+<tr class="alt"><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">エル・トリウンファドール ランセロ オリジナル</td><td>¥2,500</td><td>大越酒店さん／はまきどんやさん</td><td>認可2025-10-20。2008年の原点ブレンドのランセロが日本でも買える</td></tr>
+<tr><td class="photo"><img class="thumb noimg" src="img/no-image.jpg" alt="NO IMAGE"></td><td class="brand">コホヌ 2006</td><td>¥2,900</td><td>大越酒店さん／はまきどんやさん</td><td>認可2023-06-23。3年周期の強めのシリーズ</td></tr>
 </tbody></table>
 <p>販売確認のみ（認可の原典照合は未了）の品目にも、顔ぶれは揃っています。創業ラインの <span class="nm-cg">ノエラス</span> は ¥2,000 で <span class="nm-sh">大越酒店さん</span>、<span class="nm-sh">はまきどんやさん</span>、<span class="nm-sh">AUN Smokeさん</span> の3店が一致。<span class="nm-cg">ブラック コロナ・ゴルダ</span> ¥2,200、<span class="nm-cg">ファウスト FT127</span> ¥2,100、<span class="nm-cg">ハバナVI アンヘレス</span> ¥1,600、<span class="nm-cg">グラン・コホヌ</span> ¥3,600、入門にちょうどいい <span class="nm-cg">ペティ・カサドレス</span> ¥1,000 など。七章の <span class="nm-cg">ラ・ユニオン</span>（2ブレンド）は、1本 ¥15,000 で2026年3月30日に国内認可まで進んでいますが、国内販売はまだ確認できていません（認可のみ）。</p>
 <div class="notebox"><div class="nt">輸入元について ― 正直にお伝えします</div>
@@ -244,7 +248,7 @@ main img { cursor: zoom-in; }
     if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
     return img.getAttribute('alt') || '';
   }
-  var imgs = document.querySelectorAll('main img');
+  var imgs = document.querySelectorAll('main img:not(.noimg)');
   for (var i = 0; i < imgs.length; i++) {
     (function (img) {
       img.addEventListener('click', function () {
