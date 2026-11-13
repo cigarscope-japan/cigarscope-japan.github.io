@@ -1,5 +1,89 @@
 [
  {
+  "title": "Trinidad Villa Debuts in Mexico City Today, a New Vitola Named for the Mansions of a World Heritage City",
+  "summary": "Habanos S.A. has announced the new Trinidad Villa and gave it its world debut in Mexico City on November 13. The cigar is a Julieta No. 3 (47 x 170 mm), medium in strength, restricted to La Casa del Habano and Habanos Specialists in boxes of 12. Pricing has not been announced.",
+  "category": "New Release",
+  "countries": [
+   "Cuba"
+  ],
+  "maker": "Habanos S.A.",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/trinidad-villa-debut.html"
+ },
+ {
+  "title": "Davidoff Announces Two Limited Winston Churchill Traveller Humidors, 100 Pieces Each, on Sale December 1",
+  "summary": "Davidoff has announced two limited Winston Churchill Traveller humidors. The Ambassador is $4,950 and the Primus $4,350; each is limited to 100 numbered pieces, and both go on sale on December 1.",
+  "category": "Limited Edition",
+  "countries": [
+   "Dominican Republic"
+  ],
+  "maker": "Davidoff",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/davidoff-winston-churchill-traveller-humidors.html"
+ },
+ {
+  "title": "Foundation's Highclere Castle Senetjer Returns for 2026 — the Tutankhamun Cigar Ships Again in November",
+  "summary": "Foundation's Highclere Castle Senetjer has begun shipping in its 2026 edition — a 6 3/4 x 52 perfecto at $33 a cigar and $396 for a box of 12, limited to 750 boxes in its once-a-year release.",
+  "category": "Limited Edition",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Foundation Cigar Co.",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/highclere-castle-senetjer-2026.html"
+ },
+ {
+  "title": "Kristoff Ships the Mildly Pistoff Kristoff and the TAA 2026 Exclusive",
+  "summary": "Kristoff has begun shipping the Mildly Pistoff Kristoff and the TAA 2026 Exclusive to TAA member retailers. The mild version comes in three sizes at $11 to $12.25; the TAA exclusive is a 6 x 52 toro at $15, limited to 500 boxes of 20.",
+  "category": "Limited Edition",
+  "countries": [
+   "Dominican Republic"
+  ],
+  "maker": "Kristoff",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/kristoff-mildly-pistoff-taa-2026.html"
+ },
+ {
+  "title": "Drew Estate Releases Undercrown Dark Harvest as a Cigars International Exclusive",
+  "summary": "Drew Estate has released the new Undercrown Dark Harvest as a Cigars International exclusive. It wears a Connecticut Corojo hybrid leaf from the same family as the Liga Privada H99, in three sizes at $10.20 to $13.20.",
+  "category": "New Release",
+  "countries": [
+   "Nicaragua"
+  ],
+  "maker": "Drew Estate",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/undercrown-dark-harvest.html"
+ },
+ {
+  "title": "New U.S. Customs Rule May Affect Cigar Imports by Foreign Importers, Effective January 5, 2027",
+  "summary": "U.S. Customs and Border Protection has published an interim final rule strengthening the requirements placed on foreign importers. CTPAT certification or the use of a certified customs broker will be mandatory, raising concerns about import restructuring and price effects for cigars. The rule takes effect on January 5, 2027.",
+  "category": "Market & Distribution",
+  "countries": [
+   "United States"
+  ],
+  "maker": "Industry statistics (Cigar Association of America data)",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/us-customs-rule-foreign-importers.html"
+ },
+ {
+  "title": "More Than Half of Ecuador's 2026 Leaf Crop Destroyed by Super El Niño — a Follow-Up Report",
+  "summary": "A.S.P. Enterprises, one of Ecuador's largest growers, has told clients that more than half of the 2026 Ecuadorian leaf crop has been lost to Super El Niño. Supply is expected to reach only 25 to 35 percent of orders, with possible future shortages and blend changes. A follow-up to our November 5 report.",
+  "category": "Market & Distribution",
+  "countries": [
+   "Ecuador"
+  ],
+  "maker": "A.S.P. Enterprises",
+  "type": "News",
+  "date": "2026-11-13",
+  "url": "news/ecuador-leaf-crop-2026.html"
+ },
+ {
   "title": "Hoyo de Monterrey Debuts Le Hoyo de San Luis in Germany, a Vitola Rolled Only With San Luis Leaf",
   "summary": "Habanos, S.A. unveiled the Hoyo de Monterrey Le Hoyo de San Luis (52 x 160 mm) in Germany today, November 12 — a medium-strength, totally handmade long-filler cigar rolled exclusively with leaf from San Luis in Vuelta Abajo, presented in boxes of 10 with pricing yet to be announced.",
   "category": "New Release",
@@ -1935,30 +2019,6 @@
   "type": "Feature",
   "date": "2026-11-09",
   "url": "features/myfather.html"
- },
- {
-  "title": "Phantom Giants — A Genealogy of the Long Cigars That Vanished",
-  "summary": "Deep Dive Series Part 6. The giant formats of old Havana — Prominentes, diademas and the 237mm Fabulosos — how they vanished, the four survivors, and where the giants emigrated.",
-  "category": "Feature",
-  "countries": [
-   "Cuba"
-  ],
-  "maker": "Habanos and others",
-  "type": "Feature",
-  "date": "2026-11-11",
-  "url": "features/giants.html"
- },
- {
-  "title": "Tatuaje — The Tattooed Man and the Brown-Band Revolution",
-  "summary": "Deep Dive Series Part 7. Tatuaje, the brown-band brand founded by Pete Johnson with Don Pepín García: the core lines, the Black Label, the Monster Series, and the brand in Japan.",
-  "category": "Feature",
-  "countries": [
-   "Nicaragua"
-  ],
-  "maker": "Tatuaje",
-  "type": "Feature",
-  "date": "2026-11-12",
-  "url": "features/tatuaje.html"
  },
  {
   "title": "AJ Fernandez — The Man Who Reached the Top in Another's Name",
