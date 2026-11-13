@@ -11,8 +11,8 @@
 <style>
 /* 黒枠タイトルは中央寄せ（鉄則・2026-11-11） */
 h2.feature-band { text-align: center;}
-h2.nb, h4.nb { white-space: normal;}
-.subtitle.nb { white-space: normal;}
+/* .nb は span 側に付くため子孫セレクタで指定する（v95 横はみ出し修正：見出し・副題内では折り返し許可） */
+h2 .nb, h4 .nb, .subtitle .nb { white-space: normal;}
 /* セール記事（チラシ風）仕様（2026-11-14 カズ指示）：本文は通常記事より一段大きく */
 main.column { font-size: 19px;}
 main p { line-height: 1.85;}
