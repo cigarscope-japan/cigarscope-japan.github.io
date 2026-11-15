@@ -51,6 +51,7 @@ main p { line-height: 1.85;}
 .contents th { background: var(--ink); color: var(--gold-light);}
 .contents td.sz { white-space: nowrap;}
 .contents td.rate { white-space: nowrap;}
+.contents td img.cthumb { display: block; width: 100%; max-width: 320px; height: auto; margin-top: 8px;}
 /* 内容物テーブル（モバイルでは1銘柄1ブロックに積む。v95の教訓：375pxでのはみ出し防止） */
 @media (max-width: 640px) {
 .contents, .contents tbody, .contents tr, .contents td { display: block; width: auto;}
@@ -141,16 +142,16 @@ main img { cursor: zoom-in;}
 <table class="contents">
 <thead><tr><th>銘柄</th><th>サイズ</th><th>強さ</th><th>評価</th></tr></thead>
 <tbody>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/montecristo-crafted-by-aj-fernandez-toro.html" target="_blank" rel="noopener">モンテクリスト クラフテッド・バイ AJF トロ</a></td><td class="sz">6 × 50</td><td>フル</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-gobernador.html" target="_blank" rel="noopener">ニュー・ワールド ゴベルナドール</a></td><td class="sz">6½ × 55</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/punch-diablo-scamp-2019-16-cigar-of-the-year.html" target="_blank" rel="noopener">パンチ・ディアブロ スキャンプ</a></td><td class="sz">6⅛ × 50</td><td>フル</td><td class="rate">CA 93点・2019年16位</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/h-upmann-by-aj-fernandez-toro.html" target="_blank" rel="noopener">H.アップマン バイ AJF トロ</a></td><td class="sz">6 × 54</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-puro-especial-toro.html" target="_blank" rel="noopener">ニュー・ワールド プーロ・エスペシャル トロ</a></td><td class="sz">6½ × 52</td><td>ミディアム・フル</td><td class="rate">CA 93点・2017年12位</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/san-lotano-connecticut-robusto.html" target="_blank" rel="noopener">サン・ロターノ コネチカット ロブスト</a></td><td class="sz">5 × 52</td><td>マイルド・ミディアム</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/bellas-artes-toro.html" target="_blank" rel="noopener">ベリャス・アルテス トロ</a></td><td class="sz">6 × 54</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-cameroon-churchill.html" target="_blank" rel="noopener">ニュー・ワールド カメルーン チャーチル</a></td><td class="sz">7 × 48</td><td>ミディアム</td><td class="rate">―</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/enclave-churchill.html" target="_blank" rel="noopener">エンクレーブ チャーチル</a></td><td class="sz">7 × 52</td><td>ミディアム・フル</td><td class="rate">CA 92点・2016年20位</td></tr>
-<tr><td><a class="shoplink" href="https://www.cigarplace.biz/romeo-y-julieta-crafted-by-aj-fernandez-churchill.html" target="_blank" rel="noopener">ロメオ y ジュリエタ クラフテッド・バイ AJF チャーチル</a></td><td class="sz">7 × 50</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/montecristo-crafted-by-aj-fernandez-toro.html" target="_blank" rel="noopener">モンテクリスト クラフテッド・バイ AJF トロ</a><img class="cthumb" src="img/cp-montecristo-ajf-toro.jpg" alt="モンテクリスト クラフテッド・バイ AJF トロ（Cigar Placeの商品写真）"></td><td class="sz">6 × 50</td><td>フル</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-gobernador.html" target="_blank" rel="noopener">ニュー・ワールド ゴベルナドール</a><img class="cthumb" src="img/cp-newworld-gobernador.jpg" alt="ニュー・ワールド ゴベルナドール（Cigar Placeの商品写真）"></td><td class="sz">6½ × 55</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/punch-diablo-scamp-2019-16-cigar-of-the-year.html" target="_blank" rel="noopener">パンチ・ディアブロ スキャンプ</a><img class="cthumb" src="img/cp-punch-diablo-scamp.jpg" alt="パンチ・ディアブロ スキャンプ（Cigar Placeの商品写真）"></td><td class="sz">6⅛ × 50</td><td>フル</td><td class="rate">CA 93点・2019年16位</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/h-upmann-by-aj-fernandez-toro.html" target="_blank" rel="noopener">H.アップマン バイ AJF トロ</a><img class="cthumb" src="img/cp-hupmann-ajf-toro.jpg" alt="H.アップマン バイ AJF トロ（Cigar Placeの商品写真）"></td><td class="sz">6 × 54</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-puro-especial-toro.html" target="_blank" rel="noopener">ニュー・ワールド プーロ・エスペシャル トロ</a><img class="cthumb" src="img/cp-newworld-puro-especial.jpg" alt="ニュー・ワールド プーロ・エスペシャル トロ（Cigar Placeの商品写真）"></td><td class="sz">6½ × 52</td><td>ミディアム・フル</td><td class="rate">CA 93点・2017年12位</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/san-lotano-connecticut-robusto.html" target="_blank" rel="noopener">サン・ロターノ コネチカット ロブスト</a><img class="cthumb" src="img/cp-sanlotano-conn-robusto.jpg" alt="サン・ロターノ コネチカット ロブスト（Cigar Placeの商品写真）"></td><td class="sz">5 × 52</td><td>マイルド・ミディアム</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/bellas-artes-toro.html" target="_blank" rel="noopener">ベリャス・アルテス トロ</a><img class="cthumb" src="img/cp-bellas-artes-toro.jpg" alt="ベリャス・アルテス トロ（Cigar Placeの商品写真）"></td><td class="sz">6 × 54</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/new-world-cameroon-churchill.html" target="_blank" rel="noopener">ニュー・ワールド カメルーン チャーチル</a><img class="cthumb" src="img/cp-newworld-cameroon-churchill.jpg" alt="ニュー・ワールド カメルーン チャーチル（Cigar Placeの商品写真）"></td><td class="sz">7 × 48</td><td>ミディアム</td><td class="rate">―</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/enclave-churchill.html" target="_blank" rel="noopener">エンクレーブ チャーチル</a><img class="cthumb" src="img/cp-enclave-churchill.jpg" alt="エンクレーブ チャーチル（Cigar Placeの商品写真）"></td><td class="sz">7 × 52</td><td>ミディアム・フル</td><td class="rate">CA 92点・2016年20位</td></tr>
+<tr><td><a class="shoplink" href="https://www.cigarplace.biz/romeo-y-julieta-crafted-by-aj-fernandez-churchill.html" target="_blank" rel="noopener">ロメオ y ジュリエタ クラフテッド・バイ AJF チャーチル</a><img class="cthumb" src="img/cp-romeo-ajf-churchill.jpg" alt="ロメオ y ジュリエタ クラフテッド・バイ AJF チャーチル（Cigar Placeの商品写真）"></td><td class="sz">7 × 50</td><td>ミディアム・フル</td><td class="rate">―</td></tr>
 </tbody>
 </table>
 <p>内容物10銘柄のサイズ・強さ・評価は、<span class="nm-sh">Cigar Place</span> の商品ページ掲載に基づきます。</p>
