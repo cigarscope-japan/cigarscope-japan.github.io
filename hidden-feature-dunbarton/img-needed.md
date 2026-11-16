@@ -4,7 +4,7 @@
 
 **重要：日本のお店の素材（写真・画像）は使用禁止。** 大越酒店さんを含む日本の店舗サイトの画像は一切使わない。店名・価格・販売状況などの事実の文章での言及のみ。
 
-## 本文・図版（実写真12点。v115で当時の写真5点を追加）
+## 本文・図版（実写真13点。v115で当時の写真5点を追加、v117で Shokai Bushido を追加）
 | # | 配置 | ファイル | 出典 |
 |---|---|---|---|
 | 1 | 特集ボックス（ヒーロー） | saka-hero.jpg | Cigar Dojo（2023年 Person of the Year 発表グラフィック。本人の実写真を含む） |
@@ -19,12 +19,14 @@
 | 10 | 三章（メリーロ段落直後）【v115】 | melillo-portrait-2014.jpg | Halfwheel（2014-05-30「Portraits: Nicholas Melillo」、Brooks Whittington 撮影。ラ・グラン・ファブリカの巻き場、退社発表直前） |
 | 11 | 三章末【v115】 | cigar-safari-crew-2012.jpg | Stogie Guys（2012-05-29）。Cigar Safari 集合写真。キャプションでジョナサン・ドリュー（赤シャツと帽子）とサカ（右下）を名指し |
 | 12 | 四章冒頭【v115】 | saka-melillo-2013.jpg | Cigar Coop（2013-05-23）。キャプション原文「Drew Estate CEO Steve Saka (Left), Executive VP Nicholas Melillo (Right)」。原寸235×320と小さいため表示幅235pxに制限 |
+| 13 | 系譜表の直後（Takumi／Shokai Bushido 段落）【v117】 | shokai-bushido.jpg | Cigar Dojo（Dunbarton のリリース前製品イメージ。Shokai Bushido の10本入りバンドル、巻き台上）。調査メモ research/shokai-bushido-2026-11-17.md の確保写真 01 |
 
 ※ v115 の5点の探索記録・同定根拠の詳細は ~/workspace/cigar-site/research/dunbarton-trio-photo/README.md。3人（サカ／ジョナサン／メリーロ）が同一フレームで同定できる写真は探索の結果存在を確認できず、2人写真＋当時の資料写真の組み合わせで構成した。
 
-## ライン表（17行、v112で13→17行に拡充）：実写真16点／NO IMAGE 1点
+## ライン表（18行、v112で13→17行に拡充、v117で LecheBurra を追加）：実写真17点／NO IMAGE 1点
 - Liga Privada No.9＝liga-no9.png（Cigar.com）／T52＝t52.jpg（海外小売の商品写真、WebP→JPEG変換）／Undercrown＝undercrown.jpg／Sobremesa Solita＝sobremesa.jpg（Halfwheel）／Mi Querida＝mi-querida.png（Dunbarton 公式）／Todos Las Dias＝todos.png（Dunbarton 公式）／Sin Compromiso＝sin-compromiso.jpg（Halfwheel）／Umbagog＝umbagog.png（Dunbarton 公式）／Muestra de Saka＝unstolen.png（Dunbarton 公式、Unstolen Valor）／StillWell Star＝stillwell.png（Dunbarton 公式）／Red Meat Lovers＝redmeat.png（Dunbarton 公式）／Polpetta＝polpetta.png（Dunbarton 公式）／Overseas No.1＝overseas.jpg（Halfwheel）
 - v112追加行：Mi Querida Black＝mi-querida-black.jpg（Halfwheel、SakaKhan 単品）／#GFY Lancero Collection＝gfy.png（Oxford Cigar Co.、海外小売の商品写真）／Year of the Duque＝year-duque.jpg（Cigar Dojo、単品側面）
+- v117追加行：LecheBurra＝lecheburra.jpg（Cigars Daily 商品ページの製品写真、海外小売。プリリリース版バンドルでバンド・包装の「LECHEBURRA PRE-RELEASE」表記を目視確認済み。製造工場は未確認のため表の製造欄は「―」）
 - NO IMAGE：10th Jubilee（日本価格表と同一スロットの扱いに合わせ、確かな製品写真を系譜表用に新規確保しなかったため）
 
 ## 日本価格表（20品目）：実写真19点／NO IMAGE 1点
