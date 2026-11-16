@@ -15,8 +15,10 @@
 | 6 | 六章 | sin-compromiso.jpg | Halfwheel（Sin Compromiso Selección No.2 の単品） |
 | 7 | 七章 | overseas-box.jpg | Halfwheel（Overseas No.1 の箱） |
 
-## ライン表（13行）：実写真13点／NO IMAGE 0点
-- Liga Privada No.9＝liga-no9.png（Cigar.com）／T52＝t52.jpg（海外小売の商品写真、WebP→JPEG変換）／Undercrown＝undercrown.jpg／Sobremesa＝sobremesa.jpg（Halfwheel）／Mi Querida＝mi-querida.png（Dunbarton 公式）／Todos Las Dias＝todos.png（Dunbarton 公式）／Sin Compromiso＝sin-compromiso.jpg（Halfwheel）／Umbagog＝umbagog.png（Dunbarton 公式）／Muestra de Saka＝unstolen.png（Dunbarton 公式、Unstolen Valor）／StillWell Star＝stillwell.png（Dunbarton 公式）／Red Meat Lovers＝redmeat.png（Dunbarton 公式）／Polpetta＝polpetta.png（Dunbarton 公式）／Overseas No.1＝overseas.jpg（Halfwheel）
+## ライン表（17行、v112で13→17行に拡充）：実写真16点／NO IMAGE 1点
+- Liga Privada No.9＝liga-no9.png（Cigar.com）／T52＝t52.jpg（海外小売の商品写真、WebP→JPEG変換）／Undercrown＝undercrown.jpg／Sobremesa Solita＝sobremesa.jpg（Halfwheel）／Mi Querida＝mi-querida.png（Dunbarton 公式）／Todos Las Dias＝todos.png（Dunbarton 公式）／Sin Compromiso＝sin-compromiso.jpg（Halfwheel）／Umbagog＝umbagog.png（Dunbarton 公式）／Muestra de Saka＝unstolen.png（Dunbarton 公式、Unstolen Valor）／StillWell Star＝stillwell.png（Dunbarton 公式）／Red Meat Lovers＝redmeat.png（Dunbarton 公式）／Polpetta＝polpetta.png（Dunbarton 公式）／Overseas No.1＝overseas.jpg（Halfwheel）
+- v112追加行：Mi Querida Black＝mi-querida-black.jpg（Halfwheel、SakaKhan 単品）／#GFY Lancero Collection＝gfy.png（Oxford Cigar Co.、海外小売の商品写真）／Year of the Duque＝year-duque.jpg（Cigar Dojo、単品側面）
+- NO IMAGE：10th Jubilee（日本価格表と同一スロットの扱いに合わせ、確かな製品写真を系譜表用に新規確保しなかったため）
 
 ## 日本価格表（20品目）：実写真19点／NO IMAGE 1点
 - Sobremesa（6サイズ）＝sobremesa.jpg／sobremesa-cervantes.jpg（Halfwheel、ライン写真を交互に使用）
