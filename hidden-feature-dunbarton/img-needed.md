@@ -4,7 +4,7 @@
 
 **重要：日本のお店の素材（写真・画像）は使用禁止。** 大越酒店さんを含む日本の店舗サイトの画像は一切使わない。店名・価格・販売状況などの事実の文章での言及のみ。
 
-## 本文・図版（実写真7点）
+## 本文・図版（実写真12点。v115で当時の写真5点を追加）
 | # | 配置 | ファイル | 出典 |
 |---|---|---|---|
 | 1 | 特集ボックス（ヒーロー） | saka-hero.jpg | Cigar Dojo（2023年 Person of the Year 発表グラフィック。本人の実写真を含む） |
@@ -14,6 +14,13 @@
 | 5 | 五章（inthumb） | sobremesa-cervantes.jpg | Halfwheel（Sobremesa Cervantes Fino の単品） |
 | 6 | 六章 | sin-compromiso.jpg | Halfwheel（Sin Compromiso Selección No.2 の単品） |
 | 7 | 七章 | overseas-box.jpg | Halfwheel（Overseas No.1 の箱） |
+| 8 | 三章（No.9段落直後）【v115】 | liga-no9-bundle-2006.jpg | Halfwheel（2012-01-05「Liga Privada No. 9 (2006)」レビュー。サカ本人のヒュミドール所蔵の最初期バンドル。生産管理ラベル「Fecha: 10-5-06」＝2006年5月10日が写る。縦長のため表示幅46%） |
+| 9 | 三章（同上）【v115】 | lgf-groundbreaking-2006.jpg | Cigar Snob（2024年3/4月号 Nick Melillo 特集）。メリーロ本人提供、約2006年のラ・グラン・ファブリカ起工式。**キャプションで名指し同定できるのはメリーロ（左から3人目）のみ**。他者の同定は本文キャプションでも断定していない |
+| 10 | 三章（メリーロ段落直後）【v115】 | melillo-portrait-2014.jpg | Halfwheel（2014-05-30「Portraits: Nicholas Melillo」、Brooks Whittington 撮影。ラ・グラン・ファブリカの巻き場、退社発表直前） |
+| 11 | 三章末【v115】 | cigar-safari-crew-2012.jpg | Stogie Guys（2012-05-29）。Cigar Safari 集合写真。キャプションでジョナサン・ドリュー（赤シャツと帽子）とサカ（右下）を名指し |
+| 12 | 四章冒頭【v115】 | saka-melillo-2013.jpg | Cigar Coop（2013-05-23）。キャプション原文「Drew Estate CEO Steve Saka (Left), Executive VP Nicholas Melillo (Right)」。原寸235×320と小さいため表示幅235pxに制限 |
+
+※ v115 の5点の探索記録・同定根拠の詳細は ~/workspace/cigar-site/research/dunbarton-trio-photo/README.md。3人（サカ／ジョナサン／メリーロ）が同一フレームで同定できる写真は探索の結果存在を確認できず、2人写真＋当時の資料写真の組み合わせで構成した。
 
 ## ライン表（17行、v112で13→17行に拡充）：実写真16点／NO IMAGE 1点
 - Liga Privada No.9＝liga-no9.png（Cigar.com）／T52＝t52.jpg（海外小売の商品写真、WebP→JPEG変換）／Undercrown＝undercrown.jpg／Sobremesa Solita＝sobremesa.jpg（Halfwheel）／Mi Querida＝mi-querida.png（Dunbarton 公式）／Todos Las Dias＝todos.png（Dunbarton 公式）／Sin Compromiso＝sin-compromiso.jpg（Halfwheel）／Umbagog＝umbagog.png（Dunbarton 公式）／Muestra de Saka＝unstolen.png（Dunbarton 公式、Unstolen Valor）／StillWell Star＝stillwell.png（Dunbarton 公式）／Red Meat Lovers＝redmeat.png（Dunbarton 公式）／Polpetta＝polpetta.png（Dunbarton 公式）／Overseas No.1＝overseas.jpg（Halfwheel）
