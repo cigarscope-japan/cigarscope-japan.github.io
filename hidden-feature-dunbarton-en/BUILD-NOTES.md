@@ -125,6 +125,33 @@ galley. Published as site v120 at the limited link
    title is still undecided, as in JP); the footer colophon marks it
    "(tentative title)", mirroring the JP galley's （仮タイトル）.
 
+## Revision — site v122 (2026-11-17)
+
+Round-2 YouTube survey material (Cigar Coop PCA 2021/2022/2023/2024
+interviews, transcribed; survey memo `research/saka-youtube-survey-
+2026-11-17.md`, supplement) woven in, mirroring the JP galley revision
+(site v121). Claims ledger: new section G (G-1..G-6). Changes:
+(1) Chapter 6 StillWell Star paragraph — the four launch blends traced
+the basic pipe-tobacco genres (aromatic / English / Virginia-Perique /
+navy); the Virginia-Perique was renamed "Bayou" (G-1).
+(2) Side-story box "The Hidden Pipe Smoker's Confession" — second
+paragraph added: pipe smoking since his Navy days (an enlisted man's
+economy: some eighteen bowls for the price of one cigar), years of
+privately rolling pipe-leaf cigars for himself, kept quiet because it
+was "not on brand" (G-2).
+(3) Lineage table, Muestra de Saka row — Chubby Unicorn is the same
+blend as the Unicorn in a simplified shape (G-3).
+(4) Lineage table, Red Meat Lovers row — began as a Smoke Inn store
+exclusive, became a nationwide brand in 2023; by his own assessment
+the mildest and creamiest of his regular-production cigars (G-4).
+(5) Lineage table, Umbagog row — Bronzeback shares the original's
+filler and binder; only the 2LS wrapper differs, naturally fermented
+rather than steamed (G-5).
+The JP-only addition (G-6, Brûlée Blue / Wagashi notes in the Japan
+price table) has no EN counterpart, as the EN galley carries no Japan
+price table. No new images; lineage rows remain 18; NO IMAGE remains 1;
+no yen signs, no Japanese text.
+
 ## Names / spellings
 
 - Standard English forms used throughout: Lew Rothman, Raúl Disla,
