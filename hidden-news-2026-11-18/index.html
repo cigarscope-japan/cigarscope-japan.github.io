@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>世界の葉巻ニュース 2026年11月18日 | CigarScope Japan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<style>
+/* CigarScope Japan ― バーガンディ×金 アートデコ調 Web スタイル
+   元のPDF用クラス名をそのまま活かし、印刷CSS(@page等)をWeb用に置き換えたもの */
+
+:root {
+  --burgundy: #7a1f1f;
+  --burgundy-dark: #5d1515;
+  --gold: #c98a2e;
+  --gold-light: #f3d27a;
+  --ink: #1c1a17;
+  --paper: #fdf9f0;
+  --cream: #fdf3e7;
+  --cream-2: #fffdf6;
+  --sand: #f7f3e8;
+  --line: #c9b98a;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans CJK JP",
+               "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #222;
+  background: var(--paper);
+  margin: 0;
+}
+
+/* ---------- サイト共通ヘッダ / フッタ ---------- */
+.site-header {
+  background: var(--ink);
+  border-bottom: 4px double var(--gold);
+  padding: 18px 16px 14px;
+  text-align: center;
+}
+.site-header-inner { max-width: 860px; margin: 0 auto; }
+.site-name {
+  color: var(--gold-light);
+  font-size: 1.45rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+}
+.site-sub {
+  color: #e8ddc4;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin-top: 4px;
+}
+.site-footer {
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 18px 16px 34px;
+  border-top: 3px double var(--gold);
+  text-align: center;
+}
+.site-footer a {
+  color: var(--burgundy);
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: 2px solid var(--burgundy);
+  padding: 8px 22px;
+  display: inline-block;
+  background: var(--cream-2);
+}
+.site-footer a:hover { background: var(--cream); }
+.site-footer-note { color: #777; font-size: 0.8rem; margin-top: 14px; letter-spacing: 0.14em; }
+
+.column { max-width: 860px; margin: 0 auto; padding: 10px 18px 20px; }
+
+.draft-banner {
+  border: 3px dashed #cc0000;
+  color: #cc0000;
+  background: #fff5f5;
+  font-weight: bold;
+  font-size: 1.02rem;
+  text-align: center;
+  padding: 12px 14px;
+  margin: 18px 0 6px;
+}
+
+/* ---------- トップページ ---------- */
+.top-hero {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 34px 18px 6px;
+  text-align: center;
+}
+.top-hero .deco { color: var(--gold); letter-spacing: 0.6em; font-size: 0.9rem; }
+.top-hero h1.site-title {
+  font-size: 2.1rem;
+  color: var(--burgundy);
+  letter-spacing: 0.12em;
+  margin: 10px 0 4px;
+  line-height: 1.35;
+}
+.top-hero .site-tagline { color: #555; font-size: 0.98rem; margin: 6px 0 0; }
+.top-hero .rule {
+  border: none;
+  border-top: 3px double var(--gold);
+  margin: 22px auto 4px;
+  max-width: 560px;
+}
+.cards { max-width: 860px; margin: 0 auto; padding: 12px 18px 10px; }
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--cream-2);
+  border: 2px solid var(--burgundy);
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  margin: 22px 0;
+  overflow: hidden;
+}
+.card:hover { background: #fff8ea; }
+.card img.thumb {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: #f7ecd4;
+  display: block;
+  border: none;
+  border-bottom: 2px solid var(--gold);
+  margin: 0;
+}
+.card-body { padding: 16px 20px 18px; }
+.card-no {
+  display: inline-block;
+  background: var(--burgundy);
+  color: var(--gold-light);
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+.card-title { font-size: 1.35rem; font-weight: bold; color: var(--ink); line-height: 1.45; margin: 2px 0 6px; }
+.card-date { color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 0.08em; }
+.card-intro { color: #444; font-size: 0.98rem; margin: 8px 0 0; line-height: 1.75; }
+.card-more { color: var(--burgundy); font-weight: bold; margin-top: 10px; font-size: 0.95rem; }
+.top-note {
+  max-width: 860px; margin: 0 auto; padding: 4px 18px 8px;
+  color: #666; font-size: 0.88rem; line-height: 1.8;
+}
+
+/* ---------- 特集本文（元PDFのクラスを踏襲） ---------- */
+.masthead { border-bottom: 5px solid var(--burgundy); padding-bottom: 8px; margin-bottom: 12px; }
+.kicker { font-size: 0.82rem; letter-spacing: 4px; color: var(--burgundy); font-weight: bold; }
+h1 { font-size: 1.7rem; line-height: 1.3; margin: 4px 0 6px; }
+.date { font-size: 1rem; font-weight: bold; }
+.draft {
+  font-size: 0.9rem; color: var(--burgundy); font-weight: bold;
+  border: 2px dashed var(--burgundy); padding: 8px 12px; margin: 10px 0;
+}
+.lede { font-size: 1.06rem; background: var(--cream); border-left: 8px solid var(--gold); padding: 14px 16px; }
+h2 {
+  font-size: 1.5rem; color: #fff; background: var(--burgundy);
+  padding: 10px 14px; margin: 26px 0 14px; line-height: 1.4;
+}
+h2.feature-band { background: var(--ink); border: 3px solid var(--gold); color: var(--gold-light); }
+.series-band {
+  background: var(--burgundy); color: var(--gold-light);
+  font-size: 1.3rem; font-weight: bold; text-align: center;
+  padding: 10px 8px; letter-spacing: 0.12em;
+  border: 3px solid var(--gold); border-bottom: none; margin-top: 8px;
+}
+h3 { font-size: 1.3rem; line-height: 1.4; margin: 20px 0 8px; }
+h4 { font-size: 1.22rem; line-height: 1.4; margin: 22px 0 6px; color: var(--burgundy); }
+.new, .boutique {
+  display: inline-block; color: #fff; font-size: 0.85rem;
+  padding: 2px 10px; margin-right: 8px; border-radius: 6px; vertical-align: middle;
+}
+.new { background: var(--gold); }
+.boutique { background: #2e5e4e; }
+.meta { font-size: 0.9rem; color: #555; margin-bottom: 8px; }
+
+img { width: 88%; max-width: 100%; height: auto; display: block; margin: 10px auto; border: 1px solid #ccc; }
+img.wide { width: 94%; }
+img.narrow { width: 58%; }
+img.narrow-s { width: 36%; }
+img.logo { width: 40%; border: none; }
+.caption { font-size: 0.85rem; color: #555; margin: 4px 0 14px; line-height: 1.6; }
+p { margin: 10px 0; }
+.spec { background: #f2f2f2; padding: 12px 14px; font-size: 0.98rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 10px; }
+a { color: #1a4d8f; word-break: break-all; }
+.feature-box { border: 3px solid var(--gold); background: var(--cream-2); padding: 8px 18px 14px; }
+.mapwrap { background: var(--sand); border: 1px solid var(--line); padding: 10px; margin: 12px 0; }
+.mapwrap svg { max-width: 100%; height: auto; }
+.src { font-size: 0.92rem; }
+
+.gallery-band {
+  font-size: 1.4rem; color: #fff; background: var(--burgundy);
+  padding: 10px 14px; margin: 30px 0 14px;
+}
+.gsec {
+  font-size: 1.3rem; color: var(--burgundy);
+  border-bottom: 4px solid var(--gold); padding-bottom: 4px; margin: 26px 0 12px;
+}
+.gcard {
+  border: 2px solid var(--burgundy); background: var(--cream-2);
+  padding: 12px 16px 14px; margin: 16px 0;
+}
+.gcard h5 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 6px; color: var(--burgundy); }
+.gcard img { width: 62%; }
+.gcard img.strip { width: 92%; }
+.gcard img.small { width: 46%; }
+.gcard img.tiny { width: 36%; }
+.gdata { font-size: 1rem; line-height: 1.7; }
+.gprice { font-size: 1.15rem; font-weight: bold; }
+.glink { display: block; font-size: 1.05rem; font-weight: bold; margin-top: 8px; }
+.rare { background: var(--cream); border-left: 8px solid var(--gold); padding: 8px 12px; font-size: 0.98rem; margin-top: 10px; }
+.footer { font-size: 0.85rem; color: #555; border-top: 2px solid #999; margin-top: 28px; padding-top: 10px; line-height: 1.7; }
+
+.hiwa { background: var(--cream); border-left: 8px solid var(--gold); padding: 10px 14px; margin: 14px 0; }
+.hiwa .ht { font-weight: bold; color: var(--burgundy); }
+.urabanashi { border: 3px solid var(--burgundy); background: var(--cream-2); padding: 10px 18px 14px; margin: 18px 0; }
+.urabanashi .ut {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  letter-spacing: 0.06em; border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px; margin-bottom: 8px;
+}
+.tabletitle {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  border-bottom: 3px solid var(--gold); padding-bottom: 4px; margin: 24px 0 10px;
+}
+.roletable {
+  width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.5; margin: 10px 0;
+  display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.roletable th { background: var(--burgundy); color: var(--gold-light); padding: 7px 8px; border: 1px solid var(--burgundy); white-space: nowrap; }
+.roletable td { padding: 7px 8px; border: 1px solid var(--line); vertical-align: top; }
+.roletable tr.alt td { background: var(--sand); }
+.roletable td.brand { font-weight: bold; color: var(--burgundy); }
+.spot-head { margin: 32px 0 18px; text-align: center; }
+.spot-head .tag { font-size: 0.8rem; letter-spacing: 0.5em; color: #8a6d2f; font-weight: bold; margin-bottom: 10px; }
+.spot-head h4 {
+  background: var(--ink); color: #e9cf8f; border: 5px double var(--gold);
+  font-size: 1.25rem; margin: 0; padding: 18px 14px; line-height: 1.5;
+  letter-spacing: 0.04em; text-align: center;
+}
+
+/* ---------- スマホ調整 ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .column { padding: 8px 13px 16px; }
+  h1 { font-size: 1.45rem; }
+  h2 { font-size: 1.3rem; }
+  .series-band { font-size: 1.12rem; }
+  img.narrow { width: 82%; }
+  img.logo { width: 62%; }
+  .gcard img { width: 84%; }
+  .gcard img.small { width: 64%; }
+  .gcard img.tiny { width: 52%; }
+  .card img.thumb { height: 190px; }
+  .top-hero h1.site-title { font-size: 1.65rem; }
+  .card-title { font-size: 1.18rem; }
+}
+
+/* ---------- 言語切替 ---------- */
+.lang-switch { text-align: right; padding: 6px 14px 0; font-size: 0.95rem; letter-spacing: 0.08em; }
+.lang-switch a { color: #7a1f2b; text-decoration: none; font-weight: 700; }
+.lang-switch .cur { color: #999; font-weight: 700; }
+.lang-switch .sep { color: #c98a2e; margin: 0 6px; }
+
+/* ---------- 公式ロゴ（CigarScope Japan） ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.logo-plate {
+  background: #fff;
+  border: 3px double var(--gold);
+  padding: 12px 16px 8px;
+  max-width: 640px;
+  margin: 14px auto 6px;
+}
+.site-logo { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .logo-plate { padding: 8px 8px 4px; margin-top: 10px; }
+}
+
+/* ---------- 深掘り第5弾 AJフェルナンデス（2026-11-10 追加） ----------
+   色強調（メーカー名＝紺／店名＝深緑／葉巻名＝バーガンディ。2026-11-09 カズ指定）と、
+   賛辞ボックス・節見出しなど第5弾で初出の体裁。値はゲラ版の定義を Web 用単位に換算したもの */
+.nm-mk { color: #1e3a5f; font-weight: bold; }
+.nm-sh { color: #14532d; font-weight: bold; }
+.nm-cg { color: var(--burgundy); font-weight: bold; }
+.nb { white-space: nowrap; }
+.subtitle {
+  font-size: 1.25rem; font-weight: bold; color: var(--burgundy);
+  text-align: center; letter-spacing: 0.08em; margin: 2px 0 12px;
+}
+.praise { border: 3px solid var(--gold); background: #fdf8ec; padding: 10px 18px 14px; margin: 18px 0; }
+.praise .pt {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  letter-spacing: 0.06em; border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px; margin-bottom: 8px;
+}
+.pq { margin: 12px 0; }
+.pq .who { font-weight: bold; color: var(--burgundy); }
+.pq .src2 { font-size: 0.88rem; color: #555; }
+.hook { color: #cc0000; font-weight: bold; font-size: 1.06rem; }
+/* シェアボタン（2026-11-12 v80・カズ指示で全記事に追加。Yahoo!ニュース式にタイトル直下＋記事末尾） */
+.share-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 10px; }
+.share-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; border: 1px solid #cbbfa8; background: #fff; color: #2b2118; text-decoration: none; cursor: pointer; box-sizing: border-box; font-family: inherit; line-height: 1; position: relative; -webkit-tap-highlight-color: transparent; }
+.share-btn svg { width: 20px; height: 20px; flex: none; }
+.share-btn.sh-x { background: #000; border-color: #000; color: #fff; }
+.share-btn.sh-native { background: #1d9bf0; border-color: #1d9bf0; color: #fff; }
+.share-btn.sh-line { background: #00c300; border-color: #00c300; color: #fff; }
+.share-btn.sh-fb { background: #1877f2; border-color: #1877f2; color: #fff; }
+.share-btn.sh-copy { background: #595959; border-color: #595959; color: #fff; }
+.share-btn:hover { filter: brightness(1.13); }
+.share-btn.copied { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+.share-btn.copied::after { content: attr(data-done); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); background: #2b2118; color: #fff; font-size: .72rem; font-weight: bold; line-height: 1.3; padding: 3px 8px; border-radius: 4px; white-space: nowrap; pointer-events: none; z-index: 6; }
+.share-bar.share-bottom { margin: 14px 0 4px; border-top: 1px solid #ddd2bd; padding-top: 10px; }
+
+/* ---- 世界の葉巻ニュース 2026-11-18 ページ固有 ---- */
+main.column { font-size: 19px; }
+h1 { font-size: 2rem; }
+h2 { text-align: center; }
+h2.first { margin-top: 14px; }
+h3 { font-size: 1.5rem; }
+.lede { font-size: 1.15rem; }
+.meta { font-size: 1rem; }
+.caption { font-size: 0.95rem; }
+.spec { font-size: 1.05rem; }
+.src { font-size: 1rem; }
+.footer { font-size: 0.95rem; }
+img.narrow-s { width: 50%; }
+/* 写真ライトボックス（深掘りゲラと同一仕様。タップで拡大） */
+main img { cursor: zoom-in; }
+#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out; }
+#lightbox .lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto; }
+#lightbox .lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px; }
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  main.column { font-size: 19px; }
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.4rem; }
+  img.narrow-s { width: 62%; }
+}
+
+</style></head><body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-name" href="../index.html">CigarScope Japan</a>
+<div class="site-sub">WORLD CIGAR NEWS</div>
+</div>
+</header>
+<main class="column">
+
+<div class="masthead"><div class="kicker">WORLD CIGAR NEWS</div>
+<h1>世界の葉巻ニュース</h1>
+<div class="date">2026年11月18日（水）発行</div></div>
+<div class="lede">シルベスター・スタローンとモンテクリストが2027年の新シガーでタッグ。『ロッキー』公開50周年の回想録がきっかけです。JMブランズはホンジュラス・ピューロの新作をPCA 2027でお披露目へ。ドイツは葉巻税を2030年までに約2倍に引き上げ、初回は2027年3月1日。ドリュー・エステートのドミニカ新工場の工場長も決まりました。</div>
+
+<div class="spec" style="margin-top:12px; font-size:15pt; line-height:1.45;"><b>本日の見出し</b>　スタローン×モンテクリスト 2027年発売へ／エスパニョーラ・ホンジュラス発表／ドイツ葉巻税 2030年までに倍増／STG欧州供給不足（続報）／ドリュー・エステート新工場長／ドバイ・ショー閉幕（続報）／オベチキン記念シガー「ホット・スティック」</div>
+
+<h2 class="first">1. 新作・限定品</h2>
+
+<h3><span class="new">新発表</span>シルベスター・スタローン×モンテクリスト、2027年に新シガー発売へ — 『ロッキー』50周年の回想録がきっかけ</h3>
+<div class="meta">Cigar Aficionado ／ 2026年11月17日（Cigar Coop、Halfwheelも同日報）</div>
+<p>俳優シルベスター・スタローンとアルタディスUSAが組み、モンテクリストの新シガーを2027年に発売します。スタローンが『Cigar Aficionado』11・12月号の表紙を飾り、同誌の独占インタビューで明かしました。きっかけはスタローンの回顧録『The Steps: A Memoir』で、代表作『ロッキー』の公開50周年に当たる2026年の節目を記念する企画です。スタローンは1977年から葉巻を吸い続けており、表紙撮影では新作の試作品を手にしています。銘柄名・サイズ・価格・発売日はまだ最終決定されておらず、ブレンドは最終調整の段階です。タバカレラUSAのラファエル・ノダル製品担当副社長は「二人のアイコンにふさわしい葉巻を作るのが目標」と話しています。</p>
+<div class="spec">スタローン×モンテクリスト：2027年発売予定／銘柄名・サイズ・価格・発売日は未発表／ブレンドは最終調整中／きっかけは回顧録『The Steps』と『ロッキー』公開50周年</div>
+<p class="src">出典：<a href="https://www.cigaraficionado.com/article/sylvester-stallone-and-montecristo-releasing-new-cigar">https://www.cigaraficionado.com/article/sylvester-stallone-and-montecristo-releasing-new-cigar</a></p>
+
+<h3><span class="boutique">ブティック</span>JMブランズ、ホンジュラス・ピューロ「エスパニョーラ・ホンジュラス」を発表 — PCA 2027でお披露目</h3>
+<div class="meta">Cigar Dojo ／ 2026年11月16日（Cigar Journalも11月17日に発表を報道）</div>
+<img src="img/espanola-honduras-2026.jpg" alt="エスパニョーラ・ホンジュラスの3サイズと箱">
+<div class="caption">写真：Cigar Dojo（メーカー公式）— 「エスパニョーラ・ホンジュラス」3サイズと箱です。左からダブルトロ、トロ、ロブスト</div>
+<p>JMブランズがエスパニョーラ・ブランドの新コレクション「エスパニョーラ・ホンジュラス」を発表しました。ホンジュラス産タバコのみで作る手巻きのピューロで、ホンジュラス・ハバノ巻き、ミディアム〜フルボディです。サイズはロブスト5×50、トロ6×52、ダブルトロ6×60の3種で、希望小売価格は1本15〜20ドル（約2,400〜3,200円）。2027年のPCAトレードショー（ラスベガス）で正式にお披露目し、ショー直後から全米の小売店へ出荷する予定です。製造工場は「ホンジュラスの高名な工場」とのみで非公表。ブランド創業30周年の節目に出す意欲作です。</p>
+<div class="spec">エスパニョーラ・ホンジュラス：ホンジュラス産ピューロ／ロブスト5×50・トロ6×52・ダブルトロ6×60／1本15〜20ドル（約2,400〜3,200円）／ミディアム〜フルボディ／PCA 2027でお披露目、直後に出荷／製造工場は非公表</div>
+<p class="src">出典：<a href="https://cigardojo.com/2026/11/espanola-honduras-coming-to-pca-2027/">https://cigardojo.com/2026/11/espanola-honduras-coming-to-pca-2027/</a></p>
+
+<h2>2. 流通・市場動向</h2>
+
+<h3>ドイツ、葉巻税を2030年までに約2倍へ — 初回値上げは2027年3月1日</h3>
+<div class="meta">The Next Cigar ／ 2026年11月17日</div>
+<img src="img/germany-reichstag-2026.jpg" alt="ドイツ連邦議会議事堂（ライヒスターク）のガラスドーム">
+<div class="caption">写真：The Next Cigar（Wikimedia Commons、Christian David撮影）— ドイツ連邦議会議事堂（ライヒスターク）のガラスドームです</div>
+<p>ドイツ連邦議会が2026年10月15日に可決したたばこ税改正法で、葉巻・シガリロの税率が段階的に引き上げられます。葉巻1本あたりの定額税は現行1.4セントから2030年には2.85セントへ約2倍、小売価格に対する従量税率は1.47％から3.83％へ、最低税額は1本7.504セントから13.964セントへ上がります。最初の値上げは2027年3月1日で、以後2028・2029・2030年の各1月に引き上げられます。夏の政府案では従量税率21.05％（約14倍）という壊滅的な案もあったが、ドイツ葉巻工業会（BdZ）の反対で撤回され、最悪の事態は回避されました。ドイツは欧州有数の葉巻市場で、2025年に課税された葉巻・シガリロは21億本です。なおEU全体でも葉巻の最低税率を1,000本あたり12ユーロから80ユーロ（または小売価格の30％）へ引き上げる妥協案が協議中ですが、11月9日の財務相会合ではマルタの反対で合意に至らず、次回は12月11日です。</p>
+<div class="spec">ドイツの葉巻増税：定額税 1本1.4セント→2030年に2.85セント／従量税率 1.47％→3.83％／最低税額 1本7.504セント→13.964セント／初回値上げ 2027年3月1日、以後毎年1月に段階引き上げ／夏の原案（従量21.05％）は撤回</div>
+<p class="src">出典：<a href="https://lounge.thenextcigar.com/blog/germany-cigar-tax-2027/">https://lounge.thenextcigar.com/blog/germany-cigar-tax-2027/</a></p>
+
+<h3><span class="new">続報</span>STG、欧州の手巻き葉巻が2割減 — 米国の強い需要で供給が追いつかず</h3>
+<div class="meta">Cigars-connect（L'Amateur de Cigare） ／ 2026年11月17日</div>
+<p>スカンジナビア・タバコ・グループ（STG）の2026年第3四半期決算によると、欧州ブランド部門の手巻き葉巻売上は2025年1〜9月の9,290万デンマーク・クローネ（約1,243万ユーロ）から7,390万クローネ（約989万ユーロ）へ20.5％減少しました。STGは「欧州市場の弱さではなく供給不足が原因」と説明し、米国市場の需要が予想以上に強かったため欧州向けの供給が追いつかなかったとしています。影響が最も大きいのはフランスとスペインです。供給は徐々に回復していますが、完全な回復は来年初めになる見通しです。一方、米国では手巻き葉巻の消費は引き続き減少傾向で、STGは2026年の減少幅を当初予想の4％よりやや小さいと見込んでいます。グループ全体の手巻き葉巻は1〜9月で4％のオーガニック成長ですが、第3四半期は1％に減速しています。11月16日号では同決算の「手作り葉巻が好調・通期見通しを上方修正」の面をお伝えしましたが、今回は欧州側の供給不足という別の角度です。</p>
+<div class="spec">STG第3四半期決算：欧州手巻き葉巻売上 20.5％減（9,290万→7,390万デンマーク・クローネ）／原因は米国需要の強さによる欧州向け供給不足／影響大はフランスとスペイン／完全回復は来年初めの見通し／グループ全体は1〜9月で4％のオーガニック成長</div>
+<p class="src">出典：<a href="https://www.cigars-connect.com/en/us-demand-is-straining-stgs-supply-to-europe/">https://www.cigars-connect.com/en/us-demand-is-straining-stgs-supply-to-europe/</a></p>
+
+<h2>3. 経営・業界の動き</h2>
+
+<h3>ドリュー・エステートのドミニカ新工場、工場長にフアン・ムスタファ氏を任命 — 2027年1月1日就任</h3>
+<div class="meta">Cigar Coop ／ 2026年11月17日（Cigar Dojoも同日報）</div>
+<p>ドリュー・エステートは、ドミニカ共和国タンボリルに建設中の新工場「ドリュー・エステート・ドミニカーナ」（約7,060平方メートル＝76,000平方フィート）の工場長にフアン・アブラハム・ムスタファ氏を任命しました。就任は2027年1月1日です。ムスタファ氏は世界最大の葉タバコ商社ユニバーサル・リーフ／イネタブ・カウベックで11年勤務したタバコの専門家で、ドミニカ出身です。工場での葉巻の巻き上げ開始は2027年後半の見込みです。ドリュー・エステートは11月13日号で報じたとおり、ドミニカ法人「ドリュー・エステート・ドミニカーナ」がPROCIGARに加盟しており、新工場は同社のドミニカ展開の中核になります。</p>
+<div class="spec">ドリュー・エステート・ドミニカーナ新工場：タンボリルに建設中、約7,060平方メートル／工場長フアン・アブラハム・ムスタファ氏、2027年1月1日就任／同氏はユニバーサル・リーフで11年勤務のタバコ専門家／巻き上げ開始は2027年後半の見込み</div>
+<p class="src">出典：<a href="https://cigar-coop.com/2026/11/juan-mustafa-named-drew-estate-dominicana-factory-general-manager-cigar-news.html">https://cigar-coop.com/2026/11/juan-mustafa-named-drew-estate-dominicana-factory-general-manager-cigar-news.html</a></p>
+
+<h2>4. 注目テーマ／今後のチェックポイント</h2>
+
+<h3><span class="new">続報</span>ドバイ「ワールド・シガー・ショー」、米・イラン緊張の懸念をよそに盛況で閉幕 — 初日午後に売り切れた出展者も</h3>
+<div class="meta">Cigar Journal ／ 2026年11月17日</div>
+<p>11月10〜11日にドバイで開催された第2回ワールド・シガー・ショーについて、Cigar Journalが11月17日付で現地総括を報じました。米・イラン間の緊張の高まりで開催への懸念もありましたが、ショーは予定通り開催され、初日は活況でした。ある出展メーカーは、持ち込んだ在庫を初日の午後半ばまでに売り切ったということです。フエンテら4ブランドが初出展したこと、PCAとの提携などは11月11日号の特集でお伝えしましたが、今回は開催後の「結果報告」としての続報です。</p>
+<div class="spec">ワールド・シガー・ショー（ドバイ）：第2回、11月10〜11日開催／米・イラン緊張の懸念をよそに予定通り開催、初日は活況／ある出展者は初日午後半ばに在庫を売り切れ／フエンテら4ブランドが初出展、PCAと提携</div>
+<p class="src">出典：<a href="https://www.cigarjournal.com/despite-fears-of-ongoing-us-iranian-escalation-the-world-cigar-show-in-dubai-went-ahead/">https://www.cigarjournal.com/despite-fears-of-ongoing-us-iranian-escalation-the-world-cigar-show-in-dubai-went-ahead/</a></p>
+
+<h3>NHLの英雄オベチキンへ、J.C.ニューマンが記念シガー「ホット・スティック」を贈呈 — 販売品ではなく贈呈専用</h3>
+<div class="meta">Cigar Dojo ／ 2026年11月17日（Cigar Coopも同日報）</div>
+<img src="img/ovechkin-hot-stick-2026.jpg" alt="「ホット・スティック」の葉巻とバンド">
+<div class="caption">写真：Cigar Dojo（J.C.ニューマン公式）— 「ホット・スティック」の葉巻とバンドです。赤いバンドの「8」はオベチキン選手の背番号</div>
+<p>J.C.ニューマン・シガー社とNHLタンパベイ・ライトニングが、2026-27シーズン限りで引退するワシントン・キャピタルズの主将アレックス・オベチキン選手へ記念シガーを贈りました。2009年3月19日、タンパでの試合でシーズン50ゴール目を決めた際にオベチキン選手が見せた、スティックを氷に置いて手を温めるしぐさ「ホット・スティック」のセレブレーションを記念したもので、特製シガーボックスと「HOT STICK」の文字入りバンドが作られました。贈呈は11月17日、オベチキン選手のタンパでの最後のレギュラーシーズン試合に合わせて行われました。販売品ではなく贈呈専用の記念品です。</p>
+<div class="spec">オベチキン記念シガー「ホット・スティック」：J.C.ニューマン＋タンパベイ・ライトニングが贈呈／2009年3月19日の50ゴール目「ホット・スティック」セレブレーションが由来／特製ボックス＋「HOT STICK」バンド／贈呈は11月17日、タンパでの最後のレギュラーシーズン試合に合わせて／販売品ではなく贈呈専用</div>
+<p class="src">出典：<a href="https://cigardojo.com/2026/11/jc-newman-honors-ovechkin-hot-stick/">https://cigardojo.com/2026/11/jc-newman-honors-ovechkin-hot-stick/</a></p>
+
+<ul>
+<li>「ジャパニーズ・シガー・ナイト」本日11月18日— 米ニュージャージー州マナラパンのオールド・シルバー・タバーンで開催です。</li>
+<li>ブロロ・シガー、11月19日にテキサス州マッキニーのラウンジでデビュー発表会— 3ブレンド、翌20日から小売店へ出荷。</li>
+<li>ダビドフ「イヤー・オブ・ザ・シープ LE 2027」11月19日に世界発売— 3種すべてフィグラードの干支シリーズ最新作です。英国では各地で発売イベントがあります。</li>
+<li>ボリバ「サファリ」11月21日、アビジャン（コートジボワール）で披露予定— アフリカ初のリージョナル・エディションです。</li>
+<li>ブラック・ワークス・スタジオ「シャオリン 36thチェンバー」11月下旬に出荷— 5.75×46ベリコソ、1本13.50ドル、24本入りです。</li>
+<li>クイーン・オブ・ザ・ウェスト「ノワール」12月に発売— 5 1/4×52ロブスト、1本17ドル（約2,720円）です。</li>
+<li>スタローン×モンテクリスト、2027年に発売（本号）— 銘柄名・サイズ・価格は未発表です。</li>
+<li>エスパニョーラ・ホンジュラス、PCA 2027でお披露目（本号）— 直後から全米の小売店へ出荷予定です。</li>
+<li>ドイツ葉巻税、初回値上げは2027年3月1日（本号）— 2030年までに約2倍へ段階引き上げです。</li>
+<li>ドリュー・エステート・ドミニカーナ、2027年後半に巻き上げ開始（本号）— 新工場長は2027年1月1日就任です。</li>
+<li>CAO「フラットヘッド・アメリカン・マッスル」TAA限定、11月に出荷— 発表は10月下旬です。</li>
+<li>ホンジュラス「ラ・グラン・カタ」2027年1月に初開催— PCAがフェスティバル・パートナーに。</li>
+<li>PCAコネクト・アジア、12月4〜6日に香港で開催— ベルティ・シガー・ラウンジ、招待制です。</li>
+<li>英国で世代別たばこ販売禁止、2027年1月に施行— 2009年1月1日以降に生まれた人への販売を禁じるものです。</li>
+<li>EU葉巻増税、次回協議は12月11日— マルタの留保で改革は停滞しています。</li>
+<li>ノルウェーの登録料、2027年初めの法案可決で市場シェア連動の課金へ— アウグスト・シガーズの負担は約1,800ユーロになる見通しです。</li>
+<li>サン・ルイス・レイ「パラティノス」発売予定— ラ・カサ・デル・ハバノとハバノス・スペシャリスト限定です。</li>
+<li>タトゥアヘ「ボリス・カーロフ 2026」発売中— 2,000箱限定、販売期間中のため掲載を続けています。</li>
+<li>ポウスタニー「ウォー・ベア 2026」発売中— 390箱限定のため、発売直後の完売に注意です。</li>
+<li>BVI裁判所、チェン・ジー氏関連会社の清算をめぐる審理は12月8〜9日— ハバノス株売却の行方を左右します。</li>
+</ul>
+
+<div class="footer">世界の葉巻ニュース 2026年11月18日号。本紙の記事は各出典の発表・報道に基づく翻訳・要約です。価格は米国のメーカー希望価格等の参考値で、日本での販売価格ではありません。価格の円換算は1ドル＝160円です。写真は各メーカー公式写真および出典記事の写真を使用し、出典を各キャプションに明記しています。7項目のうち3項目に写真を付けています（スタローン×モンテクリストは製品写真がまだ公開されておらず、STGとドリュー・エステート新工場長、ドバイ・ショー閉幕は出典記事の写真が人物のポートレートだったため、写真なしで掲載しています）。深掘り特集は本号にはありません（第6弾「幻の巨人たち」は調査完了・ドラフト作成待ちで、開発側から限定リンクが渡され次第、別投稿としてお届けします）。</div>
+</main>
+<footer class="site-footer">
+<a href="../index.html">CigarScope Japan トップへ</a>
+<div class="site-footer-note">CigarScope Japan ― 世界の葉巻ニュース</div>
+</footer>
+<script>
+(function () {
+  var lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
+  document.body.appendChild(lb);
+  var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+  function captionFor(img) {
+    if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
+    var n = img.nextElementSibling;
+    if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
+    return img.getAttribute('alt') || '';
+  }
+  var imgs = document.querySelectorAll('main img:not(.noimg)');
+  for (var i = 0; i < imgs.length; i++) {
+    (function (img) {
+      img.addEventListener('click', function () {
+        im.src = img.currentSrc || img.src;
+        cap.textContent = captionFor(img);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    })(imgs[i]);
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    im.removeAttribute('src');
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+
+</body></html>
