@@ -21,6 +21,12 @@ h2 .nb, h4 .nb { white-space: normal; }
 .kensho .kt { font-size: 1.15rem; font-weight: bold; color: #1e3a5f; letter-spacing: 0.06em; border-bottom: 2px solid #1e3a5f; padding-bottom: 4px; margin-bottom: 8px; }
 .notebox { border: 2px dashed #8a6d2f; background: #fffdf6; padding: 10px 18px 14px; margin: 16px 0; }
 .notebox .nt { font-size: 1.15rem; font-weight: bold; color: #8a6d2f; border-bottom: 2px solid #c98a2e; padding-bottom: 4px; margin-bottom: 8px; }
+/* 地図の凡例（2026-11-18 カズ指摘で地図直下に配置）：マーカーの色見本チップ。工場＝バーガンディの四角／畑＝緑の丸／認証オーガニック産地＝金の枠。色は地図マーカーの実色に合わせた */
+.maplegend { margin-top: 8px; }
+.lg-chip { display: inline-block; width: 0.95em; height: 0.95em; margin: 0 0.12em; vertical-align: -0.08em; box-sizing: border-box; }
+.lg-fac { background: #791f1f; }
+.lg-farm { background: #2e6e32; border-radius: 50%; }
+.lg-org { background: #fffdf6; border: 3px solid #c99327; }
 img.stack { width: 100%; }
 .gcard img.stack { width: 100%; }
 /* 表：銘柄名の列に最小幅150pxを確保し、見出し行の改行を許可する（第6弾の対策を継承） */
@@ -118,10 +124,8 @@ img.fig-small { width: 235px; }
 <div class="caption">写真：Cigar Aficionado — 乾燥小屋の中で、クリオーロ葉の色を見せる <span class="nm-mk">ネストル・アンドレス</span>。葉の帝国の「商品」は、畑から乾燥小屋まで一貫して管理されます</div>
 <p>工場スペースの貸し出しも、この帝国のもう一つの顔です。ロッキー・パテルの自社要員がエル・パライソ工場の中で働く体制（四章）、そして次章以降に登場する二人の「卒業生」の物語もまた、この葉と工場の帝国の内側で起きたことでした。</p>
 <img src="img/map-locations.jpg" alt="プラセンシアの主な畑と工場の所在地地図（ニカラグア北部からホンジュラス南部）">
-<div class="caption">地図：プラセンシアの主な畑と工場。番号は下の凡例に対応します。載せたのは本特集の取材で所在地を確認できた地点のみで、町レベルの位置を特定できない産地（オランチョ、サン・アグスティン）は省きました。地図は OpenStreetMap の地図データによる静的地図（Meta）にマーカーを加えて作成<br>
-<a href="https://www.facebook.com/maps/attribution_terms" target="_blank" rel="noopener">© OpenStreetMap contributors, Map Data Legal Notices</a></div>
-<div class="notebox"><div class="nt">凡例 ― 地図の番号</div>
-<p>■ 四角＝工場／● 丸＝畑／金の枠＝認証オーガニック農場のある産地<br>
+<div class="notebox maplegend"><div class="nt">凡例 ― 地図のマークと番号</div>
+<p><span class="lg-chip lg-fac"></span>バーガンディの四角＝工場／<span class="lg-chip lg-farm"></span>緑の丸＝畑／<span class="lg-chip lg-org"></span>金の枠＝認証オーガニック農場のある産地<br>
 1 エステリ（ニカラグア）― 工場「カテドラル」・畑／認証オーガニック農場のある産地<br>
 2 オコタル（ニカラグア）― 工場<br>
 3 ダンリ（ホンジュラス）― 工場（タバコス・デ・オリエンテ／エル・パライソ）<br>
@@ -130,6 +134,8 @@ img.fig-small { width: 235px; }
 6 ハマストラン渓谷（ホンジュラス、ダンリ近郊）― 畑<br>
 7 タランガ（ホンジュラス）― 畑<br>
 8 オメテペ（ニカラグア、ニカラグア湖の島）― 畑</p></div>
+<div class="caption">地図：プラセンシアの主な畑と工場。マークの色と番号は直上の凡例に対応します。載せたのは本特集の取材で所在地を確認できた地点のみで、町レベルの位置を特定できない産地（オランチョ、サン・アグスティン）は省きました。地図は OpenStreetMap の地図データによる静的地図（Meta）にマーカーを加えて作成<br>
+<a href="https://www.facebook.com/maps/attribution_terms" target="_blank" rel="noopener">© OpenStreetMap contributors, Map Data Legal Notices</a></div>
 
 
 <h4>◆ 六、無農薬への挑戦 ― <span class="nb">畑の章</span></h4>
