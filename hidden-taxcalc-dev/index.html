@@ -568,7 +568,7 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
     <details class="cf-est">
       <summary>重さが分からないとき：長さと太さから推定する</summary>
       <div class="cf-grid" style="margin-top: 7px;">
-        <div><label for="cf-est-len">長さ（mm）</label><input type="text" id="cf-est-len" inputmode="decimal" placeholder="例：127"></div>
+        <div><label for="cf-est-len">長さ</label><div style="display: flex; gap: 6px;"><input type="text" id="cf-est-len" inputmode="decimal" placeholder="例：127" style="flex: 1 1 auto; min-width: 0;"><select id="cf-est-unit" aria-label="長さの単位" style="flex: 0 0 5.2em; width: 5.2em;"><option value="mm" selected>mm</option><option value="in">inch</option></select></div></div>
         <div><label for="cf-est-rg">リングゲージ（RG）</label><input type="text" id="cf-est-rg" inputmode="numeric" placeholder="例：50"></div>
         <div><label for="cf-est-shape">形状</label><select id="cf-est-shape"><option value="parejo">パレホ（まっすぐ）</option><option value="figurado">フィグラド（先細り）</option></select></div>
       </div>
@@ -2052,12 +2052,18 @@ var F1CalcUI = (function () {
   var estBtn = $("cf-est-btn");
   if (estBtn) estBtn.addEventListener("click", function () {
     var outEl = $("cf-est-out");
-    var lenMm = parseFloat($("cf-est-len").value);
-    if (!isFinite(lenMm) || lenMm <= 0) {
-      outEl.textContent = "長さ（mm）を入れてください。";
+    var unitEl = $("cf-est-unit");
+    var isInch = !!unitEl && unitEl.value === "in";
+    var lenRaw = parseFloat($("cf-est-len").value);
+    if (!isFinite(lenRaw) || lenRaw <= 0) {
+      outEl.textContent = isInch ? "長さ（inch）を入れてください。" : "長さ（mm）を入れてください。";
       return;
     }
-    var lenIn = (lenMm / 25.4).toFixed(2);
+    /* UI v172: 長さの単位切替（mm／inch）。エンジンへ渡す長さは
+     * 従来どおり inch で、換算は UI 側だけの処理（エンジン無変更）。
+     * mm の場合は従来と同じ換算（mm / 25.4、小数2桁）、inch の
+     * 場合は入力値をそのまま使う。 */
+    var lenIn = isInch ? lenRaw.toFixed(2) : (lenRaw / 25.4).toFixed(2);
     var r = TaxEngine.estimateWeightW01(lenIn, $("cf-est-rg").value,
       $("cf-est-shape").value);
     if (!r.ok) {
@@ -2075,6 +2081,24 @@ var F1CalcUI = (function () {
     if (typeof render === "function") render();
     outEl.textContent = "推定重量は約 " + (r.w01 / 10).toFixed(1) +
       " g/本 です（寸法からの推定値で、実際の重量とは異なる場合があります）。重さ欄に入れ、根拠を「推定」にしました。推定の幅による税額レンジも結果に表示します。実測できる場合は実測値を入れてください。";
+  });
+  /* UI v172: 単位を切り替えたら、入力済みの長さを新しい単位へ
+   * 換算して表示し直す（同じ葉巻の長さのままにする）。往復で値が
+   * 壊れないよう、inch は小数2桁・mm は小数1桁に丸める
+   * （例：124mm → 4.88in → 124mm）。空欄ならプレースホルダの
+   * 例だけを単位に合わせて切り替える。 */
+  var estUnitEl = $("cf-est-unit");
+  if (estUnitEl) estUnitEl.addEventListener("change", function () {
+    var lenEl = $("cf-est-len");
+    var v = parseFloat(lenEl.value);
+    if (isFinite(v) && v > 0) {
+      if (estUnitEl.value === "in") {
+        lenEl.value = String(Math.round((v / 25.4) * 100) / 100);
+      } else {
+        lenEl.value = String(Math.round((v * 25.4) * 10) / 10);
+      }
+    }
+    lenEl.placeholder = estUnitEl.value === "in" ? "例：5.00" : "例：127";
   });
   var addListBtn = $("cf-add-list");
   if (addListBtn) addListBtn.addEventListener("click", addToList);
