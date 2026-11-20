@@ -100,6 +100,13 @@ body.tc-compact .tcv58 .cf-list-block { margin-top: 6px; }
 body.tc-compact .tcv58 .notice { padding: 7px 9px; line-height: 1.5; }
 body.tc-compact .tcv58 .more { padding: 2px 0; }
 body.tc-compact .tc-help { margin-bottom: 4px; }
+
+/* langswitch round: the language switcher (日本語｜EN) is hidden on
+   the calculator page only — the calculator serves Japanese users
+   computing Japanese import tax (Kazu). Page-local rule, scoped
+   under body.tc-compact; the shared header and all other pages keep
+   their switcher. */
+body.tc-compact .site-header .lang-switch { display: none; }
 </style>
 </head><body class="tc-compact">
 
