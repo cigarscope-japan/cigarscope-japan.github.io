@@ -41,6 +41,28 @@ body.tc-compact .tc-devlabel {
   font-size: 11.5px; line-height: 1.6; text-align: center;
   padding: 5px 9px; margin: 0 0 10px;
 }
+
+/* steps-help round (Gate I2): the how-to box lives behind a small
+   help line; the selected-cigar summary is unified into #cf-sel. */
+body.tc-compact .tc-help { margin: 0 0 6px; }
+body.tc-compact .tc-help-sum {
+  display: flex; align-items: center; gap: 7px;
+  min-height: 38px; padding: 6px 4px; cursor: pointer;
+  font-size: 13px; color: #6b543a; list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body.tc-compact .tc-help-sum::-webkit-details-marker { display: none; }
+body.tc-compact .tc-help-q {
+  flex: none; display: inline-flex; align-items: center;
+  justify-content: center; width: 20px; height: 20px;
+  border-radius: 50%; border: 1.5px solid #b08d3c;
+  background: #fbf6ea; color: #7a5b1e;
+  font-size: 13px; font-weight: bold; line-height: 1;
+}
+body.tc-compact .tc-help[open] .tc-help-sum { color: #4a2f1d; }
+body.tc-compact .tc-help .cf-steps { margin: 2px 0 6px; }
+body.tc-compact #pick-sum.v4-dedup .pick-sum-label,
+body.tc-compact #pick-sum.v4-dedup #pick-sum-text { display: none; }
 </style>
 </head><body class="tc-compact">
 
@@ -477,9 +499,12 @@ body.tc-compact .tc-devlabel {
 
   </div>
   <section class="calc" id="calc">
-    <div class="cf-steps">
+    <details class="tc-help" id="tc-help">
+      <summary class="tc-help-sum"><span class="tc-help-q" aria-hidden="true">？</span>使い方・手順を見る</summary>
+      <div class="cf-steps">
       <p><span class="st">1</span>銘柄のタブ（ノンキューバ／キューバ）で銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>「合計・明細」タブで「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。寸法しか分からない葉巻は「ヴィトラ」タブで重さを推定できます。銘柄を選ぶとリストは要約に畳まれますが、「銘柄を選び直す」でいつでも開けます。</p>
     </div>
+    </details>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
       <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
@@ -3395,6 +3420,75 @@ var F1V3Picker = (function () {
 <div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
 </div>
 </footer>
+<script>
+"use strict";
+/*
+ * UI 第3ラウンド（Gate I2）: 選択中銘柄の表示を一本化する表示専用層。
+ * 銘柄選択後、銘柄名と1本の重さは #pick-sum（ピッカー側の要約）と
+ * #cf-sel（フォーム側の選択表示）の2か所に出ていた。これを
+ * フォーム側 #cf-sel の1か所にそろえる。
+ * - 銘柄選択中（#cf-sel が「選択中：」で始まる）ときだけ、#pick-sum に
+ *   v4-dedup クラスを付け、ピッカー側のラベルとテキストを CSS で
+ *   隠す。「銘柄を選び直す」ボタンはそのまま残す。
+ * - 日本の定価は #pick-sum 側にしか出ないため、renderPickSum の出力
+ *   テキストから「日本の定価 …」の部分を #cf-sel 末尾の表示専用
+ *   span (#v4-jp) へ写す。計算・連動ロジックには一切触れない
+ *   （既存の tax-linkage.js が #cf-sel を MutationObserver で観測
+ *   するのと同じ手法で、表示の追随だけを行う）。
+ * - 未選択・寸法推定・手入力の状態では何も隠さない（#cf-sel の
+ *   状態メッセージは重複ではないので従来どおり表示する）。
+ * - 選択が外れたらクラスと span を取り除き、元の表示に戻す。
+ */
+var F1V4Unify = (function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var cfSel = $("cf-sel"), sumEl = $("pick-sum"), sumText = $("pick-sum-text");
+  if (!cfSel || !sumEl || !sumText) return { sync: function () {} };
+
+  var jpSpan = document.createElement("span");
+  jpSpan.className = "v4-jp";
+  jpSpan.id = "v4-jp";
+  var syncing = false;
+
+  function jpSegment() {
+    var t = sumText.textContent || "";
+    var i = t.indexOf("日本の定価");
+    if (i < 0) return "";
+    return " ／ " + t.slice(i);
+  }
+
+  function sync() {
+    if (syncing) return;
+    syncing = true;
+    try {
+      var brandSel = (cfSel.textContent || "").indexOf("選択中：") === 0;
+      if (brandSel) {
+        sumEl.classList.add("v4-dedup");
+        var seg = jpSegment();
+        if (seg) {
+          if (jpSpan.textContent !== seg) jpSpan.textContent = seg;
+          if (jpSpan.parentNode !== cfSel) cfSel.appendChild(jpSpan);
+        } else if (jpSpan.parentNode) {
+          jpSpan.parentNode.removeChild(jpSpan);
+        }
+      } else {
+        sumEl.classList.remove("v4-dedup");
+        if (jpSpan.parentNode) jpSpan.parentNode.removeChild(jpSpan);
+      }
+    } finally {
+      syncing = false;
+    }
+  }
+
+  if (typeof MutationObserver !== "undefined") {
+    new MutationObserver(sync).observe(cfSel,
+      { childList: true, subtree: true });
+    new MutationObserver(sync).observe(sumText,
+      { childList: true, subtree: true });
+  }
+  sync();
+  return { sync: sync };
+})();
+</script>
 <script src="../search.js" defer></script>
 
 </body></html>
