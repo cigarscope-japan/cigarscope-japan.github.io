@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AJFテイクオーバー最終日：92点エンクレーブ箱とゴベルナドール箱を税シミュレーターにかけたら、1箱だけ関税がかかった | CigarScope Japan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* 黒枠タイトルは中央寄せ（鉄則・2026-11-11） */
+h2.feature-band { text-align: center;}
+/* .nb は span 側に付くため子孫セレクタで指定する（v95 横はみ出し修正：見出し・副題内では折り返し許可） */
+h2 .nb, h4 .nb, .subtitle .nb { white-space: normal;}
+/* セール記事（チラシ風）仕様（2026-11-14 カズ指示）：本文は通常記事より一段大きく */
+main.column { font-size: 19px;}
+main p { line-height: 1.85;}
+.caption { line-height: 1.45;}
+/* ヒーロー写真（箱写真は900px原寸のため、引き伸ばし過ぎない幅で中央表示） */
+.heroimg { display: block; width: 100%; max-width: 440px; height: auto; margin: 6px auto 0;}
+/* 割引バッジ */
+.offbadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-weight: bold; border: 3px solid var(--gold); border-radius: 999px; padding: 6px 20px 7px; font-size: 1.65rem; letter-spacing: 0.04em; transform: rotate(-2deg); box-shadow: 0 3px 10px rgba(0,0,0,0.25);}
+/* 価格ヒーロー（子孫セレクタ。第1号は .pricehero.ph-price 等の複合指定で inner 要素に当たっていなかったため、ここでは子孫指定に直して意図通り大表示にする） */
+.pricehero { border: 4px solid var(--ink); background: #fff8e7; text-align: center; padding: 18px 12px 16px; margin: 18px 0;}
+.pricehero .ph-label { font-weight: bold; letter-spacing: 0.14em; color: var(--burgundy); font-size: 1.05rem;}
+.pricehero .ph-price { font-size: 3.4rem; font-weight: bold; line-height: 1.15; color: var(--ink);}
+.pricehero .ph-price .yen { font-size: 1.7rem;}
+.pricehero .ph-msrp { color: #777; font-size: 1.15rem;}
+.pricehero .ph-msrp s { text-decoration-thickness: 2px;}
+.pricehero .ph-per { font-size: 1.3rem; font-weight: bold; color: var(--burgundy); margin-top: 6px;}
+/* 期限バンド */
+.deadline { background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem; padding: 12px 10px; margin: 18px 0; border: 3px solid var(--gold);}
+.deadline .dl-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 2px;}
+/* 税内訳カード（チラシ仕様） */
+.taxcard { border: 4px solid #1e3a5f; background: #f4f7fb; margin: 20px 0;}
+.taxcard .tc-head { background: #1e3a5f; color: #fff; font-weight: bold; font-size: 1.3rem; text-align: center; padding: 10px 8px; letter-spacing: 0.05em;}
+.taxcard table { width: 100%; border-collapse: collapse; font-size: 1.12rem;}
+.taxcard td { padding: 10px 14px; border-bottom: 1px solid #c9d4e4;}
+.taxcard td.amt { text-align: right; font-weight: bold; white-space: nowrap; font-size: 1.25rem;}
+.taxcard tr.zero td { background: #fff3cd;}
+.taxcard tr.zero td.amt { color: var(--burgundy); font-size: 1.9rem;}
+.taxcard tr.duty td { background: #fdecea;}
+.taxcard tr.duty td.amt { color: var(--burgundy);}
+.freebadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-size: 0.82rem; font-weight: bold; border-radius: 4px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.06em;}
+.taxcard tr.total td { border-top: 3px solid #1e3a5f; border-bottom: none; font-weight: bold;}
+.taxcard tr.total td.amt { font-size: 1.5rem;}
+.taxcard .tc-grand { background: var(--ink); color: var(--gold-light); text-align: center; padding: 14px 10px 12px;}
+.taxcard .tc-grand .g-label { font-size: 1.05rem; letter-spacing: 0.16em;}
+.taxcard .tc-grand .g-amt { font-size: 3.0rem; font-weight: bold; line-height: 1.2;}
+.taxcard .tc-grand .g-per { font-size: 1.35rem; font-weight: bold; color: #fff;}
+/* 仕様テーブル */
+.spec { width: 100%; border-collapse: collapse; font-size: 1.02rem; margin: 14px 0; line-height: 1.5;}
+.spec th, .spec td { border: 1px solid #c9a227; padding: 9px 10px; text-align: left; vertical-align: top;}
+.spec th { background: var(--ink); color: var(--gold-light); width: 30%;}
+.spec td img.cthumb { display: block; width: 100%; max-width: 320px; height: auto; margin-top: 8px;}
+/* 仕様テーブル（モバイルでは1項目1ブロックに積む。v95の教訓：375pxでのはみ出し防止） */
+@media (max-width: 640px) {
+.spec, .spec tbody, .spec tr, .spec td { display: block; width: auto;}
+.spec tr { border: 2px solid #c9a227; margin-bottom: 12px;}
+.spec td { border: none; border-bottom: 1px solid #e8d9a8; padding: 7px 10px;}
+.spec td:last-child { border-bottom: none;}
+/* まとめ表もモバイルでは積み重ね表示 */
+.summary, .summary tbody, .summary tr, .summary td { display: block; width: auto;}
+.summary thead { display: none;}
+.summary tr { border: 2px solid #1e3a5f; margin-bottom: 12px;}
+.summary td { border: none !important; border-bottom: 1px solid #c9d4e4; padding: 7px 10px; text-align: left !important;}
+.summary td:last-child { border-bottom: none;}
+.summary td:nth-child(2)::before { content: "商品価格："; font-weight: bold;}
+.summary td:nth-child(3)::before { content: "課税価格："; font-weight: bold;}
+.summary td:nth-child(4)::before { content: "関税・消費税："; font-weight: bold;}
+.summary td:nth-child(5)::before { content: "たばこ税："; font-weight: bold;}
+.summary td:nth-child(6)::before { content: "総支払額："; font-weight: bold;}
+.summary td:nth-child(7)::before { content: "1本あたり実質："; font-weight: bold;}
+}
+/* まとめ表 */
+.summary { width: 100%; border-collapse: collapse; font-size: 1.08rem; margin: 14px 0; line-height: 1.5;}
+.summary th, .summary td { border: 1px solid #1e3a5f; padding: 9px 10px; text-align: right; vertical-align: top;}
+.summary th { background: #1e3a5f; color: #fff; text-align: center;}
+.summary td:first-child { text-align: left; font-weight: bold;}
+.summary td.grand { font-weight: bold; color: var(--burgundy);}
+/* シミュレーター導線 */
+.cta { display: block; background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.35rem; padding: 16px 12px; margin: 20px 0; text-decoration: none; border: 3px solid var(--gold); border-radius: 8px;}
+.cta .cta-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 4px;}
+/* 商品リンク */
+a.shoplink { color: #14532d; font-weight: bold; text-decoration: underline; text-underline-offset: 3px;}
+/* 但し書き（広告仕様：小さく） */
+.fineprint { font-size: 0.78rem; color: #666; line-height: 1.7; border-top: 1px solid #ccc; margin-top: 26px; padding-top: 10px;}
+.fineprint p { margin: 4px 0;}
+/* 写真ライトボックス（標準仕様） */
+main img { cursor: zoom-in;}
+#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box;}
+#lightbox.open { display: flex;}
+#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out;}
+#lightbox.lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto;}
+#lightbox.lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px;}
+</style>
+</head><body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-name" href="../index.html">CigarScope Japan</a>
+<div class="site-sub">セール実況 ― 税シミュレーター連動</div>
+</div>
+</header>
+<main class="column">
+<div class="masthead"><div class="kicker">WORLD CIGAR NEWS — SALE REPORT</div>
+<h1>世界の葉巻ニュース セール便</h1>
+<div class="date">2026年11月20日（金）</div></div>
+
+<div class="series-band">セール記事 第8号 ― 税シミュレーター実計算つき</div>
+<h2 class="feature-band">セール実況 — <span class="nb">Cigar Place「AJFテイクオーバー」最終日2品</span></h2>
+<div class="subtitle"><span class="nb">― 47%OFFのエンクレーブ チャーチル20本箱と、41%OFFのニュー・ワールド ゴベルナドール21本箱を税シミュレーターにかけた ―</span></div>
+
+<div class="feature-box">
+<p>米国の葉巻通販 <span class="nm-sh">Cigar Place</span> の「AJFテイクオーバー」が今夜で最終日です。A.J. フェルナンデス本人と、そのコラボ作が主役のセールで、箱買いの目玉はこの2品。ひとつは <span class="nm-cg">エンクレーブ チャーチル</span> 20本箱 <strong>$99.99（47%OFF）</strong>、Cigar Aficionado 92点・2016年の第20位。もうひとつは <span class="nm-cg">ニュー・ワールド ゴベルナドール</span> 21本箱 <strong>$107.99（41%OFF）</strong>、AJFと父イスマエル・フェルナンデスの共同作です。</p>
+<p>第1号〜第7号と同じく、この2品も当サイトの<strong>税シミュレーター（TaxCore）で実際に計算</strong>し、日本へ個人輸入した場合の税金込みの実質価格まで出しました。結論を先に言うと――今回は2品で結果が分かれました。<strong>エンクレーブは関税 ¥0、消費税 ¥0</strong>。ところが<strong>ゴベルナドールは課税価格が1万円をわずか¥354上回り、シリーズで初めて関税と消費税がかかる</strong>結果になりました。たった$8の価格差が、免税と課税の分かれ目になったのです。</p>
+<p>なお第1号の「13日の金曜日」サンプラーは<a class="shoplink" href="../hidden-sale-bf13/">セール記事 第1号</a>、AJFテイクオーバーのサンプラーと5本パックは<a class="shoplink" href="../hidden-sale-ajf/">セール記事 第2号</a>、ニュー・ワールド オールスター・サンプラーは<a class="shoplink" href="../hidden-sale-allstar/">セール記事 第3号</a>、Cigar Aficionado #2 サンプラーは<a class="shoplink" href="../hidden-sale-ca2/">セール記事 第4号</a>、モンテクリスト 1935 No.2 5本パックは<a class="shoplink" href="../hidden-sale-m1935/">セール記事 第5号</a>、Cigar Aficionado #1 サンプラーは<a class="shoplink" href="../hidden-sale-ca1/">セール記事 第6号</a>、オリヴァ135周年限定パーフェクトは<a class="shoplink" href="../hidden-sale-oliva135/">セール記事 第7号</a>で紹介済みです。</p>
+</div>
+
+<h4>◆ 一、エンクレーブ チャーチル ― <span class="nb">20本箱 $99.99（47%OFF）</span></h4>
+<p>A.J. フェルナンデスの <span class="nm-cg">エンクレーブ</span>、7インチ×54のチャーチル20本箱。定価 $190.00 のところ $99.99 で、47%オフ。税前でも1本あたり $5.00（約¥799）です。エクアドル・ハバノ巻きにニカラグアのフィラーとバインダー、Cigar Aficionado 92点・<strong>2016年の第20位</strong>に選ばれた逸品です。商品ページでは在庫32箱を確認しました。5本パック $26.99（約¥4,313、43%オフ）、シングル $8.10（約¥1,294）もあり、箱買いが1本あたりいちばん安いです。</p>
+<img class="heroimg" src="img/cp-enclave-churchill.jpg" alt="エンクレーブ チャーチル 20本箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Enclave Churchill」の20本箱。バンド付きシガー1本と箱蓋（同店の商品写真）</div>
+
+<div class="pricehero">
+<div><span class="offbadge">47% OFF</span></div>
+<div class="ph-label" style="margin-top:12px;">セール価格（20本箱）</div>
+<div class="ph-price">$99.99 <span class="yen">＝ 約¥15,978</span></div>
+<div class="ph-msrp">定価 <s>$190.00（約¥30,362）</s> ／ 通常価格 $122.95（約¥19,647）</div>
+<div class="ph-per">税前でも1本あたり $5.00 ＝ 約¥799</div>
+</div>
+
+<div class="deadline">セールは 日本時間 2026年11月21日（土）13:59 まで<span class="dl-sub">AJFテイクオーバー終了（米東部11月20日 23:59）。売り切れ次第終了の可能性があります。在庫は商品ページで確認してください</span></div>
+
+<table class="spec">
+<tbody>
+<tr><th>サイズ</th><td>7" × 54 チャーチル</td></tr>
+<tr><th>評価</th><td>Cigar Aficionado 92点・2016年 第20位。ショップ評価 4.48★（23件）</td></tr>
+<tr><th>ブレンド</th><td>エクアドル・ハバノ巻き、ニカラグア・フィラーとバインダー</td></tr>
+<tr><th>在庫</th><td>商品ページの在庫表示は32箱（2026年11月20日夜確認）</td></tr>
+<tr><th>ほかの買い方</th><td>5本パック $26.99（約¥4,313、43%オフ、1本あたり $5.40）／シングル $8.10（約¥1,294）。箱買いが1本あたりいちばん安いです</td></tr>
+</tbody>
+</table>
+<p>サイズ・評価・在庫は、<span class="nm-sh">Cigar Place</span> の商品ページ掲載に基づきます。写真は販売店の商品写真で、AI 生成ではありません。本品は単一ブレンドの20本箱のため、中身一覧の写真ルールは該当しません。</p>
+
+<div class="taxcard">
+<div class="tc-head">税シミュレーター実計算 ― エンクレーブ チャーチル（20本箱）</div>
+<table>
+<tr><td>課税価格（$99.99 × 60%特例）</td><td class="amt">¥9,587</td></tr>
+<tr class="zero"><td>関税（WTO 16%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
+<tr class="zero"><td>消費税・地方消費税（10%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
+<tr><td>たばこ税等（免税の対象外）</td><td class="amt">¥5,883</td></tr>
+<tr class="total"><td>税金合計</td><td class="amt">¥5,883</td></tr>
+</table>
+<div class="tc-grand">
+<div class="g-label">総支払額（商品＋税金）</div>
+<div class="g-amt">¥21,861</div>
+<div class="g-per">1本あたり実質 約¥1,093</div>
+</div>
+</div>
+
+<p>定価で買えば1本あたり約¥1,518（税前）の92点チャーチルが、このセール＋税計算では実質 約¥1,093/本。20本の推定総重量は約387.8gで、たばこ税の換算では386本分になります。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/enclave-churchill.html" target="_blank" rel="noopener">商品ページ：Enclave Churchill（Cigar Place）→</a></p>
+
+<h4>◆ 二、ニュー・ワールド ゴベルナドール ― <span class="nb">21本箱 $107.99（41%OFF）</span></h4>
+<p>A.J. フェルナンデスと父イスマエル・フェルナンデスの共同作、<span class="nm-cg">ニュー・ワールド ゴベルナドール</span>の21本箱。定価 $182.70 のところ $107.99 で、41%オフ。税前でも1本あたり $5.14（約¥822）です。7½インチ×52のゴベルナドール・サイズ（トロピード）で、エクアドル・ハバノ巻きにニカラグアのフィラーとバインダー。2014年に父子で生み出したニカラグア・プーロです。商品ページでは在庫915箱を確認しました。5本パック $27.99（約¥4,473、36%オフ）、シングル $7.40（約¥1,183）もあり、箱買いが1本あたりいちばん安いです。</p>
+<img class="heroimg" src="img/cp-newworld-gobernador.jpg" alt="ニュー・ワールド ゴベルナドール 21本箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「New World Gobernador」の21本箱。バンド付きシガー1本と箱絵（同店の商品写真）</div>
+
+<div class="pricehero">
+<div><span class="offbadge">41% OFF</span></div>
+<div class="ph-label" style="margin-top:12px;">セール価格（21本箱）</div>
+<div class="ph-price">$107.99 <span class="yen">＝ 約¥17,257</span></div>
+<div class="ph-msrp">定価 <s>$182.70（約¥29,195）</s> ／ 通常価格 $119.95（約¥19,168）</div>
+<div class="ph-per">税前でも1本あたり $5.14 ＝ 約¥822</div>
+</div>
+
+<div class="deadline">セールは 日本時間 2026年11月21日（土）13:59 まで<span class="dl-sub">AJFテイクオーバー終了（米東部11月20日 23:59）。売り切れ次第終了の可能性があります。在庫は商品ページで確認してください</span></div>
+
+<table class="spec">
+<tbody>
+<tr><th>サイズ</th><td>7½" × 52 ゴベルナドール（トロピード）</td></tr>
+<tr><th>評価</th><td>ショップ評価 4.77★（405件）</td></tr>
+<tr><th>ブレンド</th><td>エクアドル・ハバノ巻き、ニカラグア・フィラーとバインダー（ニカラグア・プーロ）</td></tr>
+<tr><th>在庫</th><td>商品ページの在庫表示は915箱（2026年11月20日夜確認）</td></tr>
+<tr><th>ほかの買い方</th><td>5本パック $27.99（約¥4,473、36%オフ、1本あたり $5.60）／シングル $7.40（約¥1,183）。箱買いが1本あたりいちばん安いです</td></tr>
+</tbody>
+</table>
+<p>サイズ・評価・在庫は、<span class="nm-sh">Cigar Place</span> の商品ページ掲載に基づきます。写真は販売店の商品写真で、AI 生成ではありません。本品は単一ブレンドの21本箱のため、中身一覧の写真ルールは該当しません。</p>
+
+<div class="taxcard">
+<div class="tc-head">税シミュレーター実計算 ― ニュー・ワールド ゴベルナドール（21本箱）</div>
+<table>
+<tr><td>課税価格（$107.99 × 60%特例）</td><td class="amt">¥10,354</td></tr>
+<tr class="duty"><td>関税（WTO 16%）</td><td class="amt">¥1,600</td></tr>
+<tr class="duty"><td>消費税・地方消費税（10%）</td><td class="amt">¥1,700</td></tr>
+<tr><td>たばこ税等（免税の対象外）</td><td class="amt">¥6,142</td></tr>
+<tr class="total"><td>税金合計</td><td class="amt">¥9,442</td></tr>
+</table>
+<div class="tc-grand">
+<div class="g-label">総支払額（商品＋税金）</div>
+<div class="g-amt">¥26,699</div>
+<div class="g-per">1本あたり実質 約¥1,271</div>
+</div>
+</div>
+
+<p>定価で買えば1本あたり約¥1,390（税前）のゴベルナドールが、このセール＋税計算では実質 約¥1,271/本。21本の推定総重量は約404.6gで、たばこ税の換算では403本分になります。課税価格が1万円をわずか¥354上回ったため、<strong>関税 ¥1,600（課税標準 ¥10,000 × 16%）と消費税 ¥1,700（国 ¥1,400＋地方 ¥300）</strong>がかかりました。シリーズで初めて関税・消費税が発生した品です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/new-world-gobernador.html" target="_blank" rel="noopener">商品ページ：New World Gobernador（Cigar Place）→</a></p>
+
+<h4>◆ 三、2品まとめ ― <span class="nb">1箱は免税、もう1箱は関税つき</span></h4>
+<p>前提は、個人輸入・国際郵便（賦課課税）、関税は WTO 税率 16%、送料 0（米国内送料無料のセールで、国際分の扱いは下の但し書き参照）です。エンクレーブは商品価格 $99.99 に個人輸入の特例（課税価格は小売価格の60%）を当てると課税価格は <strong>¥9,587</strong>。1万円以下のため、<strong>関税と消費税は少額免税でゼロ</strong>になります。ゴベルナドールは商品価格 $107.99 で課税価格は <strong>¥10,354</strong>。1万円をわずか¥354上回ったため、免税は適用されず、<strong>関税 ¥1,600 と消費税 ¥1,700</strong>がかかりました。たった$8の価格差が、免税と課税の分かれ目になったのです。たばこ税はどちらの箱も免税の対象外で必ずかかります。</p>
+
+<table class="summary">
+<thead><tr><th>品目</th><th>商品価格</th><th>課税価格</th><th>関税・消費税</th><th>たばこ税</th><th>総支払額</th><th>1本あたり実質</th></tr></thead>
+<tbody>
+<tr><td>エンクレーブ チャーチル（20本）</td><td>$99.99<br>約¥15,978</td><td>¥9,587</td><td>¥0</td><td>¥5,883</td><td class="grand">¥21,861</td><td class="grand">約¥1,093</td></tr>
+<tr><td>ニュー・ワールド ゴベルナドール（21本）</td><td>$107.99<br>約¥17,257</td><td>¥10,354</td><td>¥3,300</td><td>¥6,142</td><td class="grand">¥26,699</td><td class="grand">約¥1,271</td></tr>
+</tbody>
+</table>
+
+<a class="cta" href="https://cigarscope-japan.github.io/category/tax-calculator.html">自分の場合はいくらになるか計算する<span class="cta-sub">CigarScope Japan 税シミュレーター（無料）― 銘柄・本数・運賃を入れるだけ</span></a>
+
+<h4>◆ 四、買うなら期限内に</h4>
+<p>セールは <strong>日本時間 2026年11月21日（土）13:59 まで</strong>。Cigar Place は日本への発送に対応しています。国際送料は別途かかるのが通常ですが、エンクレーブは国際送料が約¥689を超えると課税価格が1万円を超え、関税・消費税がかかる可能性があります（詳細は下の但し書き）。なお今夜のメールで案内された「送料無料」は米国内配送のみが対象で、日本への発送には適用されません。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/enclave-churchill.html" target="_blank" rel="noopener">商品ページ：Enclave Churchill（Cigar Place）→</a></p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/new-world-gobernador.html" target="_blank" rel="noopener">商品ページ：New World Gobernador（Cigar Place）→</a></p>
+
+<div class="fineprint">
+<p> 本記事の税額は、当編集部の税シミュレーター（計算エンジン TaxCore-Integer v1.0）による試算です。前提：個人輸入・国際郵便による賦課課税、関税は WTO 税率 16%、送料 0、為替は $1＝¥159.8。課税価格は個人輸入の特例により海外小売価格の60%（エンクレーブ ¥9,587／ゴベルナドール ¥10,354）で算定しました。計算式：エンクレーブ 商品価格 $99.99 × ¥159.8 ＝ ¥15,978 → × 60% ＝ 課税価格 ¥9,587 → 関税・消費税は少額免税で ¥0 → たばこ税 ¥5,883 → 総支払額 ¥15,978 ＋ ¥5,883 ＝ ¥21,861（1本あたり ¥21,861 ÷ 20 ＝ 約¥1,093）。ゴベルナドール 商品価格 $107.99 × ¥159.8 ＝ ¥17,257 → × 60% ＝ 課税価格 ¥10,354 → 関税 ¥1,600（課税標準 ¥10,000 × 16%）→ 消費税 ¥1,700（国 ¥1,400＋地方 ¥300）→ たばこ税 ¥6,142 → 税金合計 ¥9,442 → 総支払額 ¥17,257 ＋ ¥9,442 ＝ ¥26,699（1本あたり ¥26,699 ÷ 21 ＝ 約¥1,271）。</p>
+<p>少額免税について：課税価格が1万円以下の場合、関税と消費税（地方消費税を含む）は免除されますが、たばこ税は免税の対象外で必ず課されます。ゴベルナドールは課税価格が1万円をわずか¥354上回ったため、シリーズで初めて関税と消費税がかかる結果になりました。エンクレーブは課税価格 ¥9,587 で免税の範囲内ですが、国際送料が約¥689を超えると課税価格が1万円を超え、関税・消費税がかかる可能性があります。最終的な判断は税関の審査によります。</p>
+<p>重量とたばこ税について：たばこ税は葉巻の重量（1g＝紙巻たばこ1本に換算）で決まります。本試算の重量は銘柄の寸法からの推定（エンクレーブ 7"×54 チャーチル 1本あたり約19.3g、20本で合計 約387.8g → 386本換算／ゴベルナドール 7½"×52 1本あたり約19.2g、21本で合計 約404.6g → 403本換算）であり、実際のたばこ税は税関の実測重量によって前後します。推定の幅（±15%）では、エンクレーブのたばこ税は ¥4,998〜¥6,735（総支払額 ¥20,976〜¥22,713）、ゴベルナドールのたばこ税は ¥5,211〜¥7,041（税金合計 ¥8,411〜¥10,341、総支払額 ¥25,668〜¥27,598）の範囲に入ります。実測で大きく異なる場合は、税金合計・総支払額もその分変わります。たばこ税の内訳は、エンクレーブが国たばこ税 ¥2,625＋特別たばこ税 ¥316＋道府県たばこ税 ¥413＋市町村たばこ税 ¥2,529（重量換算386本分に各税率を掛け、税目ごとに切り捨て）、ゴベルナドールが国たばこ税 ¥2,741＋特別たばこ税 ¥330＋道府県たばこ税 ¥431＋市町村たばこ税 ¥2,640（重量換算403本分）です。たばこ税の税率（現行）：国たばこ税 ¥6,802／千本、特別たばこ税 ¥820／千本、道府県たばこ税 ¥1,070／千本、市町村たばこ税 ¥6,552／千本。各税目ごとに本数×税率÷1000を切り捨てて合算しています（第1号・第4号・第5号・第6号・第7号と同じ TaxCore の計算方式です）。関税の計算：課税価格を千円単位に切り捨てた課税標準（ゴベルナドール ¥10,000）に WTO 税率 16% を掛け、100円未満を切り捨てています。消費税は（課税価格＋関税＋たばこ税）を千円単位に切り捨てた額（¥18,000）の7.8%を国税とし、そこから地方分を算出しています。</p>
+<p>送料について：本セールの「送料無料」は米国内配送が対象です。日本への国際送料（または転送サービスの手数料）は別途必要で、その金額は注文方法によって変わります。国際送料が発生する場合、その扱い（課税価格への算入の有無を含む）は配送方法により異なります。</p>
+<p>価格・在庫・セール条件は 2026年11月20日 時点の商品ページ掲載に基づきます。実際の課税額は申告内容と税関の判断により確定します。本記事は税務の助言ではなく、購入の判断と手続きの責任は読者ご自身にあります。</p>
+</div>
+
+</main>
+<footer class="site-footer">
+<a href="../index.html">← トップへ戻る</a>
+<div class="site-footer-note">CigarScope Japan ― 世界の葉巻ニュース セール便</div>
+</footer>
+<script>
+(function () {
+var lb = document.createElement('div');
+lb.id = 'lightbox';
+lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
+document.body.appendChild(lb);
+var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+function captionFor(img) {
+if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
+var n = img.nextElementSibling;
+if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
+return img.getAttribute('alt') || '';
+}
+var imgs = document.querySelectorAll('main img:not(.noimg)');
+for (var i = 0; i < imgs.length; i++) {
+(function (img) {
+img.addEventListener('click', function () {
+im.src = img.currentSrc || img.src;
+cap.textContent = captionFor(img);
+lb.classList.add('open');
+document.body.style.overflow = 'hidden';
+});
+})(imgs[i]);
+}
+function close() {
+lb.classList.remove('open');
+document.body.style.overflow = '';
+im.removeAttribute('src');
+}
+lb.addEventListener('click', close);
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close();});
+})();
+</script>
+</body></html>
