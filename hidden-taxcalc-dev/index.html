@@ -339,7 +339,51 @@
   /* 出典リストの長いURLを狭幅で折り返す（旧ページでも 375px で右端が
      突き出ていたための是正。ページ内完結の追加ルール） */
   .taxcalc-src a { overflow-wrap: anywhere; }
+  /* UI v2: 4画面タブ（ノンキューバ／キューバ／ヴィトラ／合計・明細）。
+     色だけに頼らず、文字ラベルで画面を示す。タブは常時表示（sticky）。 */
+  .v2-tabs { position: sticky; top: 0; z-index: 50; display: flex; gap: 4px;
+             background: #fbf6ea; border: 1px solid #d9c48a; border-radius: 6px;
+             padding: 4px; margin: 0 0 8px;
+             box-shadow: 0 2px 7px rgba(40,30,15,.10); }
+  .v2-tabs button { flex: 1 1 0; min-height: 44px; padding: 6px 2px;
+             font-size: 13.5px; font-weight: bold; font-family: inherit;
+             background: #fff; border: 1.5px solid #c9b98f; border-radius: 5px;
+             cursor: pointer; white-space: nowrap; }
+  .v2-tabs button[data-v2tab="noncuba"] { color: #31572c; }
+  .v2-tabs button[data-v2tab="cuba"] { color: #7a1f1f; }
+  .v2-tabs button[data-v2tab="vitola"] { color: #5f5f7a; }
+  .v2-tabs button[data-v2tab="total"] { color: #4a2f1d; }
+  .v2-tabs button.on[data-v2tab="noncuba"] { background: #31572c; border-color: #31572c; color: #fff; }
+  .v2-tabs button.on[data-v2tab="cuba"] { background: #7a1f1f; border-color: #7a1f1f; color: #fff; }
+  .v2-tabs button.on[data-v2tab="vitola"] { background: #5f5f7a; border-color: #5f5f7a; color: #fff; }
+  .v2-tabs button.on[data-v2tab="total"] { background: #4a2f1d; border-color: #4a2f1d; color: #fff; }
+  /* UI v2: 検索ツールバーの sticky 位置をタブ帯の下にずらす */
+  .tcv58 .toolbar { top: 54px; }
+  /* UI v2: 明細の編集ボタン（画面4の明細行） */
+  .tcv58 .cf-list-edit { flex: none; font-size: 13px; font-weight: bold;
+             color: #4a2f1d; min-height: 36px; padding: 6px 12px;
+             border: 1.5px solid #b08d3c; background: #fbf6ea;
+             border-radius: 5px; cursor: pointer; font-family: inherit; }
+  .tcv58 .cf-list-edit:active { background: #f3ead2; }
+  /* UI v2: 画面1〜3の下部に常駐する合計サマリー（Gate D〜）。
+     タップで合計・明細へ。入力欄や追加ボタンを覆わないよう、
+     .tcv58 の末尾に余白を確保する。 */
+  .v2-sumbar { position: fixed; left: 50%; transform: translateX(-50%);
+             bottom: 0; z-index: 60; width: 100%; max-width: 760px;
+             display: flex; align-items: center; gap: 8px;
+             background: #4a2f1d; color: #fff; padding: 10px 12px;
+             font-size: 13px; line-height: 1.45; cursor: pointer;
+             box-shadow: 0 -2px 9px rgba(40,30,15,.25); }
+  .v2-sumbar .v2-sum-text { flex: 1 1 auto; min-width: 0; }
+  .v2-sumbar .v2-sum-go { flex: none; font-weight: bold; color: #f3d27a; }
+  .tcv58.v2-barspace { padding-bottom: 64px; }
 </style>
+<nav class="v2-tabs" id="v2-tabs" aria-label="画面切り替え">
+  <button type="button" data-v2tab="noncuba" class="on" aria-selected="true">ノンキューバ</button>
+  <button type="button" data-v2tab="cuba" aria-selected="false">キューバ</button>
+  <button type="button" data-v2tab="vitola" aria-selected="false">ヴィトラ</button>
+  <button type="button" data-v2tab="total" aria-selected="false">合計・明細</button>
+</nav>
 <div class="tcv58">
 
   <div class="toolbar">
@@ -1419,10 +1463,8 @@ var F1CalcUI = (function () {
     updateSelDisplay();
     refreshAddState();
     if (typeof render === "function") render();
-    if (!opts || opts.scroll !== false) {
-      var c = $("calc");
-      if (c && c.scrollIntoView) c.scrollIntoView({ block: "start" });
-    }
+    /* UI v2: 選択時の計算フォームへの自動スクロールは行わない
+     * （opts.scroll は後方互換のため残すが、移動は利用者に任せる） */
   }
   function isSelected(idx) { return !!sel && sel.idx === idx; }
 
@@ -1709,13 +1751,11 @@ var F1CalcUI = (function () {
     if (typeof render === "function") render();
     setAddHint("done", "追加しました（" + listItems.length +
       "件目）。次の葉巻を上の検索欄から選び、価格・本数を入力してください。前の葉巻の入力値は引き継がれません。全部入れたら「計算する」を押してください。", true);
-    /* 検索欄へ戻す。選択済みリストは複数銘柄モードでは開いたまま。 */
+    /* 選択済みリストは複数銘柄モードでは開いたままにする。
+     * UI v2: 検索欄への自動スクロールは行わない（閲覧位置を奪わない。
+     * 追加の完了は直上のヒント表示で伝える）。 */
     if (typeof F1Nav !== "undefined" && F1Nav.setMainCollapsed) {
       F1Nav.setMainCollapsed(false);
-    }
-    var toolbar = document.querySelector(".tcv58 .toolbar");
-    if (toolbar && toolbar.scrollIntoView) {
-      toolbar.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
@@ -2794,8 +2834,7 @@ var F1Nav = (function () {
     if (hasItems) {
       setMainCollapsed(false);
       renderPickSum();
-      var bar = document.querySelector(".toolbar");
-      if (bar && bar.scrollIntoView) bar.scrollIntoView({ behavior: "smooth", block: "start" });
+      /* UI v2: ツールバーへの自動スクロールは行わない（閲覧位置を奪わない） */
     } else {
       /* v75: 選択が済んだら、次に開くときは前置きを畳む */
       preambleMini = true;
@@ -2808,16 +2847,16 @@ var F1Nav = (function () {
       /* 選択済みなら従来の畳み状態を維持する。自動対応ありは、
        * この直後に F1Auto が自動セットし onPcSelect で畳まれる */
       hidePcCompact();
-      if (!hasItems) navScroll(calcEl);
+      /* UI v2: 計算フォームへの自動スクロールは行わない */
     } else if (m && m.c && m.c.length) {
       /* 候補あり：候補ボタンを残し、リスト本体だけ畳む */
       hidePcCompact();
       setPcCollapsed(true);
-      if (!hasItems) navScroll(calcEl);
+      /* UI v2: 計算フォームへの自動スクロールは行わない */
     } else {
-      /* 登録なし：コンパクト表示にして計算フォームへ */
+      /* 登録なし：コンパクト表示にする（移動は利用者の操作に任せる） */
       showPcCompact(it);
-      if (!hasItems) navScroll(calcEl);
+      /* UI v2: 計算フォームへの自動スクロールは行わない */
     }
   }
   /* 定価の選択が変わるたび（自動セット含む）：畳みと要約を同期する */
@@ -2834,18 +2873,15 @@ var F1Nav = (function () {
     renderPickSum();
   }
   /* 利用者が定価リスト（または候補）から選んだとき：逆方向の自動
-   * 選択をして、計算フォームの頭へ移動する */
+   * 選択をする（UI v2: 計算フォームへの自動スクロールは行わない） */
   function pcUserSelect(i) {
     if (typeof PCUI !== "undefined") PCUI.select(i);
     reverseSelect(i);
-    navScroll(calcEl);
   }
   if (pickChangeEl) pickChangeEl.addEventListener("click", function () {
     setMainCollapsed(false);
-    /* v75: 開いたらリストの先頭が見える位置へ戻す（前回選んだ行
-     * ではなく先頭。前置きは畳まれているため、検索窓とリストの
-     * 先頭がそのまま画面に入る） */
-    navScroll(mainParts[0] || sumEl);
+    /* UI v2: 開いた位置のまま使う（リスト先頭への自動スクロールは
+     * 行わない。前置きは畳まれているため検索窓は近い位置にある） */
   });
   if (pcChangeEl) pcChangeEl.addEventListener("click", function () {
     setPcCollapsed(false);
@@ -2873,7 +2909,7 @@ var F1Nav = (function () {
   if (pcManualEl) pcManualEl.addEventListener("click", function () {
     hidePcCompact();
     setPcCollapsed(false);
-    navScroll(pcEl);
+    /* UI v2: 定価セクションへの自動スクロールは行わない */
   });
   /* 「この重さで計算する」経由の選択でもリストを畳む（ボタンの元の
    * 処理が先に走るよう、伝播先の #list で受ける） */
@@ -2943,6 +2979,179 @@ var TcNotePop = (function () {
     }).observe(modalEl, { attributes: true, attributeFilter: ["style"] });
   }
   return { show: show, hide: hide };
+})();
+</script>
+<script>
+
+"use strict";
+/*
+ * UI v2: 4画面ナビゲーション層（2026-11-20、Gate B〜）。
+ * カズの設計（ノンキューバ／キューバ／ヴィトラ／合計・明細の4画面）に
+ * 沿い、画面の表示切替だけを担う薄い層。計算エンジン・DB・既存の
+ * 連動ロジック（F1CalcUI / F1Nav / PCUI）には触れない。
+ * - 画面は既存 DOM ノードの表示/非表示で切り替える。ノードの破棄・
+ *   再生成はしないため、入力途中の値・検索文字列・選択状態・
+ *   A–Z フィルターは画面切替で消えない。
+ * - 画面切替・品目追加でページを強制スクロールしない。
+ * - 画面1＝ノンキューバ、画面2＝キューバ：既存の産地チェックボックス
+ *   （#cubaOnly / #nonCubaOnly）を基本フィルターとして設定し、既存の
+ *   change ハンドラに再描画させる（DB の国区分そのものは変更しない）。
+ * - 画面3＝ヴィトラ：銘柄ピッカーを畳み、寸法推定ブロックを開く。
+ *   銘柄選択の状態（#cf-sel）はそのまま残る。
+ * - 画面4＝合計・明細：共通条件・明細・計算・定価比較・説明を表示する。
+ * - スワイプは、入力欄・セレクト・A–Z ボタン列・モーダル等の操作
+ *   領域で始まったものを横取りしない。横移動が十分で縦移動が
+ *   小さい場合だけ画面切替する。
+ */
+var F1V2Nav = (function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var SCREENS = ["noncuba", "cuba", "vitola", "total"];
+  var current = "noncuba";
+
+  var tabsEl = $("v2-tabs");
+  var tabBtns = tabsEl ? tabsEl.querySelectorAll("[data-v2tab]") : [];
+  var entryEl = $("v2-scr-entry");        /* 画面1〜3の入力領域（Gate C〜） */
+  var pickerEl = $("v2-picker");          /* 画面3で畳むピッカー一式 */
+  var totalEl = $("v2-scr-total");        /* 画面4（.tcv58 内） */
+  var topTotalEl = $("v2-top-total");     /* 画面4の見出し・導入（Gate D〜） */
+  var notesTotalEl = $("v2-notes-total"); /* 画面4の説明群（Gate D〜） */
+  var sumBar = $("v2-sumbar"), sumText = $("v2-sum-text");
+  var estDet = document.querySelector(".tcv58 .cf-est");
+  var calcFresh = false; /* 直近の計算結果が現在の入力に対応するか */
+
+  function setOriginFilter(mode) {
+    var cubaEl = $("cubaOnly"), nonEl = $("nonCubaOnly");
+    if (!cubaEl || !nonEl) return;
+    var wantCuba = mode === "cuba";
+    if (cubaEl.checked === wantCuba && nonEl.checked === !wantCuba) return;
+    cubaEl.checked = wantCuba;
+    nonEl.checked = !wantCuba;
+    /* 既存ハンドラ（tax-data.js）に相互排他と再描画を任せる */
+    cubaEl.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+
+  function updateSum() {
+    if (!sumText) return;
+    var rows = document.querySelectorAll("#cf-list .cf-list-row").length;
+    var sumEl = $("cf-list-sum");
+    var sum = sumEl ? sumEl.textContent : "";
+    if (!rows) {
+      sumText.textContent = "明細：まだ追加されていません" +
+        "（1銘柄だけなら追加なしで計算できます）";
+    } else {
+      sumText.textContent = "明細：" + rows + "件" +
+        (sum ? "・" + sum : "") +
+        (calcFresh ? "・計算済み" : "・税額は未計算");
+    }
+  }
+
+  function apply() {
+    var i;
+    for (i = 0; i < tabBtns.length; i++) {
+      var on = tabBtns[i].getAttribute("data-v2tab") === current;
+      tabBtns[i].classList.toggle("on", on);
+      tabBtns[i].setAttribute("aria-selected", on ? "true" : "false");
+    }
+    var isTotal = current === "total";
+    var isVitola = current === "vitola";
+    if (entryEl) entryEl.style.display = isTotal ? "none" : "";
+    if (totalEl) totalEl.style.display = isTotal ? "" : "none";
+    if (topTotalEl) topTotalEl.style.display = isTotal ? "" : "none";
+    if (notesTotalEl) notesTotalEl.style.display = isTotal ? "" : "none";
+    if (pickerEl) pickerEl.style.display = isVitola ? "none" : "";
+    if (isVitola && estDet) estDet.open = true;
+    if (sumBar) sumBar.style.display = isTotal ? "none" : "";
+    updateSum();
+  }
+
+  function show(name) {
+    if (SCREENS.indexOf(name) < 0) return;
+    current = name;
+    if (name === "noncuba" || name === "cuba") setOriginFilter(name);
+    apply();
+  }
+
+  var i;
+  for (i = 0; i < tabBtns.length; i++) {
+    tabBtns[i].addEventListener("click", function () {
+      show(this.getAttribute("data-v2tab"));
+    });
+  }
+  if (sumBar) {
+    sumBar.addEventListener("click", function () { show("total"); });
+  }
+
+  /* 左右スワイプ（操作領域では横取りしない） */
+  var touch = null;
+  function swipeBlocked(target) {
+    if (!target || !target.closest) return true;
+    if (target.closest("input, textarea, select, .az, .modal-ov, " +
+        "#v2-tabs, #v2-sumbar, .tc-note-pop, .v2-tabs")) return true;
+    var modalIds = ["calc-modal", "notice-modal", "pcnote-modal"];
+    for (var j = 0; j < modalIds.length; j++) {
+      var mo = $(modalIds[j]);
+      if (mo && mo.style.display && mo.style.display !== "none") return true;
+    }
+    return false;
+  }
+  document.addEventListener("touchstart", function (e) {
+    if (e.touches && e.touches.length === 1 && !swipeBlocked(e.target)) {
+      touch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    } else {
+      touch = null;
+    }
+  }, { passive: true });
+  document.addEventListener("touchend", function (e) {
+    if (!touch || !e.changedTouches || !e.changedTouches.length) {
+      touch = null;
+      return;
+    }
+    var dx = e.changedTouches[0].clientX - touch.x;
+    var dy = e.changedTouches[0].clientY - touch.y;
+    touch = null;
+    if (Math.abs(dx) < 64 || Math.abs(dy) > 40 ||
+        Math.abs(dx) < Math.abs(dy) * 1.8) return;
+    var idx = SCREENS.indexOf(current);
+    var next = idx + (dx < 0 ? 1 : -1);
+    if (next < 0 || next >= SCREENS.length) return;
+    show(SCREENS[next]);
+  }, { passive: true });
+
+  /* 合計バーの追随：明細の増減と計算の実行を監視する（表示専用） */
+  var listEl = $("cf-list"), resEl = $("cf-result");
+  if (listEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(updateSum).observe(listEl, { childList: true });
+  }
+  if (resEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(function () {
+      if (resEl.innerHTML) calcFresh = true;
+      updateSum();
+    }).observe(resEl, { childList: true, subtree: true });
+  }
+  document.addEventListener("input", function (e) {
+    var id = e && e.target && e.target.id;
+    if (id && id.indexOf("cf-") === 0) { calcFresh = false; updateSum(); }
+  });
+  document.addEventListener("change", function (e) {
+    var id = e && e.target && e.target.id;
+    if (id && id.indexOf("cf-") === 0) { calcFresh = false; updateSum(); }
+  });
+
+  /* 明細の「編集」（F1CalcUI が発行）で該当品目の入力画面へ戻る */
+  document.addEventListener("f1v2-edit", function (e) {
+    var d = (e && e.detail) || {};
+    if (d.screen) show(d.screen);
+    if (d.fromList && typeof F1Nav !== "undefined" && F1Nav) {
+      F1Nav.setMainCollapsed(true);
+      if (F1Nav.renderPickSum) F1Nav.renderPickSum();
+    }
+    updateSum();
+  });
+
+  /* 初期画面（ノンキューバ）の基本フィルターまで含めて適用する */
+  show(current);
+  return { show: show,
+           current: function () { return current; } };
 })();
 </script>
 
