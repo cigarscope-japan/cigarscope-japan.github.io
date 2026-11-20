@@ -62,8 +62,10 @@
 <p style="margin:0 0 6px;font-weight:bold;color:#7a1f1f">【開発用ページ（限定リンク）】</p>
 <p style="margin:0;font-size:0.85em;line-height:1.7">これは CigarScope Japan の開発・検証専用ページです。サイト内のメニューや一覧からはリンクされていません。計算エンジン「TaxCore-Integer v1.0」は正式版とバイト同一で、変更の対象外です。開発の対象は、見た目と操作性（UI）のみです。</p>
 </div>
+<div class="v2-only-total" id="v2-top-total" style="display: none;">
 <h1 class="taxcalc-title">葉巻輸入税シミュレーター<span class="taxcalc-title-sub">（日本向け・個人輸入）</span></h1>
 <p class="taxcalc-lead">銘柄を選ぶと重さと日本の定価が自動で入り、そのまま税額まで計算できます。海外価格と日本の定価との比較、複数銘柄の混載にも対応しています。国際郵便・国際宅配便による個人輸入を前提にしています。</p>
+</div>
 
 <style>
 /* 統合版 v58 のスタイル（2026-11-11 本サイト入れ替え）。試作ページの
@@ -384,7 +386,7 @@
   <button type="button" data-v2tab="vitola" aria-selected="false">ヴィトラ</button>
   <button type="button" data-v2tab="total" aria-selected="false">合計・明細</button>
 </nav>
-<div class="tcv58">
+<div class="tcv58 v2-barspace">
 
   <div class="v2-scr" id="v2-scr-entry">
   <div id="v2-picker">
@@ -536,8 +538,13 @@
       <div id="cf-notes"></div>
     </div>
   </div>
+  <div class="v2-sumbar" id="v2-sumbar" style="display: none;">
+    <span class="v2-sum-text" id="v2-sum-text">明細はまだありません</span>
+    <span class="v2-sum-go">合計・明細 ▸</span>
+  </div>
 </div>
 
+<div id="v2-notes-total" style="display: none;">
 <div class="taxcalc-head">
 <h2 class="taxcalc-step-head">免税判定について<span class="en">EXEMPTION</span></h2>
 <div class="taxcalc-card">
@@ -598,6 +605,7 @@
 </div>
 </div>
 <p class="back-links"><a href="market.html">市場・流通・経営の一覧へ戻る</a>　<a href="../index.html">トップページへ戻る</a></p>
+</div>
 </div>
 </main>
 <script>
