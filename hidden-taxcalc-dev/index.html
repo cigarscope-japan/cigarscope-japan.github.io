@@ -73,6 +73,17 @@
          font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, sans-serif; 
          font-size: 14px;  line-height: 1.5;  }
   .tcv58 { max-width: 760px; margin: 0 auto; padding: 2px 0 10px }
+  /* UI v1: 検索導線をスクロール中も画面上部に保持 */
+  .tcv58 .toolbar { position: sticky; top: 0; z-index: 30;
+             box-shadow: 0 2px 7px rgba(40,30,15,.10); }
+  .tcv58 #list { scroll-margin-top: 72px; }
+  .tcv58 #calc { scroll-margin-top: 72px; }
+  .tcv58 .cf-list-block { scroll-margin-top: 72px; }
+  @media (max-width: 600px) {
+    .tcv58 .toolbar { border-radius: 0 0 7px 7px; margin-left: -2px; margin-right: -2px; }
+    .tcv58 .cf-grid { gap: 8px; }
+    .tcv58 .cf-add-btn { min-height: 52px; }
+  }
   .tcv58 .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #fbf6ea;
              border: 1px solid #d9c48a; border-radius: 6px; padding: 6px 8px; margin: 0 0 5px; }
   .tcv58 .toolbar-toggles { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
@@ -1602,14 +1613,6 @@ var F1CalcUI = (function () {
       div.appendChild(main);
       div.appendChild(del);
       wrap.appendChild(div);
-      if (i === justAddedIdx && div.scrollIntoView) {
-        try {
-          var reduce = window.matchMedia &&
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          div.scrollIntoView({ block: "nearest",
-                               behavior: reduce ? "auto" : "smooth" });
-        } catch (e) { /* スクロール補助が失敗しても無視する */ }
-      }
     });
     justAddedIdx = -1;
     if (head && title && sumEl) {
@@ -1690,8 +1693,30 @@ var F1CalcUI = (function () {
     });
     justAddedIdx = listItems.length - 1;
     renderList();
+    /* UI v1: 次の葉巻へ入力値を持ち越さない。共通条件（通貨・送料等）は維持する。 */
+    sel = null;
+    manualBasis = null;
+    settingWeight = true;
+    $("cf-price").value = "";
+    $("cf-count").value = "";
+    $("cf-weight").value = "";
+    settingWeight = false;
+    var uaNext = $("cf-usealt");
+    if (uaNext) uaNext.checked = false;
+    updateUseAltRow();
+    updateSelDisplay();
+    refreshAddState();
+    if (typeof render === "function") render();
     setAddHint("done", "追加しました（" + listItems.length +
-      "件目）。別の銘柄は、上の要約の「銘柄を選び直す」からリストを開いて選んでください。全部入れたら「計算する」を押してください。", true);
+      "件目）。次の葉巻を上の検索欄から選び、価格・本数を入力してください。前の葉巻の入力値は引き継がれません。全部入れたら「計算する」を押してください。", true);
+    /* 検索欄へ戻す。選択済みリストは複数銘柄モードでは開いたまま。 */
+    if (typeof F1Nav !== "undefined" && F1Nav.setMainCollapsed) {
+      F1Nav.setMainCollapsed(false);
+    }
+    var toolbar = document.querySelector(".tcv58 .toolbar");
+    if (toolbar && toolbar.scrollIntoView) {
+      toolbar.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function calc() {
@@ -2763,26 +2788,36 @@ var F1Nav = (function () {
   /* 銘柄を開いた（＝選択した）直後：リストを畳み、定価セクション
    * の状態も銘柄の定価対応に応じて切り替える（v56） */
   function afterCigarOpen(it) {
-    /* v75: 選択が済んだら、次に開くときは前置きを畳む */
-    preambleMini = true;
-    setMainCollapsed(true);
-    renderPickSum();
+    /* UI v1: 複数銘柄の入力中は検索一覧を畳まず、次の追加を同じ導線で行えるようにする */
+    var addedList = $("cf-list");
+    var hasItems = !!(addedList && addedList.querySelector(".cf-list-row"));
+    if (hasItems) {
+      setMainCollapsed(false);
+      renderPickSum();
+      var bar = document.querySelector(".toolbar");
+      if (bar && bar.scrollIntoView) bar.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      /* v75: 選択が済んだら、次に開くときは前置きを畳む */
+      preambleMini = true;
+      setMainCollapsed(true);
+      renderPickSum();
+    }
     var sel = (typeof PCUI !== "undefined") ? PCUI.state.sel : -1;
     var m = (typeof F1A_MAP !== "undefined" && it) ? F1A_MAP[it.n] : null;
     if (sel >= 0 || (m && typeof m.a === "number")) {
       /* 選択済みなら従来の畳み状態を維持する。自動対応ありは、
        * この直後に F1Auto が自動セットし onPcSelect で畳まれる */
       hidePcCompact();
-      navScroll(calcEl);
+      if (!hasItems) navScroll(calcEl);
     } else if (m && m.c && m.c.length) {
       /* 候補あり：候補ボタンを残し、リスト本体だけ畳む */
       hidePcCompact();
       setPcCollapsed(true);
-      navScroll(calcEl);
+      if (!hasItems) navScroll(calcEl);
     } else {
       /* 登録なし：コンパクト表示にして計算フォームへ */
       showPcCompact(it);
-      navScroll(calcEl);
+      if (!hasItems) navScroll(calcEl);
     }
   }
   /* 定価の選択が変わるたび（自動セット含む）：畳みと要約を同期する */
