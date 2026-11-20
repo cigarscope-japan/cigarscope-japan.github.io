@@ -463,6 +463,8 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
   .v2-tabs button.on[data-v2tab="cuba"] { background: #7a1f1f; border-color: #7a1f1f; color: #fff; }
   .v2-tabs button.on[data-v2tab="vitola"] { background: #5f5f7a; border-color: #5f5f7a; color: #fff; }
   .v2-tabs button.on[data-v2tab="total"] { background: #4a2f1d; border-color: #4a2f1d; color: #fff; }
+  .v2-tabs button[data-v2tab="help"] { color: #7a5c14; }
+  .v2-tabs button.on[data-v2tab="help"] { background: #7a5c14; border-color: #7a5c14; color: #fff; }
   /* UI v2: 検索ツールバーの sticky 位置をタブ帯の下にずらす */
   .tcv58 .toolbar { top: 54px; }
   /* UI v2: 明細の編集ボタン（画面4の明細行） */
@@ -511,6 +513,7 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
   <button type="button" data-v2tab="cuba" aria-selected="false">キューバ</button>
   <button type="button" data-v2tab="vitola" aria-selected="false">ヴィトラ</button>
   <button type="button" data-v2tab="total" aria-selected="false">合計・明細</button>
+  <button type="button" data-v2tab="help" aria-selected="false">使い方</button>
 </nav>
 <div class="tcv58 v2-barspace">
 
@@ -551,12 +554,6 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
 
   </div>
   <section class="calc" id="calc">
-    <details class="tc-help" id="tc-help">
-      <summary class="tc-help-sum"><span class="tc-help-q" aria-hidden="true">？</span>使い方・手順を見る</summary>
-      <div class="cf-steps">
-      <p><span class="st">1</span>銘柄のタブ（ノンキューバ／キューバ）で銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>「合計・明細」タブで「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。寸法しか分からない葉巻は「ヴィトラ」タブで重さを推定できます。銘柄を選ぶとリストは要約に畳まれますが、「銘柄を選び直す」でいつでも開けます。</p>
-    </div>
-    </details>
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
       <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
@@ -627,6 +624,11 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
     <p>税額計算には、検証済みの計算エンジン（TaxCore-Integer v1.0）を使っています。制度は判定日（初期値は今日）で切り替わり、輸送・課税の方式、60％特例の対象外（原則方式）、保険料、複数銘柄の合算、寸法からの重量推定もフォームで選べます。送料・保険料が空欄の場合は0として計算します。</p>
   </div>
 
+  </div>
+  <div class="v2-scr" id="v2-scr-help" style="display: none;">
+    <div class="cf-steps">
+      <p><span class="st">1</span>銘柄のタブ（ノンキューバ／キューバ）で銘柄を選ぶ<span class="st">2</span>価格・本数・重さを確認する<span class="st">3</span>「合計・明細」タブで「計算する」を押す。2銘柄以上を合わせるときは、銘柄ごとに<span class="st">2</span>のあと「この葉巻をリストに追加」を押し、全部入れてから<span class="st">3</span>へ。1銘柄だけなら追加は不要です。寸法しか分からない葉巻は「ヴィトラ」タブで重さを推定できます。銘柄を選ぶとリストは要約に畳まれますが、「銘柄を選び直す」でいつでも開けます。</p>
+    </div>
   </div>
   <div class="tc-note-pop" id="tc-note-pop" style="display: none;" role="note" aria-label="注意書き">
     <button type="button" class="tc-note-x" id="tc-note-x" aria-label="注意書きを閉じる">×</button>
@@ -3250,13 +3252,18 @@ var TcNotePop = (function () {
  * - 画面3＝ヴィトラ：銘柄ピッカーを畳み、寸法推定ブロックを開く。
  *   銘柄選択の状態（#cf-sel）はそのまま残る。
  * - 画面4＝合計・明細：共通条件・明細・計算・定価比較・説明を表示する。
+ * - 画面5＝使い方（v174〜、カズ指示）：手順説明（.cf-steps）を独立した
+ *   タブ画面にした。従来フォーム内にあった「？ 使い方・手順を見る」
+ *   （details）は廃止し、本文はそのままこの画面に置く。スワイプの
+ *   順序・ガードは既存の仕組み（SCREENS 配列と swipeBlocked）を
+ *   そのまま使う。他画面の状態共有・下部サマリーには影響しない。
  * - スワイプは、入力欄・セレクト・A–Z ボタン列・モーダル等の操作
  *   領域で始まったものを横取りしない。横移動が十分で縦移動が
  *   小さい場合だけ画面切替する。
  */
 var F1V2Nav = (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var SCREENS = ["noncuba", "cuba", "vitola", "total"];
+  var SCREENS = ["noncuba", "cuba", "vitola", "total", "help"];
   var current = "noncuba";
 
   var tabsEl = $("v2-tabs");
@@ -3264,6 +3271,7 @@ var F1V2Nav = (function () {
   var entryEl = $("v2-scr-entry");        /* 画面1〜3の入力領域（Gate C〜） */
   var pickerEl = $("v2-picker");          /* 画面3で畳むピッカー一式 */
   var totalEl = $("v2-scr-total");        /* 画面4（.tcv58 内） */
+  var helpEl = $("v2-scr-help");          /* 画面5＝使い方（v174〜） */
   var topTotalEl = $("v2-top-total");     /* 画面4の見出し・導入（Gate D〜） */
   var notesTotalEl = $("v2-notes-total"); /* 画面4の説明群（Gate D〜） */
   var sumBar = $("v2-sumbar"), sumText = $("v2-sum-text");
@@ -3305,8 +3313,10 @@ var F1V2Nav = (function () {
     }
     var isTotal = current === "total";
     var isVitola = current === "vitola";
-    if (entryEl) entryEl.style.display = isTotal ? "none" : "";
+    var isHelp = current === "help";
+    if (entryEl) entryEl.style.display = (isTotal || isHelp) ? "none" : "";
     if (totalEl) totalEl.style.display = isTotal ? "" : "none";
+    if (helpEl) helpEl.style.display = isHelp ? "" : "none";
     if (topTotalEl) topTotalEl.style.display = isTotal ? "" : "none";
     if (notesTotalEl) notesTotalEl.style.display = isTotal ? "" : "none";
     if (pickerEl) pickerEl.style.display = isVitola ? "none" : "";
