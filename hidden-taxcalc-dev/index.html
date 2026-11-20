@@ -3196,8 +3196,22 @@ var TcNotePop = (function () {
   function $(id) { return document.getElementById(id); }
   var popEl = $("tc-note-pop"), xEl = $("tc-note-x");
   if (!popEl) return { show: function () {}, hide: function () {} };
-  function show() { popEl.style.display = ""; }
-  function hide() { popEl.style.display = "none"; }
+  /* v173: 一度 × で閉じたら、このブラウザでは二度と表示しない
+   * （localStorage に記憶。NASEM 同意と同じ方式・キー体系）。
+   * 初めて使う人には従来どおり表示される。表示トリガー（リスト
+   * 追加時・計算結果の表示時）と他のモーダルの動作は無変更で、
+   * show() の入口でだけ記憶を確認する。localStorage が使えない
+   * 環境では従来どおりの動作（その場では閉じ、次回はまた出す）。 */
+  var ACK_KEY = "csj-taxcalc-note-pop-ack";
+  function dismissed() {
+    try { return window.localStorage.getItem(ACK_KEY) === "1"; }
+    catch (e) { return false; }
+  }
+  function show() { if (!dismissed()) popEl.style.display = ""; }
+  function hide() {
+    popEl.style.display = "none";
+    try { window.localStorage.setItem(ACK_KEY, "1"); } catch (e) {}
+  }
   if (xEl) xEl.addEventListener("click", hide);
   var listEl = $("cf-list");
   if (listEl && typeof MutationObserver !== "undefined") {
