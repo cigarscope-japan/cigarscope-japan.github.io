@@ -556,6 +556,7 @@ body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
   <section class="calc" id="calc">
     <p class="cf-sel" id="cf-sel">銘柄は未選択です。上のリストで銘柄を選ぶと、重さが自動で入ります。重さは手入力もできます。</p>
     <div class="cf-grid">
+      <div class="cf-wide" id="cf-name-row"><label for="cf-name">品名（手入力のとき・任意）</label><input type="text" id="cf-name" placeholder="例：銘柄名・商品名（空欄なら「手入力の銘柄」と表示）"></div>
       <div><label for="cf-count">本数</label><input type="text" id="cf-count" inputmode="numeric" placeholder="例：25"></div>
       <div><label for="cf-price">商品価格（外貨・合計）</label><input type="text" id="cf-price" inputmode="decimal" placeholder="例：300"></div>
       <div><label for="cf-cur">通貨</label><select id="cf-cur"><option value="USD">USD（米ドル）</option><option value="EUR">EUR（ユーロ）</option><option value="GBP">GBP（英ポンド）</option><option value="CHF">CHF（スイスフラン）</option><option value="JPY">JPY（日本円）</option></select></div>
@@ -1471,7 +1472,9 @@ var F1Calc = (function () {
       items = f.items;
     } else {
       items = [{
-        name: sel && sel.name ? sel.name : "銘柄",
+        /* UI v175: 手入力のときは任意入力の品名をラベルに使う
+         * （表示専用。f.manualName が無い場合は従来どおり） */
+        name: sel && sel.name ? sel.name : (f.manualName ? f.manualName : "銘柄"),
         priceStr: f.price, countStr: f.count, weightStr: f.weight,
         basis: f.basisKey || (sel ? sel.basisKey : "declared"),
         altWeightStr: sel ? sel.altWeightStr : null,
@@ -1582,7 +1585,21 @@ var F1CalcUI = (function () {
       if (cb) cb.checked = false;
     }
   }
+  /* UI v175: 手入力用の品名（任意入力）。計算には一切使わない
+   * 表示ラベルで、明細・結果・定価比較の名前表示にだけ使う。 */
+  function manualNameValue() {
+    var el = $("cf-name");
+    return el ? el.value.trim() : "";
+  }
+  function setManualName(v) {
+    var el = $("cf-name");
+    if (el) el.value = v;
+  }
+
   function updateSelDisplay() {
+    /* UI v175: 品名欄は銘柄未選択（手入力）のときだけ出す */
+    var nameRow = $("cf-name-row");
+    if (nameRow) nameRow.style.display = sel ? "none" : "";
     var el = $("cf-sel");
     if (!el) return;
     if (!sel) {
@@ -1636,7 +1653,8 @@ var F1CalcUI = (function () {
       h += '<p class="cf-basis">採用した重さ：' + sel.weightStr + "g／本（" +
         '<span class="sel-name">' + esc(sel.name) + "</span>" + "／" + esc(sel.origText) + "）／根拠：" + esc(sel.basisLabel) + "</p>";
     } else {
-      h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本／根拠：" +
+      h += '<p class="cf-basis">採用した重さ：' + esc(f.weight) + "g／本" +
+        (f.manualName ? "／品名：" + esc(f.manualName) : "") + "／根拠：" +
         (manualBasis === "estimate" ? "推定（寸法から計算）" : "手入力") + "</p>";
     }
     h += '<p class="cf-basis">方式：' + esc(METHOD_LABEL[out.method] || out.method) +
@@ -1733,7 +1751,8 @@ var F1CalcUI = (function () {
       eligible: $("cf-eligible") ? $("cf-eligible").value !== "no" : true,
       rangePct: $("cf-range") ? $("cf-range").value : "",
       useAlt: $("cf-usealt") ? $("cf-usealt").checked : false,
-      basisKey: manualBasis || undefined
+      basisKey: manualBasis || undefined,
+      manualName: manualNameValue()
     };
   }
 
@@ -1897,6 +1916,10 @@ var F1CalcUI = (function () {
     if (!restored) {
       sel = null;
       manualBasis = (it.basis === "estimate") ? "estimate" : null;
+      /* UI v175: 手入力品目は品名も入力欄へ戻す（編集で変更できる） */
+      setManualName((it.name && it.name !== "手入力の銘柄") ? it.name : "");
+    } else {
+      setManualName("");
     }
     settingWeight = true;
     $("cf-price").value = it.priceStr;
@@ -1940,7 +1963,9 @@ var F1CalcUI = (function () {
     }
     errEl.style.display = "none";
     listItems.push({
-      name: sel ? sel.name : "手入力の銘柄",
+      /* UI v175: 手入力のときは品名欄の入力を名前として使う
+       * （表示ラベル専用。空欄なら従来どおり「手入力の銘柄」） */
+      name: sel ? sel.name : (manualNameValue() || "手入力の銘柄"),
       priceStr: f.price, countStr: f.count, weightStr: f.weight,
       basis: sel ? sel.basisKey : (manualBasis || "declared"),
       altWeightStr: sel ? sel.altWeightStr : null,
@@ -1958,6 +1983,7 @@ var F1CalcUI = (function () {
     $("cf-count").value = "";
     $("cf-weight").value = "";
     settingWeight = false;
+    setManualName("");
     var uaNext = $("cf-usealt");
     if (uaNext) uaNext.checked = false;
     updateUseAltRow();
