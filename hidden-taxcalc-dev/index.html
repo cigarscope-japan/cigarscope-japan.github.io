@@ -107,6 +107,13 @@ body.tc-compact .tc-help { margin-bottom: 4px; }
    under body.tc-compact; the shared header and all other pages keep
    their switcher. */
 body.tc-compact .site-header .lang-switch { display: none; }
+
+/* cfsel round: the form's selection-state box (#cf-sel) renders
+   only in its .has-sel states (brand selected, or an estimated
+   weight with its basis note). In the plain unselected state the
+   box and its guidance text take no space at all (Kazu). The node
+   and its text updates stay; this is display control only. */
+body.tc-compact .tcv58 #cf-sel:not(.has-sel) { display: none; }
 </style>
 </head><body class="tc-compact">
 
