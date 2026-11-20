@@ -3168,7 +3168,7 @@ var F1V2Nav = (function () {
   var touch = null;
   function swipeBlocked(target) {
     if (!target || !target.closest) return true;
-    if (target.closest("input, textarea, select, .az, .modal-ov, " +
+    if (target.closest("input, textarea, select, .az, .pre-mini, .modal-ov, " +
         "#v2-tabs, #v2-sumbar, .tc-note-pop, .v2-tabs")) return true;
     var modalIds = ["calc-modal", "notice-modal", "pcnote-modal"];
     for (var j = 0; j < modalIds.length; j++) {
