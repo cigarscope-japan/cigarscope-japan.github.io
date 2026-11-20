@@ -63,6 +63,43 @@ body.tc-compact .tc-help[open] .tc-help-sum { color: #4a2f1d; }
 body.tc-compact .tc-help .cf-steps { margin: 2px 0 6px; }
 body.tc-compact #pick-sum.v4-dedup .pick-sum-label,
 body.tc-compact #pick-sum.v4-dedup #pick-sum-text { display: none; }
+
+/* menuname round: the site name is consolidated into the menu bar,
+   the masthead band and the visible dev label go away, the origin
+   toggles are hidden (linkage untouched), and vertical spacing is
+   tightened across the calculator page. Page-local rules only,
+   scoped under body.tc-compact; font sizes and tap heights kept. */
+body.tc-compact .site-header .masthead { display: none; }
+body.tc-compact .tc-menuname {
+  flex: none; font-family: var(--serif); font-size: 12.5px;
+  font-weight: 700; letter-spacing: .1em; color: #f2ecd9;
+  text-decoration: none; white-space: nowrap; line-height: 1;
+  padding: 6px 2px;
+}
+body.tc-compact .site-header .util-row { padding: 2px 2px; }
+body.tc-compact .gnav-flex { padding: 3px 0; }
+body.tc-compact .v2-tabs { margin-bottom: 5px; }
+body.tc-compact .tcv58 .toolbar-toggles { display: none; }
+body.tc-compact .tcv58 .toolbar { padding: 5px 7px; margin-bottom: 4px; }
+body.tc-compact .tcv58 .q-label { margin-bottom: 2px; }
+body.tc-compact .tcv58 .legend { margin-bottom: 5px; line-height: 1.45; }
+body.tc-compact .tcv58 .az { margin-bottom: 4px; }
+body.tc-compact .tcv58 .count { margin-bottom: 3px; }
+body.tc-compact .tcv58 .pre-mini { margin: 3px 0 5px; padding: 5px 8px; }
+body.tc-compact .tcv58 .item { padding-top: 4px; padding-bottom: 4px; }
+body.tc-compact .tcv58 .v3-picker-hint {
+  padding: 7px 10px; line-height: 1.5; margin-bottom: 4px;
+}
+body.tc-compact .tcv58 .calc { padding: 8px; margin-top: 8px; }
+body.tc-compact .tcv58 .cf-sel { margin-bottom: 5px; }
+body.tc-compact .tcv58 .cf-grid { gap: 5px 8px; }
+body.tc-compact .tcv58 .cf-est { margin-top: 6px; padding: 6px 8px; }
+body.tc-compact .tcv58 .cf-add-btn { margin-top: 7px; }
+body.tc-compact .tcv58 .cf-add-hint { margin-top: 3px; line-height: 1.45; }
+body.tc-compact .tcv58 .cf-list-block { margin-top: 6px; }
+body.tc-compact .tcv58 .notice { padding: 7px 9px; line-height: 1.5; }
+body.tc-compact .tcv58 .more { padding: 2px 0; }
+body.tc-compact .tc-help { margin-bottom: 4px; }
 </style>
 </head><body class="tc-compact">
 
@@ -86,6 +123,7 @@ body.tc-compact #pick-sum.v4-dedup #pick-sum-text { display: none; }
 <input class="gnav-toggle" type="checkbox" id="gnav-toggle">
 <div class="gnav-flex">
 <label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
+<a class="tc-menuname" href="../index.html">CigarScope Japan</a>
 <form class="header-search" role="search">
 <label class="sr-only" for="site-search-q">サイト内検索</label>
 <span class="field"><input id="site-search-q" name="q" type="search" placeholder="ニュース・銘柄・メーカーで検索" autocomplete="off"></span>
@@ -113,7 +151,7 @@ body.tc-compact #pick-sum.v4-dedup #pick-sum-text { display: none; }
 </script>
 <main>
 <div class="column">
-<div class="tc-devlabel">【開発版】開発・検証専用ページ（限定リンク）｜計算エンジン「TaxCore-Integer v1.0」は正式版とバイト同一で、変更の対象外です</div>
+
 <div class="v2-only-total" id="v2-top-total" style="display: none;">
 <h1 class="taxcalc-title">葉巻輸入税シミュレーター<span class="taxcalc-title-sub">（日本向け・個人輸入）</span></h1>
 <p class="taxcalc-lead">銘柄を選ぶと重さと日本の定価が自動で入り、そのまま税額まで計算できます。海外価格と日本の定価との比較、複数銘柄の混載にも対応しています。国際郵便・国際宅配便による個人輸入を前提にしています。</p>
