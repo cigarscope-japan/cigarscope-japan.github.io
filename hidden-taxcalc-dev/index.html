@@ -379,6 +379,28 @@
   .v2-sumbar .v2-sum-text { flex: 1 1 auto; min-width: 0; }
   .v2-sumbar .v2-sum-go { flex: none; font-weight: bold; color: #f3d27a; }
   .tcv58.v2-barspace { padding-bottom: 64px; }
+  /* UI整理（Gate U2）: 銘柄選択を検索中心にするための表示制御。
+     初期状態（検索語なし・A–Z 未選択）では候補一覧を出さず、案内だけを
+     見せる（.v3-idle は tax-v3picker.js が付け外しする。初期マーク
+     アップは v3-idle 付き）。一覧を出すときも高さを制限して内部
+     スクロールにし、ページ全体が銘柄で埋まらないようにする。
+     銘柄データ自体（tax-data.js）は変更しない。 */
+  .tcv58 #list { max-height: 44vh; overflow-y: auto; overscroll-behavior: contain;
+             border: 1px solid #e0d0a4; border-radius: 6px; background: #fff;
+             padding: 3px 5px; scrollbar-width: thin; }
+  #v2-picker.v3-idle #list, #v2-picker.v3-idle #more { display: none; }
+  .tcv58 .v3-picker-hint { font-size: 13px; color: #4a4234; background: #fbf6ea;
+             border: 1px dashed #b08d3c; border-radius: 6px;
+             padding: 9px 11px; margin: 0 0 6px; line-height: 1.6; }
+  .tcv58 #pc-list { max-height: 44vh; overflow-y: auto; overscroll-behavior: contain;
+             scrollbar-width: thin; }
+  /* UI整理（Gate U2）: 入力画面の余白圧縮（文言・機能は変更しない） */
+  .tcv58 .legend { margin-bottom: 4px; }
+  .tcv58 .az { margin-bottom: 4px; }
+  .tcv58 .count { margin-bottom: 3px; }
+  .tcv58 .item { padding-top: 4px; padding-bottom: 4px; margin-bottom: 3px; }
+  .tcv58 .calc { margin-top: 8px; }
+  .tcv58 .cf-steps { padding: 6px 8px; line-height: 1.55; }
 </style>
 <nav class="v2-tabs" id="v2-tabs" aria-label="画面切り替え">
   <button type="button" data-v2tab="noncuba" class="on" aria-selected="true">ノンキューバ</button>
@@ -389,7 +411,7 @@
 <div class="tcv58 v2-barspace">
 
   <div class="v2-scr" id="v2-scr-entry">
-  <div id="v2-picker">
+  <div id="v2-picker" class="v3-idle">
   <div class="toolbar">
     <div class="toolbar-toggles">
       <label class="cuba-toggle"><input type="checkbox" id="cubaOnly">キューバのみ</label>
@@ -420,6 +442,7 @@
   <p class="count" id="count"></p>
   <div id="list"></div>
   <p class="more" id="more"></p>
+  <p class="v3-picker-hint" id="v3-picker-hint" style="display: none;">銘柄名で検索するか、上の A–Z から頭文字を選ぶと、候補がここに表示されます。銘柄を選ばずに計算する場合は、そのまま下の欄に価格・本数・重さを入れてください。</p>
   <p class="cf-sel" id="pick-sum" style="display: none;"><span class="pick-sum-label">選択中の銘柄（銘柄リストは畳まれています）</span><span id="pick-sum-text"></span><button type="button" class="pick-change-btn" id="pick-change">銘柄を選び直す ▾</button></p>
 
   </div>
@@ -3235,6 +3258,96 @@ var F1V2Nav = (function () {
   show(current);
   return { show: show,
            current: function () { return current; } };
+})();
+</script>
+<script>
+"use strict";
+/*
+ * UI整理（Gate U2）: 銘柄ピッカーの表示状態だけを管理する薄い層。
+ * 目的は「開いたら、すぐ検索・すぐ選択・すぐ追加」。
+ * - 初期状態（検索語が空で A–Z も未選択）では、493件の候補一覧を
+ *   出さず、探し方の案内（#v3-picker-hint）だけを見せる。銘柄データ
+ *   （tax-data.js）や描画そのものには一切触れない。表示の制御だけで
+ *   解く（一覧の DOM は従来どおり描画され、CSS で隠れる）。
+ * - 検索語の入力か A–Z の選択で絞り込んだときだけ一覧を見せる。
+ *   一覧の高さ制限と内部スクロールは fragment.html 側の CSS が担う。
+ * - 「銘柄を選び直す」で一覧を開いた場合は、そのまま候補を見せる
+ *   （browse 状態）。銘柄を確定（「この重さで計算する」）したら
+ *   browse は解除され、次回は再び検索から始まる。
+ * - 選択時の畳み込み（F1Nav）とは競合しない: 畳まれている間は
+ *   案内も出さない。畳み込みの切り替わりは #pick-sum の表示変化を
+ *   監視して追随する。
+ * - 画面切替（F1V2Nav）・計算エンジン・DB には触れない。入力途中
+ *   の値や検索文字列は、どの状態でも消さない。
+ */
+var F1V3Picker = (function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var pickerEl = $("v2-picker");
+  var listEl = $("list");
+  var hintEl = $("v3-picker-hint");
+  var qEl = $("q");
+  var sumEl = $("pick-sum");
+  if (!pickerEl || !listEl) return { refresh: function () {} };
+
+  var browse = false;
+
+  function narrowed() {
+    var q = qEl ? qEl.value.trim() : "";
+    var az = (typeof AZ_MAIN !== "undefined") ? AZ_MAIN : "";
+    return !!(q || az);
+  }
+  function collapsed() {
+    /* F1Nav が畳んだ状態では #pick-sum が表示される */
+    return !!(sumEl && sumEl.style.display !== "none" &&
+              sumEl.style.display !== "");
+  }
+  function refresh() {
+    var idle = !narrowed() && !browse;
+    pickerEl.classList.toggle("v3-idle", idle);
+    if (hintEl) {
+      hintEl.style.display = (idle && !collapsed()) ? "" : "none";
+    }
+  }
+
+  if (qEl) {
+    qEl.addEventListener("input", refresh);
+    qEl.addEventListener("change", refresh);
+  }
+  ["cubaOnly", "nonCubaOnly"].forEach(function (id) {
+    var el = $(id);
+    if (el) el.addEventListener("change", refresh);
+  });
+  var azEl = $("az-main");
+  if (azEl) {
+    /* A–Z ボタンのハンドラ（tax-pcui.js）が AZ_MAIN を更新した後に
+       評価する（コンテナへのバブリング時点で更新済み） */
+    azEl.addEventListener("click", function () { setTimeout(refresh, 0); });
+  }
+  var pickChangeEl = $("pick-change");
+  if (pickChangeEl) {
+    pickChangeEl.addEventListener("click", function () {
+      browse = true;
+      setTimeout(refresh, 0);
+    });
+  }
+  listEl.addEventListener("click", function (e) {
+    if (e.target && e.target.closest &&
+        e.target.closest(".use-wt")) {
+      browse = false;
+      setTimeout(refresh, 0);
+    }
+  });
+  if (sumEl && typeof MutationObserver !== "undefined") {
+    new MutationObserver(refresh).observe(sumEl, {
+      attributes: true, attributeFilter: ["style"]
+    });
+  }
+  document.addEventListener("f1v2-edit", function () {
+    setTimeout(refresh, 0);
+  });
+
+  refresh();
+  return { refresh: refresh };
 })();
 </script>
 
