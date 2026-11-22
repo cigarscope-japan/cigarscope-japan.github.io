@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>世界の葉巻ニュース 2026年11月22日 | CigarScope Japan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<style>
+/* CigarScope Japan ― バーガンディ×金 アートデコ調 Web スタイル
+   元のPDF用クラス名をそのまま活かし、印刷CSS(@page等)をWeb用に置き換えたもの */
+
+:root {
+  --burgundy: #7a1f1f;
+  --burgundy-dark: #5d1515;
+  --gold: #c98a2e;
+  --gold-light: #f3d27a;
+  --ink: #1c1a17;
+  --paper: #fdf9f0;
+  --cream: #fdf3e7;
+  --cream-2: #fffdf6;
+  --sand: #f7f3e8;
+  --line: #c9b98a;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans CJK JP",
+               "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #222;
+  background: var(--paper);
+  margin: 0;
+}
+
+/* ---------- サイト共通ヘッダ / フッタ ---------- */
+.site-header {
+  background: var(--ink);
+  border-bottom: 4px double var(--gold);
+  padding: 18px 16px 14px;
+  text-align: center;
+}
+.site-header-inner { max-width: 860px; margin: 0 auto; }
+.site-name {
+  color: var(--gold-light);
+  font-size: 1.45rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+}
+.site-sub {
+  color: #e8ddc4;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin-top: 4px;
+}
+.site-footer {
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 18px 16px 34px;
+  border-top: 3px double var(--gold);
+  text-align: center;
+}
+.site-footer a {
+  color: var(--burgundy);
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: 2px solid var(--burgundy);
+  padding: 8px 22px;
+  display: inline-block;
+  background: var(--cream-2);
+}
+.site-footer a:hover { background: var(--cream); }
+.site-footer-note { color: #777; font-size: 0.8rem; margin-top: 14px; letter-spacing: 0.14em; }
+
+.column { max-width: 860px; margin: 0 auto; padding: 10px 18px 20px; }
+
+.draft-banner {
+  border: 3px dashed #cc0000;
+  color: #cc0000;
+  background: #fff5f5;
+  font-weight: bold;
+  font-size: 1.02rem;
+  text-align: center;
+  padding: 12px 14px;
+  margin: 18px 0 6px;
+}
+
+/* ---------- トップページ ---------- */
+.top-hero {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 34px 18px 6px;
+  text-align: center;
+}
+.top-hero .deco { color: var(--gold); letter-spacing: 0.6em; font-size: 0.9rem; }
+.top-hero h1.site-title {
+  font-size: 2.1rem;
+  color: var(--burgundy);
+  letter-spacing: 0.12em;
+  margin: 10px 0 4px;
+  line-height: 1.35;
+}
+.top-hero .site-tagline { color: #555; font-size: 0.98rem; margin: 6px 0 0; }
+.top-hero .rule {
+  border: none;
+  border-top: 3px double var(--gold);
+  margin: 22px auto 4px;
+  max-width: 560px;
+}
+.cards { max-width: 860px; margin: 0 auto; padding: 12px 18px 10px; }
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--cream-2);
+  border: 2px solid var(--burgundy);
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+  margin: 22px 0;
+  overflow: hidden;
+}
+.card:hover { background: #fff8ea; }
+.card img.thumb {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: #f7ecd4;
+  display: block;
+  border: none;
+  border-bottom: 2px solid var(--gold);
+  margin: 0;
+}
+.card-body { padding: 16px 20px 18px; }
+.card-no {
+  display: inline-block;
+  background: var(--burgundy);
+  color: var(--gold-light);
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+.card-title { font-size: 1.35rem; font-weight: bold; color: var(--ink); line-height: 1.45; margin: 2px 0 6px; }
+.card-date { color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 0.08em; }
+.card-intro { color: #444; font-size: 0.98rem; margin: 8px 0 0; line-height: 1.75; }
+.card-more { color: var(--burgundy); font-weight: bold; margin-top: 10px; font-size: 0.95rem; }
+.top-note {
+  max-width: 860px; margin: 0 auto; padding: 4px 18px 8px;
+  color: #666; font-size: 0.88rem; line-height: 1.8;
+}
+
+/* ---------- 特集本文（元PDFのクラスを踏襲） ---------- */
+.masthead { border-bottom: 5px solid var(--burgundy); padding-bottom: 8px; margin-bottom: 12px; }
+.kicker { font-size: 0.82rem; letter-spacing: 4px; color: var(--burgundy); font-weight: bold; }
+h1 { font-size: 1.7rem; line-height: 1.3; margin: 4px 0 6px; }
+.date { font-size: 1rem; font-weight: bold; }
+.draft {
+  font-size: 0.9rem; color: var(--burgundy); font-weight: bold;
+  border: 2px dashed var(--burgundy); padding: 8px 12px; margin: 10px 0;
+}
+.lede { font-size: 1.06rem; background: var(--cream); border-left: 8px solid var(--gold); padding: 14px 16px; }
+h2 {
+  font-size: 1.5rem; color: #fff; background: var(--burgundy);
+  padding: 10px 14px; margin: 26px 0 14px; line-height: 1.4;
+}
+h2.feature-band { background: var(--ink); border: 3px solid var(--gold); color: var(--gold-light); }
+.series-band {
+  background: var(--burgundy); color: var(--gold-light);
+  font-size: 1.3rem; font-weight: bold; text-align: center;
+  padding: 10px 8px; letter-spacing: 0.12em;
+  border: 3px solid var(--gold); border-bottom: none; margin-top: 8px;
+}
+h3 { font-size: 1.3rem; line-height: 1.4; margin: 20px 0 8px; }
+h4 { font-size: 1.22rem; line-height: 1.4; margin: 22px 0 6px; color: var(--burgundy); }
+.new, .boutique {
+  display: inline-block; color: #fff; font-size: 0.85rem;
+  padding: 2px 10px; margin-right: 8px; border-radius: 6px; vertical-align: middle;
+}
+.new { background: var(--gold); }
+.boutique { background: #2e5e4e; }
+.meta { font-size: 0.9rem; color: #555; margin-bottom: 8px; }
+
+img { width: 88%; max-width: 100%; height: auto; display: block; margin: 10px auto; border: 1px solid #ccc; }
+img.wide { width: 94%; }
+img.narrow { width: 58%; }
+img.narrow-s { width: 36%; }
+img.logo { width: 40%; border: none; }
+.caption { font-size: 0.85rem; color: #555; margin: 4px 0 14px; line-height: 1.6; }
+p { margin: 10px 0; }
+.spec { background: #f2f2f2; padding: 12px 14px; font-size: 0.98rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 10px; }
+a { color: #1a4d8f; word-break: break-all; }
+.feature-box { border: 3px solid var(--gold); background: var(--cream-2); padding: 8px 18px 14px; }
+.mapwrap { background: var(--sand); border: 1px solid var(--line); padding: 10px; margin: 12px 0; }
+.mapwrap svg { max-width: 100%; height: auto; }
+.src { font-size: 0.92rem; }
+
+.gallery-band {
+  font-size: 1.4rem; color: #fff; background: var(--burgundy);
+  padding: 10px 14px; margin: 30px 0 14px;
+}
+.gsec {
+  font-size: 1.3rem; color: var(--burgundy);
+  border-bottom: 4px solid var(--gold); padding-bottom: 4px; margin: 26px 0 12px;
+}
+.gcard {
+  border: 2px solid var(--burgundy); background: var(--cream-2);
+  padding: 12px 16px 14px; margin: 16px 0;
+}
+.gcard h5 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 6px; color: var(--burgundy); }
+.gcard img { width: 62%; }
+.gcard img.strip { width: 92%; }
+.gcard img.small { width: 46%; }
+.gcard img.tiny { width: 36%; }
+.gdata { font-size: 1rem; line-height: 1.7; }
+.gprice { font-size: 1.15rem; font-weight: bold; }
+.glink { display: block; font-size: 1.05rem; font-weight: bold; margin-top: 8px; }
+.rare { background: var(--cream); border-left: 8px solid var(--gold); padding: 8px 12px; font-size: 0.98rem; margin-top: 10px; }
+.footer { font-size: 0.85rem; color: #555; border-top: 2px solid #999; margin-top: 28px; padding-top: 10px; line-height: 1.7; }
+
+.hiwa { background: var(--cream); border-left: 8px solid var(--gold); padding: 10px 14px; margin: 14px 0; }
+.hiwa .ht { font-weight: bold; color: var(--burgundy); }
+.urabanashi { border: 3px solid var(--burgundy); background: var(--cream-2); padding: 10px 18px 14px; margin: 18px 0; }
+.urabanashi .ut {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  letter-spacing: 0.06em; border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px; margin-bottom: 8px;
+}
+.tabletitle {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  border-bottom: 3px solid var(--gold); padding-bottom: 4px; margin: 24px 0 10px;
+}
+.roletable {
+  width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.5; margin: 10px 0;
+  display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.roletable th { background: var(--burgundy); color: var(--gold-light); padding: 7px 8px; border: 1px solid var(--burgundy); white-space: nowrap; }
+.roletable td { padding: 7px 8px; border: 1px solid var(--line); vertical-align: top; }
+.roletable tr.alt td { background: var(--sand); }
+.roletable td.brand { font-weight: bold; color: var(--burgundy); }
+.spot-head { margin: 32px 0 18px; text-align: center; }
+.spot-head .tag { font-size: 0.8rem; letter-spacing: 0.5em; color: #8a6d2f; font-weight: bold; margin-bottom: 10px; }
+.spot-head h4 {
+  background: var(--ink); color: #e9cf8f; border: 5px double var(--gold);
+  font-size: 1.25rem; margin: 0; padding: 18px 14px; line-height: 1.5;
+  letter-spacing: 0.04em; text-align: center;
+}
+
+/* ---------- スマホ調整 ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .column { padding: 8px 13px 16px; }
+  h1 { font-size: 1.45rem; }
+  h2 { font-size: 1.3rem; }
+  .series-band { font-size: 1.12rem; }
+  img.narrow { width: 82%; }
+  img.logo { width: 62%; }
+  .gcard img { width: 84%; }
+  .gcard img.small { width: 64%; }
+  .gcard img.tiny { width: 52%; }
+  .card img.thumb { height: 190px; }
+  .top-hero h1.site-title { font-size: 1.65rem; }
+  .card-title { font-size: 1.18rem; }
+}
+
+/* ---------- 言語切替 ---------- */
+.lang-switch { text-align: right; padding: 6px 14px 0; font-size: 0.95rem; letter-spacing: 0.08em; }
+.lang-switch a { color: #7a1f2b; text-decoration: none; font-weight: 700; }
+.lang-switch .cur { color: #999; font-weight: 700; }
+.lang-switch .sep { color: #c98a2e; margin: 0 6px; }
+
+/* ---------- 公式ロゴ（CigarScope Japan） ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.logo-plate {
+  background: #fff;
+  border: 3px double var(--gold);
+  padding: 12px 16px 8px;
+  max-width: 640px;
+  margin: 14px auto 6px;
+}
+.site-logo { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .logo-plate { padding: 8px 8px 4px; margin-top: 10px; }
+}
+
+/* ---------- 深掘り第5弾 AJフェルナンデス（2026-11-10 追加） ----------
+   色強調（メーカー名＝紺／店名＝深緑／葉巻名＝バーガンディ。2026-11-09 カズ指定）と、
+   賛辞ボックス・節見出しなど第5弾で初出の体裁。値はゲラ版の定義を Web 用単位に換算したもの */
+.nm-mk { color: #1e3a5f; font-weight: bold; }
+.nm-sh { color: #14532d; font-weight: bold; }
+.nm-cg { color: var(--burgundy); font-weight: bold; }
+.nb { white-space: nowrap; }
+.subtitle {
+  font-size: 1.25rem; font-weight: bold; color: var(--burgundy);
+  text-align: center; letter-spacing: 0.08em; margin: 2px 0 12px;
+}
+.praise { border: 3px solid var(--gold); background: #fdf8ec; padding: 10px 18px 14px; margin: 18px 0; }
+.praise .pt {
+  font-size: 1.12rem; font-weight: bold; color: var(--burgundy);
+  letter-spacing: 0.06em; border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px; margin-bottom: 8px;
+}
+.pq { margin: 12px 0; }
+.pq .who { font-weight: bold; color: var(--burgundy); }
+.pq .src2 { font-size: 0.88rem; color: #555; }
+.hook { color: #cc0000; font-weight: bold; font-size: 1.06rem; }
+/* シェアボタン（2026-11-12 v80・カズ指示で全記事に追加。Yahoo!ニュース式にタイトル直下＋記事末尾） */
+.share-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 8px 0 10px; }
+.share-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border-radius: 50%; border: 1px solid #cbbfa8; background: #fff; color: #2b2118; text-decoration: none; cursor: pointer; box-sizing: border-box; font-family: inherit; line-height: 1; position: relative; -webkit-tap-highlight-color: transparent; }
+.share-btn svg { width: 20px; height: 20px; flex: none; }
+.share-btn.sh-x { background: #000; border-color: #000; color: #fff; }
+.share-btn.sh-native { background: #1d9bf0; border-color: #1d9bf0; color: #fff; }
+.share-btn.sh-line { background: #00c300; border-color: #00c300; color: #fff; }
+.share-btn.sh-fb { background: #1877f2; border-color: #1877f2; color: #fff; }
+.share-btn.sh-copy { background: #595959; border-color: #595959; color: #fff; }
+.share-btn:hover { filter: brightness(1.13); }
+.share-btn.copied { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+.share-btn.copied::after { content: attr(data-done); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); background: #2b2118; color: #fff; font-size: .72rem; font-weight: bold; line-height: 1.3; padding: 3px 8px; border-radius: 4px; white-space: nowrap; pointer-events: none; z-index: 6; }
+.share-bar.share-bottom { margin: 14px 0 4px; border-top: 1px solid #ddd2bd; padding-top: 10px; }
+
+/* ---- 世界の葉巻ニュース 2026-11-21 ページ固有 ---- */
+main.column { font-size: 19px; }
+h1 { font-size: 2rem; }
+h2 { text-align: center; }
+h2.first { margin-top: 14px; }
+h3 { font-size: 1.5rem; }
+.lede { font-size: 1.15rem; }
+.meta { font-size: 1rem; }
+.caption { font-size: 0.95rem; }
+.spec { font-size: 1.05rem; }
+.src { font-size: 1rem; }
+.footer { font-size: 0.95rem; }
+img.narrow-s { width: 50%; }
+/* 写真ライトボックス（深掘りゲラと同一仕様。タップで拡大） */
+main img { cursor: zoom-in; }
+#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out; }
+#lightbox .lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto; }
+#lightbox .lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px; }
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  main.column { font-size: 19px; }
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.4rem; }
+  img.narrow-s { width: 62%; }
+}
+
+</style></head><body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-name" href="../index.html">CigarScope Japan</a>
+<div class="site-sub">WORLD CIGAR NEWS</div>
+</div>
+</header>
+<main class="column">
+<div class="masthead"><div class="kicker">WORLD CIGAR NEWS</div>
+<h1>世界の葉巻ニュース</h1>
+<div class="date">2026年11月22日（日）発行</div></div>
+<div class="lede">今号の目玉は、CRA秋のフリーダム・サンプラーです。幻のオーパスX「ミステリオX」を含む10本が、204ドルで届きます。テキサスの新ブティック「ブローロ」が3ブレンドでデビューし、ブロンカーノの「クラシック・ルビ」にコロナが加わりました。ADVの「ラ・ロローナ」には限定の新サイズが登場。ブラックバードの「モッキングバード」は、発売前の完売に続いてブランドフィルムを公開しました。</div>
+
+<div class="spec" style="margin-top:12px; font-size:15pt; line-height:1.45;"><b>本日の見出し</b>　CRA秋のフリーダム・サンプラーに幻のオーパスX／ブローロ、3ブレンドでデビュー／ブロンカーノ「クラシック・ルビ コロナ」出荷開始／ADV「ラ・ロローナ」新サイズ出荷開始／ブラックバード「モッキングバード」ブランドフィルム公開</div>
+
+<h2 class="first">1. 新作・限定品</h2>
+
+<h3><span class="new">新発表</span>CRA秋のフリーダム・サンプラー、幻のオーパスX「ミステリオX」入り10本で204ドル</h3>
+<div class="meta">Cigar Coop ／ 2026年11月21日</div>
+<div class="imgwrap">
+<img src="img/cra-freedom-sampler-2026.jpg" alt="CRA秋のフリーダム・サンプラー2026の10本" data-full="img/cra-freedom-sampler-2026.jpg">
+</div>
+<p class="caption">写真：Cigar Coop（Cigar Rights of America 提供）— 秋のフリーダム・サンプラー10本です。中央の金帯がオーパスX「ミステリオX」です。</p>
+<p>葉巻愛好家の権利擁護団体CRA（Cigar Rights of America）が、秋の「フリーダム・サンプラー2026」を小売店に通知しました。年2回発売されるサンプラーで、収益はCRAの活動資金になります。参加メーカーが葉巻を寄贈して作られます。10本入りで204ドル（約32,400円）。流通はフエンテ／ニューマンの営業チームが担当します。</p>
+<p>内容は、Arturo Fuente「フエンテ・フエンテ オーパスX ミステリオX」、Ashton「ヘリテージ プーロ ソル チャーチル」、Diamond Crown「マキシマス #4」（J.C. Newman）、La Flor Dominicana「アンダルシアン・ブル」、My Father「ガルシア＆ガルシア ロブスト」、Oliva「Serie V Box-Pressed Figurado」、Padrón「ブラック #600 マドゥロ」、Plasencia「アルマ・デ・フエゴ ロブスト（カンデンテ）」、Rocky Patel「ALR トロ」、Tatuaje「スマッシュド・パンプキン トゥクストラ」の10本です。</p>
+<p>目玉はオーパスXの「ミステリオX」で、CRAによれば「二度と発売されない限定サイズ」とのこと。幻のサイズが入った10本で、年末の贈り物にも注目のサンプラーです。</p>
+<div class="spec"><strong>CRA 秋のフリーダム・サンプラー2026</strong><br>・10本入り204ドル（約32,400円）<br>・オーパスX「ミステリオX」は二度と発売されない限定サイズ<br>・年2回発売、収益はCRAの活動資金に<br>・フエンテ／ニューマンの営業チームが流通</div>
+<div class="src"><a href="https://cigar-coop.com/2026/11/cra-fall-2026-freedom-sampler-coming-soon-cigar-news.html">出典：Cigar Coop — CRA Fall 2026 Freedom Sampler Coming Soon（2026年11月21日）</a></div>
+
+<h3><span class="new">発売直後</span><span class="boutique">ブティック</span>夫婦で立ち上げたテキサスのブティック「ブローロ」、初の3ブレンドが店頭へ</h3>
+<div class="meta">Cigar Dojo ／ 2026年10月30日（発売イベント11月19日、出荷開始11月20日）</div>
+<div class="imgwrap">
+<img class="narrow" src="img/brolo-porchlight-box-2026.jpg" alt="ブローロ「ポーチライト」の20本入り箱" data-full="img/brolo-porchlight-box-2026.jpg">
+</div>
+<p class="caption">写真：Cigar Dojo（ブローロ・シガー提供）— 「ポーチライト」の20本入り箱です。3ブレンドはいずれも5×50ロブストです。</p>
+<p>テキサス拠点の新ブティック、ブローロ・シガー（Brolo Cigar Co.）が初の3ブレンドを発売しました。11月19日にテキサス州マッキニーのヴィソ・シガー・ラウンジでデビューイベントを開き、11月20日から小売店への出荷が始まっています。夫婦のジョシュア＆ケイトリン・スティーブンスが立ち上げ、ニカラグアのブティック工場で製造しています（工場名は非公表）。創業者夫妻が現地へ赴いてブレンド開発に参加しました。</p>
+<p>3ブレンドはいずれも5×50ロブスト、20本入り箱です。「ポーチライト」はエクアドル・コロホ巻きで、ニカラグアとドミニカ産の葉を使ったミディアムボディ、14.75ドル（約2,300円）。「コンフェッショナル」はエクアドル・ハバノ・ロサード巻きのダブルハバノで、ベーキングスパイスやダークフルーツ、チェリー、コーヒーの香りがうたわれ、14.75ドル。「バック・ブース」はメキシコ・サンアンドレス・マドゥロ巻きで、木やクルミ、シダー、レーズンの暗い味わいが特徴とされ、16.25ドル（約2,600円）です。</p>
+<p>販売は実店舗のみで、直販はありません。「Patina Over Polish（磨きより経年）」を掲げ、Discordコミュニティやバーチャル試煙会も展開する、話題の新ブランドです。</p>
+<div class="spec"><strong>ブローロ・シガー（Brolo Cigar Co.）</strong><br>・3ブレンドとも5×50ロブスト、20本入り箱<br>・ポーチライト14.75ドル（約2,300円）、コンフェッショナル14.75ドル、バック・ブース16.25ドル（約2,600円）<br>・11月19日にテキサス州マッキニーでデビューイベント、11月20日から出荷開始<br>・ニカラグアのブティック工場製、実店舗のみの販売で直販なし</div>
+<div class="src"><a href="https://cigardojo.com/2026/10/brolo-cigar-co-debuts-core-line/">出典：Cigar Dojo — Brolo Cigar Co. Debuts Core Line（2026年10月30日）</a></div>
+
+<h3><span class="new">新発表</span><span class="boutique">ブティック</span>ブロンカーノ「クラシック・ルビ」にコロナ登場、4本パック50ドルで出荷開始</h3>
+<div class="meta">Cigar Coop ／ 2026年11月17日（11月18日更新）</div>
+<div class="imgwrap">
+<img src="img/broncano-rubi-corona-2026.jpg" alt="ブロンカーノ「クラシック・ルビ コロナ」の4本入りパック" data-full="img/broncano-rubi-corona-2026.jpg">
+</div>
+<p class="caption">写真：Cigar Coop（ブロンカーノ・シガー提供）— 「クラシック・ルビ コロナ」の4本入りパックです。ピッグテールが見えます。</p>
+<p>ブロンカーノ・シガー（Broncano Cigar Co.）が、「クラシック・ルビ」ラインの第2サイズとなる「クラシック・ルビ コロナ」を発表しました。5×46コロナで、ヘッドはピッグテール仕上げです。製造はドミニカ共和国のヘンドリック・ケルナー氏のケルナー・ブティック・ファクトリー。ブレンドはHVAエクアドル巻き、ドミニカ・サン・ビセンテ・セコのバインダー、フィラーはドミニカ・クリオーリョ'98、ドミニカ・ピロート・クバーノ、メキシコ・サンアンドレス・モロン、米国ブロードリーフです。</p>
+<p>4本入りパックで50ドル（約8,000円、1本12.50ドル＝約2,000円）。創業期から同社を支えた一部の小売店向けに限定して流通します。出荷中で、小売店への到着は11月中下旬の見込みです。</p>
+<div class="spec"><strong>ブロンカーノ「クラシック・ルビ コロナ」</strong><br>・5×46コロナ、ピッグテール付き<br>・ケルナー・ブティック・ファクトリー（ドミニカ共和国）製<br>・4本入りパック50ドル（約8,000円、1本約2,000円）<br>・一部の小売店向けに限定流通、出荷中</div>
+<div class="src"><a href="https://cigar-coop.com/2026/11/broncano-cigar-co-adds-classic-rubi-corona-cigar-news.html">出典：Cigar Coop — Broncano Cigar Co. Adds Classic Rubi Corona（2026年11月17日）</a></div>
+
+<h3><span class="new">出荷開始</span><span class="boutique">ブティック</span>ADV「ラ・ロローナ」に新サイズ、1,000箱限定のロブスト・エクストラが出荷開始</h3>
+<div class="meta">Halfwheel ／ 2026年11月10日（出荷開始11月9日）</div>
+<div class="imgwrap">
+<img src="img/la-llorona-robusto-extra-2026.jpg" alt="ADV「ラ・ロローナ ロブスト・エクストラ」の2本" data-full="img/la-llorona-robusto-extra-2026.jpg">
+</div>
+<p class="caption">写真：Halfwheel（ADV＆マッケイ提供）— 「ラ・ロローナ ロブスト・エクストラ」です。海賊のドクロをあしらったバンドが目印です。</p>
+<p>ADV＆マッケイの「ラ・ロローナ」に第4のサイズ、ロブスト・エクストラが加わりました。5 3/4×52で、ブレンドは従来と同じくエクアドル・ハバノ巻き、インドネシアとドミニカのバインダー、ドミニカ産フィラーです。ドミニカ共和国のタバカレラ・ミナ・デル・レイで製造され、生産は1,000箱（10本入り、計1万本）限定。1本17ドル（約2,700円）、1箱170ドル（約27,000円）です。</p>
+<p>「ラ・ロローナ」は同社の上位20店のエリート小売店だけに届ける限定ラインで、2022年のロブスト、2023年のコロナ、2025年10月のトロに続く4サイズ目です。名前は中南米の民間伝承「泣く女（ラ・ロローナ）」に由来し、同社では海賊を狩る亡霊として描いています。コロナはHalfwheelの2023年トップ25で24位に入りました。</p>
+<div class="spec"><strong>ADV「ラ・ロローナ ロブスト・エクストラ」</strong><br>・5 3/4×52、1本17ドル（約2,700円）、1箱170ドル（約27,000円）<br>・1,000箱（計1万本）限定<br>・エリート小売店20店だけに届ける限定ライン<br>・タバカレラ・ミナ・デル・レイ（ドミニカ共和国）製</div>
+<div class="src"><a href="https://halfwheel.com/adv-mckays-new-la-llorona-begins-shipping/486097/">出典：Halfwheel — ADV &amp; McKay's New La Llorona Begins Shipping（2026年11月10日）</a></div>
+
+<h2>4. 注目テーマ／今後のチェックポイント</h2>
+
+<h3><span class="new">フィルム公開</span>ブラックバード「モッキングバード」、ブランドフィルムを公開 — 500箱は発売前に完売</h3>
+<div class="meta">Halfwheel ／ 2026年10月22日発表（ブランドフィルム公開は11月18日の更新）</div>
+<div class="imgwrap">
+<img src="img/blackbird-mockingbird-2026.jpg" alt="ブラックバード「モッキングバード ショート・ラン」の10本入り箱" data-full="img/blackbird-mockingbird-2026.jpg">
+</div>
+<p class="caption">写真：CigarsLover（ブラックバード・シガー提供）— 「モッキングバード ショート・ラン」の10本入り箱です。</p>
+<p>ブラックバード・シガー創業10周年を祝う限定品「モッキングバード ショート・ラン」のブランドフィルムが、11月18日に公開されました。モッキングバードは10月26日に初出荷された6×52トロで、1本15ドル（約2,400円）、10本箱150ドル（約23,900円）です。ニカラグアとペンシルベニア産の葉にブラジル・クブラのバインダー、コロホのラッパーを使い、ドミニカ共和国のタバカレラ・ロス・ロブレスで製造しています。ミディアム〜フルのボディで、スパイスと奥行き、自然な甘さが特徴とされています。</p>
+<p>生産は500箱（5,000本）のみで、取扱店37店が発売前に全量を確保し、発売前の完売となりました。10周年記念の3部作の第2弾にあたる品で、フィルム公開が新たな話題を呼んでいます。</p>
+<div class="spec"><strong>ブラックバード「モッキングバード ショート・ラン」</strong><br>・6×52トロ、1本15ドル（約2,400円）、10本箱150ドル（約23,900円）<br>・500箱（5,000本）限定、発売前に完売<br>・ブランドフィルムは11月18日に公開<br>・創業10周年記念3部作の第2弾</div>
+<div class="src"><a href="https://halfwheel.com/blackbird-announces-mockingbird-short-run/481940/">出典：Halfwheel — Blackbird Announces Mockingbird Short Run（2026年10月22日、11月18日更新）</a></div>
+
+<p>今週のチェックポイントです。発売日や価格が変わることもありますので、気になる品は店頭や公式発表で確認してください。</p>
+<ul>
+<li>CRA秋のフリーダム・サンプラー発売（本号）— 10本入り204ドルです。</li>
+<li>ブローロ・シガー、3ブレンドでデビュー（本号）— 11月20日から出荷開始、実店舗のみの販売です。</li>
+<li>ブロンカーノ「クラシック・ルビ コロナ」出荷開始（本号）— 4本パック50ドルです。</li>
+<li>ADV「ラ・ロローナ」新サイズ出荷開始（本号）— 1,000箱限定です。</li>
+<li>ブラックバード「モッキングバード」ブランドフィルム公開（本号）— 500箱は発売前に完売です。</li>
+<li>ボリバ「サファリ」11月21日にアビジャンで披露— 現地は夜の開催で、実施レポートはまだ見つかっていません。写真や続報は明日以降に出る見込みです。</li>
+<li>ハバノス小判型の大量廃番（11月21日号）— 在庫のパッケージがなくなり次第終了。カナダでは2027年2月1日から機械巻き製品が10%値上げです。</li>
+<li>ゲリス「ピース・ユニーク」2種、出荷開始（11月21日号）— 一度きりの限定で再販はありません。</li>
+<li>ロアイシガ「エル・カデホ」11月中にフロリダでデビュー（11月21日号）— 他州は2027年1月、海外は2027年4月からです。</li>
+<li>ロード・ボルティモア「ホブソンズ・チョイス サファイア・サングロウン」発売中（11月21日号）— 1本8.79〜9.49ドルです。</li>
+<li>ダビドフ、チューリッヒ旗艦店をリニューアルオープン（11月21日号）。</li>
+<li>ボコック「スタジアム・シリーズ」第3弾、発売中（11月21日号）— 1箱399ドルです。</li>
+<li>ダビドフ「イヤー・オブ・ザ・シープ LE 2027」発売中— 3種すべてフィグラードです。</li>
+<li>コールドウェル「エル・モルビド」発売中— 600箱限定です。</li>
+<li>ウエスト・タンパ「バーバーショップ」出荷開始— 同社初のボックスプレスです。</li>
+<li>ドリュー・エステート、パピー限定9本サンプラー発売中— パピー＆カンパニー限定です。</li>
+<li>HENK MAORI、オーストリア進出。</li>
+<li>ワールド・シガー・ショー、2027年12月6〜7日にドバイで再開催。</li>
+<li>プーロ・ヴィダ・シガー・フェスティバル（コスタリカ）11月21〜22日に開催中— PCAが共催パートナーです。</li>
+<li>「ジャパニーズ・シガー・ナイト」（11月18日、ニュージャージー）の結果報道はまだ見つからず— 結果待ちです。</li>
+<li>ブラック・ワークス・スタジオ「シャオリン 36thチェンバー」11月下旬に出荷— 5.75×46ベリコソ、1本13.50ドルです。</li>
+<li>クイーン・オブ・ザ・ウェスト「ノワール」12月に発売— 5 1/4×52ロブスト、1本17ドル（約2,700円）です。</li>
+<li>LFDホリデー・ランセロ3種、出荷中〜2027年1月末まで— 売り切れ次第終了です。</li>
+<li>フエンテ「アネホ・リバー・バレー・レア・アース」TAA店へ出荷開始、全国展開は2027年。</li>
+<li>ブリボン、カナダに初上陸。</li>
+<li>J.C.ニューマンのイーボー・シティ3施設、2027年初頭にオープン。</li>
+<li>ハバノス、2027年のフェスティバル開催は未定。</li>
+<li>エンパイア・ソーシャル、店名は1年間のライセンスで維持、その後新ブランドへ。</li>
+<li>米国の葉巻通販を狙う配送規制、州議会で広がる— ハワイに続きコネチカット、イリノイも（CRA、11月9日更新）。</li>
+<li>CAO「フラットヘッド・アメリカン・マッスル」TAA限定、11月に出荷— 発表は10月下旬です。</li>
+<li>ホンジュラス「ラ・グラン・カタ」2027年1月に初開催— PCAがフェスティバル・パートナーに。</li>
+<li>PCAコネクト・アジア、12月4〜6日に香港で開催— ベルティ・シガー・ラウンジ、招待制です。</li>
+<li>英国で世代別たばこ販売禁止、2027年1月に施行— 2009年1月1日以降に生まれた人への販売を禁じるものです。</li>
+<li>EU葉巻増税、次回協議は12月11日— マルタの留保で改革は停滞しています。</li>
+<li>ノルウェーの登録料、2027年初めの法案可決で市場シェア連動の課金へ— アウグスト・シガーズの負担は約1,800ユーロになる見通しです。</li>
+<li>サン・ルイス・レイ「パラティノス」発売予定— ラ・カサ・デル・ハバノとハバノス・スペシャリスト限定です。価格は未発表です。</li>
+<li>タトゥアヘ「ボリス・カーロフ 2026」発売中— 11月23日に店頭到着予定です。</li>
+<li>ポウスタニー「ウォー・ベア 2026」発売中— 390箱限定のため、発売直後の完売に注意です。</li>
+<li>ダビドフ「ウィンストン・チャーチル・ヒュミドール」2種、12月1日に発売— 各100個限定です。</li>
+<li>プラセンシア「エル・アーニョ・デ・ラ・カブラ」12月に出荷開始予定— 6,000箱限定、1本60ドルです。</li>
+<li>米CBP新通関ルール、2027年1月5日に施行— 外国輸入者は認証済み通関業者の利用などが必須になります。</li>
+<li>BVI裁判所、チェン・ジー氏関連会社の清算をめぐる審理は12月8〜9日— ハバノス株売却の行方を左右します。</li>
+</ul>
+
+<div class="footer">世界の葉巻ニュース 2026年11月22日号。本紙の記事は各出典の発表・報道に基づく翻訳・要約です。価格は米国のメーカー希望価格等の参考値で、日本での販売価格ではありません。価格の円換算は1ドル＝159円（11月22日朝基準）です。写真は各メーカー公式写真および出典記事の写真を使用し、出典を各キャプションに明記しています。5項目すべてに写真を付けています。深掘り特集は本号にはありません（第6弾「幻の巨人たち」は調査完了・ドラフト作成待ちで、開発側から限定リンクが渡され次第、別投稿としてお届けします）。</div>
+
+</main>
+<footer class="site-footer">
+<a href="../index.html">CigarScope Japan トップへ</a>
+<div class="site-footer-note">CigarScope Japan ― 世界の葉巻ニュース</div>
+</footer>
+<script>
+(function () {
+  var lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
+  document.body.appendChild(lb);
+  var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+  function captionFor(img) {
+    if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
+    var n = img.nextElementSibling;
+    if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
+    return img.getAttribute('alt') || '';
+  }
+  var imgs = document.querySelectorAll('main img:not(.noimg)');
+  for (var i = 0; i < imgs.length; i++) {
+    (function (img) {
+      img.addEventListener('click', function () {
+        im.src = img.currentSrc || img.src;
+        cap.textContent = captionFor(img);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    })(imgs[i]);
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    im.removeAttribute('src');
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+
+</body></html>
