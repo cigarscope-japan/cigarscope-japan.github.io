@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Bender サンプラー 10本 $34.99を税シミュレーターにかけたら、1本あたり実質 約¥710だった | CigarScope Japan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* 黒枠タイトルは中央寄せ（鉄則・2026-11-11） */
+h2.feature-band { text-align: center;}
+/* .nb は span 側に付くため子孫セレクタで指定する（v95 横はみ出し修正：見出し・副題内では折り返し許可） */
+h2 .nb, h4 .nb, .subtitle .nb { white-space: normal;}
+/* セール記事（チラシ風）仕様（2026-11-14 カズ指示）：本文は通常記事より一段大きく */
+main.column { font-size: 19px;}
+main p { line-height: 1.85;}
+.caption { line-height: 1.45;}
+/* ヒーロー写真 */
+.heroimg { display: block; width: 100%; max-width: 440px; height: auto; margin: 6px auto 0;}
+/* 割引バッジ */
+.offbadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-weight: bold; border: 3px solid var(--gold); border-radius: 999px; padding: 6px 20px 7px; font-size: 1.65rem; letter-spacing: 0.04em; transform: rotate(-2deg); box-shadow: 0 3px 10px rgba(0,0,0,0.25);}
+/* 価格ヒーロー */
+.pricehero { border: 4px solid var(--ink); background: #fff8e7; text-align: center; padding: 18px 12px 16px; margin: 18px 0;}
+.pricehero .ph-label { font-weight: bold; letter-spacing: 0.14em; color: var(--burgundy); font-size: 1.05rem;}
+.pricehero .ph-price { font-size: 3.4rem; font-weight: bold; line-height: 1.15; color: var(--ink);}
+.pricehero .ph-price .yen { font-size: 1.7rem;}
+.pricehero .ph-msrp { color: #777; font-size: 1.15rem;}
+.pricehero .ph-msrp s { text-decoration-thickness: 2px;}
+.pricehero .ph-per { font-size: 1.3rem; font-weight: bold; color: var(--burgundy); margin-top: 6px;}
+/* 期限バンド */
+.deadline { background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem; padding: 12px 10px; margin: 18px 0; border: 3px solid var(--gold);}
+.deadline .dl-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 2px;}
+/* 税内訳カード（チラシ仕様） */
+.taxcard { border: 4px solid #1e3a5f; background: #f4f7fb; margin: 20px 0;}
+.taxcard .tc-head { background: #1e3a5f; color: #fff; font-weight: bold; font-size: 1.3rem; text-align: center; padding: 10px 8px; letter-spacing: 0.05em;}
+.taxcard table { width: 100%; border-collapse: collapse; font-size: 1.12rem;}
+.taxcard td { padding: 10px 14px; border-bottom: 1px solid #c9d4e4;}
+.taxcard td.amt { text-align: right; font-weight: bold; white-space: nowrap; font-size: 1.25rem;}
+.taxcard tr.zero td { background: #fff3cd;}
+.taxcard tr.zero td.amt { color: var(--burgundy); font-size: 1.9rem;}
+.taxcard tr.duty td { background: #fdecea;}
+.taxcard tr.duty td.amt { color: var(--burgundy);}
+.freebadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-size: 0.82rem; font-weight: bold; border-radius: 4px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.06em;}
+.taxcard tr.total td { border-top: 3px solid #1e3a5f; border-bottom: none; font-weight: bold;}
+.taxcard tr.total td.amt { font-size: 1.5rem;}
+.taxcard .tc-grand { background: var(--ink); color: var(--gold-light); text-align: center; padding: 14px 10px 12px;}
+.taxcard .tc-grand .g-label { font-size: 1.05rem; letter-spacing: 0.16em;}
+.taxcard .tc-grand .g-amt { font-size: 3.0rem; font-weight: bold; line-height: 1.2;}
+.taxcard .tc-grand .g-per { font-size: 1.35rem; font-weight: bold; color: #fff;}
+/* 銘柄カード（第1号の写真カード形式が標準） */
+.stick { border: 3px solid var(--gold); background: #fffdf6; padding: 12px 18px 14px; margin: 18px 0;}
+.stick h5 { font-size: 1.45rem; margin: 0 0 4px; color: var(--burgundy); line-height: 1.4;}
+.stick .count { display: inline-block; background: var(--ink); color: var(--gold-light); font-weight: bold; border-radius: 4px; padding: 1px 12px; font-size: 1.05rem; margin-bottom: 8px;}
+.stick img { width: 100%; height: auto; display: block;}
+.stick .spec { font-weight: bold; color: #555; font-size: 1.02rem; margin: 6px 0;}
+/* まとめ表 */
+.summary { width: 100%; border-collapse: collapse; font-size: 1.08rem; margin: 14px 0; line-height: 1.5;}
+.summary th, .summary td { border: 1px solid #1e3a5f; padding: 9px 10px; text-align: right; vertical-align: top;}
+.summary th { background: #1e3a5f; color: #fff; text-align: center;}
+.summary td:first-child { text-align: left; font-weight: bold;}
+.summary td.grand { font-weight: bold; color: var(--burgundy);}
+/* シミュレーター導線 */
+.cta { display: block; background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.35rem; padding: 16px 12px; margin: 20px 0; text-decoration: none; border: 3px solid var(--gold); border-radius: 8px;}
+.cta .cta-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 4px;}
+/* 商品リンク */
+a.shoplink { color: #14532d; font-weight: bold; text-decoration: underline; text-underline-offset: 3px;}
+/* 但し書き（広告仕様：小さく） */
+.fineprint { font-size: 0.78rem; color: #666; line-height: 1.7; border-top: 1px solid #ccc; margin-top: 26px; padding-top: 10px;}
+.fineprint p { margin: 4px 0;}
+/* 写真ライトボックス（標準仕様） */
+main img { cursor: zoom-in;}
+#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box;}
+#lightbox.open { display: flex;}
+#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out;}
+#lightbox.lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto;}
+#lightbox.lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px;}
+@media (max-width: 640px) {
+.summary, .summary tbody, .summary tr, .summary td { display: block; width: auto;}
+.summary thead { display: none;}
+.summary tr { border: 2px solid #1e3a5f; margin-bottom: 12px;}
+.summary td { border: none !important; border-bottom: 1px solid #c9d4e4; padding: 7px 10px; text-align: left !important;}
+.summary td:last-child { border-bottom: none;}
+.summary td:nth-child(2)::before { content: "商品価格："; font-weight: bold;}
+.summary td:nth-child(3)::before { content: "課税価格："; font-weight: bold;}
+.summary td:nth-child(4)::before { content: "関税・消費税："; font-weight: bold;}
+.summary td:nth-child(5)::before { content: "たばこ税："; font-weight: bold;}
+.summary td:nth-child(6)::before { content: "総支払額："; font-weight: bold;}
+.summary td:nth-child(7)::before { content: "1本あたり実質："; font-weight: bold;}
+}
+</style>
+</head><body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-name" href="../index.html">CigarScope Japan</a>
+<div class="site-sub">セール実況 ― 税シミュレーター連動</div>
+</div>
+</header>
+<main class="column">
+<div class="masthead"><div class="kicker">WORLD CIGAR NEWS — SALE REPORT</div>
+<h1>世界の葉巻ニュース セール便</h1>
+<div class="date">2026年11月25日（水）</div></div>
+
+<div class="series-band">セール記事 第13号 ― 税シミュレーター実計算つき</div>
+<h2 class="feature-band">セール実況 — <span class="nb">Budget Bender サンプラー 10本 58%OFF</span></h2>
+<div class="subtitle"><span class="nb">― オリバ・ケイン・Nubの10本が $34.99。税込みでも1本あたり約¥710 ―</span></div>
+
+<div class="feature-box">
+<p>米国の葉巻通販 <span class="nm-sh">Cigar Place</span> に今夜届いた <span class="nm-cg">FINAL DAY: BLACK FRIDAY EARLY ACCESS Up to 70% OFF!</span>は、ブラックフライデーの先行セール最終日です。その目玉が、オリバ家の3ブランドを横断する <span class="nm-cg">Budget Bender サンプラー</span>。10本すべて違う銘柄で、<strong>$34.99（58%OFF）</strong>。1本あたり税前 <strong>$3.50（約¥558）</strong>です。クリーミーなコネチカットから濃いマデューロ、短く太い Nub まで、重複なしの10本が入っています。</p>
+<p>第1号〜第12号と同じく、このサンプラーも当サイトの<strong>税シミュレーター（TaxCore）で実際に計算</strong>し、日本へ個人輸入した場合の税金込みの実質価格まで出しました。結論を先に言うと――課税価格 <strong>¥3,343</strong>で1万円以下のため、<strong>関税・消費税は少額免税でゼロ</strong>。かかる税金はたばこ税 <strong>¥1,524</strong>だけで、総支払額は <strong>¥7,097</strong>、1本あたり実質 <strong>約¥710</strong>です。</p>
+<p>なお第1号の「13日の金曜日」サンプラーは<a class="shoplink" href="../hidden-sale-bf13/">セール記事 第1号</a>、AJFテイクオーバーのサンプラーと5本パックは<a class="shoplink" href="../hidden-sale-ajf/">セール記事 第2号</a>、ニュー・ワールド オールスター・サンプラーは<a class="shoplink" href="../hidden-sale-allstar/">セール記事 第3号</a>、Cigar Aficionado #2 サンプラーは<a class="shoplink" href="../hidden-sale-ca2/">セール記事 第4号</a>、モンテクリスト 1935 No.2 5本パックは<a class="shoplink" href="../hidden-sale-m1935/">セール記事 第5号</a>、Cigar Aficionado #1 サンプラーは<a class="shoplink" href="../hidden-sale-ca1/">セール記事 第6号</a>、モンテクリスト67%オフ3品は<a class="shoplink" href="../hidden-sale-monte/">セール記事 第7号</a>、オリヴァ135周年限定パーフェクトは<a class="shoplink" href="../hidden-sale-oliva135/">セール記事 第7号</a>、AJFテイクオーバー最終日2品は<a class="shoplink" href="../hidden-sale-ajf-final/">セール記事 第8号</a>、モンテクリスト エスパーダ ガード 10本パックは<a class="shoplink" href="../hidden-sale-espada/">セール記事 第9号</a>で紹介済みです。オリヴァ ビッグ＆ボールド サンプラーとACID クバ・クバ 5本パックは<a class="shoplink" href="../hidden-sale-oliva-bigbold/">セール記事 第10号</a>と<a class="shoplink" href="../hidden-sale-acid-kuba/">セール記事 第10号</a>で、オリヴァ フリービー・フェストの2品は<a class="shoplink" href="../hidden-sale-oliva-freebie/">セール記事 第11号</a>、リガ・プリバダ H99 パパス・フリータス 25本箱は<a class="shoplink" href="../hidden-sale-h99/">セール記事 第12号</a>で紹介しています。</p>
+<img class="heroimg" src="img/cp-budget-bender-sampler.jpg" alt="Budget Bender サンプラー 10本（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Budget Bender Cigar Sampler」の10本。左からオリバ・セリエ O、ヒルベルト・オリバ・レセルバ、オリバ・セリエ G、Nub ハバノ、オリバ・セリエ G マデューロ、オリバ・コネチカット・リザーブ、ヒルベルト・オリバ・レセルバ・ブラン、Nub コネチカット、Nub カメルーン、ケイン・デイトナ（同店の商品写真）</div>
+</div>
+
+<div class="pricehero">
+<div><span class="offbadge">58% OFF</span></div>
+<div class="ph-label" style="margin-top:12px;">セール価格（10本セット）</div>
+<div class="ph-price">$34.99 <span class="yen">＝ 約¥5,573</span></div>
+<div class="ph-msrp">定価 <s>$83.67（約¥13,328）</s> ／ 通常価格 $58.95（約¥9,390）</div>
+<div class="ph-per">税前でも1本あたり $3.50 ＝ 約¥558</div>
+</div>
+
+<div class="deadline">セール期限：米東部 11月25日（火）23:59 まで ＝ 日本時間 11月26日（木）13:59<span class="dl-sub">ブラックフライデー先行セールの最終日です。売り切れ次第終了の可能性があります。在庫は商品ページで確認してください</span></div>
+
+<h4>◆ 一、中身はこの10銘柄 ― <span class="nb">10本の内訳（重複なし）</span></h4>
+
+<div class="stick">
+<h5><span class="nm-cg">オリバ・セリエ O ロブスト</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-serie-o-robusto.jpg" alt="オリバ・セリエ O ロブストの木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie O」の木箱（同店の商品写真）</div>
+<div class="spec">5 × 50 ／ ミディアム・フル ／ CA 最高94点・2013年 Top 25 第11位</div>
+<p>セリエ V の前身として知られる、熟成したサン・グロウン・ハバノ巻きのロブスト。白胡椒とミルクチョコレート、シナモンの香りに、ナッツやシダー、コーヒーの層が重なります。フルボディ寄りでありながら角がなく、入門からベテランまで楽しめる一本です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-o-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">ヒルベルト・オリバ・レセルバ ロブスト</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-gilberto-reserva-robusto.jpg" alt="ヒルベルト・オリバ・レセルバの単品5本（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Gilberto Oliva Reserva」の単品5本。「FREE Shipping」のリボンつき（同店の商品写真）</div>
+<div class="spec">5 × 50 ／ ミディアム・フル ／ CA 91点</div>
+<p>ニカラグア・フィラー、エクアドル・バインダー、インドネシア・スマトラ巻きの組み合わせ。白胡椒とシダーの立ち上がりから、土っぽさとシナモン、スパイスの奥行きへ。バランスの取れたクラシックな味わいの一本です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/gilberto-oliva-reserva-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">オリバ・セリエ G スペシャル G</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-serie-g-special-g.jpg" alt="オリバ・セリエ G スペシャル G の木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie G Special G」の木箱（同店の商品写真）</div>
+<div class="spec">3 3/4 × 48 ／ ミディアム ／ カメルーン巻き</div>
+<p>キューバシードのニカラグア葉に、歯ごたえのあるアフリカン・カメルーン巻き。シダーと白胡椒の立ち上がりから、フローラルな香り、シナモン、ブラウンシュガーの甘さへ。短めのサイズで食後の一服にも向く、息の長い定番です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-g-special-g.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">Nub ハバノ 358</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-nub-habano-358.jpg" alt="Nub ハバノ 358 の単品とパッケージ（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub ハバノ 358 の単品とパッケージ（同店の商品写真）</div>
+<div class="spec">3 3/4 × 58 ／ ミディアム・フル</div>
+<p>ハバノ巻きの下にニカラグア・フィラーとインドネシア・バインダーを詰めた、短く太い一本。ローストコーヒーとオーク、甘いキャラメルに、赤胡椒のきいたフィニッシュ。「最初の一服から旨いところに入る」Nub の設計どおり、短時間で満足感の高い一本です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/nub-habano-358.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">オリバ・セリエ G マデューロ スペシャル G</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-serie-g-maduro-special-g.jpg" alt="オリバ・セリエ G マデューロ スペシャル G の木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie G Maduro Special G」の木箱（同店の商品写真）</div>
+<div class="spec">3 3/4 × 48 ／ ミディアム ／ CA 91点</div>
+<p>セリエ G の芯ブレンドはそのままに、漆黒のメキシカン・マデューロ巻きをまとわせた一本。胡椒とハバノ・スパイスの効いた立ち上がりに、ココアとジャワ豆の香りが乗ります。ナチュラル版より一段濃く、短時間でしっかり味わえます。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-g-maduro-special-g.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">オリバ・コネチカット・リザーブ プティコロナ</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-connecticut-reserve-petit-corona.jpg" alt="オリバ・コネチカット・リザーブ プティコロナの木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Connecticut Reserve Petit Corona」の木箱（同店の商品写真）</div>
+<div class="spec">4 × 38 ／ マイルド・ミディアム ／ エクアドル・コネチカット巻き</div>
+<p>黄金のエクアドル・コネチカット巻きがもたらす、クリーミーで甘い一本。軽いボディながらニカラグア葉の芯があり、吸い進むとスパイス、コーヒー、ウッドの香りへ変化します。朝の一服や、軽めの口当たりが好きな方に向くサイズです。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-connecticut-reserve-petit-corona.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">ヒルベルト・オリバ・レセルバ・ブラン ロブスト</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-gilberto-reserva-blanc-robusto.jpg" alt="ヒルベルト・オリバ・レセルバ・ブラン ロブストの単品と木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Gilberto Oliva Reserva Blanc Robusto」の単品と木箱（同店の商品写真）</div>
+<div class="spec">5 × 50 ／ ミディアム ／ エクアドル・コネチカット巻き</div>
+<p>ニカラグア・フィラー、エクアドル・バインダーに、黄金のエクアドル・コネチカット巻き。穏やかでクリーミーな口当たりに、干し草、シダー、シナモンの香りが通り、すっきりしたフィニッシュで締まります。レセルバの対極にある、軽やかな一本です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/gilberto-oliva-reserva-blanc-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">Nub コネチカット 354</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-nub-connecticut-354.jpg" alt="Nub コネチカット 354 の単品とパッケージ（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub コネチカット 354 の単品とパッケージ（同店の商品写真）</div>
+<div class="spec">3 3/4 × 54 ／ ミディアム ／ エクアドル・コネチカット巻き</div>
+<p>ニカラグア・ロングフィラー、カメルーン・バインダー、エクアドル・コネチカット巻き。ブラックコーヒーとレザーの立ち上がりから、スパイスとオーク、ほのかな草の香りへ。灰が半分まで進むとクリーミーな甘さとナッツの滑らかさが前面に出ます。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/nub-connecticut-354.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">Nub カメルーン 358</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-nub-cameroon-358.jpg" alt="Nub カメルーン 358 の単品とパッケージ（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub カメルーン 358 の単品とパッケージ。「92 Rated／2015 #23 Cigar of the Year」の表示（同店の商品写真）</div>
+<div class="spec">3 3/4 × 58 ／ ミディアム・フル ／ CA 92点・2015年 #23 Cigar of the Year</div>
+<p>ニカラグアのフィラーとバインダーに、歯ごたえのあるカメルーン巻き。シダーとフレッシュなコーヒーの立ち上がり、ナッツの芯、革の余韻に、時折のぞく胡椒のアクセント。このセットで最も評価の高い一本で、初心者にも上級者にも向く顔ぶれです。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/nub-cameroon-358.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<div class="stick">
+<h5><span class="nm-cg">ケイン・デイトナ 543 No.4</span></h5>
+<span class="count">× 1本</span>
+<img src="img/cp-cain-daytona-543.jpg" alt="ケイン・デイトナ 543 No.4 の木箱（Cigar Placeの商品写真）">
+<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Cain Daytona 543 No. 4」の木箱（同店の商品写真）</div>
+<div class="spec">5 × 43 ／ フルボディ ／ ハラパ・ヴァレー・リヘロ100%</div>
+<p>ハラパ・ヴァレーのリヘロだけで組んだブレンド。スパイスの効いた立ち上がりから、キャラメルとトーストしたナッツ、コーヒーの甘さへ。ケイン F やマデューロより滑らかで、吸いやすいフルボディです。セットの締めにふさわしい一本です。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/cain-daytona-543-no-4.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
+</div>
+
+<h4>◆ 二、税シミュレーター実計算 ― <span class="nb">日本へ入れたら、いくらになるか</span></h4>
+<p>前提は、個人輸入・国際郵便（賦課課税）、関税は WTO 税率 16%、送料 0（米国内送料無料のセールで、国際分の扱いは下の但し書き参照）です。商品価格 $34.99（約¥5,573）に、個人輸入の特例（課税価格は小売価格の60%）を当てると、課税価格は ¥3,343。ここが分かれ目で、<strong>課税価格が1万円以下のため、関税と消費税は少額免税でゼロ</strong>になります。免税の対象外である<strong>たばこ税だけが ¥1,524</strong> かかる、という結果でした。</p>
+
+<div class="taxcard">
+<div class="tc-head">税シミュレーター実計算 ― 税の内訳</div>
+<table>
+<tr><td>課税価格（$34.99 × 60%特例）</td><td class="amt">¥3,343</td></tr>
+<tr class="zero"><td>関税（WTO 16%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
+<tr class="zero"><td>消費税・地方消費税（10%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
+<tr><td>たばこ税等（免税の対象外）</td><td class="amt">¥1,524</td></tr>
+<tr class="total"><td>税金合計</td><td class="amt">¥1,524</td></tr>
+</table>
+<div class="tc-grand">
+<div class="g-label">総支払額（商品＋税金）</div>
+<div class="g-amt">¥7,097</div>
+<div class="g-per">1本あたり実質 約¥710</div>
+</div>
+</div>
+
+<p>定価で買えば1本あたり約¥1,333（税前）のセットが、このセール＋税計算では実質 約¥710/本。10本の推定総重量は約100.0gで、たばこ税の換算では100本分になります。セール価格（約¥558/本）にたばこ税を足しても、1本あたりの実質価格は約¥710と、1本あたり千円を大きく下回ります。</p>
+
+<table class="summary">
+<thead><tr><th>品目</th><th>商品価格</th><th>課税価格</th><th>関税・消費税</th><th>たばこ税</th><th>総支払額</th><th>1本あたり実質</th></tr></thead>
+<tbody>
+<tr><td>Budget Bender サンプラー（10本）</td><td>$34.99<br>約¥5,573</td><td>¥3,343</td><td>¥0</td><td>¥1,524</td><td class="grand">¥7,097</td><td class="grand">約¥710</td></tr>
+</tbody>
+</table>
+
+<a class="cta" href="https://cigarscope-japan.github.io/category/tax-calculator.html">自分の場合はいくらになるか計算する<span class="cta-sub">CigarScope Japan 税シミュレーター（無料）― 銘柄・本数・運賃を入れるだけ</span></a>
+
+<h4>◆ 三、買うなら期限内に</h4>
+<p>セール期限は米東部 11月25日（火）23:59、日本時間 11月26日（木）13:59までの最終日です。10本すべて違う銘柄で、重複なし。Cigar Place は日本への発送に対応しています。国際送料は別途かかるのが通常で、送料がかかると課税価格が上がりますが、本品は課税価格 ¥3,343 と1万円を大きく下回るため、通常の送料を足しても免税が維持される見込みです（詳細は下の但し書き）。</p>
+<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-budget-bender-cigar-sampler.html" target="_blank" rel="noopener">商品ページ：Oliva Budget Bender Cigar Sampler（Cigar Place）→</a></p>
+
+<div class="fineprint">
+<p> 本記事の税額は、当編集部の税シミュレーター（計算エンジン TaxCore-Integer v1.0）による試算です。前提：個人輸入・国際郵便による賦課課税、関税は WTO 税率 16%、送料 0、為替は $1＝¥159.3。課税価格は個人輸入の特例により海外小売価格の60%で算定しました。計算式：商品価格 $34.99 × ¥159.3 ＝ ¥5,573 → × 60% ＝ 課税価格 ¥3,343 → 関税 ¥0・消費税 ¥0（少額免税）→ たばこ税 ¥1,524 → 税金合計 ¥1,524 → 総支払額 ¥5,573 ＋ ¥1,524 ＝ ¥7,097（1本あたり ¥7,097 ÷ 10 ＝ 約¥710）。</p>
+<p>少額免税について：課税価格が1万円以下の場合、関税と消費税（地方消費税を含む）は免除されますが、たばこ税は免税の対象外で必ず課されます。本試算でも、送料を加えても課税価格は1万円を超えにくく、免税は維持される見込みですが、最終的な判断は税関の審査によります。国際送料がかかる場合は課税価格に算入され、関税・消費税もその分増えます。</p>
+<p>重量とたばこ税について：たばこ税は葉巻の重量（1g＝紙巻たばこ1本に換算）で決まります。本試算の重量は各銘柄の寸法からの推定（オリバ・セリエ O ロブスト 5"×50 約11.8g、ヒルベルト・オリバ・レセルバ ロブスト 5"×50 約11.8g、オリバ・セリエ G スペシャル G 3 3/4"×48 約8.2g、Nub ハバノ 358 3 3/4"×58 約11.9g、オリバ・セリエ G マデューロ スペシャル G 3 3/4"×48 約8.2g、オリバ・コネチカット・リザーブ プティコロナ 4"×38 約5.4g、ヒルベルト・オリバ・レセルバ・ブラン ロブスト 5"×50 約11.8g、Nub コネチカット 354 3 3/4"×54 約10.3g、Nub カメルーン 358 3 3/4"×58 約11.9g、ケイン・デイトナ 543 No.4 5"×43 約8.7g、10本で合計 約100.0g → 100本換算）であり、実際のたばこ税は税関の実測重量によって前後します。推定の幅（±15%）では、たばこ税は ¥1,293〜¥1,752（総支払額 ¥6,866〜¥7,325、1本あたり実質 約¥687〜約¥733）の範囲に入ります。実測で大きく異なる場合は、税金合計・総支払額もその分変わります。たばこ税の内訳は、国たばこ税 ¥680＋特別たばこ税 ¥82＋道府県たばこ税 ¥107＋市町村たばこ税 ¥655（重量換算100本分に各税率を掛け、税目ごとに切り捨て）です。たばこ税の税率（現行）：国たばこ税 ¥6,802／千本、特別たばこ税 ¥820／千本、道府県たばこ税 ¥1,070／千本、市町村たばこ税 ¥6,552／千本。各税目ごとに本数×税率÷1000を切り捨てて合算しています（第1号・第4号・第5号・第6号・第7号・第8号・第9号・第10号・第11号・第12号と同じ TaxCore の計算方式です）。</p>
+<p>送料について：本セールの「送料無料」は米国内配送が対象です。日本への国際送料（または転送サービスの手数料）は別途必要で、その金額は注文方法によって変わります。国際送料が発生する場合、その扱い（課税価格への算入の有無を含む）は配送方法により異なります。</p>
+<p>価格・在庫・セール条件は 2026年11月25日 時点の商品ページ掲載に基づきます。実際の課税額は申告内容と税関の判断により確定します。本記事は税務の助言ではなく、購入の判断と手続きの責任は読者ご自身にあります。</p>
+</div>
+
+</main>
+<footer class="site-footer">
+<a href="../index.html">← トップへ戻る</a>
+<div class="site-footer-note">CigarScope Japan ― 世界の葉巻ニュース セール便</div>
+</footer>
+<script>
+(function () {
+var lb = document.createElement('div');
+lb.id = 'lightbox';
+lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
+document.body.appendChild(lb);
+var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+function captionFor(img) {
+if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
+var n = img.nextElementSibling;
+if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
+return img.getAttribute('alt') || '';
+}
+var imgs = document.querySelectorAll('main img:not(.noimg)');
+for (var i = 0; i < imgs.length; i++) {
+(function (img) {
+img.addEventListener('click', function () {
+im.src = img.currentSrc || img.src;
+cap.textContent = captionFor(img);
+lb.classList.add('open');
+document.body.style.overflow = 'hidden';
+});
+})(imgs[i]);
+}
+function close() {
+lb.classList.remove('open');
+document.body.style.overflow = '';
+im.removeAttribute('src');
+}
+lb.addEventListener('click', close);
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close();});
+})();
+</script>
+</body></html>

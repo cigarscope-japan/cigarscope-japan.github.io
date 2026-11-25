@@ -1,309 +1,818 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Budget Bender サンプラー 10本 $34.99を税シミュレーターにかけたら、1本あたり実質 約¥710だった | CigarScope Japan</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
-<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
-<link rel="stylesheet" href="../style.css">
-
-<style>
-/* 黒枠タイトルは中央寄せ（鉄則・2026-11-11） */
-h2.feature-band { text-align: center;}
-/* .nb は span 側に付くため子孫セレクタで指定する（v95 横はみ出し修正：見出し・副題内では折り返し許可） */
-h2 .nb, h4 .nb, .subtitle .nb { white-space: normal;}
-/* セール記事（チラシ風）仕様（2026-11-14 カズ指示）：本文は通常記事より一段大きく */
-main.column { font-size: 19px;}
-main p { line-height: 1.85;}
-.caption { line-height: 1.45;}
-/* ヒーロー写真 */
-.heroimg { display: block; width: 100%; max-width: 440px; height: auto; margin: 6px auto 0;}
-/* 割引バッジ */
-.offbadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-weight: bold; border: 3px solid var(--gold); border-radius: 999px; padding: 6px 20px 7px; font-size: 1.65rem; letter-spacing: 0.04em; transform: rotate(-2deg); box-shadow: 0 3px 10px rgba(0,0,0,0.25);}
-/* 価格ヒーロー */
-.pricehero { border: 4px solid var(--ink); background: #fff8e7; text-align: center; padding: 18px 12px 16px; margin: 18px 0;}
-.pricehero .ph-label { font-weight: bold; letter-spacing: 0.14em; color: var(--burgundy); font-size: 1.05rem;}
-.pricehero .ph-price { font-size: 3.4rem; font-weight: bold; line-height: 1.15; color: var(--ink);}
-.pricehero .ph-price .yen { font-size: 1.7rem;}
-.pricehero .ph-msrp { color: #777; font-size: 1.15rem;}
-.pricehero .ph-msrp s { text-decoration-thickness: 2px;}
-.pricehero .ph-per { font-size: 1.3rem; font-weight: bold; color: var(--burgundy); margin-top: 6px;}
-/* 期限バンド */
-.deadline { background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.3rem; padding: 12px 10px; margin: 18px 0; border: 3px solid var(--gold);}
-.deadline .dl-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 2px;}
-/* 税内訳カード（チラシ仕様） */
-.taxcard { border: 4px solid #1e3a5f; background: #f4f7fb; margin: 20px 0;}
-.taxcard .tc-head { background: #1e3a5f; color: #fff; font-weight: bold; font-size: 1.3rem; text-align: center; padding: 10px 8px; letter-spacing: 0.05em;}
-.taxcard table { width: 100%; border-collapse: collapse; font-size: 1.12rem;}
-.taxcard td { padding: 10px 14px; border-bottom: 1px solid #c9d4e4;}
-.taxcard td.amt { text-align: right; font-weight: bold; white-space: nowrap; font-size: 1.25rem;}
-.taxcard tr.zero td { background: #fff3cd;}
-.taxcard tr.zero td.amt { color: var(--burgundy); font-size: 1.9rem;}
-.taxcard tr.duty td { background: #fdecea;}
-.taxcard tr.duty td.amt { color: var(--burgundy);}
-.freebadge { display: inline-block; background: var(--burgundy); color: var(--gold-light); font-size: 0.82rem; font-weight: bold; border-radius: 4px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.06em;}
-.taxcard tr.total td { border-top: 3px solid #1e3a5f; border-bottom: none; font-weight: bold;}
-.taxcard tr.total td.amt { font-size: 1.5rem;}
-.taxcard .tc-grand { background: var(--ink); color: var(--gold-light); text-align: center; padding: 14px 10px 12px;}
-.taxcard .tc-grand .g-label { font-size: 1.05rem; letter-spacing: 0.16em;}
-.taxcard .tc-grand .g-amt { font-size: 3.0rem; font-weight: bold; line-height: 1.2;}
-.taxcard .tc-grand .g-per { font-size: 1.35rem; font-weight: bold; color: #fff;}
-/* 銘柄カード（第1号の写真カード形式が標準） */
-.stick { border: 3px solid var(--gold); background: #fffdf6; padding: 12px 18px 14px; margin: 18px 0;}
-.stick h5 { font-size: 1.45rem; margin: 0 0 4px; color: var(--burgundy); line-height: 1.4;}
-.stick .count { display: inline-block; background: var(--ink); color: var(--gold-light); font-weight: bold; border-radius: 4px; padding: 1px 12px; font-size: 1.05rem; margin-bottom: 8px;}
-.stick img { width: 100%; height: auto; display: block;}
-.stick .spec { font-weight: bold; color: #555; font-size: 1.02rem; margin: 6px 0;}
-/* まとめ表 */
-.summary { width: 100%; border-collapse: collapse; font-size: 1.08rem; margin: 14px 0; line-height: 1.5;}
-.summary th, .summary td { border: 1px solid #1e3a5f; padding: 9px 10px; text-align: right; vertical-align: top;}
-.summary th { background: #1e3a5f; color: #fff; text-align: center;}
-.summary td:first-child { text-align: left; font-weight: bold;}
-.summary td.grand { font-weight: bold; color: var(--burgundy);}
-/* シミュレーター導線 */
-.cta { display: block; background: var(--burgundy); color: #fff; text-align: center; font-weight: bold; font-size: 1.35rem; padding: 16px 12px; margin: 20px 0; text-decoration: none; border: 3px solid var(--gold); border-radius: 8px;}
-.cta .cta-sub { display: block; font-size: 1.0rem; font-weight: normal; margin-top: 4px;}
-/* 商品リンク */
-a.shoplink { color: #14532d; font-weight: bold; text-decoration: underline; text-underline-offset: 3px;}
-/* 但し書き（広告仕様：小さく） */
-.fineprint { font-size: 0.78rem; color: #666; line-height: 1.7; border-top: 1px solid #ccc; margin-top: 26px; padding-top: 10px;}
-.fineprint p { margin: 4px 0;}
-/* 写真ライトボックス（標準仕様） */
-main img { cursor: zoom-in;}
-#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box;}
-#lightbox.open { display: flex;}
-#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out;}
-#lightbox.lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto;}
-#lightbox.lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px;}
-@media (max-width: 640px) {
-.summary, .summary tbody, .summary tr, .summary td { display: block; width: auto;}
-.summary thead { display: none;}
-.summary tr { border: 2px solid #1e3a5f; margin-bottom: 12px;}
-.summary td { border: none !important; border-bottom: 1px solid #c9d4e4; padding: 7px 10px; text-align: left !important;}
-.summary td:last-child { border-bottom: none;}
-.summary td:nth-child(2)::before { content: "商品価格："; font-weight: bold;}
-.summary td:nth-child(3)::before { content: "課税価格："; font-weight: bold;}
-.summary td:nth-child(4)::before { content: "関税・消費税："; font-weight: bold;}
-.summary td:nth-child(5)::before { content: "たばこ税："; font-weight: bold;}
-.summary td:nth-child(6)::before { content: "総支払額："; font-weight: bold;}
-.summary td:nth-child(7)::before { content: "1本あたり実質："; font-weight: bold;}
-}
-</style>
+<title>CigarScope Japan — WORLD CIGAR NEWS &amp; INTELLIGENCE</title>
+<meta name="description" content="CigarScope Japanは、世界の葉巻業界ニュースを収集・編集し、日本語で紹介する独立系ニュースメディアです。新製品・限定品、メーカー動向、国別ニュース、市場分析を出典明記でお届けします。">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="style-v2.css">
 </head><body>
+
 <header class="site-header">
-<div class="site-header-inner">
-<a class="site-name" href="../index.html">CigarScope Japan</a>
-<div class="site-sub">セール実況 ― 税シミュレーター連動</div>
+<div class="column">
+<div class="util-row">
+<span class="dateline" id="dateline">2026年11月8日（日）</span>
+<div class="lang-switch"><span class="cur">日本語</span><span class="sep">|</span><a href="en/index.html">EN</a></div>
 </div>
+<div class="masthead">
+<h1><span class="sr-only">CigarScope Japan — WORLD CIGAR NEWS &amp; INTELLIGENCE</span>
+<picture><source srcset="assets/cigarscope-japan-logo-mobile.webp" type="image/webp" media="(max-width: 640px)"><source srcset="assets/cigarscope-japan-logo.webp" type="image/webp"><img class="site-logo" src="assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News"></picture>
+</h1>
+<p class="tagline">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<p class="brand-msg"><span class="en">BEYOND HAVANA. BEYOND BORDERS.</span><span class="ja">世界の葉巻を、もっと広く、もっと深く。</span></p>
+</div>
+</div>
+<hr class="masthead-rule">
+<nav class="gnav" aria-label="グローバルナビゲーション">
+<div class="gnav-inner">
+<input class="gnav-toggle" type="checkbox" id="gnav-toggle">
+<div class="gnav-flex">
+<label class="gnav-button" for="gnav-toggle"><span class="bars">☰</span>MENU</label>
+<form class="header-search" role="search">
+<label class="sr-only" for="site-search-q">サイト内検索</label>
+<span class="field"><input id="site-search-q" name="q" type="search" placeholder="ニュース・銘柄・メーカーで検索" autocomplete="off"></span>
+<button type="submit">検索</button>
+</form>
+<noscript><a class="noscript-search" href="search.html">検索</a></noscript>
+</div>
+<ul>
+<li><a class="cur" href="index.html">TOP</a></li>
+<li><a href="news/index.html">NEWS</a></li>
+<li><a href="country/cuba.html">CUBA</a></li>
+<li><a href="country/nicaragua.html">NICARAGUA</a></li>
+<li><a href="country/dominican.html">DOMINICAN</a></li>
+<li><a href="brands/index.html">BRANDS</a></li>
+<li><a href="category/new-releases.html">NEW RELEASES</a></li>
+<li><a href="category/market.html">MARKET</a></li>
+<li><a href="#features">FEATURES</a></li>
+<li><a href="category/tax-calculator.html">TAX CALCULATOR</a></li>
+</ul>
+</div>
+</nav>
 </header>
-<main class="column">
-<div class="masthead"><div class="kicker">WORLD CIGAR NEWS — SALE REPORT</div>
-<h1>世界の葉巻ニュース セール便</h1>
-<div class="date">2026年11月25日（水）</div></div>
+<script>
+(function(){var d=new Date();var w="日月火水木金土"[d.getDay()];var el=document.getElementById("dateline");if(el){el.textContent=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日（"+w+"）";}})();
+</script>
 
-<div class="series-band">セール記事 第13号 ― 税シミュレーター実計算つき</div>
-<h2 class="feature-band">セール実況 — <span class="nb">Budget Bender サンプラー 10本 58%OFF</span></h2>
-<div class="subtitle"><span class="nb">― オリバ・ケイン・Nubの10本が $34.99。税込みでも1本あたり約¥710 ―</span></div>
+<main>
 
-<div class="feature-box">
-<p>米国の葉巻通販 <span class="nm-sh">Cigar Place</span> に今夜届いた <span class="nm-cg">FINAL DAY: BLACK FRIDAY EARLY ACCESS Up to 70% OFF!</span>は、ブラックフライデーの先行セール最終日です。その目玉が、オリバ家の3ブランドを横断する <span class="nm-cg">Budget Bender サンプラー</span>。10本すべて違う銘柄で、<strong>$34.99（58%OFF）</strong>。1本あたり税前 <strong>$3.50（約¥558）</strong>です。クリーミーなコネチカットから濃いマデューロ、短く太い Nub まで、重複なしの10本が入っています。</p>
-<p>第1号〜第12号と同じく、このサンプラーも当サイトの<strong>税シミュレーター（TaxCore）で実際に計算</strong>し、日本へ個人輸入した場合の税金込みの実質価格まで出しました。結論を先に言うと――課税価格 <strong>¥3,343</strong>で1万円以下のため、<strong>関税・消費税は少額免税でゼロ</strong>。かかる税金はたばこ税 <strong>¥1,524</strong>だけで、総支払額は <strong>¥7,097</strong>、1本あたり実質 <strong>約¥710</strong>です。</p>
-<p>なお第1号の「13日の金曜日」サンプラーは<a class="shoplink" href="../hidden-sale-bf13/">セール記事 第1号</a>、AJFテイクオーバーのサンプラーと5本パックは<a class="shoplink" href="../hidden-sale-ajf/">セール記事 第2号</a>、ニュー・ワールド オールスター・サンプラーは<a class="shoplink" href="../hidden-sale-allstar/">セール記事 第3号</a>、Cigar Aficionado #2 サンプラーは<a class="shoplink" href="../hidden-sale-ca2/">セール記事 第4号</a>、モンテクリスト 1935 No.2 5本パックは<a class="shoplink" href="../hidden-sale-m1935/">セール記事 第5号</a>、Cigar Aficionado #1 サンプラーは<a class="shoplink" href="../hidden-sale-ca1/">セール記事 第6号</a>、モンテクリスト67%オフ3品は<a class="shoplink" href="../hidden-sale-monte/">セール記事 第7号</a>、オリヴァ135周年限定パーフェクトは<a class="shoplink" href="../hidden-sale-oliva135/">セール記事 第7号</a>、AJFテイクオーバー最終日2品は<a class="shoplink" href="../hidden-sale-ajf-final/">セール記事 第8号</a>、モンテクリスト エスパーダ ガード 10本パックは<a class="shoplink" href="../hidden-sale-espada/">セール記事 第9号</a>で紹介済みです。オリヴァ ビッグ＆ボールド サンプラーとACID クバ・クバ 5本パックは<a class="shoplink" href="../hidden-sale-oliva-bigbold/">セール記事 第10号</a>と<a class="shoplink" href="../hidden-sale-acid-kuba/">セール記事 第10号</a>で、オリヴァ フリービー・フェストの2品は<a class="shoplink" href="../hidden-sale-oliva-freebie/">セール記事 第11号</a>、リガ・プリバダ H99 パパス・フリータス 25本箱は<a class="shoplink" href="../hidden-sale-h99/">セール記事 第12号</a>で紹介しています。</p>
-<img class="heroimg" src="img/cp-budget-bender-sampler.jpg" alt="Budget Bender サンプラー 10本（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Budget Bender Cigar Sampler」の10本。左からオリバ・セリエ O、ヒルベルト・オリバ・レセルバ、オリバ・セリエ G、Nub ハバノ、オリバ・セリエ G マデューロ、オリバ・コネチカット・リザーブ、ヒルベルト・オリバ・レセルバ・ブラン、Nub コネチカット、Nub カメルーン、ケイン・デイトナ（同店の商品写真）</div>
-</div>
-
-<div class="pricehero">
-<div><span class="offbadge">58% OFF</span></div>
-<div class="ph-label" style="margin-top:12px;">セール価格（10本セット）</div>
-<div class="ph-price">$34.99 <span class="yen">＝ 約¥5,573</span></div>
-<div class="ph-msrp">定価 <s>$83.67（約¥13,328）</s> ／ 通常価格 $58.95（約¥9,390）</div>
-<div class="ph-per">税前でも1本あたり $3.50 ＝ 約¥558</div>
-</div>
-
-<div class="deadline">セール期限：米東部 11月25日（火）23:59 まで ＝ 日本時間 11月26日（木）13:59<span class="dl-sub">ブラックフライデー先行セールの最終日です。売り切れ次第終了の可能性があります。在庫は商品ページで確認してください</span></div>
-
-<h4>◆ 一、中身はこの10銘柄 ― <span class="nb">10本の内訳（重複なし）</span></h4>
-
-<div class="stick">
-<h5><span class="nm-cg">オリバ・セリエ O ロブスト</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-serie-o-robusto.jpg" alt="オリバ・セリエ O ロブストの木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie O」の木箱（同店の商品写真）</div>
-<div class="spec">5 × 50 ／ ミディアム・フル ／ CA 最高94点・2013年 Top 25 第11位</div>
-<p>セリエ V の前身として知られる、熟成したサン・グロウン・ハバノ巻きのロブスト。白胡椒とミルクチョコレート、シナモンの香りに、ナッツやシダー、コーヒーの層が重なります。フルボディ寄りでありながら角がなく、入門からベテランまで楽しめる一本です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-o-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">ヒルベルト・オリバ・レセルバ ロブスト</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-gilberto-reserva-robusto.jpg" alt="ヒルベルト・オリバ・レセルバの単品5本（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Gilberto Oliva Reserva」の単品5本。「FREE Shipping」のリボンつき（同店の商品写真）</div>
-<div class="spec">5 × 50 ／ ミディアム・フル ／ CA 91点</div>
-<p>ニカラグア・フィラー、エクアドル・バインダー、インドネシア・スマトラ巻きの組み合わせ。白胡椒とシダーの立ち上がりから、土っぽさとシナモン、スパイスの奥行きへ。バランスの取れたクラシックな味わいの一本です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/gilberto-oliva-reserva-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">オリバ・セリエ G スペシャル G</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-serie-g-special-g.jpg" alt="オリバ・セリエ G スペシャル G の木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie G Special G」の木箱（同店の商品写真）</div>
-<div class="spec">3 3/4 × 48 ／ ミディアム ／ カメルーン巻き</div>
-<p>キューバシードのニカラグア葉に、歯ごたえのあるアフリカン・カメルーン巻き。シダーと白胡椒の立ち上がりから、フローラルな香り、シナモン、ブラウンシュガーの甘さへ。短めのサイズで食後の一服にも向く、息の長い定番です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-g-special-g.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">Nub ハバノ 358</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-nub-habano-358.jpg" alt="Nub ハバノ 358 の単品とパッケージ（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub ハバノ 358 の単品とパッケージ（同店の商品写真）</div>
-<div class="spec">3 3/4 × 58 ／ ミディアム・フル</div>
-<p>ハバノ巻きの下にニカラグア・フィラーとインドネシア・バインダーを詰めた、短く太い一本。ローストコーヒーとオーク、甘いキャラメルに、赤胡椒のきいたフィニッシュ。「最初の一服から旨いところに入る」Nub の設計どおり、短時間で満足感の高い一本です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/nub-habano-358.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">オリバ・セリエ G マデューロ スペシャル G</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-serie-g-maduro-special-g.jpg" alt="オリバ・セリエ G マデューロ スペシャル G の木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Serie G Maduro Special G」の木箱（同店の商品写真）</div>
-<div class="spec">3 3/4 × 48 ／ ミディアム ／ CA 91点</div>
-<p>セリエ G の芯ブレンドはそのままに、漆黒のメキシカン・マデューロ巻きをまとわせた一本。胡椒とハバノ・スパイスの効いた立ち上がりに、ココアとジャワ豆の香りが乗ります。ナチュラル版より一段濃く、短時間でしっかり味わえます。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-serie-g-maduro-special-g.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">オリバ・コネチカット・リザーブ プティコロナ</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-connecticut-reserve-petit-corona.jpg" alt="オリバ・コネチカット・リザーブ プティコロナの木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Oliva Connecticut Reserve Petit Corona」の木箱（同店の商品写真）</div>
-<div class="spec">4 × 38 ／ マイルド・ミディアム ／ エクアドル・コネチカット巻き</div>
-<p>黄金のエクアドル・コネチカット巻きがもたらす、クリーミーで甘い一本。軽いボディながらニカラグア葉の芯があり、吸い進むとスパイス、コーヒー、ウッドの香りへ変化します。朝の一服や、軽めの口当たりが好きな方に向くサイズです。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-connecticut-reserve-petit-corona.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">ヒルベルト・オリバ・レセルバ・ブラン ロブスト</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-gilberto-reserva-blanc-robusto.jpg" alt="ヒルベルト・オリバ・レセルバ・ブラン ロブストの単品と木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Gilberto Oliva Reserva Blanc Robusto」の単品と木箱（同店の商品写真）</div>
-<div class="spec">5 × 50 ／ ミディアム ／ エクアドル・コネチカット巻き</div>
-<p>ニカラグア・フィラー、エクアドル・バインダーに、黄金のエクアドル・コネチカット巻き。穏やかでクリーミーな口当たりに、干し草、シダー、シナモンの香りが通り、すっきりしたフィニッシュで締まります。レセルバの対極にある、軽やかな一本です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/gilberto-oliva-reserva-blanc-robusto.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">Nub コネチカット 354</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-nub-connecticut-354.jpg" alt="Nub コネチカット 354 の単品とパッケージ（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub コネチカット 354 の単品とパッケージ（同店の商品写真）</div>
-<div class="spec">3 3/4 × 54 ／ ミディアム ／ エクアドル・コネチカット巻き</div>
-<p>ニカラグア・ロングフィラー、カメルーン・バインダー、エクアドル・コネチカット巻き。ブラックコーヒーとレザーの立ち上がりから、スパイスとオーク、ほのかな草の香りへ。灰が半分まで進むとクリーミーな甘さとナッツの滑らかさが前面に出ます。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/nub-connecticut-354.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">Nub カメルーン 358</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-nub-cameroon-358.jpg" alt="Nub カメルーン 358 の単品とパッケージ（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — Nub カメルーン 358 の単品とパッケージ。「92 Rated／2015 #23 Cigar of the Year」の表示（同店の商品写真）</div>
-<div class="spec">3 3/4 × 58 ／ ミディアム・フル ／ CA 92点・2015年 #23 Cigar of the Year</div>
-<p>ニカラグアのフィラーとバインダーに、歯ごたえのあるカメルーン巻き。シダーとフレッシュなコーヒーの立ち上がり、ナッツの芯、革の余韻に、時折のぞく胡椒のアクセント。このセットで最も評価の高い一本で、初心者にも上級者にも向く顔ぶれです。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/nub-cameroon-358.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<div class="stick">
-<h5><span class="nm-cg">ケイン・デイトナ 543 No.4</span></h5>
-<span class="count">× 1本</span>
-<img src="img/cp-cain-daytona-543.jpg" alt="ケイン・デイトナ 543 No.4 の木箱（Cigar Placeの商品写真）">
-<div class="caption">写真：<span class="nm-sh">Cigar Place</span> — 「Cain Daytona 543 No. 4」の木箱（同店の商品写真）</div>
-<div class="spec">5 × 43 ／ フルボディ ／ ハラパ・ヴァレー・リヘロ100%</div>
-<p>ハラパ・ヴァレーのリヘロだけで組んだブレンド。スパイスの効いた立ち上がりから、キャラメルとトーストしたナッツ、コーヒーの甘さへ。ケイン F やマデューロより滑らかで、吸いやすいフルボディです。セットの締めにふさわしい一本です。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/cain-daytona-543-no-4.html" target="_blank" rel="noopener">Cigar Place の商品ページで見る →</a></p>
-</div>
-
-<h4>◆ 二、税シミュレーター実計算 ― <span class="nb">日本へ入れたら、いくらになるか</span></h4>
-<p>前提は、個人輸入・国際郵便（賦課課税）、関税は WTO 税率 16%、送料 0（米国内送料無料のセールで、国際分の扱いは下の但し書き参照）です。商品価格 $34.99（約¥5,573）に、個人輸入の特例（課税価格は小売価格の60%）を当てると、課税価格は ¥3,343。ここが分かれ目で、<strong>課税価格が1万円以下のため、関税と消費税は少額免税でゼロ</strong>になります。免税の対象外である<strong>たばこ税だけが ¥1,524</strong> かかる、という結果でした。</p>
-
-<div class="taxcard">
-<div class="tc-head">税シミュレーター実計算 ― 税の内訳</div>
-<table>
-<tr><td>課税価格（$34.99 × 60%特例）</td><td class="amt">¥3,343</td></tr>
-<tr class="zero"><td>関税（WTO 16%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
-<tr class="zero"><td>消費税・地方消費税（10%）<span class="freebadge">少額免税</span></td><td class="amt">¥0</td></tr>
-<tr><td>たばこ税等（免税の対象外）</td><td class="amt">¥1,524</td></tr>
-<tr class="total"><td>税金合計</td><td class="amt">¥1,524</td></tr>
-</table>
-<div class="tc-grand">
-<div class="g-label">総支払額（商品＋税金）</div>
-<div class="g-amt">¥7,097</div>
-<div class="g-per">1本あたり実質 約¥710</div>
+<!-- Breaking News -->
+<div class="column">
+<div class="breaking">
+<span class="b-label">BREAKING</span>
+<a class="b-title" href="news/roma-craft-baka-ota-benga-bronx-zoo-2026.html">ロマ・クラフト「バカ・オタ・ベンガ ブロンクス・ズー」静かに発売 — レギュラー品をボックスプレス化</a>
+<span class="b-meta">出典 Halfwheel ／ 発表 2026年11月24日</span>
 </div>
 </div>
 
-<p>定価で買えば1本あたり約¥1,333（税前）のセットが、このセール＋税計算では実質 約¥710/本。10本の推定総重量は約100.0gで、たばこ税の換算では100本分になります。セール価格（約¥558/本）にたばこ税を足しても、1本あたりの実質価格は約¥710と、1本あたり千円を大きく下回ります。</p>
-
-<table class="summary">
-<thead><tr><th>品目</th><th>商品価格</th><th>課税価格</th><th>関税・消費税</th><th>たばこ税</th><th>総支払額</th><th>1本あたり実質</th></tr></thead>
-<tbody>
-<tr><td>Budget Bender サンプラー（10本）</td><td>$34.99<br>約¥5,573</td><td>¥3,343</td><td>¥0</td><td>¥1,524</td><td class="grand">¥7,097</td><td class="grand">約¥710</td></tr>
-</tbody>
-</table>
-
-<a class="cta" href="https://cigarscope-japan.github.io/category/tax-calculator.html">自分の場合はいくらになるか計算する<span class="cta-sub">CigarScope Japan 税シミュレーター（無料）― 銘柄・本数・運賃を入れるだけ</span></a>
-
-<h4>◆ 三、買うなら期限内に</h4>
-<p>セール期限は米東部 11月25日（火）23:59、日本時間 11月26日（木）13:59までの最終日です。10本すべて違う銘柄で、重複なし。Cigar Place は日本への発送に対応しています。国際送料は別途かかるのが通常で、送料がかかると課税価格が上がりますが、本品は課税価格 ¥3,343 と1万円を大きく下回るため、通常の送料を足しても免税が維持される見込みです（詳細は下の但し書き）。</p>
-<p><a class="shoplink" href="https://www.cigarplace.biz/oliva-budget-bender-cigar-sampler.html" target="_blank" rel="noopener">商品ページ：Oliva Budget Bender Cigar Sampler（Cigar Place）→</a></p>
-
-<div class="fineprint">
-<p> 本記事の税額は、当編集部の税シミュレーター（計算エンジン TaxCore-Integer v1.0）による試算です。前提：個人輸入・国際郵便による賦課課税、関税は WTO 税率 16%、送料 0、為替は $1＝¥159.3。課税価格は個人輸入の特例により海外小売価格の60%で算定しました。計算式：商品価格 $34.99 × ¥159.3 ＝ ¥5,573 → × 60% ＝ 課税価格 ¥3,343 → 関税 ¥0・消費税 ¥0（少額免税）→ たばこ税 ¥1,524 → 税金合計 ¥1,524 → 総支払額 ¥5,573 ＋ ¥1,524 ＝ ¥7,097（1本あたり ¥7,097 ÷ 10 ＝ 約¥710）。</p>
-<p>少額免税について：課税価格が1万円以下の場合、関税と消費税（地方消費税を含む）は免除されますが、たばこ税は免税の対象外で必ず課されます。本試算でも、送料を加えても課税価格は1万円を超えにくく、免税は維持される見込みですが、最終的な判断は税関の審査によります。国際送料がかかる場合は課税価格に算入され、関税・消費税もその分増えます。</p>
-<p>重量とたばこ税について：たばこ税は葉巻の重量（1g＝紙巻たばこ1本に換算）で決まります。本試算の重量は各銘柄の寸法からの推定（オリバ・セリエ O ロブスト 5"×50 約11.8g、ヒルベルト・オリバ・レセルバ ロブスト 5"×50 約11.8g、オリバ・セリエ G スペシャル G 3 3/4"×48 約8.2g、Nub ハバノ 358 3 3/4"×58 約11.9g、オリバ・セリエ G マデューロ スペシャル G 3 3/4"×48 約8.2g、オリバ・コネチカット・リザーブ プティコロナ 4"×38 約5.4g、ヒルベルト・オリバ・レセルバ・ブラン ロブスト 5"×50 約11.8g、Nub コネチカット 354 3 3/4"×54 約10.3g、Nub カメルーン 358 3 3/4"×58 約11.9g、ケイン・デイトナ 543 No.4 5"×43 約8.7g、10本で合計 約100.0g → 100本換算）であり、実際のたばこ税は税関の実測重量によって前後します。推定の幅（±15%）では、たばこ税は ¥1,293〜¥1,752（総支払額 ¥6,866〜¥7,325、1本あたり実質 約¥687〜約¥733）の範囲に入ります。実測で大きく異なる場合は、税金合計・総支払額もその分変わります。たばこ税の内訳は、国たばこ税 ¥680＋特別たばこ税 ¥82＋道府県たばこ税 ¥107＋市町村たばこ税 ¥655（重量換算100本分に各税率を掛け、税目ごとに切り捨て）です。たばこ税の税率（現行）：国たばこ税 ¥6,802／千本、特別たばこ税 ¥820／千本、道府県たばこ税 ¥1,070／千本、市町村たばこ税 ¥6,552／千本。各税目ごとに本数×税率÷1000を切り捨てて合算しています（第1号・第4号・第5号・第6号・第7号・第8号・第9号・第10号・第11号・第12号と同じ TaxCore の計算方式です）。</p>
-<p>送料について：本セールの「送料無料」は米国内配送が対象です。日本への国際送料（または転送サービスの手数料）は別途必要で、その金額は注文方法によって変わります。国際送料が発生する場合、その扱い（課税価格への算入の有無を含む）は配送方法により異なります。</p>
-<p>価格・在庫・セール条件は 2026年11月25日 時点の商品ページ掲載に基づきます。実際の課税額は申告内容と税関の判断により確定します。本記事は税務の助言ではなく、購入の判断と手続きの責任は読者ご自身にあります。</p>
+<!-- Deep Dive -->
+<div class="column">
+<section class="dd-shelf" aria-label="深掘りシリーズ">
+<div class="dd-head">
+<span class="dd-en">DEEP DIVE SERIES</span>
+<span class="dd-ja">編集長の深掘りシリーズ ― 人気の特集</span>
 </div>
+<div class="dd-grid">
+<a class="dd-card" href="features/foundation.html">
+<img src="img/foundation/hero-melillo.jpg" alt="エリントンの本社でブロードリーフの葉を検分するニコラス・メリーロ" loading="lazy">
+<span class="dd-no">第11弾</span>
+<span class="dd-title">ニコラス・メリーロ</span>
+</a>
+<a class="dd-card" href="features/plasencia.html">
+<img src="img/plasencia/hero.jpg" alt="プラセンシア エステリ工場の中庭と看板" loading="lazy">
+<span class="dd-no">第12弾</span>
+<span class="dd-title">プラセンシア</span>
+</a>
+<a class="dd-card" href="features/dunbarton.html">
+<img src="img/dunbarton/saka-hero.jpg" alt="スティーブ・サカ" loading="lazy">
+<span class="dd-no">第10弾</span>
+<span class="dd-title">スティーブ・サカ</span>
+</a>
+<a class="dd-card" href="features/carrillo.html">
+<img src="img/carrillo/ca-carrillo-portrait.jpg" alt="エルネスト・ペレス＝カリージョ" loading="lazy">
+<span class="dd-no">第9弾</span>
+<span class="dd-title">E.P. カリージョ</span>
+</a>
+<a class="dd-card" href="features/crowned-heads.html">
+<img src="img/crowned-heads/wfr-fourkicks-box.jpg" alt="クラウンデッド・ヘッズ フォー・キックスの箱" loading="lazy">
+<span class="dd-no">第8弾</span>
+<span class="dd-title">クラウンデッド・ヘッズ</span>
+</a>
+<a class="dd-card" href="features/tatuaje.html">
+<img src="img/tatuaje/atlantic-cazadores.jpg" alt="タトゥアヘ" loading="lazy">
+<span class="dd-no">第7弾</span>
+<span class="dd-title">タトゥアヘ</span>
+</a>
+<a class="dd-card" href="features/giants.html">
+<img src="img/giants/cigarterminal-lusitanias.jpg" alt="幻の巨人たち" loading="lazy">
+<span class="dd-no">第6弾</span>
+<span class="dd-title">幻の巨人たち</span>
+</a>
+<a class="dd-card" href="features/aj-fernandez.html">
+<img src="img/ajfernandez/portrait-aj-seedling-ca.jpg" alt="AJフェルナンデス" loading="lazy">
+<span class="dd-no">第5弾</span>
+<span class="dd-title">AJフェルナンデス</span>
+</a>
+<a class="dd-card" href="features/myfather.html">
+<img src="img/myfather/atl-myfather1.jpg" alt="マイファザー ル・ビジュー1922" loading="lazy">
+<span class="dd-no">第4弾</span>
+<span class="dd-title">マイファザー</span>
+</a>
+<a class="dd-card" href="features/joya.html">
+<img src="img/joya/numero-uno-no1-old-cigarcoop.jpg" alt="ホヤ・デ・ニカラグア ヌメロ・ウノ" loading="lazy">
+<span class="dd-no">第3弾</span>
+<span class="dd-title">ホヤ・デ・ニカラグア</span>
+</a>
+<a class="dd-card" href="features/padron.html">
+<img src="img/padron/ca-tale-two-families.jpg" alt="パドロン家の人々" loading="lazy">
+<span class="dd-no">第2弾</span>
+<span class="dd-title">パドロン</span>
+</a>
+<a class="dd-card" href="features/opusx.html">
+<img src="img/opusx/opus-lost-city.jpg" alt="Opus X ロスト・シティの箱とバンド" loading="lazy">
+<span class="dd-no">第1弾</span>
+<span class="dd-title">伝説のオーパスX</span>
+</a>
+</div>
+</section>
+</div>
+
+<!-- Top Stories -->
+<section class="section" aria-label="主要ニュース">
+<a class="tool-strip" href="category/tax-calculator.html">
+<span class="ts-row">
+<span class="ts-icon"><span class="box"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2" fill="none" stroke="#e9cf8a" stroke-width="1.6"/><rect x="8" y="5.5" width="8" height="3.6" fill="#e9cf8a"/><g fill="#e9cf8a"><circle cx="8.6" cy="12.4" r="1.15"/><circle cx="12" cy="12.4" r="1.15"/><circle cx="15.4" cy="12.4" r="1.15"/><circle cx="8.6" cy="15.9" r="1.15"/><circle cx="12" cy="15.9" r="1.15"/><circle cx="15.4" cy="15.9" r="1.15"/></g></svg></span></span>
+<span class="ts-main"><span class="ts-title">葉巻輸入税シミュレーター</span></span>
+<span class="ts-link">計算する <span class="arrow">›</span></span>
+</span>
+</a>
+<div class="section-head"><span class="en">TOP STORIES</span><span class="ja">主要ニュース</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="top-grid">
+
+<article>
+<a class="card lead-card" href="news/adventura-first-decade-2026.html">
+<img class="thumb" src="img/news-sample/adventura-first-decade-2026.jpg" alt="ADV（アドベンチュラ）「ファースト・ディケイド」— 創業10周年記念、自社農園の初収穫葉で作るトロ">
+<div class="meta-line"><span class="cat">限定品</span><span class="country">スイス</span></div>
+<h3>ADV（アドベンチュラ）「ファースト・ディケイド」— 創業10周年記念、自社農園の初収穫葉で作るトロ</h3>
+<p class="summary">スイス発・ドミニカ製のブティック、ADV（アドベンチュラ・シガーズ、ADV & マッケイ）が、創業10周年記念シガー「ファースト・ディケイド」を発表しました。エクアドル産ハバノ・エスクーロのラッパーに、自社農園で開発した独自種「アロマティカ」の初収穫葉をバインダーとフィラーに使います。この葉は5年間寝かせて温存していたものです。サイズはトロ 6×52の1サイズのみ。10本入り2,000箱（計20,000本）の限定生産で、各箱には取り外し可能なトレイが付きます。発売は2027年1月の予定で、価格は未発表です。</p>
+<div class="meta-line dates"><span class="source">CigarsLover</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card mid-card" href="news/dominique-london-signature-collection-2026.html">
+<img class="thumb" src="img/news-sample/dominique-london-signature-2026.jpg" alt="ドミニク・ロンドン、オリジナル・アクセサリー「シグネチャー・コレクション」発売" loading="lazy">
+<div class="meta-line"><span class="cat">新製品</span><span class="country">イギリス</span></div>
+<h3>ドミニク・ロンドン、オリジナル・アクセサリー「シグネチャー・コレクション」発売</h3>
+<p class="summary">欧州の葉巻・スピリッツ小売、ドミニク・ロンドン（7カ国33店舗）が、オリジナルの葉巻アクセサリー「シグネチャー・コレクション」を発売しました。ライター4種、カッター3種、灰皿2種、シガーケース5種を展開します。ケースを除く全品が「ドミニク・ロンドン・ブルー」仕上げで、ライターには3年保証が付きます。ライターはシングルフレーム45ポンド（約58.50ドル、約9,300円）からフォーフレーム74.17ポンド（約96ドル、約15,300円）まで。カッターは25ポンド（約32.50ドル、約5,200円）から卓上型の250ポンド（約325ドル、約51,700円）まで。灰皿は53.33ポンド（約70ドル、約11,100円）と250ポンド（約325ドル、約51,700円）。ケースはカーボンファイバー製で、1本用46.67ポンド（約60.50ドル、約9,600円）から5本用105ポンド（約136ドル、約21,600円）まで、56リングまで対応します。全店舗と公式サイトで販売中で、米国への配送も可能です。</p>
+<div class="meta-line dates"><span class="source">Cigar Aficionado</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card mid-card" href="news/les-fines-lames-pierre-jourdan-departs-2026.html">
+<img class="thumb" src="img/news-sample/les-fines-lames-le-petit-2026.jpg" alt="レ・ファイン・ラーム創業者ピエール・ジュルダン氏、12年で退任 — マルセイユ本社は維持" loading="lazy">
+<div class="meta-line"><span class="cat">経営</span><span class="country">フランス</span></div>
+<h3>レ・ファイン・ラーム創業者ピエール・ジュルダン氏、12年で退任 — マルセイユ本社は維持</h3>
+<p class="summary">フランスの高級葉巻アクセサリー・ブランド、レ・ファイン・ラームの共同創業者ピエール・ジュルダン氏が、12年間の在任を経て退任しました。2014年にヤン・ブータン氏、ジル・バイイ＝メートル氏とともにクラウドファンディングで葉巻カッター兼用ナイフを発売し、創業。5年後の2019年には廉価版「ル・プティ」を追加し、現在はカッター、ライター、シガーケース、灰皿などを展開しています。2023年にヴァンダーマリエール・シガー・ファミリー（VCF、オリバの親会社）が出資し、昨年（2025年）にVCFが残りの全株式を取得。共同創業者のパブロ・ロデ氏は2025年6月に既に退任しています。本社はフランス・マルセイユに残り、今後は国際B2B流通の強化と、2026年末から2027年にかけての新製品・コラボ・限定品の展開を進める方針です。世界30カ国超・800店舗以上で展開しています。</p>
+<div class="meta-line dates"><span class="source">Halfwheel</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+</div>
+</section>
+
+<!-- Latest News -->
+<section class="section" aria-label="最新ニュース">
+<div class="section-head"><span class="en">LATEST NEWS</span><span class="ja">最新ニュース</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="latest-list">
+
+<article>
+<a class="row-card" href="news/puro-som-sine-tempore-2026.html">
+<img class="thumb" src="img/news-sample/puro-som-sine-tempore-2026.jpg" alt="メリーランド発の新ブティック、プーロ・ソム「シネ・テンポレ」が正式デビュー" loading="lazy">
+<div>
+<div class="meta-line"><span class="cat">新製品</span><span class="country">アメリカ</span></div>
+<h3>メリーランド発の新ブティック、プーロ・ソム「シネ・テンポレ」が正式デビュー</h3>
+<p class="summary">メリーランド州コロンビア拠点の新興ブティック、プーロ・ソムが第1作「シネ・テンポレ」を正式にデビューさせました。ボックスプレス・トロ 6×54、カメルーン・ラッパー、エステリのバインダー、エステリ／ハラパ／コンデガのフィラーで、葉は最低3年熟成。ミディアムプラスで、エステリの非公開ブティック工場製です。1本14ドル（約2,200円）、20本箱です。創業者はシガー・ソムリエのジョシュア・W・カフェル氏。店頭には2026年6月13日にメリーランド州セバーナパークのブロードリーフ・タバコで初登場し、現在は州内3店舗で販売中です。生産数は非公表です。</p>
+<div class="meta-line dates"><span class="source">Cigar Dojo</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</div>
+</a>
+</article>
+
+<article>
+<a class="row-card" href="news/casa-carrillo-inch-iron-ships-2026.html">
+<img class="thumb" src="img/news-sample/inch-iron-2026.jpg" alt="カーサ・カリーヨ「INCH Iron」出荷開始 — 四代目エルネスト3世初のレギュラー・ブレンド" loading="lazy">
+<div>
+<div class="meta-line"><span class="cat">新製品</span><span class="country">アメリカ</span></div>
+<h3>カーサ・カリーヨ「INCH Iron」出荷開始 — 四代目エルネスト3世初のレギュラー・ブレンド</h3>
+<p class="summary">カーサ・カリーヨがINCHラインの新作「INCH Iron」の出荷を開始しました。4代目エルネスト・ペレス＝カリーヨ3世が手がけた初のレギュラー・ブレンドです。ペンシルベニア・ブロードリーフのマドゥーロ・ラッパー、メキシコ・サンアンドレスのバインダー、ドミニカ産と米国産（主にコネチカットとペンシルベニア）のフィラーを使い、フルボディ、ドミニカ共和国製です。3サイズ・各24本入り箱で、No.56（5×56）10.75ドル（約1,700円）、No.60（5 7/8×60）11.50ドル（約1,800円）、No.64（6 1/8×64）12.50ドル（約2,000円）。レギュラー・プロダクションです。本紙は11月14日号でデビューを報じました。今回は出荷開始の続報です。</p>
+<div class="meta-line dates"><span class="source">Cigar Dojo</span><span class="src-date">2026年11月23日</span><span class="pub">2026年11月24日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</div>
+</a>
+</article>
+
+<article>
+<a class="row-card" href="news/espinosa-las-6-provincias-mia-2026.html">
+<img class="thumb" src="img/news-sample/espinosa-mia-2026.jpg" alt="エスピノーサ「ラス・セイス・プロビンシアス MIA」店頭へ — “第7の州”マイアミに捧げる最終章、20,000本限定" loading="lazy">
+<div>
+<div class="meta-line"><span class="cat">限定品</span><span class="country">アメリカ</span></div>
+<h3>エスピノーサ「ラス・セイス・プロビンシアス MIA」店頭へ — “第7の州”マイアミに捧げる最終章、20,000本限定</h3>
+<p class="summary">エスピノーサ・プレミアム・シガーの限定ライン「ラス・セイス・プロビンシアス」第7弾「MIA」が店頭に到着し始めました。キューバ建国当初の6州にちなむシリーズで、今回は“非公式の第7の州”マイアミへのオマージュです。ニカラグアン・ピューロで、サン・ロタノ工場製。サイズは6 1/4×55のトロ・エクストラです。1本18ドル（約2,900円）、20本箱360ドル（約57,200円）。生産は20本箱1,000箱（計20,000本）限定です。2026年4月のPCAトレードショーで発表され、発売日は2026年11月19日でした。</p>
+<div class="meta-line dates"><span class="source">Halfwheel</span><span class="src-date">2026年11月23日</span><span class="pub">2026年11月24日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</div>
+</a>
+</article>
+
+<article>
+<a class="row-card" href="news/partagas-serie-d-no4-50-aniversario-2026.html">
+<img class="thumb" src="img/news-sample/partagas-50-aniversario-2026.jpg" alt="パルタガス「セリエD No.4」50周年記念ケース — スペイン限定1,000ケース、1970年代の意匠で" loading="lazy">
+<div>
+<div class="meta-line"><span class="cat">限定品</span><span class="country">キューバ</span></div>
+<h3>パルタガス「セリエD No.4」50周年記念ケース — スペイン限定1,000ケース、1970年代の意匠で</h3>
+<p class="summary">パルタガスが、看板ビトラ「セリエD No.4」のスペイン上陸50周年を記念し、スペイン市場限定の特別ケース「セリエD No.4 50 アニベルサリオ」を発表しました。1976年のスペイン上陸から2026年で50年。木製ケースは1970年代のブランドデザインに着想を得た赤と金の意匠で、「50 Aniversario 1976-2026」の刻印が入ります。限定1,000ケース（ナンバリング付き）で、各ケースにロブスト（50リング×124mm、重さ11.66g）15本を1列に収納します。各葉巻には従来のセリエDバンドに加え、黒と金の記念バンド（第2バンド）が巻かれます。価格は未発表で、スペイン限定のため日本への流通は未確認です。</p>
+<div class="meta-line dates"><span class="source">Cigar Journal</span><span class="src-date">2026年11月23日</span><span class="pub">2026年11月24日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</div>
+</a>
+</article>
+
+<article>
+<a class="row-card" href="news/cra-fall-freedom-sampler-2026.html">
+<img class="thumb" src="img/news-sample/cra-freedom-sampler-2026.jpg" alt="CRA秋のフリーダム・サンプラー発売 — 幻のオーパスX「ミステリオX」入り10本で204ドル" loading="lazy">
+<div>
+<div class="meta-line"><span class="cat">限定品</span><span class="country">アメリカ</span></div>
+<h3>CRA秋のフリーダム・サンプラー発売 — 幻のオーパスX「ミステリオX」入り10本で204ドル</h3>
+<p class="summary">葉巻愛好家の権利擁護団体CRA（Cigar Rights of America）が、秋の「フリーダム・サンプラー2026」を小売店に通知しました。年2回発売されるサンプラーで、参加メーカーが葉巻を寄贈して作られ、収益はCRAの活動資金になります。10本入りで204ドル（約32,400円）。目玉はArturo Fuente「フエンテ・フエンテ オーパスX ミステリオX」で、CRAによれば「二度と発売されない限定サイズ」とのこと。流通はフエンテ／ニューマンの営業チームが担当します。</p>
+<div class="meta-line dates"><span class="source">Cigar Coop</span><span class="src-date">2026年11月21日</span><span class="pub">2026年11月22日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</div>
+</a>
+</article>
+
+</div>
+
+<ul class="more-list">
+<li><a href="news/mayflower-noel-2026.html"><span class="d">2026年11月20日</span>メイフラワー「ノエル」、クリスマス限定バーバーポールが発売5時間で完売</a></li>
+<li><a href="news/vector-duo-cut-2026.html"><span class="d">2026年11月20日</span>ベクター「デュオ・カット」発表 — ストレートとVカットの2-in-1、12月下旬に限定先行</a></li>
+<li><a href="news/bocock-stadium-series-texas-am-2026.html"><span class="d">2026年11月20日</span>ボコック「スタジアム・シリーズ」第3弾 — テキサスA&M大学150周年</a></li>
+<li><a href="news/gellis-piece-unique-shipping-2026.html"><span class="d">2026年11月20日</span>ゲリス「ピース・ユニーク」2種が出荷開始 — ピンクとエメラルド・スカイ</a></li>
+<li><a href="news/drew-estate-pappy-triplet-sampler.html"><span class="d">2026年11月19日</span>ドリュー・エステート、パピー・ヴァン・ウィンクル限定9本サンプラーを発売 — パピー＆カンパニー限定</a></li>
+<li><a href="news/west-tampa-barbershop-2026.html"><span class="d">2026年11月19日</span>ウエスト・タンパ初のボックスプレス「バーbershop」、出荷開始</a></li>
+<li><a href="news/davidoff-sheep-2027-launch.html"><span class="d">2026年11月18日</span>ダビドフ「イヤー・オブ・ザ・シープ LE 2027」世界発売 — 3種の価格と限定数が判明</a></li>
+<li><a href="news/stallone-montecristo-2027.html"><span class="d">2026年11月17日</span>シルベスター・スタローン×モンテクリスト、2027年に新シガー発売へ — 『ロッキー』50周年の回想録がきっかけ</a></li>
+<li><a href="news/black-works-shaolin-36th-chamber-stores-2026.html"><span class="d">2026年11月16日</span>ブラック・ワークス・スタジオ「シャオリン 36thチェンバー」店頭へ — 2022年の人気作の続編、3種ラッパーのバーバーポール</a></li>
+<li><a href="news/caldwell-el-morbido-2026.html"><span class="d">2026年11月16日</span>コールドウェル、数量限定「エル・モルビド」を本日発売 — 600箱のみ</a></li>
+<li><a href="news/espanola-honduras-2026.html"><span class="d">2026年11月16日</span>JMブランズ、ホンジュラス・ピューロ「エスパニョーラ・ホンジュラス」を発表 — PCA 2027でお披露目</a></li>
+<li><a href="news/fratello-camo-cigarillos-2026.html"><span class="d">2026年11月16日</span>フラテッロ初のフレーバー物「カモ・シガリロス」4種、11月16日に出荷開始</a></li>
+<li><a href="news/h-upmann-selected-by-aj-fernandez.html"><span class="d">2026年11月16日</span>H.アップマン「セレクテッド・バイ AJフェルナンデス」本日11月17日発売 — サンタ・クララがAJフェルナンデス・コレクションを改称</a></li>
+<li><a href="news/queen-of-the-west-noir-2026.html"><span class="d">2026年11月16日</span>シンシナティ発の新興ブランド「クイーン・オブ・ザ・ウェスト」、第2弾「ノワール」を12月に発売へ</a></li>
+<li><a href="news/saint-luis-rey-palatinos-2026.html"><span class="d">2026年11月16日</span>サン・ルイス・レイ「パラティノス」正式発表 — ブランド初のLCDH／ハバノス・スペシャリスト限定レギュラー品</a></li>
+<li><a href="news/siglo-year-of-the-goat-2026.html"><span class="d">2026年11月16日</span>シグロ、干支「ヤギ」アクセサリー3点発売 — ヒュミドールは各色100個限定1,475ドル</a></li>
+<li><a href="news/lord-baltimore-hobsons-choice-details-2026.html"><span class="d">2026年11月14日</span>ロード・ボルティモア「ホブソンズ・チョイス サファイア・サングロウン」、価格とサイズが判明</a></li>
+<li><a href="news/kristoff-ai-debut.html"><span class="d">2026年11月14日</span>クリストフ、AI開発の新葉巻「Kristoff.ai」発表 — 2027年PCAで正式発売へ</a></li>
+<li><a href="news/boveda-100-count-humidor-on-sale.html"><span class="d">2026年11月13日</span>ボベダ100本用ヒュミドール、本日11月17日発売（399ドル）</a></li>
+<li><a href="news/viaje-thanksgiving-ships-2026.html"><span class="d">2026年11月13日</span>ビアヘ感謝祭2品、本日11月16日出荷 — 「値下げ分を消費者へ」の異例の呼びかけ</a></li>
+<li><a href="news/trinidad-tommy-bahama-accessories.html"><span class="d">2026年11月13日</span>トリニダード×トミー・バハマ、アクセサリー4点とキャンプシャツを追加 — 葉巻発売から1年の第2章</a></li>
+<li><a href="news/boveda-100-count-humidor.html"><span class="d">2026年11月13日</span>ボベダ、100本用ヒュミドールを発表 — 11月17日発売、399ドル</a></li>
+<li><a href="news/casa-carrillo-inch-iron-debut.html"><span class="d">2026年11月13日</span>カサ・カリーリョ「INCH アイアン」デビュー — 三代目ブレンダーの初レギュラー作</a></li>
+<li><a href="news/lord-baltimore-hobsons-choice-sapphire.html"><span class="d">2026年11月13日</span>ロード・ボルティモア「ホブソンズ・チョイス サファイア・サングロウン」発売 — ペルドモとのコラボ3部作が完結</a></li>
+<li><a href="news/trinidad-villa-debut.html"><span class="d">2026年11月13日</span>トリニダード「ビジャ」本日世界デビュー — 世界遺産の街の邸宅にちなんだ新ビトラ</a></li>
+<li><a href="news/aladino-elegante-price-2026.html"><span class="d">2026年11月12日</span>アラディーノ 85周年「エレガンテ」、価格と販売条件が判明 — 1本22ドル、取扱店限定で月2箱まで</a></li>
+<li><a href="news/viaje-thanksgiving-2026.html"><span class="d">2026年11月12日</span>ビアヘ、感謝祭に2品 — 「スタッフト・ターキー エディシオン・リミターダ」と新作「ワン・ハッピー・ファミリー」</a></li>
+<li><a href="news/davidoff-winston-churchill-traveller-humidors.html"><span class="d">2026年11月12日</span>ダビドフ、ウィンストン・チャーチル限定ヒュミドール2種を発表 — 各100個限定、12月1日発売</a></li>
+<li><a href="news/highclere-castle-senetjer-2026.html"><span class="d">2026年11月12日</span>ファンデーション「セネッチャー 2026」出荷開始 — ツタンカーメンの葉巻、今年も11月に</a></li>
+<li><a href="news/kristoff-mildly-pistoff-taa-2026.html"><span class="d">2026年11月12日</span>クリストフ「マイルドリー・ピストフ」とTAA 2026限定品が出荷開始</a></li>
+<li><a href="news/undercrown-dark-harvest.html"><span class="d">2026年11月12日</span>ドリュー・エステート「アンダークラウン ダーク・ハーベスト」発売 — シガーズ・インターナショナル限定</a></li>
+<li><a href="news/hoyo-le-hoyo-de-san-luis-debut.html"><span class="d">2026年11月12日</span>ホヨ「レ・オヨ・デ・サン・ルイス」本日世界デビュー — サン・ルイス産の葉だけを使った新ビトラ</a></li>
+<li><a href="news/casa-carrillo-battleborn-heroes-2026.html"><span class="d">2026年11月11日</span>カーサ・カリージョ「バトルボーン・ヒーローズ」出荷開始 — 退役軍人の日に合わせた2年目の限定品</a></li>
+<li><a href="news/weller-by-cohiba-2026.html"><span class="d">2026年11月11日</span>フォージド「ウェラー by コイーバ 2026」発売 — バーボン樽で熟成したバインダーが今年の見どころ</a></li>
+<li><a href="news/roma-craft-monongahela-2026.html"><span class="d">2026年11月10日</span>ロマ・クラフト「インテンパランス WR 1794 モノンガヒーラ」、イベント限定で登場</a></li>
+<li><a href="news/adv-mckay-la-llorona-robusto-extra.html"><span class="d">2026年11月10日</span>ADV＆マッケイ「ラ・リョローナ」に第4のサイズ — ロブスト・エクストラ出荷開始、20店限定1,000箱</a></li>
+<li><a href="news/black-works-shaolin-36th-chamber.html"><span class="d">2026年11月10日</span>ブラック・ワークス・スタジオ「ショーリン 36thチェンバー」— 3色バーバーポールの小ロット限定品、11月下旬出荷</a></li>
+<li><a href="news/davidoff-gift-assortment-2026.html"><span class="d">2026年11月10日</span>ダビドフ、4ブランド10本入り「ギフト・アソートメント」発売 — AVO・カマチョ・ジノ・バカラを詰め合わせ</a></li>
+<li><a href="news/liga-privada-crushd-velvet.html"><span class="d">2026年11月10日</span>リガ・プリバダ「クラッシュド・ベルベット」登場 — ドリュー・エステートのイベント限定ユニコ・セリエ</a></li>
+<li><a href="news/dunbarton-cosmic-corona-sampler.html"><span class="d">2026年11月9日</span>ダンバートン、全サイズ「コロナ」で揃えた14本サンプラーを出荷 — 新ブレンド2種を封入</a></li>
+<li><a href="news/broncano-classic-rubi-corona.html"><span class="d">2026年11月8日</span>ブロンカーノ、看板「クラシック・ルビ」に小さいコロナを追加</a></li>
+<li><a href="news/tatuaje-la-riqueza-se-2026.html"><span class="d">2026年11月8日</span>タトゥアヘ、休眠の「ラ・リケサ」を限定版で復活 — まずはカリフォルニアから</a></li>
+<li><a href="news/hermanos-de-armas-eleven-eleven.html"><span class="d">2026年11月7日</span>エルマノス・デ・アルマス「イレブン・イレブン」出荷開始 — 売上総額の11%を退役軍人支援へ</a></li>
+<li><a href="news/bolivar-safari-abidjan-launch-2026.html"><span class="d">2026年11月6日</span>ボリバ「サファリ」、アビジャンで正式披露 — アフリカ初のリージョナル・エディション、販売開始</a></li>
+<li><a href="news/bolivar-safari-abidjan-debut.html"><span class="d">2026年11月6日</span>ボリバ「サファリ」、本日アビジャンで披露 — アフリカ初のリージョナル・エディション</a></li>
+<li><a href="news/roma-craft-foreign-domestic-2026.html"><span class="d">2026年11月6日</span>ロマ・クラフト「フォーリン＆ドメスティック」第2弾が店頭へ — シリーズ初の再発売、1,200バンドルに増産</a></li>
+<li><a href="news/crowned-heads-las-calaveras-decimo-2026.html"><span class="d">2026年11月5日</span>クラウン・ヘッズ「ラス・カラベラス デシモ 2026」— 人気限定が3サイズで復活、10月30日に出荷開始</a></li>
+<li><a href="news/oliva-melanio-anio-2026.html"><span class="d">2026年11月5日</span>オリバ「セリエV メラニオ エディシオン・アーニョ 2026」店頭に到着 — ペルフェクト型の異形ビトラ、9,000箱限定</a></li>
+<li><a href="news/san-luis-rey-eiroa-30th-maduro.html"><span class="d">2026年11月5日</span>サン・ルイス・レイ エイロア 30周年「マデューロ」登場 — TAA会員店に11月中旬から出荷</a></li>
+<li><a href="news/powstanie-war-bear-2026.html"><span class="d">2026年11月5日</span>ポウスタニエ「ウォーベア 2026」— 390箱だけのバーバーポール、11月11日発売</a></li>
+<li><a href="news/chimolly-argosy.html"><span class="d">2026年11月4日</span>チモリー、第4ライン「アーゴシー」を14日デビュー — 同社初のサン・アンドレス巻き</a></li>
+<li><a href="news/plasencia-holiday-collection-2026.html"><span class="d">2026年11月4日</span>プラセンシア「2026 ホリデー・コレクション」— 人気5銘柄のトロ詰め合わせ、11月出荷</a></li>
+<li><a href="news/jc-newman-cuesta-rey-rebrand.html"><span class="d">2026年11月4日</span>J.C. Newman、140年の老舗「クエスタ・レイ」のバンドを刷新 — 11月7日にラスベガスで披露</a></li>
+<li><a href="news/tatuaje-boris-karloff-2026.html"><span class="d">2026年11月4日</span>タトゥアヘ「ボリス・カーロフ」2026 — 最も細い新サイズで復活</a></li>
+<li><a href="news/petit-edition.html"><span class="d">2026年11月3日</span>セレクテッド・タバコ「プチ・エディション」登場 ― 新サイズ入り5本セット</a></li>
+<li><a href="news/dunbarton-shokai-bushido.html"><span class="d">2026年11月3日</span>ダンバートン「Shokai Bushido」— 11月14日のCigartopiaでデビュー、サカの新ブレンド「匠」の試作から誕生</a></li>
+<li><a href="news/la-gloria-cubana-gran-legado.html"><span class="d">2026年11月3日</span>ラ・グロリア・クバーナ「Gran Legado」— ベテラントルセドールのサイン入り、2026年限定で復活</a></li>
+<li><a href="news/plasencia-year-of-the-goat.html"><span class="d">2026年11月3日</span>プラセンシア「山羊年」— 干支シリーズ第7弾、11月末出荷へ</a></li>
+<li><a href="news/egm-ninfa-jars.html"><span class="d">2026年11月2日</span>EGM、ニンファ50本入りの陶器ジャーを出荷開始 — イタリア製手作り、500個限定</a></li>
+<li><a href="news/flor-de-selva-ano-de-la-cabra-2027.html"><span class="d">2026年11月2日</span>マヤ・セルバ「アーニョ・デ・ラ・カブラ 2027」、欧州向けに出荷開始 — 干支限定、米国での発売はなし</a></li>
+<li><a href="news/mbombay-kesara-pyramid-2020.html"><span class="d">2026年11月2日</span>MBombay、数年寝かせたピラミッド2種を発売 — 巻けるトルセドールは一人だけ、単一ロットの葉</a></li>
+<li><a href="news/arturo-fuente-rare-pink.html"><span class="d">2026年11月2日</span>フエンテ『レアピンク』、1960年代へのオマージュと乳がん啓発のパーフェクト</a></li>
+<li><a href="news/tabacalera-1916-eiroa.html"><span class="d">2026年11月2日</span>エイロア家4代目の『1916』、全ホンジュラス葉でたどる一家の原点</a></li>
+<li><a href="news/black-works-killer-bee-buzz-saw-2.html"><span class="d">2026年11月2日</span>Black Works Studio「Killer Bee Buzz Saw 2.0」— 人気専門店の専売マイクロバッチ</a></li>
+<li><a href="news/davidoff-year-of-the-sheep-2027.html"><span class="d">2026年11月2日</span>ダビドフ、2027年「羊年」限定品を発表 — 3種すべてフィグラード</a></li>
+<li><a href="news/brolo-core-line-shipping-2026.html"><span class="d">2026年10月30日</span>ブローロ、初の3ブレンドが出荷開始 — テキサス発の夫婦ブランドが店頭デビュー</a></li>
+<li><a href="news/hvc-hot-cake-gladiators.html"><span class="d">2026年10月30日</span>HVC「ホットケーキ」限定シリーズ第8弾、パーフェクト「グラディエイターズ」出荷開始</a></li>
+<li><a href="news/brolo-cigar-co-debut.html"><span class="d">2026年10月30日</span>新興ブランド「Brolo Cigar Co.」デビュー — 夫婦で立ち上げた3ブレンド、11月19日発売</a></li>
+<li><a href="news/gellis-piece-unique-emerald-sky.html"><span class="d">2026年10月30日</span>Gellis Family「Piece Unique Emerald Sky」— わずか3,000本、ペルー産の希少葉入り</a></li>
+<li><a href="news/my-father-le-bijou-connecticut-2026.html"><span class="d">2026年10月29日</span>マイファザー「ル・ビジュー1922 コネチカット」限定版、11月に出荷へ</a></li>
+<li><a href="news/aladino-85-aniversario-reserva-elegante.html"><span class="d">2026年10月29日</span>アラディーノ「85 アニベルサリオ・レセルバ・エレガンテ」出荷開始 — 85周年のランセロ、11月9日週から</a></li>
+<li><a href="news/my-father-le-bijou-connecticut.html"><span class="d">2026年10月29日</span>マイファザー『ル・ビジュー1922』にコネチカット種ラッパーの限定版、11月発売</a></li>
+<li><a href="news/elegante.html"><span class="d">2026年10月29日</span>アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷</a></li>
+<li><a href="news/lure-codfather-2026.html"><span class="d">2026年10月28日</span>ルアー「ザ・コードファーザー」、4,000本限定で店頭へ</a></li>
+<li><a href="news/feral-flying-pig.html"><span class="d">2026年10月27日</span>ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も</a></li>
+<li><a href="news/loaisiga-el-cadejo-2026.html"><span class="d">2026年10月24日</span>ロアイシガ「エル・カデホ」、11月中にフロリダでデビュー — 白と黒の2匹の精霊犬</a></li>
+<li><a href="news/quai-dorsay-concordia-el-2026.html"><span class="d">2026年10月24日</span>ケ・ドルセー コンコルディア EL 2026、マドリードで世界初公開</a></li>
+<li><a href="news/brick-house-taa-2026.html"><span class="d">2026年10月23日</span>5年熟成のブリック・ハウス、TAA限定2026として11月2日発売</a></li>
+<li><a href="news/blackbird-mockingbird-film-2026.html"><span class="d">2026年10月22日</span>ブラックバード「モッキングバード」、ブランドフィルム公開 — 500箱は発売前に完売</a></li>
+<li><a href="news/espinosa-warhead-taa-2026.html"><span class="d">2026年10月21日</span>エスピノーサ「601 ラ・ボンバ ウォーヘッド TAA 2026」、11月出荷</a></li>
+<li><a href="news/battleborn-2026.html"><span class="d">2026年10月21日</span>ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活 ― 退役軍人の日に向け出荷</a></li>
+<li><a href="news/san-martin-villiger.html"><span class="d">2026年10月19日</span>ヴィリガーの新ブランド『サン・マルティン』、解放者の名を冠すドミニカの手巻き</a></li>
+<li><a href="news/villiger-taa-exclusive-2026.html"><span class="d">2026年10月14日</span>ヴィリガー「TAA Exclusive 2026」発売 — 自社ニカラグア工場製、500箱限定</a></li>
+<li><a href="news/bolivar-safari-regional-africa.html"><span class="d">2026年10月13日</span>ボリバ サファリ — アフリカ初のリージョナルエディション、11月21日デビュー</a></li>
+<li><a href="news/cohiba-talisman-regular.html"><span class="d">2026年10月7日</span>コイーバ タリスマンがレギュラー化 — 「コイーバ年」がロンドンで始動</a></li>
+<li><a href="news/lfd-andalusian-bull-10th-anniversary.html"><span class="d">2026年10月6日</span>アンダルシアン・ブル10周年、マデューロ版が5万本限定で登場</a></li>
+<li><a href="news/lgc-35-aniversario-switzerland.html"><span class="d">2026年10月6日</span>ラ・グロリア・クバーナ「35アニベルサリオ」、LCDH35周年記念ヒュミドールがスイス発売</a></li>
+<li><a href="news/montecristo-fragata.html"><span class="d">2026年9月29日</span>モンテクリスト新作「フラガータ」、免税・トラベルリテール専売で登場</a></li>
+<li><a href="news/casa-carrillo-pledge-allegiance-rockets.html"><span class="d">2026年9月23日</span>カーサ・カリージョ、米建国250周年「ロケッツ」250箱限定で出荷</a></li>
+<li><a href="news/trinidad-vigia-reserva-cosecha-2022.html"><span class="d">2026年9月23日</span>トリニダード史上初のレセルバ「ビヒア レセルバ コセチャ2022」発表</a></li>
+<li><a href="news/nub-mexico-oliva.html"><span class="d">2026年9月14日</span>オリバ『NUb メキシコ』、メキシコ産ラッパーの新ラインが10月発売</a></li>
+<li><a href="news/lfd-carbon-flower.html"><span class="d">2026年9月10日</span>LFD、カーボンファイバー製ケース入りの限定品「カーボン・フラワー」</a></li>
+<li><a href="news/por-larranaga-35-aniversario-germany.html"><span class="d">2026年8月31日</span>ポル・ララニャガ「35アニベルサリオ」、独販売店の35周年記念で発売</a></li>
+<li><a href="news/camacho-limited-edition-2026.html"><span class="d">2026年8月20日</span>カマーチョ限定版2026、11/18パーフェクトで9月3日発売 — 匠への敬意を込めて</a></li>
+<li><a href="news/tatuaje-creature-2026.html"><span class="d">2026年8月20日</span>タトゥアヘ『クリーチャー』、モンスター・シリーズ101作目は半魚人がモチーフ</a></li>
+<li><a href="news/la-galera-90th-anniversary.html"><span class="d">2026年8月10日</span>ラ・ガレラ、登録90周年記念に初のドミニカ・プーロ</a></li>
+<li><a href="news/plasencia-triunfal.html"><span class="d">2026年7月21日</span>プラセンシア『トリウンファル』、W杯2026記念は両国オーガニック葉の初ブレンド</a></li>
+<li><a href="news/montecristo-herederos-switzerland.html"><span class="d">2026年7月16日</span>6年越しのモンテクリスト「エレデロス」、スイスで待望の発売</a></li>
+<li><a href="news/trinidad-villa.html"><span class="d">2026年7月9日</span>トリニダード『ビジャ』、世界遺産の街にちなむLCDH専売の新ビトラ</a></li>
+<li><a href="news/bolivar-evento-55-france.html"><span class="d">2026年7月7日</span>ボリバ「エベント55」、フランス向け地域限定が発売（1本35ユーロ）</a></li>
+<li><a href="news/eiroa-dark-30th.html"><span class="d">2026年6月26日</span>エイロア・ダークが『30th』として復活、コロンビア産ピナレーニョを加え店舗到着</a></li>
+<li><a href="news/avo-expresivo.html"><span class="d">2026年6月25日</span>AVO初のホンジュラス製『エクスプレシボ』発売、ブランド刷新の第一歩</a></li>
+<li><a href="news/lgc-serie-brasil-no3.html"><span class="d">2026年6月16日</span>ブラジル向け地域限定第3弾、ラ・グロリア・クバーナ「セリエ・ブラジル No.3」</a></li>
+<li><a href="news/aladino-250th.html"><span class="d">2026年6月15日</span>アラディーノ『250th』が出荷開始、米独立250周年を祝う1,000箱限定</a></li>
+<li><a href="news/fuente-father-son-sampler-2026.html"><span class="d">2026年6月15日</span>フエンテ、父の日向け「ファーザー＆サン2026」サンプラーに新作2種</a></li>
+<li><a href="news/por-larranaga-intemporales-switzerland.html"><span class="d">2026年6月15日</span>ポル・ララニャガ「インテンポラレス」、スイス地域限定2023がようやく発売</a></li>
+<li><a href="news/dupont-cohiba-60-collection.html"><span class="d">2026年6月8日</span>コイーバ60周年、S.T.デュポンの記念アクセサリー第1弾が発売</a></li>
+<li><a href="news/cohiba-novedosos-andorra.html"><span class="d">2026年6月2日</span>2019年発表の幻、コイーバ「ノベドソス」がアンドラに到着</a></li>
+<li><a href="news/jc-newman-leroy-neiman-2026.html"><span class="d">2026年5月29日</span>J.C.ニューマン『ルロイ・ニーマン2026』出荷、収益はタンパの芸術教育へ</a></li>
+<li><a href="news/la-flor-de-cano-magicos-spain.html"><span class="d">2026年5月21日</span>ラ・フロール・デ・カノ「マヒコス」、スペイン向け地域限定が発売</a></li>
+<li><a href="news/la-escepcion-selectos-reales.html"><span class="d">2026年4月26日</span>ラ・エセプション「セレクトス・レアレス」発表 イタリア販売店ディアデマの25周年記念</a></li>
+<li><a href="news/muestra-de-saka-lengua-de-suegra.html"><span class="d">2026年4月15日</span>ダンバートン『ムエストラ・デ・サカ』初のクレブラ、『レングア・デ・スエグラ』</a></li>
+<li><a href="news/don-pepin-clasico-20th.html"><span class="d">2026年4月11日</span>ドン・ペピン・ガルシア『クラシコ』20周年、記念トロ・エクストラを2,500箱限定で</a></li>
+<li><a href="news/alec-bradley-30-years.html"><span class="d">2026年4月9日</span>アレック・ブラッドリー創業30周年『30イヤーズ』、創業家がブレンド選定</a></li>
+<li><a href="news/oliva-melanio-world-cup-2026.html"><span class="d">2026年4月6日</span>オリバ、W杯2026記念にサッカーボール型ボックスのメラニオ限定セット</a></li>
+<li><a href="news/juan-lopez-besame-mucho.html"><span class="d">2026年4月6日</span>フアン・ロペス「ベサメ・ムーチョ」、メキシコ向け地域限定が発売へ</a></li>
+<li><a href="news/la-aurora-preferidos-double-barrel-2026.html"><span class="d">2026年4月2日</span>ラ・アウロラ、ラム樽熟成の限定品「ダブル・バレル・エイジド」を新ブレンドで復活</a></li>
+<li><a href="news/davidoff-exclusive-vietnam-2026.html"><span class="d">2026年3月30日</span>ダビドフ初のベトナム限定版、ホーチミンで発表 パーフェクト300箱</a></li>
+<li><a href="news/gorbusto-by-aladino.html"><span class="d">2026年3月30日</span>キャンプ・アラディーノが『ゴルブスト』へ改名、霊長類キャラの3ブレンドで再出発</a></li>
+<li><a href="news/cohiba-wide-short-limited-edition.html"><span class="d">2026年3月25日</span>コイーバ・ワイド・ショート初の限定版、「50 リミテッドエディション 2024」ヒュミドール</a></li>
+<li><a href="news/montecristo-lesprit-portugal.html"><span class="d">2026年3月24日</span>モンテクリスト L'Esprit「ル・クレピュスキュール」、ポルトガルで披露</a></li>
+<li><a href="news/crowned-heads-moonflower.html"><span class="d">2026年3月19日</span>クラウン・ヘッズ『ムーンフラワー』、10年超ぶりのマイファザー製新定番ライン</a></li>
+<li><a href="news/joya-clasico-green-room.html"><span class="d">2026年3月18日</span>ホヤ・デ・ニカラグア『クラシコ』にホワイトハウス由来の限定ディアデマ</a></li>
+<li><a href="news/juan-lopez-seleccion-cubana.html"><span class="d">2026年3月16日</span>フアン・ロペス「セレクシオン・クバーナ」、キューバ国内限定で発売</a></li>
+<li><a href="news/amar-aj-fernandez.html"><span class="d">2026年3月13日</span>AJフェルナンデス『アマール』、工場火災後の支援への感謝を込めた新定番ライン</a></li>
+<li><a href="news/davidoff-puro-dominicano-2026.html"><span class="d">2026年3月12日</span>ダビドフ、ドミニカ産のみの「プーロ・ドミニカーノ」を定番ラインで復活</a></li>
+<li><a href="news/hoyo-de-monterrey-160th.html"><span class="d">2026年3月2日</span>オヨ・デ・モンテレイ160周年記念、Le Hoyo de Río Seco のスペイン限定版</a></li>
+<li><a href="news/punch-nectares-ireland.html"><span class="d">2026年2月5日</span>アイルランド初の地域限定パンチ「ネクタレス No.50」、ロンドンで発売</a></li>
+<li><a href="news/la-galera-year-of-the-horse-2026.html"><span class="d">2026年2月4日</span>ラ・ガレラ、2026年の干支「午年」限定ボックスを発売</a></li>
+<li><a href="news/cohiba-bhk-58-switzerland.html"><span class="d">2026年2月3日</span>コイーバ・ベイケ BHK 58、記念ボックスでスイス発売</a></li>
+<li><a href="news/punch-princesas-switzerland.html"><span class="d">2026年2月3日</span>パンチ「プリンセサス」限定版2025、スイスで発売（1本CHF 52）</a></li>
+<li><a href="news/trinidad-corcel-hong-kong.html"><span class="d">2026年1月29日</span>トリニダード初の春節記念「コルセル」、香港で世界初披露</a></li>
+<li><a href="news/fonseca-du-nord-canada.html"><span class="d">2026年1月20日</span>フォンセカ「デュ・ノール」、カナダ向け地域限定が4都市で発売</a></li>
+</ul>
+<p class="more-link"><a href="news/index.html">最新ニュース一覧へ ›</a></p>
+</section>
+
+<!-- Country News -->
+<section class="section" aria-label="国別ニュース">
+<div class="section-head"><span class="en">COUNTRY NEWS</span><span class="ja">国別ニュース</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="country-grid">
+
+<div class="country-block">
+<h3>CUBA<span class="ja">キューバ</span></h3>
+<ul class="mini-list">
+<li><a href="news/bvi-habanos.html"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>BVI裁判所、陳志氏のハバノス権益の清算命令解除へ</a></li>
+<li><a href="news/coleccion-habanos-books.html"><span class="d">発表 2026年6月2日 ／ Halfwheel</span>『本』の形をした至宝、コレクシオン・ハバノスの四半世紀</a></li>
+<li><a href="news/swiss-regional-editions-habanos.html"><span class="d">発表 2026年8月3日 ／ La Casa del Habano Nyon</span>スイス地域限定『エクスクルーシボ・スイサ』の20年、初年度から最新作まで</a></li>
+<li><a href="news/trinidad-villa.html"><span class="d">発表 2026年7月9日 ／ Habanos S.A. 公式発表</span>トリニダード『ビジャ』、世界遺産の街にちなむLCDH専売の新ビトラ</a></li>
+<li><a href="news/fifth-avenue.html"><span class="d">発表 2026年11月6日 ／ Tobacco Reporter</span>独占販売店5thアベニューの破産で、欧州のキューバ葉巻流通に影響</a></li>
+</ul>
+</div>
+
+<div class="country-block">
+<h3>NICARAGUA<span class="ja">ニカラグア</span></h3>
+<ul class="mini-list">
+<li><a href="news/brick-house-taa-2026.html"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
+<li><a href="news/amar-aj-fernandez.html"><span class="d">発表 2026年3月13日 ／ Halfwheel</span>AJフェルナンデス『アマール』、工場火災後の支援への感謝を込めた新定番ライン</a></li>
+<li><a href="news/oliva-melanio-world-cup-2026.html"><span class="d">発表 2026年4月6日 ／ Halfwheel</span>オリバ、W杯2026記念にサッカーボール型ボックスのメラニオ限定セット</a></li>
+<li><a href="news/nub-mexico-oliva.html"><span class="d">発表 2026年9月14日 ／ Halfwheel</span>オリバ『NUb メキシコ』、メキシコ産ラッパーの新ラインが10月発売</a></li>
+<li><a href="news/crowned-heads-moonflower.html"><span class="d">発表 2026年3月19日 ／ Halfwheel</span>クラウン・ヘッズ『ムーンフラワー』、10年超ぶりのマイファザー製新定番ライン</a></li>
+<li><a href="news/tatuaje-creature-2026.html"><span class="d">発表 2026年8月20日 ／ Halfwheel</span>タトゥアヘ『クリーチャー』、モンスター・シリーズ101作目は半魚人がモチーフ</a></li>
+<li><a href="news/muestra-de-saka-lengua-de-suegra.html"><span class="d">発表 2026年4月15日 ／ Cigar Coop</span>ダンバートン『ムエストラ・デ・サカ』初のクレブラ、『レングア・デ・スエグラ』</a></li>
+<li><a href="news/feral-flying-pig.html"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、人気の「フライング・ピッグ」が10ブレンド集合</a></li>
+<li><a href="news/don-pepin-clasico-20th.html"><span class="d">発表 2026年4月11日 ／ Halfwheel</span>ドン・ペピン・ガルシア『クラシコ』20周年、記念トロ・エクストラを2,500箱限定で</a></li>
+<li><a href="news/foundation-pca-2026-fire.html"><span class="d">発表 2026年5月1日 ／ Halfwheel</span>ファウンデーション、委託工場の火災でPCA 2026に新製品なし</a></li>
+<li><a href="news/joya-clasico-green-room.html"><span class="d">発表 2026年3月18日 ／ Halfwheel</span>ホヤ・デ・ニカラグア『クラシコ』にホワイトハウス由来の限定ディアデマ</a></li>
+<li><a href="news/my-father-le-bijou-connecticut.html"><span class="d">発表 2026年10月29日 ／ Halfwheel</span>マイファザー『ル・ビジュー1922』にコネチカット種ラッパーの限定版、11月発売</a></li>
+</ul>
+</div>
+
+<div class="country-block">
+<h3>DOMINICAN<span class="ja">ドミニカ共和国</span></h3>
+<ul class="mini-list">
+<li><a href="news/el-tigre-factory.html"><span class="d">発表 2026年10月27日 ／ Halfwheel</span>ドリュー・エステート、エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
+<li><a href="news/arturo-fuente-rare-pink.html"><span class="d">発表 2026年11月2日 ／ Halfwheel</span>フエンテ『レアピンク』、1960年代へのオマージュと乳がん啓発のパーフェクト</a></li>
+<li><a href="news/battleborn-2026.html"><span class="d">発表 2026年10月21日 ／ Halfwheel</span>ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
+<li><a href="news/san-martin-villiger.html"><span class="d">発表 2026年10月19日 ／ Tabak Brucker</span>ヴィリガーの新ブランド『サン・マルティン』、解放者の名を冠すドミニカの手巻き</a></li>
+</ul>
+</div>
+
+<div class="country-block">
+<h3>HONDURAS<span class="ja">ホンジュラス</span></h3>
+<ul class="mini-list">
+<li><a href="news/avo-expresivo.html"><span class="d">発表 2026年6月25日 ／ Halfwheel</span>AVO初のホンジュラス製『エクスプレシボ』発売、ブランド刷新の第一歩</a></li>
+<li><a href="news/elegante.html"><span class="d">発表 2026年10月29日 ／ Halfwheel</span>アラディーノ85周年記念に細身の新サイズ「エレガンテ」、11月9日の週に出荷</a></li>
+<li><a href="news/aladino-250th.html"><span class="d">発表 2026年6月15日 ／ Halfwheel</span>アラディーノ『250th』が出荷開始、米独立250周年を祝う1,000箱限定</a></li>
+<li><a href="news/alec-bradley-30-years.html"><span class="d">発表 2026年4月9日 ／ Halfwheel</span>アレック・ブラッドリー創業30周年『30イヤーズ』、創業家がブレンド選定</a></li>
+<li><a href="news/eiroa-dark-30th.html"><span class="d">発表 2026年6月26日 ／ Halfwheel</span>エイロア・ダークが『30th』として復活、コロンビア産ピナレーニョを加え店舗到着</a></li>
+<li><a href="news/tabacalera-1916-eiroa.html"><span class="d">発表 2026年11月2日 ／ Halfwheel</span>エイロア家4代目の『1916』、全ホンジュラス葉でたどる一家の原点</a></li>
+<li><a href="news/camacho-limited-edition-2026.html"><span class="d">発表 2026年8月20日 ／ Halfwheel</span>カマーチョ限定版2026、11/18パーフェクトで9月3日発売 — 匠への敬意を込めて</a></li>
+<li><a href="news/gorbusto-by-aladino.html"><span class="d">発表 2026年3月30日 ／ Halfwheel</span>キャンプ・アラディーノが『ゴルブスト』へ改名、霊長類キャラの3ブレンドで再出発</a></li>
+<li><a href="news/plasencia-triunfal.html"><span class="d">発表 2026年7月21日 ／ Halfwheel</span>プラセンシア『トリウンファル』、W杯2026記念は両国オーガニック葉の初ブレンド</a></li>
+</ul>
+</div>
+
+<div class="country-block">
+<h3>UNITED STATES<span class="ja">アメリカ</span></h3>
+<ul class="mini-list">
+<li><a href="news/jc-newman-leroy-neiman-2026.html"><span class="d">発表 2026年5月29日 ／ Halfwheel</span>J.C.ニューマン『ルロイ・ニーマン2026』出荷、収益はタンパの芸術教育へ</a></li>
+<li><a href="news/pca-2026-trade-show.html"><span class="d">発表 2026年4月30日 ／ Cigar Journal</span>PCA26が閉幕、出展262社・来場5,945人超 — 次回は2027年3月ラスベガス</a></li>
+<li><a href="news/tariffs-section-122-2026.html"><span class="d">発表 2026年2月24日 ／ Halfwheel</span>米の新関税は15%でなく10%で発効、ニカラグア産シガーは18%から引き下げ</a></li>
+<li><a href="news/brick-house-taa-2026.html"><span class="d">発表 2026年10月23日 ／ Halfwheel</span>米国の葉巻専門店協会（TAA）限定で、ブリック・ハウス2026が発売</a></li>
+<li><a href="news/fda-premium-cigar-definition.html"><span class="d">発表 2026年4月16日 ／ Halfwheel</span>米地裁、『プレミアムシガー』定義を維持 — フレーバー付きは引き続きFDA規制対象</a></li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- Brand News -->
+<section class="section" aria-label="メーカー別ニュース">
+<div class="section-head"><span class="en">BRAND NEWS</span><span class="ja">メーカー別ニュース</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="brand-chips">
+<a class="chip" href="brands/drew-estate.html">ドリュー・エステート</a>
+<a class="chip" href="brands/kristoff.html">クリストフ</a>
+<a class="chip" href="brands/selected-tobacco.html">セレクテッド・タバコ</a>
+<a class="chip" href="brands/aladino.html">JREタバコ（アラディーノ）</a>
+<a class="chip" href="brands/jc-newman.html">J.C.ニューマン</a>
+<a class="chip" href="brands/jm-brands.html">JM Brands（JMブランズ）</a>
+<a class="chip" href="brands/casa-carrillo.html">カーサ・カリーヨ</a>
+<a class="chip" href="brands/habanos.html">ハバノス</a>
+<a class="chip" href="brands/davidoff.html">Davidoff（ダビドフ）</a>
+<a class="chip" href="brands/adv-mckay.html">ADV＆マッケイ・シガーズ</a>
+<a class="chip" href="brands/plasencia.html">Plasencia（プラセンシア）</a>
+<a class="chip" href="brands/tatuaje.html">Tatuaje（タトゥアヘ）</a>
+<a class="chip" href="brands/black-works-studio.html">Black Works Studio（ブラック・ワークス・スタジオ）</a>
+<a class="chip" href="brands/fratello.html">Fratello Cigars（フラテッロ・シガーズ）</a>
+<a class="chip" href="brands/gellis-family.html">Gellis Family Cigars（ゲリス・ファミリー・シガーズ）</a>
+<a class="chip" href="brands/la-gloria-cubana.html">La Gloria Cubana（ラ・グロリア・クバーナ）</a>
+<a class="chip" href="brands/powstanie.html">Powstanie（ポウスタニエ）</a>
+<a class="chip" href="brands/villiger.html">Villiger（ヴィリガー）</a>
+<a class="chip" href="brands/brolo-cigar-co.html">Brolo Cigar Co.（ブローロ・シガー）</a>
+<a class="chip" href="brands/crowned-heads.html">Crowned Heads（クラウン・ヘッズ）</a>
+<a class="chip" href="brands/dunbarton.html">Dunbarton Tobacco & Trust（ダンバートン・タバコ＆トラスト）</a>
+<a class="chip" href="brands/oliva.html">Oliva（オリバ）</a>
+<a class="chip" href="brands/altadis-usa.html">Altadis USA（アルタディスUSA）</a>
+<a class="chip" href="brands/arturo-fuente.html">Arturo Fuente（アルトゥーロ・フエンテ）</a>
+<a class="chip" href="brands/cle-cigar-co.html">CLE Cigar Co.（CLEシガー）</a>
+<a class="chip" href="brands/aj-fernandez.html">AJ Fernandez（AJフェルナンデス）</a>
+<a class="chip" href="brands/joya-de-nicaragua.html">Joya de Nicaragua（ホヤ・デ・ニカラグア）</a>
+<a class="chip" href="brands/my-father.html">My Father（マイファザー）</a>
+<a class="chip" href="brands/foundation.html">Foundation Cigar Co.（ファウンデーション）</a>
+<a class="chip" href="brands/la-galera.html">La Galera（ラ・ガレラ）</a>
+<a class="chip" href="brands/la-aurora.html">La Aurora（ラ・アウロラ）</a>
+<a class="chip" href="brands/la-flor-dominicana.html">La Flor Dominicana（ラ・フロール・ドミニカーナ）</a>
+<a class="chip" href="brands/alec-bradley.html">Alec Bradley（アレック・ブラッドリー）</a>
+<a class="chip" href="brands/broncano.html">Broncano（ブロンカーノ）</a>
+<a class="chip" href="brands/hvc.html">HVC Cigars（HVCシガーズ）</a>
+<a class="chip" href="brands/hermanos-de-armas.html">Hermanos de Armas（エルマノス・デ・アルマス）</a>
+<a class="chip" href="brands/roma-craft.html">RoMa Craft Tobac（ロマ・クラフト・トバック）</a>
+<a class="chip" href="brands/chimolly.html">ChiMolly Cigars（チモリー・シガーズ）</a>
+<a class="chip" href="brands/egm.html">EGM Cigars（EGMシガーズ）</a>
+<a class="chip" href="brands/mbombay.html">MBombay（エムボンベイ）</a>
+<a class="chip" href="brands/maya-selva.html">Maya Selva Cigars（マヤ・セルバ）</a>
+<a class="chip" href="brands/forged-cigar.html">Forged Cigar Company（フォージド・シガー・カンパニー）</a>
+<a class="chip" href="brands/viaje.html">ビアヘ</a>
+<a class="chip" href="brands/boveda.html">ボベダ</a>
+<a class="chip" href="brands/lord-baltimore.html">ロード・ボルティモア</a>
+<a class="chip" href="brands/lure.html">ルアー</a>
+<a class="chip" href="brands/espinosa.html">エスピノーサ</a>
+<a class="chip" href="brands/queen-of-the-west.html">クイーン・オブ・ザ・ウェスト</a>
+<a class="chip" href="brands/siglo.html">シグロ</a>
+<a class="chip" href="brands/west-tampa.html">ウエスト・タンパ・タバコ</a>
+<a class="chip" href="brands/caldwell.html">コールドウェル</a>
+<a class="chip" href="brands/loaisiga.html">ロアイシガ・シガーズ</a>
+<a class="chip" href="brands/bocock-brothers.html">ボコック・ブラザーズ</a>
+<a class="chip" href="brands/cigar-rights-of-america.html">Cigar Rights of America（CRA）</a>
+<a class="chip" href="brands/blackbird-cigar.html">Blackbird Cigar（ブラックバード）</a>
+<a class="chip" href="brands/mayflower-cigars.html">Mayflower Cigars（メイフラワー）</a>
+<a class="chip" href="brands/vector-kgm.html">Vector-KGM（ベクター）</a>
+<a class="chip" href="brands/puro-som.html">Puro Som（プーロ・ソム）</a>
+<a class="chip" href="brands/dominique-london.html">Dominique London（ドミニク・ロンドン）</a>
+</div>
+<ul class="brand-list">
+<li><span class="bname">ドリュー・エステート</span><a href="news/feral-flying-pig.html">「フライング・ピッグ」が10ブレンド集合 ― 初のボックスプレス版も</a></li>
+<li><span class="bname">ドリュー・エステート</span><a href="news/el-tigre-factory.html">エル・ティグレの生産をドミニカ共和国の新工場へ移管予定</a></li>
+<li><span class="bname">JREタバコ</span><a href="news/elegante.html">アラディーノ85周年記念に細身の新サイズ「エレガンテ」登場</a></li>
+<li><span class="bname">JREタバコ</span><a href="news/aladino-250th.html">アラディーノ『250th』</a></li>
+<li><span class="bname">JREタバコ</span><a href="news/gorbusto-by-aladino.html">ゴルブスト・バイ・アラディーノ</a></li>
+<li><span class="bname">J.C.ニューマン</span><a href="news/brick-house-taa-2026.html">5年熟成のブリック・ハウス、TAA限定2026として発売</a></li>
+<li><span class="bname">J.C.ニューマン</span><a href="news/jc-newman-leroy-neiman-2026.html">ルロイ・ニーマン2026コレクターズ・エディション</a></li>
+<li><span class="bname">カーサ・カリーヨ</span><a href="news/casa-carrillo-pledge-allegiance-rockets.html">Perez-Carrillo Pledge of Allegiance Rockets</a></li>
+<li><span class="bname">カーサ・カリーヨ</span><a href="news/battleborn-2026.html">ペレス＝カリーヨ「バトルボーン2026」、新ブレンドで復活</a></li>
+<li><span class="bname">ハバノス</span><a href="news/coleccion-habanos-books.html">コレクシオン・ハバノス</a></li>
+<li><span class="bname">ハバノス</span><a href="news/swiss-regional-editions-habanos.html">スイス地域限定の20年</a></li>
+<li><span class="bname">ハバノス</span><a href="news/trinidad-villa.html">トリニダード『ビジャ』</a></li>
+<li><span class="bname">Davidoff（ダビドフ）</span><a href="news/avo-expresivo.html">AVO『エクスプレシボ』</a></li>
+<li><span class="bname">Davidoff（ダビドフ）</span><a href="news/davidoff-leaves-procigar.html">Davidoff Leaves ProCigar</a></li>
+<li><span class="bname">Davidoff（ダビドフ）</span><a href="news/davidoff-puro-dominicano-2026.html">Davidoff Puro Dominicano</a></li>
+<li><span class="bname">Davidoff（ダビドフ）</span><a href="news/camacho-limited-edition-2026.html">カマーチョ・リミテッド・エディション2026</a></li>
+<li><span class="bname">Plasencia（プラセンシア）</span><a href="news/plasencia-triunfal.html">プラセンシア『トリウンファル』</a></li>
+<li><span class="bname">Tatuaje（タトゥアヘ）</span><a href="news/tatuaje-creature-2026.html">タトゥアヘ『クリーチャー』</a></li>
+<li><span class="bname">業界統計</span><a href="news/fda-premium-cigar-definition.html">FDA『プレミアムシガー』定義訴訟</a></li>
+<li><span class="bname">業界統計</span><a href="news/tariffs-section-122-2026.html">米関税（通商法122条）</a></li>
+<li><span class="bname">Villiger（ヴィリガー）</span><a href="news/san-martin-villiger.html">ヴィリガー『サン・マルティン』</a></li>
+<li><span class="bname">Crowned Heads（クラウン・ヘッズ）</span><a href="news/crowned-heads-moonflower.html">クラウン・ヘッズ『ムーンフラワー』</a></li>
+<li><span class="bname">Dunbarton Tobacco & Trust（ダンバートン・タバコ＆トラスト）</span><a href="news/muestra-de-saka-lengua-de-suegra.html">ムエストラ・デ・サカ『レングア・デ・スエグラ』</a></li>
+<li><span class="bname">Oliva（オリバ）</span><a href="news/nub-mexico-oliva.html">オリバ『NUb メキシコ』</a></li>
+<li><span class="bname">Oliva（オリバ）</span><a href="news/oliva-melanio-world-cup-2026.html">オリバ『セリエV メラニオ』W杯2026エディション</a></li>
+<li><span class="bname">Arturo Fuente（アルトゥーロ・フエンテ）</span><a href="news/fuente-father-son-sampler-2026.html">Arturo Fuente Father & Son 2026 Sampler</a></li>
+<li><span class="bname">Arturo Fuente（アルトゥーロ・フエンテ）</span><a href="news/arturo-fuente-rare-pink.html">フエンテ『レアピンク』</a></li>
+<li><span class="bname">CLE Cigar Co.（CLEシガー）</span><a href="news/tabacalera-1916-eiroa.html">1916 タバカレラ・エイロア</a></li>
+<li><span class="bname">CLE Cigar Co.（CLEシガー）</span><a href="news/eiroa-dark-30th.html">エイロア・ダーク『30th』</a></li>
+<li><span class="bname">AJ Fernandez（AJフェルナンデス）</span><a href="news/amar-aj-fernandez.html">AJフェルナンデス『アマール』</a></li>
+<li><span class="bname">Joya de Nicaragua（ホヤ・デ・ニカラグア）</span><a href="news/joya-clasico-green-room.html">ホヤ『クラシコ・オリジナル グリーン・ルーム・セレクション』</a></li>
+<li><span class="bname">My Father（マイファザー）</span><a href="news/don-pepin-clasico-20th.html">ドン・ペピン・ガルシア『クラシコ』20周年</a></li>
+<li><span class="bname">My Father（マイファザー）</span><a href="news/my-father-le-bijou-connecticut.html">マイファザー『ル・ビジュー1922 コネチカット』</a></li>
+<li><span class="bname">Foundation Cigar Co.（ファウンデーション）</span><a href="news/foundation-pca-2026-fire.html">ファウンデーションとAJ工場火災の影響</a></li>
+<li><span class="bname">La Galera（ラ・ガレラ）</span><a href="news/la-galera-90th-anniversary.html">La Galera 90th Anniversary</a></li>
+<li><span class="bname">La Galera（ラ・ガレラ）</span><a href="news/la-galera-year-of-the-horse-2026.html">La Galera Year of the Horse Limited Edition 2026</a></li>
+<li><span class="bname">ProCigar（プロシガー）</span><a href="news/procigar-festival-2026-record-auction.html">ProCigar Festival 2026</a></li>
+<li><span class="bname">La Aurora（ラ・アウロラ）</span><a href="news/la-aurora-preferidos-double-barrel-2026.html">La Aurora Preferidos 1903 Edition Double Barrel Aged (2026)</a></li>
+<li><span class="bname">La Flor Dominicana（ラ・フロール・ドミニカーナ）</span><a href="news/lfd-andalusian-bull-10th-anniversary.html">La Flor Dominicana Andalusian Bull 10th Anniversary Maduro</a></li>
+<li><span class="bname">La Flor Dominicana（ラ・フロール・ドミニカーナ）</span><a href="news/lfd-carbon-flower.html">La Flor Dominicana Carbon Flower</a></li>
+<li><span class="bname">Alec Bradley（アレック・ブラッドリー）</span><a href="news/alec-bradley-30-years.html">アレック・ブラッドリー『30イヤーズ』</a></li>
+<li><span class="bname">Premium Cigar Association（PCA）</span><a href="news/pca-2026-trade-show.html">PCA見本市2026</a></li>
+</ul>
+</section>
+
+<!-- New Releases -->
+<section class="section" aria-label="新製品・限定品">
+<div class="section-head"><span class="en">NEW RELEASES</span><span class="ja">新製品・限定品</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="release-grid">
+
+<article>
+<a class="card" href="news/adventura-first-decade-2026.html">
+<img class="thumb" src="img/news-sample/adventura-first-decade-2026.jpg" alt="ADV「ファースト・ディケイド」のトロと取り外し可能なトレイ付きの箱" loading="lazy">
+<div class="meta-line"><span class="cat">限定品</span><span class="country">スイス</span></div>
+<h3>ADV（アドベンチュラ）「ファースト・ディケイド」— 創業10周年記念、自社農園の初収穫葉で作るトロ</h3>
+<p class="summary">ADVの創業10周年記念「ファースト・ディケイド」。自社農園の初収穫葉を使い、2027年1月に2,000箱限定で発売予定です。</p>
+<div class="meta-line dates"><span class="source">CigarsLover</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card" href="news/dominique-london-signature-collection-2026.html">
+<img class="thumb" src="img/news-sample/dominique-london-signature-2026.jpg" alt="ドミニク・ロンドン「シグネチャー・コレクション」のデュアリス・ライター" loading="lazy">
+<div class="meta-line"><span class="cat">新製品</span><span class="country">イギリス</span></div>
+<h3>ドミニク・ロンドン、オリジナル・アクセサリー「シグネチャー・コレクション」発売</h3>
+<p class="summary">ドミニク・ロンドンのオリジナル・アクセサリー「シグネチャー・コレクション」が発売。ライター、カッター、灰皿、ケースを展開します。</p>
+<div class="meta-line dates"><span class="source">Cigar Aficionado</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card" href="news/les-fines-lames-pierre-jourdan-departs-2026.html">
+<img class="thumb" src="img/news-sample/les-fines-lames-le-petit-2026.jpg" alt="レ・ファイン・ラーム「ル・プティ ブラス・リーブス II」" loading="lazy">
+<div class="meta-line"><span class="cat">経営</span><span class="country">フランス</span></div>
+<h3>レ・ファイン・ラーム創業者ピエール・ジュルダン氏、12年で退任 — マルセイユ本社は維持</h3>
+<p class="summary">レ・ファイン・ラームの創業者ピエール・ジュルダン氏が12年で退任。本社はマルセイユに残ります。</p>
+<div class="meta-line dates"><span class="source">Halfwheel</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+<span class="read-more">記事全文を読む ›</span>
+</a>
+</article>
+
+</div>
+</section>
+
+<!-- Industry & Market -->
+<section class="section" aria-label="業界・市場">
+<div class="section-head"><span class="en">INDUSTRY &amp; MARKET</span><span class="ja">業界・市場分析</span><span class="deco">◆ ◆ ◆</span></div>
+<ul class="market-list">
+<li>
+<a href="news/les-fines-lames-pierre-jourdan-departs-2026.html">レ・ファイン・ラーム創業者ピエール・ジュルダン氏、12年で退任 — マルセイユ本社は維持</a>
+<p class="summary">フランスの高級葉巻アクセサリー・ブランド、レ・ファイン・ラームの共同創業者ピエール・ジュルダン氏が、12年間の在任を経て退任しました。2014年にヤン・ブータン氏、ジル・バイイ＝メートル氏とともにクラウドファンディングで葉巻カッター兼用ナイフを発売し、創業。5年後の2019年には廉価版「ル・プティ」を追加し、現在はカッター、ライター、シガーケース、灰皿などを展開しています。2023年にヴァンダーマリエール・シガー・ファミリー（VCF、オリバの親会社）が出資し、昨年（2025年）にVCFが残りの全株式を取得。共同創業者のパブロ・ロデ氏は2025年6月に既に退任しています。本社はフランス・マルセイユに残り、今後は国際B2B流通の強化と、2026年末から2027年にかけての新製品・コラボ・限定品の展開を進める方針です。世界30カ国超・800店舗以上で展開しています。</p>
+<div class="meta-line dates"><span class="cat">経営</span><span class="country">フランス</span><span class="source">Halfwheel</span><span class="src-date">2026年11月24日</span><span class="pub">2026年11月25日</span></div>
+</li>
+<li>
+<a href="news/el-cubano-cigars-20th-anniversary-2026.html">キューバ生まれ、テキサスで巻く — 「エル・クバーノ・シガーズ」創業20年の家族の物語</a>
+<p class="summary">ハバナ生まれ（1936年）のマヌエル・ロペスSr.が、1904年から続く一族のタバコ畑での経験を携えて渡米し、2006年8月にテキサス州リーグシティに開いた「エル・クバーノ・シガーズ」が創業20年目を迎えました。現在は息子マニーと孫ジュリアンが切り盛りする家族経営で、テキサスシティの自社工場でキューバ人トルセドールがキューバシードのタバコを毎日手巻きし、自社製のものだけを販売しています。ハウスラインは約18ブレンドで、色で識別されます。「マニー・リミテッド」は単一国のタバコのみで製造する特別なラインです。ラウンジは支配人のペペ氏が10年以上にわたり切り盛りし、旧ハバナの雰囲気、パティオ、イベントでの実演手巻きが特徴です。</p>
+<div class="meta-line dates"><span class="cat">経営</span><span class="country">アメリカ</span><span class="source">Cigar Journal</span><span class="src-date">2026年11月23日</span><span class="pub">2026年11月24日</span></div>
+</li>
+<li>
+<a href="news/fda-commissioner-nominee-withdrawn-2026.html">米ホワイトハウス、FDA長官候補の指名を撤回 — 葉巻を規制するFDAは5月から長官不在</a>
+<p class="summary">米ホワイトハウスが11月17日夜、ハイジ・オーバートン博士のFDA（米食品医薬品局）長官への指名を撤回しました。翌18日に予定されていた上院保健委員会での採決の直前でした。政権高官は上院で承認に必要な票が集まらなかったと説明し、保健委員会のキャシディ委員長は「票はあった」と反論しています。後任の候補はまだ発表されていません。FDAは5月にマーティ・マカリー前長官が退任して以来、長官不在が続いており、代行体制が当面続く見通しです。FDAはたばこを規制する米国の連邦機関で、長官が誰になるかは葉巻の規制の行方にも関わります。</p>
+<div class="meta-line dates"><span class="cat">経営</span><span class="country">アメリカ</span><span class="source">Halfwheel</span><span class="src-date">2026年11月18日</span><span class="pub">2026年11月23日</span></div>
+</li>
+<li>
+<a href="news/davidoff-zurich-flagship-reopens-2026.html">ダビドフ、チューリッヒ旗艦店をリニューアルオープン — ガラス張りのウォークイン・ヒュミドール</a>
+<p class="summary">ダビドフがスイス・チューリッヒの「ダビドフ・オブ・ジュネーブ・シンス1911」旗艦店を、改装のうえ正式に再オープンしました。7週間の改装を経て、11月19日にテープカット式典を実施。店舗はバーンホフプラッツ地区にあり、1903年に「ツィガレン・デュール」として創業した歴史ある店です。改装後の目玉は、タバコの葉のディスプレイを備えたガラス張りのウォークイン・ヒュミドールです。</p>
+<div class="meta-line dates"><span class="cat">市場・流通</span><span class="country">スイス</span><span class="source">Cigar Coop</span><span class="src-date">2026年11月20日</span><span class="pub">2026年11月21日</span></div>
+</li>
+<li>
+<a href="news/habanos-small-format-discontinuations-2026.html">ハバノス小型フォーマットの大量廃番 — プリトス全廃、カナダで機械巻き10%値上げ</a>
+<p class="summary">供給元プロモシガーの2027年向け戦略・品揃え見直しにより、機械巻きの小型キューバ葉巻が多数廃番になります。ホセ・L・ピエドラ・ミニ、モンテクリスト・オープン・クラブス／ミニ、グァンタナメラのミニ／デシモス／ミヌトス／クリスタレス（10本箱）、そしてプリトス全種が対象で、包装在庫がなくなり次第終了、全世界市場に影響します。理由は販売実績ではなく内部戦略です。日本への直接の影響は限られますが、海外通販で買えなくなる影響が大きく、カナダでは機械巻きが2027年2月から10%値上げされます。</p>
+<div class="meta-line dates"><span class="cat">市場・流通</span><span class="country">キューバ</span><span class="source">Halfwheel</span><span class="src-date">2026年11月18日</span><span class="pub">2026年11月21日</span></div>
+</li>
+</ul>
+<ul class="more-list">
+<li><a href="news/espinosa-la-zona-palooza-2026.html"><span class="d">2026年11月19日</span>エスピノーサのファン感謝祭「ラ・ソナ・パルーザ」10周年 — 300人超が集結</a></li>
+<li><a href="news/henk-maori-austria-2026.html"><span class="d">2026年11月19日</span>HENK MAORI、発売10年でオーストリアに進出</a></li>
+<li><a href="news/pca-middle-east-roadshow-doha-2026.html"><span class="d">2026年11月19日</span>PCA中東ロードショー、ドーハで最終章 — ワールド・シガー・ショーは2027年12月に再びドバイへ</a></li>
+<li><a href="news/drew-estate-dominicana-mustafa.html"><span class="d">2026年11月17日</span>ドリュー・エステートのドミニカ新工場、工場長にフアン・ムスタファ氏を任命 — 2027年1月1日就任</a></li>
+<li><a href="news/dubai-wcs-2026-closing.html"><span class="d">2026年11月17日</span>ドバイ「ワールド・シガー・ショー」、米・イラン緊張の懸念をよそに盛況で閉幕 — 初日午後に売り切れた出展者も</a></li>
+<li><a href="news/germany-cigar-tax-2027.html"><span class="d">2026年11月17日</span>ドイツ、葉巻税を2030年までに約2倍へ — 初回値上げは2027年3月1日</a></li>
+<li><a href="news/jc-newman-ovechkin-hot-stick.html"><span class="d">2026年11月17日</span>NHLの英雄オベチキンへ、J.C.ニューマンが記念シガー「ホット・スティック」を贈呈 — 販売品ではなく贈呈専用</a></li>
+<li><a href="news/stg-europe-supply-2026.html"><span class="d">2026年11月17日</span>STG、欧州の手巻き葉巻が2割減 — 米国の強い需要で供給が追いつかず</a></li>
+<li><a href="news/elie-bleu-canada-2026.html"><span class="d">2026年11月16日</span>エリー・ブルーがカナダに本格進出 — モントリオールの1492ディストリビューションと独占契約</a></li>
+<li><a href="news/santa-clara-selected-by-aj-fernandez.html"><span class="d">2026年11月16日</span>サンタ・クララ、「クラフテッド・バイ AJフェルナンデス」を「セレクテッド・バイ AJフェルナンデス」に改称</a></li>
+<li><a href="news/macau-humidor-auction-behind-2026.html"><span class="d">2026年11月13日</span>マカオ・オークションの裏話 — 3台のヒュミドールはハバナからイタリアを経てマカオへ</a></li>
+<li><a href="news/japanese-cigar-night-nj-2026.html"><span class="d">2026年11月11日</span>「ジャパニーズ・シガー・ナイト」11月18日、ニュージャージーで開催</a></li>
+<li><a href="news/stg-q3-2026-results.html"><span class="d">2026年11月11日</span>STG、第3四半期は手作り葉巻が好調 — 通期見通しを上方修正</a></li>
+<li><a href="news/cuba-tourism-decline-2026.html"><span class="d">2026年11月10日</span>キューバの訪問者、2026年は3分の2減 — 観光崩壊が葉巻販売にも影</a></li>
+<li><a href="news/us-state-cigar-tax-increases-2026.html"><span class="d">2026年11月9日</span>米国の州タバコ税、増税の波 — インディアナは葉巻税24％→30％へ</a></li>
+<li><a href="news/sweden-importer-liquidation-2026.html"><span class="d">2026年11月6日</span>スウェーデン、キューバ葉巻の公式輸入元が清算 — 北欧の供給に空白</a></li>
+<li><a href="news/honduras-la-gran-cata-2027.html"><span class="d">2026年10月27日</span>ホンジュラスで新フェスティバル「ラ・グラン・カタ」、2027年1月に初開催へ</a></li>
+<li><a href="news/eu-cigar-tax-malta-2026.html"><span class="d">2026年11月14日</span>EU葉巻増税、マルタの反対で合意ならず — 26カ国は妥協案に賛成、次回は12月11日</a></li>
+<li><a href="news/america250-jc-newman-visit-report.html"><span class="d">2026年11月13日</span>America250、J.C.ニューマンのエル・レロホ工場を訪問 — 建国250周年への参加を顕彰</a></li>
+<li><a href="news/hiram-solomon-albania.html"><span class="d">2026年11月13日</span>ヒラム＆ソロモン、アルバニアに進出 — 独占流通契約で欧州の新市場へ</a></li>
+<li><a href="news/norway-augusto-registration-fees.html"><span class="d">2026年11月13日</span>ノルウェーのアウグスト・シガーズ、破滅的な登録料を覆す — 年商の3分の1にのぼる請求が凍結へ</a></li>
+<li><a href="news/crowned-heads-thunderkiss-germany.html"><span class="d">2026年11月13日</span>クラウンデッド・ヘッズ「サンダーキス」、ドイツへ — DALAYが導入</a></li>
+<li><a href="news/davidoff-us-leadership-change.html"><span class="d">2026年11月13日</span>ダビドフ、米国法人の新トップにダヴィデ・モーロ氏を任命 — 12月7日就任</a></li>
+<li><a href="news/macau-humidor-auction-2026.html"><span class="d">2026年11月13日</span>マカオ・ヒュミドール・オークション、4台総額HK$6,200,000で落札 — 最高額はクアバ30周年記念</a></li>
+<li><a href="news/us-customs-rule-foreign-importers.html"><span class="d">2026年11月12日</span>米税関の新規則、外国輸入者の葉巻輸入に影響も — 2027年1月5日施行</a></li>
+<li><a href="news/drew-estate-dominicana-procigar.html"><span class="d">2026年11月11日</span>ドリュー・エステート・ドミニカーナがPROCIGARに加盟 — 12番目のアクティブメンバーに</a></li>
+<li><a href="news/ecuador-leaf-crop-2026.html"><span class="d">2026年11月9日</span>エクアドル産葉、2026年収穫の半分以上が壊滅 — スーパー・エルニーニョの影響（続報）</a></li>
+<li><a href="news/ci-stores-cfw-donation-centers.html"><span class="d">2026年11月11日</span>シガーズ・インターナショナル全店舗が「シガーズ・フォー・ウォリアーズ」寄付センターに</a></li>
+<li><a href="news/tabacalera-asia-tour-2026.html"><span class="d">2026年11月11日</span>タバカラ社、アジア3カ国ツアーを総括 — 日本は「成熟し細部にこだわる市場」、ベガフィナとフロル・デ・コパンに期待</a></li>
+<li><a href="news/esteban-carreras-romania-launch.html"><span class="d">2026年11月10日</span>エステバン・カレラス、ルーマニアに進出 — ブカレストで発表イベント</a></li>
+<li><a href="news/big-smoke-las-vegas-30th-report.html"><span class="d">2026年11月10日</span>ビッグ・スモーク・ラスベガス30周年が閉幕 — シャンケン氏への追悼に包まれた記念の週末</a></li>
+<li><a href="news/drew-estate-joins-procigar.html"><span class="d">2026年11月10日</span>ドリュー・エステート、ドミニカの名門団体プロシガーに加盟 — 新工場「ドリュー・ドミニカーナ」が正式メンバーに</a></li>
+<li><a href="news/macau-habanos-festival-humidors-auction.html"><span class="d">2026年11月10日</span>ハバノス・フェスティバルのヒュミドール4台、マカオで13日に慈善オークション — 計900本のキューバ葉巻入り</a></li>
+<li><a href="news/world-cigar-show-dubai-2026-report.html"><span class="d">2026年11月10日</span>ワールド・シガー・ショー・ドバイ第2回が開幕 — フエンテ、パドロンら初出展、初日の会場から</a></li>
+<li><a href="news/america250-jc-newman-visit.html"><span class="d">2026年11月9日</span>建国250周年委員会「America250」が本日、J.C.ニューマンのエル・レロホ工場を訪問 — 公式記念葉巻を顕彰</a></li>
+<li><a href="news/miami-cigar-arango-distribution.html"><span class="d">2026年11月9日</span>マイアミ・シガー、アランゴ・シガー社と全米流通提携 — タティアナなどを全米の小売店へ</a></li>
+<li><a href="news/arnold-andre-joya-end-partnership.html"><span class="d">2026年11月9日</span>アーノルド・アンドレとホヤ・デ・ニカラグア、年末で提携終了 — ドイツ流通の長年の組み合わせが解消</a></li>
+<li><a href="news/liga-tridente-santa-clara-distribution.html"><span class="d">2026年11月9日</span>マーロン・ウェイアンズの「リガ・トリデンテ」、米大手サンタ・クララと独占流通契約</a></li>
+<li><a href="news/stg-break-moro-jt-divestment.html"><span class="d">2026年10月1日</span>STG、刻みたばこ2ブランドをJTへ売却完了 葉巻・パイプへの集中進む</a></li>
+<li><a href="news/davidoff-leaves-procigar.html"><span class="d">2026年9月4日</span>ダビドフ、34年間続いたプロシガー会員資格を終了</a></li>
+<li><a href="news/swiss-regional-editions-habanos.html"><span class="d">2026年8月3日</span>スイス地域限定『エクスクルーシボ・スイサ』の20年、初年度から最新作まで</a></li>
+<li><a href="news/davidoff-fy2025-results.html"><span class="d">2026年7月1日</span>オッティンガー・ダビドフ、2025年度は増収 売上高5億4,530万フラン</a></li>
+<li><a href="news/eu-tobacco-excise-2026.html"><span class="d">2026年6月17日</span>EUたばこ税制改正案、本会議で否決 葉巻の大幅増税案は宙づりに</a></li>
+<li><a href="news/coleccion-habanos-books.html"><span class="d">2026年6月2日</span>『本』の形をした至宝、コレクシオン・ハバノスの四半世紀</a></li>
+<li><a href="news/villiger-ceo-schupbach.html"><span class="d">2026年5月7日</span>ヴィリガー、新CEOにシュープバッハ氏 業界外から登用、2026年6月就任</a></li>
+<li><a href="news/foundation-pca-2026-fire.html"><span class="d">2026年5月1日</span>ファウンデーション、委託工場の火災でPCA 2026に新製品なし</a></li>
+<li><a href="news/pca-2026-trade-show.html"><span class="d">2026年4月30日</span>PCA26が閉幕、出展262社・来場5,945人超 — 次回は2027年3月ラスベガス</a></li>
+<li><a href="news/uk-tobacco-vapes-act-2026.html"><span class="d">2026年4月29日</span>英国でタバコ・ベイプ法が成立 2009年以降生まれへの販売を生涯禁止へ</a></li>
+<li><a href="news/fda-premium-cigar-definition.html"><span class="d">2026年4月16日</span>米地裁、『プレミアムシガー』定義を維持 — フレーバー付きは引き続きFDA規制対象</a></li>
+<li><a href="news/procigar-festival-2026-record-auction.html"><span class="d">2026年3月2日</span>プロシガー・フェスティバル2026、慈善オークションが過去最高の618,188ドル</a></li>
+<li><a href="news/tariffs-section-122-2026.html"><span class="d">2026年2月24日</span>米の新関税は15%でなく10%で発効、ニカラグア産シガーは18%から引き下げ</a></li>
+<li><a href="news/davidoff-ownership-next-generation.html"><span class="d">2026年1月28日</span>ダビドフ、所有権が次世代へ シュナイダー家が株式を子孫に移転</a></li>
+<li><a href="news/stg-us-distribution-reorganization.html"><span class="d">2026年1月14日</span>STG、米国の販売体制を再編 コイーバとパンチがフォージドへ移管</a></li>
+<li><a href="news/bvi-habanos.html"><span class="d">2026年11月6日</span>英領ヴァージン諸島の裁判所、陳志氏のハバノス権益の清算命令解除へ ― 5thアベニュー破産の新展開</a></li>
+<li><a href="news/fifth-avenue.html"><span class="d">2026年11月6日</span>独占販売店5thアベニューは破産手続き中 ― 欧州流通の再開はなお不透明</a></li>
+<li><a href="news/el-tigre-factory.html"><span class="d">2026年10月27日</span>ドリュー・エステート、ドミニカ共和国への生産進出 ― ニカラグア一極体制の転換点に</a></li>
+<li><a href="news/stg-hoyo-epicure-delisting.html"><span class="d">2026年11月6日</span>STG、Hoyo「エピキュア・セレクシオン」など11品目を価格表から削除 — 値上げはほぼなし</a></li>
+<li><a href="news/selected-tobacco-madrid-hq.html"><span class="d">2026年11月1日</span>Selected Tobacco、マドリードに5階建ての新拠点を開設 — 半世紀ぶりのマドリードでの葉巻製造</a></li>
+<li><a href="news/big-smoke-las-vegas-30th.html"><span class="d">2026年9月1日</span>Big Smoke ラスベガス30周年 — 本日が2日目、ガイ・フィエリが登壇</a></li>
+<li><a href="news/fratello-sweden-kind-cigars.html"><span class="d">2026年11月5日</span>フラテッロ、スウェーデンに進出 — Kind Cigarsと販売提携</a></li>
+<li><a href="news/intertabac-2027-dates.html"><span class="d">2026年11月4日</span>InterTabac、2027年大会は9月14〜16日 — 出展社の9割超が再出展を計画</a></li>
+<li><a href="news/domain-cigars-test-blend-portal.html"><span class="d">2026年11月2日</span>Domain Cigars、試作ブレンドを店と客の声で育てる「テストブレンド・ポータル」</a></li>
+<li><a href="news/ecuador-tobacco-crop-el-nino.html"><span class="d">2026年11月4日</span>エクアドルの葉巻用タバコ、スーパーエルニーニョで半分超が壊滅</a></li>
+<li><a href="news/us-cigar-imports-2026-honduras.html"><span class="d">2026年11月3日</span>米国の葉巻輸入は横ばい、ホンジュラスが11%増と躍進</a></li>
+<li><a href="news/marvin-shanken-obituary.html"><span class="d">2026年10月29日</span>「シガー・アフィショナード」創刊者マービン・シャンケン氏が死去、83歳</a></li>
+<li><a href="news/world-cigar-show-dubai-2026.html"><span class="d">2026年10月27日</span>ワールド・シガー・ショー・ドバイに大手ブランドが集結へ</a></li>
+<li><a href="news/habanos-executive-appointments.html"><span class="d">2026年10月21日</span>ハバノス社、幹部人事を相次ぎ発表</a></li>
+<li><a href="news/cuba-tobacco-season-2026-27.html"><span class="d">2026年10月10日</span>キューバ2026-27年シーズン開始、全国20,000ヘクタール目標も「再び困難」と幹部</a></li>
+<li><a href="news/bat-leaves-cuba.html"><span class="d">2026年10月5日</span>英BAT、キューバ合弁ブラスクーバの全持分を売却し30年で撤退</a></li>
+<li><a href="news/cubas-cigar-paradox.html"><span class="d">2026年9月8日</span>記録的売上と縮む供給、CJ長編分析が描くハバノスの「パラドックス」</a></li>
+<li><a href="news/ft-habanos-premium-strategy.html"><span class="d">2026年9月4日</span>英FTが検証、ハバノス「超高級化」戦略の光と影</a></li>
+<li><a href="news/cohiba-atmosphere-tel-aviv.html"><span class="d">2026年8月23日</span>コイーバ・アトモスフィアがテルアビブに、イスラエル初のキューバ葉巻専用拠点</a></li>
+<li><a href="news/festival-habano-2026-cancelled.html"><span class="d">2026年7月20日</span>第26回フェスティバル・デル・ハバノ、中止が正式決定</a></li>
+<li><a href="news/counterfeit-habanos-seized-spain.html"><span class="d">2026年7月13日</span>スペインで偽キューバ葉巻33,840本を押収、欧州流通向けに偽バンドを装着</a></li>
+<li><a href="news/lcdh-kreuzlingen-opens.html"><span class="d">2026年6月26日</span>スイス11店目のラ・カーサ・デル・ハバノ、ボーデン湖畔クロイツリンゲンに開店</a></li>
+<li><a href="news/cuba-agriculture-liberalization.html"><span class="d">2026年6月24日</span>キューバ農業改革で民間企業の土地用益権が可能に、タバコ生産への影響は</a></li>
+<li><a href="news/lcdh-kuala-lumpur-1st-anniversary.html"><span class="d">2026年6月15日</span>LCDHクアラルンプールが開店1周年、パシフィック・シガーが記念イベント</a></li>
+<li><a href="news/vuelta-abajo-planting-14000.html"><span class="d">2026年6月4日</span>タバクーバ、2026-27年作付で悲願の14,000ヘクタール再挑戦</a></li>
+<li><a href="news/habanos-day-costa-rica-2026.html"><span class="d">2026年6月3日</span>第5回ハバノス・デーがコスタリカで開催、60周年のコイーバも登場</a></li>
+<li><a href="news/lcdh-milano-20th-anniversary.html"><span class="d">2026年5月9日</span>ラ・カーサ・デル・ハバノ・ミラノが20周年、記念ヒュミドールも披露</a></li>
+<li><a href="news/vietnam-habanos-specialists-open.html"><span class="d">2026年4月28日</span>ベトナムのハバノス専門店網が拡大、ホーチミンとニャチャンに新店</a></li>
+<li><a href="news/bogota-cigar-humidor-opens.html"><span class="d">2026年4月17日</span>コロンビアのハバノス専門店網が拡大、ボゴタに「The Cigar Humidor」開店</a></li>
+<li><a href="news/lcdh-pall-mall-london.html"><span class="d">2026年3月25日</span>ロンドン中心部パルマルにラ・カーサ・デル・ハバノ旗艦店が開店</a></li>
+<li><a href="news/lcdh-montreux-opens.html"><span class="d">2026年3月19日</span>スイス10店目のラ・カーサ・デル・ハバノ、モントルーの5つ星ホテル内に開店</a></li>
+<li><a href="news/cuba-harvest-2025-26.html"><span class="d">2026年3月17日</span>キューバ2025-26年収穫は11,426ヘクタール、前年超えも目標未達</a></li>
+<li><a href="news/cohiba-year-2026.html"><span class="d">2026年3月16日</span>コイーバ60周年、2026年は「コイーバ・イヤー」として年間展開</a></li>
+<li><a href="news/festival-habano-2026-postponed.html"><span class="d">2026年2月14日</span>第26回フェスティバル・デル・ハバノ、開催延期が正式決定</a></li>
+<li><a href="news/spain-cuban-cigar-prices-2026.html"><span class="d">2026年1月14日</span>キューバ葉巻の2026年値上げは平均3.83％、大幅値上げに歯止め</a></li>
+<li><a href="news/festival-habano-2026-sold-out.html"><span class="d">2026年1月2日</span>コイーバ60周年で注目、第26回フェスティバル・デル・ハバノはチケット完売</a></li>
+</ul>
+<p class="more-link"><a href="category/market.html">市場・流通・経営の一覧へ ›</a></p>
+</section>
+
+<!-- Features -->
+<section class="section" id="features" aria-label="特集記事">
+<div class="section-head"><span class="en">FEATURES</span><span class="ja">特集記事 ― 深掘りシリーズ</span><span class="deco">◆ ◆ ◆</span></div>
+<div class="features-grid">
+
+<article>
+<a class="card feature-card" href="features/myfather.html">
+<img class="thumb" src="img/myfather/mf-no1-product.png" alt="マイファザーの葉巻" loading="lazy">
+<span class="card-no">第4弾</span>
+<h3>マイファザー ― 亡命トルセドールの誇り、父の名を冠した一家</h3>
+<p class="summary">キューバから亡命した名トルセドール、ドン・ペピン・ガルシア。ニカラグアのエステリで息子と築いた一家は、専門誌の年間最優秀を3度受けた『キューバの伝統をニカラグアで進化させた名門』へ。その軌跡をたどります。</p>
+<div class="f-date">2026年11月9日 公開</div>
+<span class="read-more">特集全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card feature-card" href="features/joya.html">
+<img class="thumb" src="img/joya/numero-uno-no1-old-cigarcoop.jpg" alt="ホヤ・デ・ニカラグア ヌメロ・ウノ" loading="lazy">
+<span class="card-no">第3弾</span>
+<h3>ホヤ・デ・ニカラグア ― 安くて美味い、ニカラグア最古の意地</h3>
+<p class="summary">1968年創業、ニカラグア最古のプレミアムブランド。革命と内戦、国有化を越えて愛され続ける「安くて美味い」の系譜を、創業家と工場の素顔とともにたどります。</p>
+<div class="f-date">2026年11月8日 公開</div>
+<span class="read-more">特集全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card feature-card" href="features/padron.html">
+<img class="thumb" src="img/padron/legends-open-box.jpg" alt="パドロンの葉巻箱" loading="lazy">
+<span class="card-no">第2弾</span>
+<h3>パドロン ― 広告を打たない王者の60年</h3>
+<p class="summary">資本金600ドルから「非キューバの王道」へ。宣伝広告を打たず、コラボレーションも60年でただ1度。それでも専門誌の年間最優秀をどの会社よりも多く受けた一族の歴史と、偽物との戦い。</p>
+<div class="f-date">2026年11月7日 公開</div>
+<span class="read-more">特集全文を読む ›</span>
+</a>
+</article>
+
+<article>
+<a class="card feature-card" href="features/opusx.html">
+<img class="thumb" src="img/opusx/opus-lost-city.jpg" alt="Opus X Lost City" loading="lazy">
+<span class="card-no">第1弾</span>
+<h3>Opus X ― Opus X の限定ライン事情</h3>
+<p class="summary">フエンテ家の至宝「Fuente Fuente Opus X」。正規店への割当制で流通量が絞られる限定ライン（Lost City／Angel's Share／Forbidden X／Heaven and Earth）の実像を追う、シリーズ開幕の第1弾。</p>
+<div class="f-date">2026年11月6日 公開</div>
+<span class="read-more">特集全文を読む ›</span>
+</a>
+</article>
+
+</div>
+</section>
 
 </main>
+
 <footer class="site-footer">
-<a href="../index.html">← トップへ戻る</a>
-<div class="site-footer-note">CigarScope Japan ― 世界の葉巻ニュース セール便</div>
+<div class="footer-inner">
+<div class="footer-logo-plate"><img src="assets/cigarscope-japan-logo-web.png" alt="CigarScope Japan — World Cigar News" loading="lazy"></div>
+<p class="footer-tag">WORLD CIGAR NEWS &amp; INTELLIGENCE</p>
+<nav class="footer-nav" aria-label="フッターナビゲーション">
+<a href="about.html">サイトについて</a>
+<a href="policy.html">編集方針</a>
+<a href="sources.html">情報源・著作権ポリシー</a>
+<a href="contact.html">お問い合わせ</a>
+<a href="privacy.html">プライバシーポリシー</a>
+</nav>
+<div class="copyright">© 2026 CigarScope Japan — 世界の葉巻ニュースを日本語で紹介する独立系メディア</div>
+</div>
 </footer>
-<script>
-(function () {
-var lb = document.createElement('div');
-lb.id = 'lightbox';
-lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
-document.body.appendChild(lb);
-var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
-function captionFor(img) {
-if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
-var n = img.nextElementSibling;
-if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
-return img.getAttribute('alt') || '';
-}
-var imgs = document.querySelectorAll('main img:not(.noimg)');
-for (var i = 0; i < imgs.length; i++) {
-(function (img) {
-img.addEventListener('click', function () {
-im.src = img.currentSrc || img.src;
-cap.textContent = captionFor(img);
-lb.classList.add('open');
-document.body.style.overflow = 'hidden';
-});
-})(imgs[i]);
-}
-function close() {
-lb.classList.remove('open');
-document.body.style.overflow = '';
-im.removeAttribute('src');
-}
-lb.addEventListener('click', close);
-document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close();});
-})();
-</script>
+
+<script src="search.js" defer></script>
+<script data-goatcounter="https://cigarscope-japan.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body></html>
