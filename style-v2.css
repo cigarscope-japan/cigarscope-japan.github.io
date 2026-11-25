@@ -487,6 +487,8 @@ main { display: block; }
 .article-ph { margin-bottom: 16px; }
 .article-caption, .fig-caption { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin: 0 0 16px; }
 .article-body p { margin: 0 0 1.1em; line-height: 1.95; }
+/* 出典行（.src）：長い出典URLが狭幅で横にはみ出さないよう、行とリンクの両方で折り返しを許可する（2026-11-25 v236） */
+.src, .src a { overflow-wrap: anywhere; }
 .spec-box {
   background: var(--ivory);
   border: 1px solid var(--line);
