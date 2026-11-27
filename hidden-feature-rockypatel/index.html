@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第15弾 ロッキー・パテル ― 法廷から畑へ、そして法廷へ | CigarScope Japan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/cigarscope-mascot-512.png">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+/* 黒枠タイトルは中央寄せ（鉄則・2026-11-11）。style.css の h2.feature-band には触れず、このページ内でのみ上書きする */
+h2.feature-band { text-align: center;}
+/* 見出し内の.nb（改行禁止）は長い句では画面幅を超え横スクロールの原因になるため、このページの見出し内では折り返しを許可する（第6弾 v60 の対策を継承） */
+h2.nb, h4.nb { white-space: normal;}
+.subtitle.nb { white-space: normal;}
+/* 副題は2塊に分け、塊の途中では折らない（閉じの ― が1文字だけの行に落ちる段落落ちの防止・2026-11-18 カズ指摘） */
+.subtitle.nbkeep { white-space: nowrap;}
+/* 章内の小見出し（h4 より一段小さく、色は見出し系に揃える） */
+h5 { font-size: 1.12rem; line-height: 1.4; margin: 20px 0 6px; color: var(--burgundy);}
+.illus { color: #7a1f1f; font-weight: bold;}
+.kensho { border: 3px solid #1e3a5f; background: #f4f7fb; padding: 10px 18px 14px; margin: 16px 0;}
+.kensho.kt { font-size: 1.15rem; font-weight: bold; color: #1e3a5f; letter-spacing: 0.06em; border-bottom: 2px solid #1e3a5f; padding-bottom: 4px; margin-bottom: 8px;}
+.notebox { border: 2px dashed #8a6d2f; background: #fffdf6; padding: 10px 18px 14px; margin: 16px 0;}
+.notebox.nt { font-size: 1.15rem; font-weight: bold; color: #8a6d2f; border-bottom: 2px solid #c98a2e; padding-bottom: 4px; margin-bottom: 8px;}
+img.stack { width: 100%;}
+.gcard img.stack { width: 100%;}
+/* 表：銘柄名の列に最小幅150pxを確保し、見出し行の改行を許可する（第6弾の対策を継承） */
+.roletable td.brand { min-width: 150px;}
+.roletable th { white-space: normal;}
+.roletable.t-lines td.brand { min-width: 0;}
+/* 主要ライン表（2026-11-13 カズ指示）：写真欄を廃し、サムネイルはライン名の下に置き、枠の幅いっぱいに大きく見せる */
+.roletable.lines { table-layout: fixed; width: 100%;}
+.roletable.lines th:nth-child(1) { width: 32%;}
+.roletable.lines th:nth-child(2) { width: 17%;}
+.roletable.lines th:nth-child(3) { width: 15%;}
+.roletable.lines th:nth-child(4) { width: 36%;}
+.roletable.lines td.brand { min-width: 0;}
+.roletable.lines td.brand img.tthumb { width: 100%; height: auto; display: block; margin-top: 7px; border: 1px solid #d8c9a3;}
+.roletable.lines td.brand img.tthumb.noimg { background: #eeeae0;}
+/* 写真入り表は固定レイアウトにして、画像の縦横比で列幅が押し広がらないようにする（2026-11-12） */
+.roletable.lines td,.jptable td { overflow-wrap: break-word;}
+/* 写真ライトボックス（2026-11-12 カズ指示で標準仕様化）：記事内の写真はタップでポップアップ拡大 */
+main img { cursor: zoom-in;}
+main img.noimg { cursor: default;}
+#lightbox { position: fixed; inset: 0; background: rgba(12,9,7,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px 14px; box-sizing: border-box;}
+#lightbox.open { display: flex;}
+#lightbox img { max-width: 100%; max-height: 76vh; object-fit: contain; box-shadow: 0 6px 34px rgba(0,0,0,0.65); cursor: zoom-out;}
+#lightbox.lb-cap { color: #f3e9d2; font-size: 0.92rem; line-height: 1.55; margin-top: 14px; max-width: 660px; max-height: 18vh; overflow-y: auto;}
+#lightbox.lb-close { position: absolute; top: 8px; right: 10px; color: #fff; font-size: 2.1rem; background: none; border: none; cursor: pointer; line-height: 1; padding: 10px 12px;}
+.caption { line-height: 1.45;}
+/* 当時の資料写真のうち、解像度の低いもの・縦長のものは表示幅を絞る（第10弾 v115 の対策を継承） */
+img.fig-narrow { width: 46%;}
+img.fig-small { width: 235px;}
+.ai-note { font-size: 0.72rem; color: #7a1f1f; font-weight: bold; text-align: center; margin: 5px 0 1px; line-height: 1.35;}
+/* 裏話ボックス統一仕様（2026-11-09確定）：全面帯見出し（バーガンディ地・金文字・金の◆マーカー）＋帯の下の金の太罫＋6px二重罫＋一段濃いクリーム地 */
+.urabanashi.deco { border: 6px double var(--burgundy); background: #f8ecd2; padding: 0 18px 14px;}
+.urabanashi.deco.ut { background: var(--burgundy); color: var(--gold-light); border-bottom: 3px solid var(--gold); margin: 0 -18px 10px; padding: 9px 18px 8px;}
+.urabanashi.deco.ut::before { content: "◆ "; color: var(--gold);}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="site-header-inner">
+<a class="site-name" href="../index.html">CigarScope Japan</a>
+<div class="site-sub">編集長の深掘りシリーズ</div>
+</div>
+</header>
+<main class="column">
+<div class="masthead"><div class="kicker">WORLD CIGAR NEWS — DEEP DIVE</div>
+<div class="date">2026年11月27日（金）公開予定（ゲラ）</div></div>
+
+<div class="series-band">編集長の深掘りシリーズ　第15弾</div>
+<h2 class="feature-band">特集 — <span class="nb">ロッキー・パテル</span></h2>
+<div class="subtitle"><span class="nbkeep">― 法廷から畑へ、</span><wbr><span class="nbkeep">そして法廷へ ―</span></div>
+<div class="feature-box">
+<p>ロサンゼルスの弁護士が、葉巻の世界に飛び込んで30年。いまや年間3,000万本規模を出荷し、100を超えるラインを抱える「帝国」の主が、2026年、ふたたび法廷の原告席に立っています。本特集の骨格は、その往路と復路です。そして今回は、もう一つの新しい柱があります。会社の源流にいた共同創業者 <span class="nm-mk">フィル・ザンギ3世</span> が、2026年11月25日に回想録『One Long Day』を出版したのです。提携の内実、葉の供給をめぐるプラセンシアとの出会い、そして二人の決裂――これまで会社側の物語でしか語られてこなかった創業期を、初めて「もう一人の当事者」の側から照らします。</p>
+<img src="img/elparaiso-galera.jpg" alt="エル・パライソ工場の巻き場">
+<div class="caption">写真：Best of SWLA — ロッキー・パテルの工場ツアー取材で撮影された、エル・パライソ工場の巻き場（2017年）。ホンジュラス側の生産拠点で、パテルはここに「工場の中の工場」を持ったと語られます</div>
+<p>このシリーズとの接点も深い会社です。第5弾 <span class="nm-mk">AJフェルナンデス</span> の最初の大口顧客はロッキー・パテルでした。第12弾 <span class="nm-mk">プラセンシア</span> の最大の受託顧客もロッキー・パテル。葉の帝国の影に育ち、自前の畑と工場を持つ垂直統合の帝国へ。弁護士の交渉力と、現場に入り込む行動力と、そして評価の割れる大量のライン。その全体像を、回想録という新しい光源とともに追います。</p>
+<div class="notebox"><div class="nt">最初にお断り ― 本特集の裏付け方針と、回想録の扱い</div>
+<p>本特集の事実関係は、専門誌・業界誌（Cigar Aficionado、Cigar Journal、Halfwheel、Cigar Coop、Cigar Snob、ABA Journal ほか）、小売大手のブランド史（Holt's）、会社公式サイトと公式発表、裁判記録の報道で裏取りした範囲に基づきます。これに加えて今回は、共同創業者フィル・ザンギ3世の回想録『One Long Day』（2026年11月25日、Kaplowitz Media との共同出版）を新しい一次資料として使います。ただし回想録は <strong>ザンギ側の一方当事者の証言</strong> です。回想録に基づく記述は「証言」として本文で明示し、相手方（ロッキー・パテル側）の言い分が確認できていない事柄は、その旨を必ず添えました。特に決裂の経緯については、断定を避け、両説の緊張関係ごと検証欄に記録しています。規模の数字（出荷本数、1日の生産量など）は会社・業界側の公表に依るものが多く、その都度、誰の数字かを分かるように書きました。日本国内の状況は、当編集部が財務省の認可リストと国内販売店の掲載を照合した日本葉巻データベース（2026年11月27日時点）に基づきます。米国価格は当時の公表価格で、円換算は $1＝¥159 で計算しました。</p></div>
+</div>
+
+<h4>◆ 一、弁護士の転身 ― <span class="nb">ロサンゼルスから葉巻ブームへ</span></h4>
+<p><span class="nm-mk">ラケシュ・"ロッキー"・パテル</span> は1961年2月26日、インドに生まれ、米国のグリーンベイで育ちました。ロサンゼルスでエンターテインメント法と製造物責任を扱う弁護士としてキャリアを築き、葉巻とは「吸う側」として出会います。転機は1990年代半ば、葉巻ブームの熱気の中で訪れました。弁護士業の傍ら、彼はホンジュラスでの葉巻作りにのめり込み、やがて法廷を離れて畑と工場に身を置く道を選びます。</p>
+<p>会社側の定型的な物語では、創業は1995年、ブランドは <span class="nm-cg">インディアン・タバック</span>。葉巻ブームの渦中で生まれた新興ブランドの一つでした。ただし、この創業の姿は、今回の回想録でもう一つの角度から描かれることになります（第二章・第四章）。パテル本人のキャリアについては、映画スターを顧客に持つ花形弁護士だったという触れ込みが繰り返し語られてきましたが、その代表格とされる人物本人は関与を否定しています。本特集では、その逸話は「伝説の半分」として扱い、検証欄に留めます。</p>
+<div class="kensho"><div class="kt">検証 ― 「シュワルツェネッガーの弁護士」説は本人が否定</div>
+<p>パテルがアーノルド・シュワルツェネッガーの弁護士だったという話は、多くの媒体で繰り返されてきました。しかし Wikipedia のパテルの項は、シュワルツェネッガー本人への確認に基づき、この主張を否定されたものとして扱っています。本特集では、弁護士時代の華やかな逸話は本人の語る「半分は伝説」として、事実の核（ロサンゼルスでエンターテインメント／製造物責任の弁護士だったこと）と分けて書きました。</p></div>
+
+<h4>◆ 二、もう一人の創業者 ― <span class="nb">ザンギとインディアン・タバックの発明</span></h4>
+<p>ここからは回想録の時間です。『One Long Day』の語り手 <span class="nm-mk">フィル・ザンギ3世</span> にとって、インディアン・タバックの起点は葉巻ではなく、オートバイの商標でした。10代の頃、彼はインディアン・モーターサイクルの商標権を競売で勝ち取った「ニック」（本名カルメン・D・デ・レオーネ）から商標の使用を許され、Tシャツなどのアパレルを売る少年実業家として育ちます。後にニックは、ザンギとその父に商標の1%を1ドルで譲りました。</p>
+<p>葉巻のアイデアは、ベッドに寝転んでインディアンのロゴとその鏡像を眺めていたときに降りてきた、とザンギは書きます。社名は <span class="nm-cg">インディアン・タバック</span>（"tobacco" の言葉遊び）、スローガンは「World's Finest」。1991年、彼は大手タバコ会社の UST に電話をかけ、<span class="nm-mk">レイモンド・ガイ</span> という人物に巡り合います。ザンギが「タバコの紳士」と呼ぶこのメンターのもとで、ビトラの名付け（ティーピー＝トルペード、ウォリアー＝ロンズデール、ボクサー＝ロブスト、チーフ＝ダブルコロナ、アロー＝スモール）が進み、最初の発注は1,000箱。売るためではなく「名刺代わりに配るため」の1,000箱でした。その箱のデザインは後に賞を受けています。</p>
+<img class="fig-small" src="img/indian-tabac-box.jpg" alt="インディアン・タバックのヴィンテージ箱">
+<div class="caption">写真：Etsy 出品者撮影 — インディアン・タバック社のヴィンテージ箱（スーパー・フエルテ、ホンジュラス製）。インディアンの意匠は、商標の世界から葉巻へ持ち込まれたものでした</div>
+<p>この章の記述は、すべてザンギの回想録に基づく <strong>当事者の証言</strong> です。商標とアパレルから葉巻が生まれたという系譜は、会社側の公式な創業物語には現れないもので、今回の回想録で初めて公に語られました。パテル側がこの経緯をどう語るかは、現時点では確認できていません。</p>
+
+<h4>◆ 三、父の横領と強制破産 ― <span class="nb">若きザンギを襲った崩壊</span></h4>
+<p>回想録の前半を貫くのは、父 <span class="nm-mk">フィリップ・ザンギ（父）</span> の影です。ザンギの語るところでは、父は会社の金を少しずつ横領し、マサチューセッツ州法の仕組みの中で会社は <strong>強制破産（債権者側からの申し立てによる破産）</strong> に追い込まれました。一家は1994年にノースカロライナへ移り、1995年には自宅に錠が下ろされ、金庫も会社の口座も空になっていた。父は起訴を受けて逃亡者の立場にあり、大陪審では300人が事情を聞かれたといいます。若いザンギ自身は、米国検察側に弁護される側にいました。</p>
+<p>さらに厄介なことに、1992年の商標の延長手続きは、誤って父フィリップ・ザンギ2世の名義で、しかもオートバイ向けとして出願されていました。葉巻のための商標を守るには、破産管財人との交渉から始めなければならなかった。葉巻事業の「発明」と、その土台の崩壊が、同じ数年のうちに起きていたことになります。</p>
+<p>1994年、ザンギはホンジュラスへ渡ります。引退していたレイモンド・ガイが RTDA（当時の業界見本市）の資料を送り、彼はホンジュランのキューバン・タバコズに連絡を取った。空港に迎えに来た工場側の責任者ガブリエル（婚約者は経営一族のクラウディア）は、彼に拳銃を手渡したといいます。ダンリの旧 UST 工場では、ラリー・パロンボからバンド代1,000ドルの請求書を突きつけられ（彼の手元には2,000ドルしか残っていなかった）、「プライベート・ラベルはもう終わりだ」と告げられます。そのときの捨て台詞が「勝者の輪の中で会おう（I'll see you in the winner's circle）」。この言葉は後に、ホルトのロブ・レヴィンにも向けられることになります。葉の調達では、ガブリエルとともに国境を越えてニカラグアへ不法に入り、逮捕され、スポンサー話を持ちかけて切り抜けた――という武勇伝めいた挿話も、回想録は率直に記しています。</p>
+
+<h4>◆ 四、1996年、提携 ― <span class="nb">二つの創業物語</span></h4>
+<p>では、パテルはいつ登場するのか。回想録の語りでは、きっかけは父でした。グランド・ハバナ・ルーム（会員制シガーラウンジ）の創設メンバーだった父が、店に通う葉巻好きの弁護士を息子に引き合わせた。それがロッキー・パテル。当時は女性弁護士アリシアのもとで働くアソシエイトでした。<strong>1996年、パテルはザンギのパートナーになります</strong>。パテルの用意した元手（シードマネー）が「本当に自分を前に進めてくれた」と、ザンギは感謝を込めて書いています。二人はヴェニスに同居し、米国とホンジュラスを往復する生活が始まりました。折しも葉巻ブームは頂点に近づき、葉の不足が二人を襲います。</p>
+<div class="kensho"><div class="kt">検証 ― 創業物語は二つある</div>
+<p>会社側の物語では、インディアン・タバックの創業は1995年、創業者はロッキー・パテルであり、ザンギはホンジュラス側の栽培・製造を担ったパートナーと位置づけられます。第12弾プラセンシア特集でも、その整理で「1995年にインディアン・タバックを創業、当初はザンギがホンジュラスでの栽培・製造を担った」と記しました。一方、回想録の物語では、商標と葉巻の発明はザンギが先行し、パテルは1996年に資金とともに加わった後発のパートナーです。両者は「1995〜96年に二人が組んで事業が本格化した」という骨格では重なりますが、主語が違います。本特集ではどちらか一方に寄せず、会社側の物語と回想録の証言を併記します。創業年についても、資料により1995年／1996年の揺れがあることを明記しておきます。</p></div>
+
+<h4>◆ 五、プラセンシアとの出会い ― <span class="nb">ホテルの夕食と買い物リスト</span></h4>
+<p>回想録が描くもう一つの重要な出会いが、<span class="nm-mk">ネストル・プラセンシア（父）</span> です。ダンリのグラナダ・ホンジュラス・ホテルで、ザンギはほぼ毎晩のようにネストル・プラセンシアと夕食をともにしていました。やがて、自分が知らないうちにプラセンシアの葉を買っていたこと（生葉300ポンドと発酵葉100ポンドの物々交換という形で）が判明します。ネストルは「金もなく、ホテル住まいで、銃を持ち歩く」若者の正直さを笑い、翌日工場へ買い物リストを持って来いと言った。リストの総額は小売換算でおよそ3万ドル（約480万円）。「お前のものだ」。ザンギは <strong>3か月以内に全額を返済した</strong> と書きます。</p>
+<img src="img/bales.jpg" alt="積み上げられたタバコの麻袋">
+<div class="caption">写真：GQ Tobaccos（工場見学記）— 積み上げられたタバコの麻袋。プラセンシアの葉は、ロッキー・パテルの源流の時代から、この会社のブレンドを支えてきました</div>
+<p>この証言は、第12弾プラセンシア特集で紹介した「工場の中の工場」（第八章）の前史にあたります。葉の供給者と若いブランド主のあいだに、まず個人的な信頼の貸し借りがあった。ホンジュラス時代のザンギの「葉の師」は、ブーム期にネストルと働いたキューバ人の老師 <span class="nm-mk">ペドロ・マルティン</span> でした。リヘロ／ビソ／セコの見分け、ハマストランとエステリの葉の違い――現場の知識は、こうして受け継がれていきます。一方で、キューバ出身のマスターブレンダー、<span class="nm-mk">ロランド・レイエス・シニア</span>（プーロス・インディオス）とは犬猿の仲でした。レイエスは「インディオス」の名を盗まれたと考え、ザンギは「インディアン・モーターサイクルは1901年生まれだ」と反論する。プラセンシアから葉が出ない時期に、レイエスが供給を助けたこともあったといいます。</p>
+
+<h4>◆ 六、国境の夜 ― <span class="nb">リミテッド・リザーブの起源</span></h4>
+<p>回想録の中で、葉巻そのものの転機として語られるのが1998年の収穫です。プエルタ・ネグラの国境の納屋から夜間に運び出された葉は、<span class="nm-cg">インディアン・タバック・リミテッド・リザーブ</span> になる運命でした。ザンギは自らこう書きます。「あのタバコの作物は、私のインディアン・タバック・リミテッド・リザーブになるはずだった。私の高評価の作品群の夜明けだ」（回想録 Loc 472）。安売りの名刺代わりだった葉巻が、「評価される葉巻」へ舵を切る起点として、著者自身がこの収穫を位置づけているのです。</p>
+<p>この時期のパテルの会社は、やがて CA（Cigar Aficionado）の高評価を量産するブランドへ育っていきます。その「高評価路線」の夜明けを、共同創業者は自分の畑仕事の記憶として主張している――この構図を覚えておいてください。第十章で見る「評価の割れ」の物語は、実はここから始まっています。</p>
+
+<h4>◆ 七、2000年の事故と「目覚め」 ― <span class="nb">決裂の証言</span></h4>
+<p>そして、決裂の章です。回想録の章題は「HONDURAS 2000」。誕生日（6月12日）の数日後、ガブリエルの亡父の形見であるルガー・スーパー・ブラックホーク.44マグナムを手入れしていたザンギは、落下した銃の暴発で右脚を撃ち抜かれます。骨は約1インチ失われ、テグシガルパでの骨移植を含む複数の手術。入院は8日間、費用は総額5万ドル（約800万円）、保険はありませんでした。婚約者（後の妻）は毎晩付き添い、朝5時のバスで2時間かけて教壇に立った。彼女と結婚する決意を、彼はこの病室で固めたと書きます。一方、実の母（看護師）は電話に出てくれなかった。</p>
+<p>ザンギの筆が最も痛切になるのは、パートナーへの記述です。彼によれば、パテル（本文では "RP"）は「銃で遊ぶからだ（that's what you get for playing with guns）」と言って距離を置いた。かつてパテルが入院したとき、その病床に付き添ったのは自分だったのに――。ザンギはこの出来事を「目覚め（awakening）」と呼びます（回想録 Loc 493〜515）。そして「家族だと感じた人々」として、最初にネストル・プラセンシアの名を挙げ、発酵担当のルイス・マティアス・モンテス、ガブリエル、クラウディア、ナンシー、工場の働き手たちを数えました。</p>
+<div class="kensho"><div class="kt">検証 ― この章は一方当事者の証言であり、時系列にも緊張がある</div>
+<p>事故と決裂の経緯は、ザンギの回想録だけに基づく <strong>一方当事者の証言</strong> で、パテル側の言い分は確認できていません。本特集は、この証言を「ザンギはこう回想している」という形でのみ紹介し、事実として断定しません。あわせて時系列の緊張も記録します。第12弾プラセンシア特集（会社・業界側の資料に基づく）では「1999年、パテルはザンギと袂を分かち、製造を自ら引き継いだ」と整理しました。しかし回想録では、2000年の事故の時点でもパテルはパートナーとして描かれ、ザンギがインディアン・タバックを離れるのは2002年まで、となっています。また回想録自体も、章題は「2000」年でありながら本文では「1990年代後半」と書く揺れを含みます。分離の正確な年と経緯は、現時点では確定できません。両説を併記し、断定を避けるのが本特集の立場です。</p></div>
+
+<h4>◆ 八、「工場の中の工場」 ― <span class="nb">エル・パライソとブランドの改名</span></h4>
+<p>証言の時間から、記録の時間に戻ります。1999年、パテルはプラセンシアのエル・パライソ工場の中に自社専用の生産区画を持つ「工場の中の工場」の提案を受け、白紙委任（カルト・ブランシュ）に近い裁量を得たと、Cigar Aficionado のインタビューで語られてきました（第12弾で詳述）。ホンジュラス生産の心臓部はここに置かれ、2008年1月にはラッパーの発酵をめぐって <span class="nm-cg">ディケイド</span> の生産が2か月止まるという事件も起きています。品質への執着が、供給の危機と表裏一体だった時代です。</p>
+<p>社名はインディアン・タバックからロッキー・パテルへ。改名の年には資料の揺れがありますが、Halfwheel は正式な社名変更を2006年3月としています。インディアン・タバックのブランド自体はその後も細々と続き、Halfwheel が2015年1月に廃止を確認しました（実質的な出荷停止は2014年）。弁護士の名を冠したブランドが表舞台に立ち、源流の名は静かに退場したことになります。</p>
+<div class="kensho"><div class="kt">検証 ― 改名年は2002／2003／2006の三説</div>
+<p>社名変更の年は、資料によって2002年、2003年、2006年と分かれます。Halfwheel は「正式な変更は2006年3月」としつつ、市場での名称の移行が段階的だったことを示唆します。本特集では「2000年代半ばにかけて段階的に改名された」と書き、単一年の断定を避けました。</p></div>
+
+<h4>◆ 九、タビクーサ ― <span class="nb">垂直統合の完成</span></h4>
+<p>2009年、パテルはニカラグアのエステリに自社工場 <span class="nm-mk">タビクーサ</span>（タバカレラ・ビジャ・クーバ S.A.）を開きます。パートナーは名ブレンダー、<span class="nm-mk">アミルカル・ペレス＝カストロ</span>。プラセンシアの「工場の中の工場」から始まった男が、今度は自分の工場の主になりました。Cigar Aficionado の2024年の工場ツアーでは、タビクーサの生産は年約700万本とされます。自社農園の収穫も始まり、2014年に自社農園で初めて収穫した葉だけを使った <span class="nm-cg">コンヴィクション</span>（2024年）は、世界5,000箱の限定品として結実しました。1本100ドル（約15,900円）という価格も含め、「量の帝国」が「希少性」を演出し始めた転機の品です。</p>
+<p>このシリーズとの接点で言えば、第5弾の <span class="nm-mk">AJフェルナンデス</span> が最初に得た大口顧客がロッキー・パテルでした（フュージョンのライン）。葉の買い手として、工場の主として、パテルはニカラグアの葉巻産業の結節点に立ち続けています。規模の公表値では、2024年の PCA でニシュ・パテルが語ったところでは、ニカラグアで1日約2.6万〜2.8万本、ホンジュラスで1日約7.8万本、2022年の出荷は2,800万〜2,900万本、従業員2,000人、ラインは100超、販売は105か国。経営は弟の <span class="nm-mk">ニシュ・パテル</span>、従兄弟の <span class="nm-mk">ニミッシュ・"ニミーD"・デサイ</span> ら一族が担い、ロッキー本人の持分は95%と語られてきました（Cigar Aficionado のインタビュー）。</p>
+
+<h4>◆ 十、代表作と評価の割れ ― <span class="nb">CAの高評価と、現場の辛口</span></h4>
+<p>ロッキー・パテルのラインは100を超えます。その中から、評価の履歴が追える代表作を並べます。見えてくるのは、Cigar Aficionado の高評価の量産と、独立系レビューの辛口が同居する「評価の割れ」の姿です。</p>
+<div class="tblwrap"><table class="roletable lines">
+<tr><th>ライン</th><th>起点・性格</th><th>生産地</th><th>評価の履歴</th></tr>
+<tr><td class="brand"><span class="nm-cg">ヴィンテージ 1990</span><img class="tthumb" src="img/vintage-1990.jpg" alt="ヴィンテージ 1990 ロブスト" loading="lazy"></td><td>年号シリーズの看板</td><td>ホンジュラス</td><td>CA 92点、Top 25 に2004年と2006年の二度登場</td></tr>
+<tr><td class="brand"><span class="nm-cg">ジ・エッジ</span><img class="tthumb" src="img/edge-corojo.jpg" alt="ジ・エッジ コロホ トロ" loading="lazy"></td><td>裸足の意匠で知られる量販の柱</td><td>ホンジュラス</td><td>エッジ・ハバノが CA 94点（2015年 Top 10入り）</td></tr>
+<tr><td class="brand"><span class="nm-cg">ディケイド</span><img class="tthumb" src="img/decade.jpg" alt="ディケイド トルペード" loading="lazy"></td><td>10周年記念。発酵事件の主役</td><td>ホンジュラス</td><td>トルペード CA 95点（2008年、「クラシック」の評）。一方 Halfwheel のランセロ評は80点と辛口</td></tr>
+<tr><td class="brand"><span class="nm-cg">サングロウン・マデューロ</span><img class="tthumb" src="img/sungrown-maduro.jpg" alt="サングロウン・マデューロ" loading="lazy"></td><td>タビクーサ製の濃厚系</td><td>ニカラグア</td><td>CA 95点、Top 25 of 2016 第2位</td></tr>
+<tr><td class="brand"><span class="nm-cg">ロワイヤル</span><img class="tthumb" src="img/royale.jpg" alt="ロワイヤル" loading="lazy"></td><td>2013年発売</td><td>ニカラグア</td><td>CA Top 25 of 2014 第5位・94点（小売各社の転載による。CA公式での照合は今後の課題）</td></tr>
+<tr><td class="brand"><span class="nm-cg">A.L.R. セカンド・エディション</span><img class="tthumb" src="img/alr2.jpg" alt="A.L.R. セカンド・エディション トロ" loading="lazy"></td><td>巻き上げ後2年熟成</td><td>ニカラグア</td><td>トロが CA 94点で Top 25 of 2019 第5位、さらに 96点で Top 25 of 2023 第4位に再登場</td></tr>
+<tr><td class="brand"><span class="nm-cg">シクスティ</span><img class="tthumb" src="img/sixty.jpg" alt="シクスティの4本パック" loading="lazy"></td><td>60歳の記念作（2021年）</td><td>ニカラグア</td><td>CA 96点、Top 25 of 2022 第2位。一方 Holt's 自社評は88点、Cigar Coop も88点と、媒体で大きく割れる</td></tr>
+<tr><td class="brand"><span class="nm-cg">コンヴィクション</span><img class="tthumb" src="img/conviction.jpg" alt="コンヴィクション トロ" loading="lazy"></td><td>自社農園・初収穫（2014年）の葉のみ。世界5,000箱</td><td>ニカラグア</td><td>CA 94点（2024年8月評）。Top 25 of 2024 第7位（集計サイトによる）。日本での認可定価は ¥17,500 とブランド最高値圏</td></tr>
+</table></div>
+<div class="caption">代表ラインと評価の履歴。写真はいずれも Neptune Cigar の商品写真（海外小売素材）で、日本の店舗の写真は使っていません</div>
+<p>割れ方は一様ではありません。ディケイドは「CA のクラシック」と独立系の80点が同居し、シクスティは CA の96点と小売・独立系の88点が並びます。2025年には新作 <span class="nm-cg">エメラルド</span> のロブストが CA Top 25 of 2025 の第6位に入ったと小売各社のまとめが伝えています（CA公式での照合は今後の課題）。大量のラインを出し続ける戦略は、打率のばらつきと引き換えに、当たりの絶対数を稼ぐ戦略でもある。その是非は読者の舌に委ねますが、「葉巻界のマクドナルド」という比喩がどこから来たのかは、次回の調査課題として残しておきます。</p>
+
+<h4>◆ 十一、BURN ― <span class="nb">葉巻を「体験」に変える</span></h4>
+<p>帝国のもう一つの顔が、直営ラウンジ <span class="nm-cg">BURN by Rocky Patel</span> です。公式サイトに掲げられた店舗は、ネイプルズ、インディアナポリス、アトランタ、ピッツバーグ、オクラホマシティの5都市。葉巻とスピリッツとライブ音楽を束ねた「体験型」の店舗で、葉巻を「吸うもの」から「過ごす場所」へ拡張する試みです。2025〜26年に新規開店の目立った動きはなく、拡大路線は一息ついた格好ですが、ブランドの世界観を体現する舞台装置として、5店舗は今も営業を続けています。</p>
+<img src="img/burn-atlanta.jpg" alt="BURN by Rocky Patel アトランタ店の店内">
+<div class="caption">写真：BURN by Rocky Patel（公式サイト）— アトランタ店の店内。葉巻そのものではなく、葉巻のある時間と空間を売るのがこの事業です</div>
+
+<h4>◆ 十二、ふたたび法廷へ ― <span class="nb">2026年の二つの訴訟</span></h4>
+<p>そして2026年、弁護士は原告として法廷に戻ってきました。一つ目は FDA（米食品医薬品局）の使用者手数料をめぐる訴訟です。2026年6月30日、連邦請求裁判所に提訴され（事件番号 1:26-cv-00946）、<strong>筆頭原告はロッキー・パテル</strong>。オリバ、パドロン、フエンテ、マイファザー、ラ・フロール・ドミニカーナ、CLE、J.C.ニューマン、アシュトンら業界の名門が名を連ね、請求は1,000万ドル（約16億円）超、業界全体では1億ドル（約160億円）規模に達する可能性が報じられています。</p>
+<p>二つ目はカリフォルニア州の「無香料タバコリスト」をめぐる訴訟（Rocky Patel v. Bonta）。2026年8月27日、第9巡回区控訴裁判所は、仮処分の申し立てを退けた下級審の判断を支持しました。ただしこれは <strong>仮処分の段階の判断であり、本案の最終判断ではありません</strong>。本特集では、その段階を正確に書いておきます。葉巻業界の権利擁護の最前列に、元弁護士の名前がある。この構図こそ、軸「法廷から帝国へ」の掉尾です。</p>
+
+<h4>◆ 十三、名前の帰還 ― <span class="nb">ザンギ、その後</span></h4>
+<p>最後に、もう一人の創業者のその後を追います。回想録によれば、ザンギは2002年までにインディアン・タバックを離れ、ダニー・シンクレアのブラント・ラップ USA に加わりました。後にプレミアム市場への復帰を図った際、インディアン・タバックのロゴをパテル側から取り戻そうとして「駄目だった」とも書いています（この経緯もザンギ側の証言です）。転機は2012年、パートナーのダニーが香港出張で目にした「Debonaire」の名でした。即座に葉巻の区分（第34類）で商標を登録し、2013年に <span class="nm-cg">デボネア</span> を立ち上げます。</p>
+<img src="img/debonaire.jpg" alt="デボネア・ハウスの公式イラスト">
+<div class="caption">画像：Debonaire House（公式サイト）— ブランドの世界観を描いた公式イラスト。19世紀のタバコ農園を思わせる意匠が、デボネアの顔になっています</div>
+<p>そして「奪還」の章です。インディアンの名は2013年、ポラリスに買収されました。2014年、ライセンス担当のトニー・"トイマン" が、125年の葉巻作りの家系を持つクリス・トッパーに「インディアン・モーターサイクルのプレミアム葉巻を作れる者はいないか」と尋ね、トッパーはザンギの名を挙げた。ポラリス／インディアン側は、父の件を含むザンギの全履歴を知ったうえで言ったといいます。「すべての道は君に通じている。前へ進もう」。会社そのものではなく、名前が作り手のもとへ帰ってきた――回想録の掉尾は、この再会に置かれています。そして2026年11月25日、その半生は『One Long Day』として出版されました。</p>
+<img class="fig-narrow" src="img/zanghi-book.jpg" alt="回想録『One Long Day』の表紙">
+<div class="caption">写真：Halfwheel — 回想録『One Long Day』の表紙。タバコ畑と乾燥小屋を背に歩く著者の後ろ姿と、足元の葉巻が描かれています。本特集の新しい柱は、この一冊から来ています</div>
+
+<h4>◆ 日本編 ― <span class="nb">163品目が届いて、輸入元だけが分からない</span></h4>
+<p>日本でのロッキー・パテルの景色は、広くて深いものです。当編集部の日本葉巻データベース（2026年11月27日時点）では、ロッキー・パテル名義で <strong>162品目</strong>、関連のハムレット名義で1品目、計 <strong>163品目</strong> が登録されています。うち販売確認があるのは <strong>40品目</strong>。販売店は <span class="nm-sh">大越酒店</span> さん（36品目）と <span class="nm-sh">AUN Smoke</span> さん（3品目、1品目は両店）です。価格帯は、ヴィンテージ 1999 ミニの ¥600 から、コンヴィクション トロの ¥17,500 まで。米国の「量の帝国」は、日本の棚にもそのままの幅で届いています。</p>
+<div class="tblwrap"><table class="roletable lines">
+<tr><th>品目</th><th>認可定価</th><th>販売価格</th><th>販売店</th></tr>
+<tr><td class="brand"><span class="nm-cg">エッジ・トロ コロホ</span><img class="tthumb" src="img/edge-corojo.jpg" alt="ジ・エッジ コロホ トロ" loading="lazy"></td><td>不明</td><td>¥2,000</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">ヴィンテージ 1990</span><img class="tthumb" src="img/vintage-1990.jpg" alt="ヴィンテージ 1990 ロブスト" loading="lazy"></td><td>¥3,150</td><td>¥3,150</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">デケイド ロブスト</span><img class="tthumb" src="img/decade.jpg" alt="ディケイド" loading="lazy"></td><td>¥2,400</td><td>¥2,400</td><td>AUN Smokeさん</td></tr>
+<tr><td class="brand"><span class="nm-cg">サングロウン・マデューロ ロブスト</span><img class="tthumb" src="img/sungrown-maduro.jpg" alt="サングロウン・マデューロ" loading="lazy"></td><td>¥2,500</td><td>¥2,500</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">ロワイヤル ロブスト</span><img class="tthumb" src="img/royale.jpg" alt="ロワイヤル" loading="lazy"></td><td>¥2,200</td><td>¥2,200</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">A.L.R. 2nd ロブスト</span><img class="tthumb" src="img/alr2.jpg" alt="A.L.R. セカンド・エディション" loading="lazy"></td><td>¥3,450</td><td>¥3,450</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">シクスティ トロ</span><img class="tthumb" src="img/sixty.jpg" alt="シクスティ" loading="lazy"></td><td>¥4,600</td><td>¥4,600</td><td>大越酒店さん</td></tr>
+<tr><td class="brand"><span class="nm-cg">コンヴィクション トロ</span><img class="tthumb" src="img/conviction.jpg" alt="コンヴィクション トロ" loading="lazy"></td><td>¥17,500</td><td>¥17,500</td><td>大越酒店さん</td></tr>
+</table></div>
+<div class="caption">日本で販売確認のある代表品目（日本葉巻データベース、2026年11月27日時点）。写真は海外の小売素材で、日本の店舗の写真は使っていません</div>
+<p>そして、第13弾ドリュー・エステートと同じ正直な留保を、ここでも記します。<strong>輸入元は、163品目すべてについて「不明」</strong> です。163品目もの認可があり、40品目は実際に日本の店頭に並んでいるのに、誰が日本へ運んでいるのかがデータベース上で空白のまま。関連では、ハムレット・コンフィデンス 2024（¥6,000）が認可のみで登録されています。輸入元の特定は、当編集部の継続調査課題です。</p>
+<div class="kensho"><div class="kt">検証 ― 日本の数字と、メーカー欄の注意</div>
+<p>163品目の内訳は、ブランド欄「ロッキー・パテル」162品目＋「ハムレット」1品目。認可確認は財務省認可リストによるものが151品目です。販売確認40品目の内訳は、大越酒店さん36、AUN Smokeさん3、両店1。輸入元は全品目で輸入元欄が「不明」のため、本編では推測を書かず、調査課題として明示しました。なお、データベースのメーカー欄は全行が「タバカレラ・ビジャ・クーバ S.A.（タビクーサ）」で統一されていますが、実際にはホンジュラス製ライン（ディケイド、ジ・エッジなど）の製造はプラセンシア系工場と海外小売の仕様欄にあり、ラインごとに生産工場は異なります。メーカー欄の統一表記は当編集部のデータ整理上の課題として、ここに注記します。</p></div>
+
+<h4>◆ 結び ― <span class="nb">二人の創業者の、30年後の現在地</span></h4>
+<p>法廷から畑へ。そして、ふたたび法廷へ。ロッキー・パテルの30年は、その一行に収まります。ただし今回の特集で見えたのは、その物語が一人の男の独演ではなかったということです。商標を持ち込み、葉巻を「発明」し、ホンジュラスの現場を作ったもう一人の創業者がいて、二人のあいだには信頼の貸し借りと、決裂の傷がありました。回想録の証言は一方の側のものですが、それでも、会社側の物語だけでは見えなかった創業期の奥行きが、確かに開けました。</p>
+<p>2026年の現在地は対照的です。一方は3,000万本の帝国の主として、業界を率いて FDA と州政府を訴える原告席に座る。もう一方は、名前の帰還を果たし、自らの半生を一冊に閉じた。あなたのヒュミドールのロッキー・パテルを手に取るとき、その向こうに、弁護士の交渉力と、ホテルの夕食と、国境の夜と、病室の「目覚め」があることを、思い出してください。</p>
+<img src="img/elparaiso-galera.jpg" alt="エル・パライソ工場の巻き場">
+<div class="caption">写真：Best of SWLA — エル・パライソ工場の巻き場（2017年）。二人の創業者が出会い、葉を分け合い、やがて袂を分かったホンジュラスの現場は、今も帝国の心臓であり続けます</div>
+
+<div class="footer">編集長の深掘りシリーズ 第15弾「ロッキー・パテル ― 法廷から畑へ、そして法廷へ：弁護士が築いた3,000万本の帝国ともう一人の創業者」／ CigarScope Japan 編集部（編集長）。※本特集のタイトルは仮題です（正式公開時に確定します）。日本国内の状況は、当編集部の日本葉巻データベース（2026年11月27日時点、財務省認可リストとの照合）に基づきます。米国価格は当時の公表価格で、円換算は $1＝¥159 で計算しました。裏付けの方針：本特集の事実関係は専門誌・業界誌（Cigar Aficionado、Cigar Journal、Halfwheel、Cigar Coop、Cigar Snob、ABA Journal）、小売大手のブランド史（Holt's）、会社公式サイト・公式発表、裁判記録の報道で裏取りした範囲に基づきます。ザンギ回想録『One Long Day』（2026年11月25日刊）に基づく記述は、ザンギ側の一方当事者の証言として明示し、相手方の言い分が未確認の事柄はその旨を添え、資料によって揺れのある年・数値は検証欄に明記しました。主張と出典の対応は編集部の主張対応表に記録しています。本特集に AI 生成イメージは使用していません。写真クレジットは各キャプションに記載しました。</div>
+
+</main>
+<footer class="site-footer">
+<a href="../index.html">← トップへ戻る</a>
+<div class="site-footer-note">CigarScope Japan ― 編集長の深掘りシリーズ</div>
+</footer>
+<script>
+(function () {
+  var lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.innerHTML = '<button class="lb-close" aria-label="閉じる">&times;</button><img alt=""><div class="lb-cap"></div>';
+  document.body.appendChild(lb);
+  var im = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+  function captionFor(img) {
+    if (img.getAttribute('data-cap')) return img.getAttribute('data-cap');
+    var n = img.nextElementSibling;
+    if (n && n.classList && n.classList.contains('caption')) return n.textContent.trim();
+    return img.getAttribute('alt') || '';
+  }
+  var imgs = document.querySelectorAll('main img:not(.noimg)');
+  for (var i = 0; i < imgs.length; i++) {
+    (function (img) {
+      img.addEventListener('click', function () {
+        im.src = img.currentSrc || img.src;
+        cap.textContent = captionFor(img);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    })(imgs[i]);
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    im.removeAttribute('src');
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+</body></html>
